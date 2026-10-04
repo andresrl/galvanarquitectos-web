@@ -49,7 +49,7 @@ console.log('PASS pilot archive assets')
 for(const [path,services,pilot] of [['/','Services','/villa-renovation'],['/es/reformas-villas/marbella','Servicios','/es/reformas-villas'],['/examples/interior-design','Services','/villa-renovation']]){
  const html=await(await fetch(new URL(path,base))).text()
  assert.ok(html.includes('class="menu-toggle"')&&html.includes('aria-controls="site-menu"'),path+' header has the site menu button')
- assert.match(html,new RegExp('class="site-footer"[\\s\\S]*'+services+'[\\s\\S]*href="'+pilot+'"'),path+' footer links to the service pages in its language')
+ assert.match(html,new RegExp('class="site-footer[ "][\\s\\S]*'+services+'[\\s\\S]*href="'+pilot+'"'),path+' footer links to the service pages in its language')
  for(const demo of ['/examples/villa-renovation','/examples/interior-design','/examples/landscape-design'])assert.ok(html.includes('href="'+demo+'"'),path+' footer links to '+demo)
  console.log('PASS site navigation '+path)
 }
