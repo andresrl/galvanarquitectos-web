@@ -53,3 +53,18 @@ for(const [path,services,pilot] of [['/','Services','/villa-renovation'],['/es/r
  for(const demo of ['/examples/villa-renovation','/examples/interior-design','/examples/landscape-design'])assert.ok(html.includes('href="'+demo+'"'),path+' footer links to '+demo)
  console.log('PASS site navigation '+path)
 }
+
+// Social previews: every page type has its own OG image on the host serving it, plus Twitter tags and site icons.
+for(const [path,type] of [['/','website'],['/villa-renovation','website'],['/villa-architecture/benahavis','website'],['/es/reformas-villas/marbella','website'],['/journal','website'],['/es/guias/licencias-que-preguntar-al-arquitecto','article']]){
+ const html=await(await fetch(new URL(path,base))).text(),meta=n=>html.match(new RegExp('<meta (?:property|name)="'+n+'" content="([^"]*)"'))?.[1]
+ const image=meta('og:image');assert.ok(image,path+' og:image')
+ assert.equal(new URL(image).host,new URL(base).host,path+' og:image on the serving host')
+ assert.equal(new URL(meta('og:url')).host,new URL(base).host,path+' og:url on the serving host')
+ assert.notEqual(new URL(image).pathname,'/photos/web-villa-silver-01.jpg',path+' has its own OG image')
+ const res=await fetch(image);assert.equal(res.status,200,path+' og:image loads');assert.equal(res.headers.get('content-type'),'image/jpeg')
+ assert.equal(meta('og:image:width'),'1200');assert.equal(meta('og:image:height'),'630');assert.ok(meta('og:image:alt'))
+ assert.ok(meta('twitter:title')&&meta('twitter:image')===image,path+' twitter tags');assert.equal(meta('og:type'),type,path+' og:type')
+ console.log('PASS social preview '+path)
+}
+for(const icon of ['/favicon.ico','/apple-touch-icon.png','/icon-512.png','/site.webmanifest'])assert.equal((await fetch(new URL(icon,base))).status,200,icon)
+console.log('PASS site icons')

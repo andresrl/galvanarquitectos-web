@@ -10,7 +10,8 @@
     "indexnow": "node scripts/indexnow.mjs",
     "verify:migration": "node scripts/verify-migration.mjs",
     "verify:pseo": "node scripts/verify-pseo.mjs",
-    "verify:guides": "node scripts/verify-guides.mjs"
+    "verify:guides": "node scripts/verify-guides.mjs",
+    "og": "python3 scripts/og/generate.py && python3 scripts/og/icons.py"
   },
   "dependencies": {
     "nuxt": "4.5.2",
