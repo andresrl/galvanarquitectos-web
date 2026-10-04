@@ -5,7 +5,6 @@ const renovationPaths=pageById('renovation-marbella').paths
 import {createHomeMotion} from './motion/home-motion'
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
-const {openPreferences}=useCookieConsent()
 const route=useRoute()
 const root=ref(null)
 const heroVideo=ref(null)
@@ -119,7 +118,6 @@ useSeoMeta({title:()=>locale.value==='en'?'Galván Arquitectos · Editorial prev
       <section class="slide contact" id="contacto" data-tone="light" data-chapter="Contact">
         <div class="contact-ring" aria-hidden="true"></div>
         <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('contactEyebrow')"></p><h2 class="display-title" v-html="t('contactTitle')"></h2><a class="contact-email" href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com ↗</a><a class="contact-phone" href="tel:+34679979487">+34 679 97 94 87</a></div>
-        <footer><span>GALVÁN ARQUITECTOS</span><span v-html="t('footerLocation')"></span><a href="/#inicio" @click.prevent="requestScene('inicio')" v-html="t('backTop')"></a><button class="cookie-settings" type="button" @click="openPreferences">{{locale==='en'?'Cookie settings':'Configurar cookies'}}</button></footer>
       </section>
     </div>
 </main></template>
