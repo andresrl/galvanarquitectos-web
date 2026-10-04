@@ -62,12 +62,16 @@ No modificar la antigua aplicación de LanzaderaWeb en 3040. El proyecto actual 
 
 | URL | Estado y función |
 |---|---|
-| `/` | Home aprobada, ocho capítulos. Inglés al entrar; selector manual ES |
-| `/villa-renovation` | Ejemplo anterior de caso ficticio, marcado demostrativo |
-| `/interior-design` | Ejemplo anterior de caso ficticio, marcado demostrativo |
-| `/landscape-design` | Ejemplo anterior de caso ficticio, marcado demostrativo |
-| `/villa-renovation/marbella` | Primera interior de servicio + zona aprobada, inglés |
-| `/es/reformas-villas/marbella` | La misma interior en español, URL propia |
+| `/` | Home aprobada, ocho capítulos. Inglés al entrar; selector manual ES. Villas, interiorismo y paisajismo enlazan a sus hubs |
+| `/villa-architecture`, `/villa-renovation`, `/interior-design`, `/landscape-design` | Hubs de servicio EN (generados), con lista de sus 10 zonas |
+| `/es/arquitectura-villas`, `/es/reformas-villas`, `/es/interiorismo`, `/es/paisajismo` | Hubs ES |
+| `/{servicio-en}/{zona}` y `/es/{servicio-es}/{zona}` | 40 páginas servicio × zona por idioma (4 servicios × 10 zonas), borrador noindex |
+| `/villa-renovation/marbella`, `/es/reformas-villas/marbella` | Piloto aprobado, escrito a mano en `renovation.ts`; forma parte de las 40 |
+| `/examples/villa-renovation`, `/examples/interior-design`, `/examples/landscape-design` | Antiguos casos ficticios, marcados demostrativos (antes ocupaban las URLs de los hubs) |
+
+Zonas (4 de octubre de 2026, elegidas por Andrés y completadas con tres de Marbella): Marbella, Benahavís, Los Monteros, Nueva Andalucía, Estepona, Guadalmina, La Zagaleta, Milla de Oro (`golden-mile` / `milla-de-oro`), Río Real y Elviria. Se cambian en `app/data/taxonomy.ts`.
+
+Total: 88 URLs de servicio (44 por idioma). Comprobación: `npm run verify:migration` y `npm run verify:pseo` (rastrea hubs y zonas, títulos/H1/intros únicos, hreflang recíproco, FAQ schema = FAQ visible).
 
 Hay infraestructura de blog, pero el mapa completo de LanzaderaWeb **todavía no está trasladado** al Nuxt actual. No anunciar como construidas las 38 páginas del mapa de origen.
 
@@ -105,7 +109,14 @@ app/data/demo.ts                  textos EN/ES de Home y tres casos demostrativo
 app/data/pages/types.ts           Locale, PageDefinition, ServiceContent, ResolvedPage
 app/data/pages/index.ts           registro: pages, resolvePage, pathLocale, alternatePath, homePath
 app/data/pages/renovation-marbella.ts definición del piloto: rutas EN/ES, estado, fuentes, pendientes
-app/data/taxonomy.ts              servicios (nombres y slugs EN/ES) y zonas
+app/data/taxonomy.ts              servicios y 10 zonas: nombres, preposición («in»/«on the»), slugs EN/ES, vecinas
+app/data/content/services.ts      textos de cada servicio (hub y zonas), textos comunes y etiquetas de enlaces
+app/data/content/locations.ts     textos de cada zona: contexto, emplazamiento, FAQ local y enfoque por servicio
+app/data/content/archive.ts       catálogo de imágenes del archivo con alt/descripción EN/ES (sin las «sin identificar»)
+app/data/pages/generated.ts       compone hubs y páginas servicio × zona; excluye el piloto escrito a mano
+app/data/navigation.ts            menú (hubs + zonas) y pie (solo hubs), generados desde el registro
+app/components/diseno/Menu.vue    menú a pantalla completa
+app/assets/css/navigation.css     menú, botón y pie
 app/data/services/renovation.ts   textos EN/ES completos del piloto, incluidas sus imágenes (`media`)
 app/data/routes.ts               lista heredada del starter; las páginas del registro se derivan de él
 app/data/contenidos.ts           metadatos de Home y de los tres casos demostrativos
@@ -135,6 +146,7 @@ La petición posterior de interiores bilingües se implementó con URLs ES expl�
 - El piloto tiene EN y ES con canonical propio, alternates recíprocos y `x-default` EN.
 - El selector del piloto navega a su URL equivalente; no cambia solo el texto sobre una URL inglesa.
 - El middleware resuelve estado antes de renderizar; el inicializador de idioma de `useGalvan` también toma la ruta. Esto evita una cabecera EN y contenido ES con errores de hidratación.
+- Cada página servicio × zona añade contenido local propio (contexto, enfoque del servicio en la zona, emplazamiento, FAQ local) a los módulos comunes del servicio. Los textos locales son geografía general y temas a estudiar; Paco debe revisarlos antes de publicar (`pending` en cada definición).
 - Las equivalencias salen de `paths` en cada `PageDefinition` (`app/data/pages`). Una página nueva se registra en `pages` y obtiene idioma, selector, hreflang y sitemap. `homePath()` devuelve `/` en ambos idiomas hasta que exista `/es/`.
 - Home ES con URL propia `/es/` es **pendiente**, no implementada. Añadirla como parte de la arquitectura bilingüe completa, manteniendo `/` EN.
 - Metadatos, cabecera, breadcrumbs, formularios, alt, FAQ, schema y avisos deben estar en el mismo idioma que la página.

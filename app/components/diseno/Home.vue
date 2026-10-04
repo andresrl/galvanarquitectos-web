@@ -1,7 +1,7 @@
 <script setup>
 import {casePaths} from '~/data/demo'
 import {pageById} from '~/data/pages'
-const renovationPaths=pageById('renovation-marbella').paths
+const hub=id=>pageById(id+'-hub').paths
 import {createHomeMotion} from './motion/home-motion'
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
@@ -94,18 +94,18 @@ useSeoMeta({title:()=>locale.value==='en'?'Galván Arquitectos · Editorial prev
       </section>
       <section class="slide service-slide renovation" id="villas" data-tone="light" data-chapter="Villa renovation">
         <div class="visual service-visual"><img src="/photos/web-villa-silver-02.jpg" :alt="locale==='en'?'View of a villa from the studio archive':'Vista de una villa del archivo del estudio'" loading="lazy"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('renovationName')"></p><h2 class="display-title" v-html="t('renovationBrief')"></h2><NuxtLink class="text-link case" :to="renovationPaths[locale]"><span>{{locale==='en'?'Explore villa renovation':'Explorar reformas de villas'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
-        <div class="scene-foot"><span v-html="t('demoLabel')"></span><span v-html="t('referenceShort')"></span></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('renovationName')"></p><h2 class="display-title" v-html="t('renovationBrief')"></h2><NuxtLink class="text-link case" :to="hub('renovation')[locale]"><span>{{locale==='en'?'Explore villa renovation':'Explorar reformas de villas'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+        <div class="scene-foot"><span v-html="t('referenceShort')"></span></div>
       </section>
       <section class="slide service-slide interiors" id="interiores" data-tone="dark" data-chapter="Interior design">
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('interiorName')"></p><h2 class="display-title" v-html="t('interiorBrief')"></h2><NuxtLink class="text-link case" :to="casePaths.interiorismo"><span v-html="t('viewDemo')"></span><span aria-hidden="true">↗</span></NuxtLink><p class="image-note" v-html="t('demoLabel')"></p></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('interiorName')"></p><h2 class="display-title" v-html="t('interiorBrief')"></h2><NuxtLink class="text-link case" :to="hub('interiors')[locale]"><span>{{locale==='en'?'Explore interior design':'Explorar interiorismo'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
         <div class="visual service-visual"><img src="/photos/web-villa-silver-01.jpg" :alt="locale==='en'?'Interiors opening onto a terrace, from the studio archive':'Interiores abiertos a una terraza, archivo del estudio'" loading="lazy" class="interior-crop"></div>
         <span class="vertical-caption" v-html="t('referenceShort')"></span>
       </section>
       <section class="slide service-slide landscape" id="exteriores" data-tone="light" data-chapter="Landscape design">
         <div class="visual service-visual"><img src="/photos/web-cortijo-nagueles-01.jpg" :alt="locale==='en'?'Reference image with planting and outdoor spaces':'Imagen de referencia con vegetación y espacios exteriores'" loading="lazy"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('landscapeName')"></p><h2 class="display-title" v-html="t('landscapeBrief')"></h2><NuxtLink class="text-link case" :to="casePaths.paisajismo"><span v-html="t('viewDemo')"></span><span aria-hidden="true">↗</span></NuxtLink></div>
-        <div class="scene-foot"><span v-html="t('demoLabel')"></span><span v-html="t('referenceShort')"></span></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('landscapeName')"></p><h2 class="display-title" v-html="t('landscapeBrief')"></h2><NuxtLink class="text-link case" :to="hub('landscape')[locale]"><span>{{locale==='en'?'Explore landscape design':'Explorar paisajismo'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+        <div class="scene-foot"><span v-html="t('referenceShort')"></span></div>
       </section>
       <section class="slide studio" id="estudio" data-tone="dark" data-chapter="Studio">
         <DisenoLineArt kind="studio" />

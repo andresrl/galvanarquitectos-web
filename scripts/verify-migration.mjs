@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 const base=process.argv[2]??'http://127.0.0.1:3048'
-const pages=[['/','Spaces for'],['/villa-renovation','One villa, a new way'],['/interior-design','Interiors shaped around'],['/landscape-design','The landscape is']]
+const pages=[['/','Spaces for'],['/examples/villa-renovation','One villa, a new way'],['/examples/interior-design','Interiors shaped around'],['/examples/landscape-design','The landscape is']]
 for(const [path,title] of pages){
  const res=await fetch(new URL(path,base));assert.equal(res.status,200,path)
  assert.match(res.headers.get('x-robots-tag')??'',/noindex/)
@@ -46,10 +46,10 @@ for(const [path,language,heading] of [['/villa-renovation/marbella','en','Luxury
 assert.equal((await fetch(new URL('/photos/web-villa-carril-01.jpg',base))).status,200)
 console.log('PASS pilot archive assets')
 
-for(const [path,services,pilot] of [['/','Services','/villa-renovation/marbella'],['/es/reformas-villas/marbella','Servicios','/es/reformas-villas/marbella'],['/interior-design','Services','/villa-renovation/marbella']]){
+for(const [path,services,pilot] of [['/','Services','/villa-renovation'],['/es/reformas-villas/marbella','Servicios','/es/reformas-villas'],['/examples/interior-design','Services','/villa-renovation']]){
  const html=await(await fetch(new URL(path,base))).text()
  assert.ok(html.includes('class="menu-toggle"')&&html.includes('aria-controls="site-menu"'),path+' header has the site menu button')
  assert.match(html,new RegExp('class="site-footer"[\\s\\S]*'+services+'[\\s\\S]*href="'+pilot+'"'),path+' footer links to the service pages in its language')
- for(const demo of ['/villa-renovation','/interior-design','/landscape-design'])assert.ok(html.includes('href="'+demo+'"'),path+' footer links to '+demo)
+ for(const demo of ['/examples/villa-renovation','/examples/interior-design','/examples/landscape-design'])assert.ok(html.includes('href="'+demo+'"'),path+' footer links to '+demo)
  console.log('PASS site navigation '+path)
 }

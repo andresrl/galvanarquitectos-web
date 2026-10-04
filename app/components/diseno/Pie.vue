@@ -17,7 +17,7 @@ function top(){if(route.path==='/')requestScene('inicio');else window.scrollTo({
   </div>
   <nav v-for="group in groups" :key="group.title" class="site-footer-group" :aria-label="group.title">
    <p class="eyebrow">{{group.title}}</p>
-   <ul><li v-for="link in group.links" :key="link.path+link.label"><NuxtLink :to="link.path" @click="go(link,$event)">{{link.label}}<small v-if="link.demo"> · demo</small></NuxtLink></li></ul>
+   <ul><li v-for="link in group.links" :key="link.path+link.label"><NuxtLink :to="link.path" @click="go(link,$event)">{{link.label}}</NuxtLink></li></ul>
   </nav>
  </div>
  <div class="site-footer-base">

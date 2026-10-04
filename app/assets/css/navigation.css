@@ -13,12 +13,19 @@
 .site-menu-top .brand{color:inherit}
 .site-menu-close{background:none;border:0;padding:0;font:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 .site-menu-close span{font-size:18px;vertical-align:-2px;margin-left:6px}
-.site-menu-body{flex:1;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(40px,8vw,140px);align-content:center;padding:clamp(48px,9svh,110px) 0}
+.site-menu-body{flex:1;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-auto-flow:dense;gap:clamp(36px,5svh,60px) clamp(40px,7vw,120px);align-content:center;padding:clamp(40px,7svh,90px) 0}
+.site-menu-primary{grid-row:span 2}
+.site-menu-primary>ul{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4svh,44px) clamp(28px,4vw,60px)}
+.site-menu-primary li+li{margin-top:0}
+.site-menu-areas{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:12px!important;max-width:36ch}
+.site-menu-areas li+li{margin-top:0!important}
+.site-menu-areas a{font-family:Inter,Arial,sans-serif!important;font-size:12px!important;font-weight:400!important;letter-spacing:0!important;color:#f6f4efb3}
+.site-menu-areas a:hover,.site-menu-areas a:focus-visible,.site-menu-areas a[aria-current=page]{color:var(--brass)}
 .site-menu .eyebrow{color:var(--brass);margin-bottom:26px}
 .site-menu ul{list-style:none;margin:0;padding:0}
 .site-menu-group li+li{margin-top:clamp(10px,1.6svh,18px)}
 .site-menu-group a{display:inline-flex;flex-direction:column;text-decoration:none;font-family:Manrope,Arial,sans-serif;font-weight:250;line-height:1.08;letter-spacing:-.03em;font-size:clamp(22px,2.2vw,32px);transition:color .25s}
-.site-menu-primary a{font-size:clamp(30px,3.6vw,56px)}
+.site-menu-primary>ul>li>a{font-size:clamp(28px,2.9vw,46px)}
 .site-menu-group a small{margin-top:6px;font-family:Inter,Arial,sans-serif;font-size:10px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#f6f4ef99}
 .site-menu-group a:hover,.site-menu-group a:focus-visible,.site-menu-group a[aria-current=page]{color:var(--brass)}
 .site-menu-group a[aria-current=page] span{font-family:var(--serif);font-style:italic}
@@ -32,7 +39,7 @@
 /* Resets the generic footer rule in diseno.css, which belongs to the Home contact chapter. */
 .site-footer{position:relative;inset:auto;display:block;letter-spacing:normal;z-index:3;padding:clamp(64px,9vw,120px) var(--gutter) 30px;background:var(--forest);color:var(--paper);font-size:13px;line-height:1.6}
 .site-footer a,.site-footer button{color:inherit}
-.site-footer-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.8fr);gap:clamp(36px,6vw,110px);padding-bottom:clamp(48px,7vw,90px)}
+.site-footer-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.8fr));gap:clamp(36px,6vw,110px);padding-bottom:clamp(48px,7vw,90px)}
 .site-footer-brand .brand{display:inline-block;color:inherit;text-decoration:none}
 .site-footer-brand p{max-width:30ch;margin:22px 0 26px;font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(18px,1.6vw,22px);line-height:1.35}
 .site-footer-brand address{display:flex;flex-direction:column;gap:4px;font-style:normal;color:#f6f4efcc}
@@ -46,13 +53,14 @@
 .site-footer-base span{margin-right:auto}
 .site-footer-base button{background:none;border:0;padding:0;font:inherit;letter-spacing:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 
-@media(max-width:1050px){.site-footer-grid{grid-template-columns:1fr 1fr}.site-footer-brand{grid-column:1/-1}}
+@media(max-width:1050px){.site-footer-grid{grid-template-columns:repeat(3,1fr)}.site-footer-brand{grid-column:1/-1}}
 @media(max-width:700px){
  .header nav{display:none}
  .header .menu-toggle{height:30px;margin-right:14px;font-size:10px}
  .site-menu{padding:22px 26px 28px}
  .site-menu-body{grid-template-columns:1fr;align-content:start;gap:44px;padding:44px 0}
- .site-menu-primary a{font-size:clamp(26px,8vw,34px)}
+ .site-menu-primary>ul{grid-template-columns:1fr}
+ .site-menu-primary>ul>li>a{font-size:clamp(26px,8vw,34px)}
  .site-menu-language{margin-left:0}
  .site-footer-grid{grid-template-columns:1fr}
  .site-footer-base span{flex-basis:100%}

@@ -1,37 +1,35 @@
 // Site navigation for the header menu and the footer. Built from the page registry, so new pages appear here automatically.
-import type { Locale } from './pages/types'
-import { pages, homePath } from './pages'
-import { services, type ServiceId } from './taxonomy'
+// The menu lists every service hub with its areas; the footer lists only the hubs (no wall of service × area links).
+import type { Locale, NavItem } from './pages/types'
+import { pageById, homePath, zonesFor } from './pages'
+import { services, serviceIds } from './taxonomy'
 import { casePaths } from './demo'
 
-export type NavLink = { label: string; path: string; demo?: boolean; scene?: string; detail?: string }
+export type NavLink = { label: string; path: string; demo?: boolean; scene?: string; detail?: string; children?: NavItem[] }
 export type NavGroup = { title: string; links: NavLink[] }
 
-// Former illustrative cases still live on their English URLs until each hub replaces them.
-const demoByService: Partial<Record<ServiceId, string>> = { renovation: casePaths.reforma, interiors: casePaths.interiorismo, landscape: casePaths.paisajismo }
-
 const text = {
-  en: { home: 'Home', services: 'Services', studio: 'Studio', explore: 'Explore', studioLink: 'The studio', contact: 'Contact', international: 'International clients', demo: 'Illustrative example' },
-  es: { home: 'Inicio', services: 'Servicios', studio: 'Estudio', explore: 'Explorar', studioLink: 'El estudio', contact: 'Contacto', international: 'Clientes internacionales', demo: 'Ejemplo demostrativo' }
+  en: { home: 'Home', services: 'Services', explore: 'Explore', studio: 'The studio', contact: 'Contact', international: 'International clients', examples: 'Illustrative examples', demo: 'Illustrative example',
+    demos: ['Villa renovation', 'Interior design', 'Landscape design'] },
+  es: { home: 'Inicio', services: 'Servicios', explore: 'Explorar', studio: 'El estudio', contact: 'Contacto', international: 'Clientes internacionales', examples: 'Ejemplos demostrativos', demo: 'Ejemplo demostrativo',
+    demos: ['Reforma de villa', 'Interiorismo', 'Paisajismo'] }
 }
 
-export function siteNavigation(locale: Locale): NavGroup[] {
-  const t = text[locale]
-  const serviceLinks: NavLink[] = []
-  for (const id of Object.keys(services) as ServiceId[]) {
-    const built = pages.filter(p => p.serviceId === id).sort((a, b) => (a.type === 'service' ? -1 : b.type === 'service' ? 1 : 0))
-    for (const page of built) serviceLinks.push({ label: page.content[locale].label, path: page.paths[locale] })
-    const demo = demoByService[id]
-    if (demo) serviceLinks.push({ label: services[id].name[locale], path: demo, demo: true, detail: t.demo })
-  }
-  const home = homePath(locale)
+export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavGroup[] {
+  const t = text[locale], home = homePath(locale)
+  const serviceLinks: NavLink[] = serviceIds.flatMap(id => {
+    const hub = pageById(`${id}-hub`)
+    return hub ? [{ label: services[id].name[locale], path: hub.paths[locale], children: withAreas ? zonesFor(id, locale) : undefined }] : []
+  })
+  const demoLinks: NavLink[] = [casePaths.reforma, casePaths.interiorismo, casePaths.paisajismo].map((path, i) => ({ label: t.demos[i], path, demo: true, detail: t.demo }))
   return [
     { title: t.services, links: serviceLinks },
     { title: t.explore, links: [
       { label: t.home, path: home },
-      { label: t.studioLink, path: home + '#estudio', scene: 'estudio' },
+      { label: t.studio, path: home + '#estudio', scene: 'estudio' },
       { label: t.international, path: home + '#internacional', scene: 'internacional' },
       { label: t.contact, path: home + '#contacto', scene: 'contacto' }
-    ] }
+    ] },
+    { title: t.examples, links: demoLinks }
   ]
 }

@@ -8,7 +8,8 @@
     "preview": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
     "indexnow": "node scripts/indexnow.mjs",
-    "verify:migration": "node scripts/verify-migration.mjs"
+    "verify:migration": "node scripts/verify-migration.mjs",
+    "verify:pseo": "node scripts/verify-pseo.mjs"
   },
   "dependencies": {
     "nuxt": "4.5.2",

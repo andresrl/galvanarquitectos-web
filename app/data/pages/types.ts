@@ -32,6 +32,7 @@ export interface ServiceContent {
   fields: { name: string; email: string; phone: string; location: string; message: string }
   submit: string; formNote: string; contactAlternative: string
   footerLink: string; languageLabel: string; reference: string; illustration: string
+  zonesEyebrow?: string; zonesTitle?: string; zonesItalic?: string; zonesText?: string
 }
 
 export type PageDefinition<C = ServiceContent> = {
@@ -56,4 +57,8 @@ export type ResolvedPage<C = ServiceContent> = {
   alternates: Record<Locale, string>
   breadcrumb: Crumb[]
   locationName?: string
+  zones?: NavItem[]                         // hub: its location pages
+  related?: { title: string; links: NavItem[] }[] // location page: a few neighbours, never the whole matrix
+  relatedEyebrow?: string
 }
+export type NavItem = { label: string; path: string }

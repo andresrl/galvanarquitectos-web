@@ -1,0 +1,65 @@
+// Studio archive images available to service pages. Alt and notes describe what is visible, not a documented commission.
+// `web-proyecto-sin-identificar-*` are left out on purpose: they must not be attributed by guesswork.
+import type { Locale } from '../pages/types'
+
+export type ArchiveImage = { name: string; src: string; width: number; height: number; alt: Record<Locale, string>; text: Record<Locale, string> }
+const square = (file: string) => ({ src: '/photos/' + file, width: 720, height: 720 })
+
+export const archive = {
+  'villa-silver-wide': { name: 'Villa Silver', src: '/photos/web-villa-silver-01.jpg', width: 2500, height: 1500,
+    alt: { en: 'Villa Silver, glazed architecture and a pool at dusk', es: 'Villa Silver, arquitectura acristalada y piscina al anochecer' },
+    text: { en: 'Light, glazing and the transition to the terrace.', es: 'Luz, vidrio y transición hacia la terraza.' } },
+  'villa-silver-hero': { name: 'Villa Silver', src: '/photos/web-villa-silver-02.jpg', width: 2560, height: 1709,
+    alt: { en: 'Villa Silver at night, living spaces open onto the pool terrace', es: 'Villa Silver de noche, estancias abiertas a la terraza de la piscina' },
+    text: { en: 'Interior and terrace read as one space.', es: 'Interior y terraza leídos como un solo espacio.' } },
+  'villa-silver-03': { name: 'Villa Silver', ...square('web-villa-silver-03.jpg'),
+    alt: { en: 'Villa Silver, lit entrance path and angular volumes at night', es: 'Villa Silver, acceso iluminado y volúmenes angulares de noche' },
+    text: { en: 'Arrival, light and material at night.', es: 'Llegada, luz y materia por la noche.' } },
+  'villa-carril': { name: 'Villa Carril', ...square('web-villa-carril-01.jpg'),
+    alt: { en: 'Villa Carril, white architecture, pergola and swimming pool', es: 'Villa Carril, arquitectura blanca, pérgola y piscina' },
+    text: { en: 'Shade, terraces and a connection to the garden.', es: 'Sombra, terrazas y conexión con el jardín.' } },
+  'villa-ambar': { name: 'Villa Ámbar', ...square('web-villa-ambar-01.jpg'),
+    alt: { en: 'Villa Ámbar, white villa and pool with mountains behind', es: 'Villa Ámbar, villa blanca y piscina con la montaña al fondo' },
+    text: { en: 'A white volume set against the mountains.', es: 'Un volumen blanco frente a la montaña.' } },
+  'villa-bruselas': { name: 'Villa Bruselas', ...square('web-villa-bruselas-01.jpg'),
+    alt: { en: 'Villa Bruselas, Mediterranean villa with towers, palms and lawn', es: 'Villa Bruselas, villa mediterránea con torres, palmeras y césped' },
+    text: { en: 'Mediterranean forms around an open lawn.', es: 'Formas mediterráneas en torno a un césped abierto.' } },
+  'villa-flamingos-58': { name: 'Villa Flamingos 58', ...square('web-villa-flamingos-58-01.jpg'),
+    alt: { en: 'Villa Flamingos 58, paved entrance path between palm trees', es: 'Villa Flamingos 58, camino de acceso pavimentado entre palmeras' },
+    text: { en: 'An entrance shaped by paving and planting.', es: 'Un acceso definido por el pavimento y la vegetación.' } },
+  'villa-guadalmina-27': { name: 'Villa Guadalmina 27', ...square('web-villa-guadalmina-27-01.jpg'),
+    alt: { en: 'Villa Guadalmina 27 at dusk, lawn, linear pool and covered terrace', es: 'Villa Guadalmina 27 al atardecer, césped, piscina lineal y porche' },
+    text: { en: 'A covered terrace between garden and pool.', es: 'Un porche entre el jardín y la piscina.' } },
+  'villa-la-resina-six': { name: 'Villa La Resina Six', ...square('web-villa-la-resina-six-01.jpg'),
+    alt: { en: 'Villa La Resina Six, terraced contemporary villa with a sunken seating area by the pool', es: 'Villa La Resina Six, villa contemporánea en terrazas con zona de estar hundida junto a la piscina' },
+    text: { en: 'Levels, terraces and a place to gather outside.', es: 'Niveles, terrazas y un lugar de reunión exterior.' } },
+  'villa-los-altos-53': { name: 'Villa Los Altos de los Monteros 53', ...square('web-villa-los-altos-de-los-monteros-53-01.jpg'),
+    alt: { en: 'Low contemporary villa with palms, pool and flowering hedge', es: 'Villa contemporánea baja con palmeras, piscina y seto en flor' },
+    text: { en: 'Horizontal architecture framed by planting.', es: 'Arquitectura horizontal enmarcada por la vegetación.' } },
+  'villa-pareja': { name: 'Villa Pareja', ...square('web-villa-pareja-01.jpg'),
+    alt: { en: 'Villa Pareja, wide covered living area facing the pool', es: 'Villa Pareja, amplia zona de estar cubierta frente a la piscina' },
+    text: { en: 'A deep porch that extends the living room.', es: 'Un porche profundo que prolonga el salón.' } },
+  'villa-paris': { name: 'Villa Paris', ...square('web-villa-paris-01.jpg'),
+    alt: { en: 'Villa Paris from above, lap pool, pergola and garden paths', es: 'Villa Paris desde el aire, piscina lineal, pérgola y recorridos del jardín' },
+    text: { en: 'Pool, pergola and paths drawn as one plan.', es: 'Piscina, pérgola y recorridos dibujados como un solo plano.' } },
+  'villa-poniente-96': { name: 'Villa Poniente 96', ...square('web-villa-poniente-96-01.jpg'),
+    alt: { en: 'Villa Poniente 96, stone terrace and large framed windows', es: 'Villa Poniente 96, terraza de piedra y grandes ventanales' },
+    text: { en: 'Stone, shade and large openings.', es: 'Piedra, sombra y grandes aberturas.' } },
+  'villas-j6a-j6b': { name: 'Villas J6A y J6B', ...square('web-villas-j6a-y-j6b-01.jpg'),
+    alt: { en: 'Contemporary two-storey villa with infinity pool and planting', es: 'Villa contemporánea de dos plantas con piscina desbordante y vegetación' },
+    text: { en: 'Two levels opening to the pool terrace.', es: 'Dos niveles abiertos a la terraza de la piscina.' } },
+  'zagaleta-210': { name: 'Zagaleta 210', ...square('web-zagaleta-210-01.jpg'),
+    alt: { en: 'Zagaleta 210 from above, pool with stone edges and stepping-stone path', es: 'Zagaleta 210 desde el aire, piscina con bordes de piedra y camino de losas' },
+    text: { en: 'A garden walk leading to the pool.', es: 'Un paseo de jardín que conduce a la piscina.' } },
+  'cortijo-nagueles': { name: 'Cortijo Nagüeles', ...square('web-cortijo-nagueles-01.jpg'),
+    alt: { en: 'Cortijo Nagüeles, contemporary villa with terraces and pool below the mountains', es: 'Cortijo Nagüeles, villa contemporánea con terrazas y piscina bajo la montaña' },
+    text: { en: 'Terraces facing the landscape.', es: 'Terrazas orientadas al paisaje.' } },
+  'hotel-boutique': { name: 'Hotel Boutique', ...square('web-hotel-boutique-01.jpg'),
+    alt: { en: 'Covered terrace with timber pergola, bar and lounge seating at dusk', es: 'Terraza cubierta con pérgola de madera, barra y zona de estar al atardecer' },
+    text: { en: 'An outdoor room with its own atmosphere.', es: 'Una estancia exterior con atmósfera propia.' } },
+  'paraiba-residencial': { name: 'Paraiba Residencial', ...square('web-paraiba-residencial-01.jpg'),
+    alt: { en: 'Pool with a thatched pavilion, curtains and garden', es: 'Piscina con pabellón de cubierta vegetal, cortinas y jardín' },
+    text: { en: 'Shade and water among the planting.', es: 'Sombra y agua entre la vegetación.' } }
+} satisfies Record<string, ArchiveImage>
+
+export type ArchiveKey = keyof typeof archive
