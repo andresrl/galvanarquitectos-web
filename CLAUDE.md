@@ -623,4 +623,4 @@ Ubicación: solo el nombre sugiere zona en algunos casos (Guadalmina, Los Altos 
 
 ## 11. Control de versiones
 
-Repositorio Git local creado el 4 de octubre de 2026 en la raíz Nuxt (`app/`), sin remoto. El commit inicial recoge el estado aprobado de la Home y del piloto de reformas en Marbella. Hacer commit antes y después de cada refactor que toque los módulos aprobados.
+Repositorio Git creado el 4 de octubre de 2026 en la raíz Nuxt (`app/`). Remoto: `git@github.com:andresrl/galvanarquitectos-web.git`, rama `main`. El commit inicial recoge el estado aprobado de la Home y del piloto de reformas en Marbella. Hacer commit antes y después de cada refactor que toque los módulos aprobados.
