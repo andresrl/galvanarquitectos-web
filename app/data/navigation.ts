@@ -22,7 +22,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
     const hub = pageById(`${id}-hub`)
     return hub ? [{ label: services[id].name[locale], path: hub.paths[locale], children: withAreas ? zonesFor(id, locale) : undefined }] : []
   })
-  const demoLinks: NavLink[] = [casePaths.reforma, casePaths.interiorismo, casePaths.paisajismo].map((path, i) => ({ label: t.demos[i], path, demo: true }))
+  const demoLinks: NavLink[] = [casePaths.reforma, casePaths.interiorismo, casePaths.paisajismo].map((path, i) => ({ label: t.demos[i], path, demo: true, detail: t.demo }))
   return [
     { title: t.services, links: serviceLinks },
     { title: t.explore, links: [
