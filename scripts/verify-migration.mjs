@@ -19,7 +19,7 @@ for(const path of ['/app/demo','/demo']){
  const res=await fetch(new URL(path,base),{redirect:'manual'});assert.equal(res.status,301);assert.equal(res.headers.get('location'),'/');console.log('PASS former demo redirects '+path)
 }
 const missing=await fetch(new URL('/app/demo/index.html',base));assert.equal(missing.status,404);console.log('PASS no parallel static demo')
-const robots=await(await fetch(new URL('/robots.txt',base))).text();assert.match(robots,/Disallow: \//);console.log('PASS preview robots')
+const robots=await(await fetch(new URL('/robots.txt',base))).text();assert.match(robots,/User-agent: \*\nDisallow: \//);assert.match(robots,/User-agent: LinkedInBot[\s\S]*?Allow: \//);assert.match(robots,/User-agent: facebookexternalhit/);console.log('PASS preview robots: search engines blocked, link-preview bots allowed')
 for(const path of ['/photos/web-villa-silver-01.jpg','/photos/web-villa-silver-02.jpg','/photos/web-cortijo-nagueles-01.jpg','/diseno/fonts/manrope.woff2','/diseno/services-lineart.svg'])assert.equal((await fetch(new URL(path,base))).status,200,path)
 console.log('PASS local assets')
 
