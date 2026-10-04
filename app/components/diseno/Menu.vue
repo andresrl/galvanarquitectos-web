@@ -4,7 +4,8 @@ import { siteNavigation } from '~/data/navigation'
 const { locale, requestScene, toggleLanguage } = useGalvan()
 const open = useState('galvan:menu', () => false)
 const route = useRoute()
-const groups = computed(() => siteNavigation(locale.value, { withAreas: true }))
+// Services only (the hubs list their areas): a clean menu with room to breathe.
+const groups = computed(() => siteNavigation(locale.value))
 const panel = ref(null)
 let returnFocus = null
 const isCurrent = link => !link.scene && route.path.replace(/\/$/, '') === link.path.replace(/\/$/, '')
@@ -37,7 +38,7 @@ onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('ke
    <button type="button" class="site-menu-close" @click="close">{{locale==='en'?'Close':'Cerrar'}} <span aria-hidden="true">×</span></button>
   </div>
   <div class="site-menu-body">
-   <nav v-for="(group,g) in groups" :key="group.title" :class="['site-menu-group',{'site-menu-primary':g===0}]" :aria-label="group.title">
+   <nav v-for="(group,g) in groups" :key="group.title" :class="['site-menu-group',{'site-menu-primary':g===0,'site-menu-minor':g===2}]" :aria-label="group.title">
     <p class="eyebrow">{{group.title}}</p>
     <ul><li v-for="link in group.links" :key="link.path+link.label">
      <NuxtLink :to="link.path" :aria-current="isCurrent(link)?'page':undefined" @click="go(link,$event)"><span>{{link.label}}</span><small v-if="link.detail">{{link.detail}}</small></NuxtLink>
