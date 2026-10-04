@@ -81,16 +81,16 @@ package.json / package-lock.json   dependencias y comandos
 app/app.vue                       shell común: aviso, cabecera, página, pie, cookies
 app/router.options.ts             scroll y coordinación con los capítulos Home
 app/pages/index.vue               entrada Home, datos y SEO
-app/pages/[...slug].vue            resolución de rutas, 404, SEO y plantilla interior
+app/pages/[...slug].vue            resuelve primero el registro de páginas; si no, demos. 404 y SEO
 app/pages/blog/                   entradas de Nuxt Content
-app/middleware/service-locale.global.ts idioma y tono según la ruta del piloto
+app/middleware/service-locale.global.ts idioma y tono según la ruta (pathLocale del registro)
 app/components/diseno/
   Cabecera.vue                    marca, navegación y selector EN/ES
   Pie.vue                         pie de interiores y preferencias de cookies
   Home.vue                        Home aprobada, vídeo y ciclo de vida GSAP
   LineArt.vue                     SVG originales, servicios y estudio
   PaginaInterior.vue              tres ejemplos interiores anteriores
-  ServicePage.vue                 piloto aprobado de reformas en Marbella
+  ServicePage.vue                 plantilla aprobada de servicio; recibe `page` resuelta por prop, sin textos propios
   BlogLista.vue / BlogArticulo.vue plantillas del starter que necesitan revisión visual
   motion/home-motion.js           pins Home, ScrollTrigger, SplitText
   motion/service-motion.js        animación editorial interior sin pins
@@ -98,13 +98,17 @@ app/components/diseno/
 app/assets/css/diseno.css         lenguaje visual común y Home
 app/assets/css/service.css        familia editorial interior, reglas delimitadas
 app/composables/useGalvan.ts      idioma compartido, capítulos, tono y navegación
-app/composables/usePageSeo.ts     canonical, metadatos, JSON-LD y hreflang del piloto
+app/composables/usePageSeo.ts     canonical, metadatos, JSON-LD y hreflang; con `page` usa su contenido y equivalentes
 app/composables/useSitio.ts       utilidades del esqueleto
 app/composables/useCookieConsent.ts consentimiento
 app/data/demo.ts                  textos EN/ES de Home y tres casos demostrativos
-app/data/services/renovation.ts   textos EN/ES completos del piloto y sus URLs
-app/data/routes.ts               registro actual de rutas
-app/data/contenidos.ts           metadatos/estado/bloques del registro actual
+app/data/pages/types.ts           Locale, PageDefinition, ServiceContent, ResolvedPage
+app/data/pages/index.ts           registro: pages, resolvePage, pathLocale, alternatePath, homePath
+app/data/pages/renovation-marbella.ts definición del piloto: rutas EN/ES, estado, fuentes, pendientes
+app/data/taxonomy.ts              servicios (nombres y slugs EN/ES) y zonas
+app/data/services/renovation.ts   textos EN/ES completos del piloto, incluidas sus imágenes (`media`)
+app/data/routes.ts               lista heredada del starter; las páginas del registro se derivan de él
+app/data/contenidos.ts           metadatos de Home y de los tres casos demostrativos
 app/data/negocio.ts / site.ts     negocio y dominio definitivo
 app/data/servicios.ts / images.ts registros heredados; revisar al ampliar
 app/data/redirecciones.ts        las dos redirecciones de demo
@@ -131,7 +135,7 @@ La petición posterior de interiores bilingües se implementó con URLs ES expl�
 - El piloto tiene EN y ES con canonical propio, alternates recíprocos y `x-default` EN.
 - El selector del piloto navega a su URL equivalente; no cambia solo el texto sobre una URL inglesa.
 - El middleware resuelve estado antes de renderizar; el inicializador de idioma de `useGalvan` también toma la ruta. Esto evita una cabecera EN y contenido ES con errores de hidratación.
-- Al ampliar, generalizar el registro de equivalencias. El resolver actual solo reconoce las dos rutas de reformas en Marbella.
+- Las equivalencias salen de `paths` en cada `PageDefinition` (`app/data/pages`). Una página nueva se registra en `pages` y obtiene idioma, selector, hreflang y sitemap. `homePath()` devuelve `/` en ambos idiomas hasta que exista `/es/`.
 - Home ES con URL propia `/es/` es **pendiente**, no implementada. Añadirla como parte de la arquitectura bilingüe completa, manteniendo `/` EN.
 - Metadatos, cabecera, breadcrumbs, formularios, alt, FAQ, schema y avisos deben estar en el mismo idioma que la página.
 
@@ -255,7 +259,7 @@ Resumen de su estructura textual:
 | Local/internacional | Your villa in Marbella. Wherever you are. | Tu villa en Marbella. Estés donde estés. |
 | Consulta | What would you like to change? | ¿Qué te gustaría transformar? |
 
-Sus campos son `title`, `description`, `heading`, `italic`, `lead`, `intro*`, `scope`, `vision*`, `process*`, `steps`, `projects`, `local*`, `faqs`, `fields`, `submit`, `formNote`, además de navegación y captions. El siguiente servicio debe generalizar este esquema, no meter todos los textos en el componente Vue.
+Sus campos están tipados en `ServiceContent` (`app/data/pages/types.ts`): `title`, `description`, `heading`, `italic`, `lead`, `media` (hero, feature, pause con src/tamaño/alt/caption), `intro*`, `scope`, `vision*`, `process*`, `steps`, `projects`, `local*`, `faqs`, `fields`, `submit`, `formNote`, navegación y captions. Las rutas de navegación, la zona del formulario y la firma final salen del registro y de `taxonomy.ts`. Un servicio nuevo es un archivo de contenido más una `PageDefinition`, sin tocar el componente Vue.
 
 **Formulario actual:** valida campos y prepara un `mailto` en la app de correo del visitante. Lo explica junto al botón. No tiene backend y no debe dar mensajes falsos de envío exitoso. La Home tiene email/teléfono; todavía no un formulario central enviado al servidor.
 
@@ -326,18 +330,19 @@ No inventar normativa urbanística local, plazos de licencia, oficinas en cada z
 
 Separar definiciones de servicio, lugar, proyecto y traducción. Un componente debe recibir la página resuelta; no mantener `ServicePage.vue` permanentemente acoplado a `renovation.ts`. Conservar los módulos visuales del piloto al refactorizar.
 
-Esquema orientativo para generalizar, NO existente todavía:
+Esquema implementado en `app/data/pages/types.ts` (4 de octubre de 2026):
 
 ```ts
 type PageDefinition = {
   id: string
   type: 'service' | 'service-location' | 'project' | 'editorial'
+  template: 'service'
   serviceId?: string
   locationId?: string
   projectIds?: string[]
   paths: { en: string; es: string }
   status: 'draft' | 'reviewed' | 'published'
-  content: { en: LocalisedContent; es: LocalisedContent }
+  content: { en: ServiceContent; es: ServiceContent }
   sources: string[]
   pending: string[]
 }

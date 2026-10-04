@@ -1,6 +1,8 @@
-// Pilot service × location. Copy and modules can be reused without duplicating page markup.
-export const renovationPaths = { en: '/villa-renovation/marbella', es: '/es/reformas-villas/marbella' }
-export const renovation = {
+// Pilot service × location copy (EN/ES). Paths and status live in app/data/pages/renovation-marbella.ts.
+import type { Locale, ServiceContent } from '../pages/types'
+const silverHero = { src: '/photos/web-villa-silver-02.jpg', width: 2560, height: 1709 }
+const silverWide = { src: '/photos/web-villa-silver-01.jpg', width: 2500, height: 1500 }
+export const renovation: Record<Locale, ServiceContent> = {
  en: {
   label: 'Villa renovation in Marbella', title: 'Luxury villa renovations in Marbella · Galván Arquitectos',
   description: 'Complete villa renovation in Marbella: architecture, interior and landscape design, with personal attention, site supervision and project coordination.',
@@ -17,7 +19,12 @@ export const renovation = {
    { title: 'Interiors & materials', text: 'Bring proportion, finishes and everyday use into the same conversation. Interior design can form part of the renovation or be commissioned separately.' },
    { title: 'Garden & outdoor living', text: 'Connect the house with its terraces, pool and garden. Landscape design considers planting, shade and the way you use the exterior.' }
   ],
-  imageCaption: 'Villa Silver · Studio archive', secondaryCaption: 'Villa Carril · Studio archive',
+  media: {
+   hero: { ...silverHero, alt: 'Villa Silver · Studio archive', caption: 'Villa Silver · Studio archive' },
+   feature: { ...silverWide, alt: 'Villa Silver, glazed architecture and a pool at dusk', caption: 'Villa Silver · Studio archive' },
+   pause: { ...silverHero, alt: 'Villa Silver · Studio archive', caption: 'Villa Silver · Studio archive' }
+  },
+  secondaryCaption: 'Villa Carril · Studio archive',
   archiveNote: 'Archive images illustrate the studio’s architectural work; they are not presented as documented renovation projects.',
   visionEyebrow: 'ARCHITECTURE · INTERIORS · LANDSCAPE', visionTitle: 'One vision.', visionItalic: 'Every detail connected.',
   visionText: 'A renovation brings many decisions together. The design gives them direction; personal coordination helps carry that vision through the project.',
@@ -67,7 +74,12 @@ export const renovation = {
    { title: 'Interiores y materiales', text: 'Reunir proporción, acabados y uso cotidiano en una misma conversación. El interiorismo puede formar parte de la reforma o contratarse por separado.' },
    { title: 'Jardín y vida exterior', text: 'Conectar la casa con sus terrazas, piscina y jardín. El paisajismo considera la vegetación, la sombra y la forma de disfrutar del exterior.' }
   ],
-  imageCaption: 'Villa Silver · Archivo del estudio', secondaryCaption: 'Villa Carril · Archivo del estudio',
+  media: {
+   hero: { ...silverHero, alt: 'Villa Silver · Archivo del estudio', caption: 'Villa Silver · Archivo del estudio' },
+   feature: { ...silverWide, alt: 'Villa Silver, arquitectura acristalada y piscina al anochecer', caption: 'Villa Silver · Archivo del estudio' },
+   pause: { ...silverHero, alt: 'Villa Silver · Archivo del estudio', caption: 'Villa Silver · Archivo del estudio' }
+  },
+  secondaryCaption: 'Villa Carril · Archivo del estudio',
   archiveNote: 'Las imágenes del archivo ilustran el trabajo arquitectónico del estudio; no se presentan como proyectos de reforma documentados.',
   visionEyebrow: 'ARQUITECTURA · INTERIORES · PAISAJE', visionTitle: 'Una misma visión.', visionItalic: 'Cada detalle conectado.',
   visionText: 'Una reforma reúne muchas decisiones. El diseño les da una dirección; la coordinación personal ayuda a mantener esa visión durante el proyecto.',
@@ -101,7 +113,4 @@ export const renovation = {
   submit: 'Preparar una consulta por email', formNote: 'Esta vista previa prepara la consulta en tu aplicación de correo. El formulario no envía datos.', contactAlternative: 'O contacta directamente con el estudio',
   footerLink: 'Volver arriba', languageLabel: 'English', reference: 'Archivo del estudio', illustration: 'Ilustración conceptual · no es un plano de proyecto'
  }
-}
-export function renovationLocale(path: string): 'en' | 'es' | undefined {
- return path === renovationPaths.en ? 'en' : path === renovationPaths.es ? 'es' : undefined
 }

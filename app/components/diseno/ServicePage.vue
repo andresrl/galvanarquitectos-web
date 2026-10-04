@@ -1,10 +1,13 @@
 <script setup>
-import { renovation, renovationPaths } from '~/data/services/renovation'
+// Approved service template. Receives a page resolved by app/data/pages; holds no copy of its own.
 import { createServiceMotion } from './motion/service-motion'
-const { locale, tone } = useGalvan()
-const content = computed(() => renovation[locale.value])
+const props = defineProps({ page: { type: Object, required: true } })
+const { tone } = useGalvan()
+const content = computed(() => props.page.content)
+const locale = computed(() => props.page.locale)
+const otherLocale = computed(() => locale.value==='en'?'es':'en')
 const root = ref(null)
-const form = reactive({name:'',email:'',phone:'',location:'Marbella',message:''})
+const form = reactive({name:'',email:'',phone:'',location:props.page.locationName??'',message:''})
 const navTargets = ['overview','transformation','process','questions']
 let motion = null, alive = false
 useHead({bodyAttrs:{class:'luxury-service-page'}})
@@ -26,7 +29,7 @@ function prepareEnquiry(){
 <template>
 <main ref="root" class="service-editorial">
  <section class="service-hero" id="service-top" aria-labelledby="service-title">
-  <div class="service-hero-image"><img src="/photos/web-villa-silver-02.jpg" :alt="content.imageCaption" fetchpriority="high" width="2560" height="1709"></div>
+  <div class="service-hero-image"><img :src="content.media.hero.src" :alt="content.media.hero.alt" fetchpriority="high" :width="content.media.hero.width" :height="content.media.hero.height"></div>
   <div class="service-hero-shade"></div>
   <div class="service-hero-copy">
    <p class="eyebrow" data-reveal>{{content.eyebrow}}</p>
@@ -35,10 +38,10 @@ function prepareEnquiry(){
    <a class="text-link" href="#enquiry" data-reveal><span>{{content.enquire}}</span><span aria-hidden="true">↗</span></a>
   </div>
   <a class="service-discover" href="#overview">{{content.discover}} <span aria-hidden="true">↓</span></a>
-  <span class="service-hero-caption">{{content.imageCaption}}</span>
+  <span class="service-hero-caption">{{content.media.hero.caption}}</span>
  </section>
  <div class="service-navigation">
-  <nav class="service-breadcrumb" :aria-label="locale==='en'?'Breadcrumb':'Ruta de navegación'"><NuxtLink to="/">{{content.home}}</NuxtLink><span aria-hidden="true">/</span><span>{{content.service}}</span><span aria-hidden="true">/</span><span aria-current="page">Marbella</span></nav>
+  <nav class="service-breadcrumb" :aria-label="locale==='en'?'Breadcrumb':'Ruta de navegación'"><template v-for="(crumb,i) in page.breadcrumb" :key="i"><span v-if="i" aria-hidden="true">/</span><span v-if="i===page.breadcrumb.length-1" aria-current="page">{{crumb.label}}</span><NuxtLink v-else-if="crumb.path" :to="crumb.path">{{crumb.label}}</NuxtLink><span v-else>{{crumb.label}}</span></template></nav>
   <nav :aria-label="locale==='en'?'On this page':'En esta página'" class="service-index"><a v-for="(label,i) in content.navigation" :key="navTargets[i]" :href="'#'+navTargets[i]">{{label}}</a></nav>
  </div>
  <section class="service-intro service-container" id="overview" aria-labelledby="overview-title">
@@ -46,11 +49,11 @@ function prepareEnquiry(){
   <div class="service-intro-body" data-reveal><p class="service-lead">{{content.introLead}}</p><p>{{content.introText}}</p><a class="text-link" href="#enquiry"><span>{{content.enquire}}</span><span aria-hidden="true">↗</span></a></div>
  </section>
  <section class="service-transformation service-container" id="transformation" aria-labelledby="transformation-title">
-  <figure class="service-tall-photo"><div class="service-photo"><img src="/photos/web-villa-silver-01.jpg" :alt="content.projects[0].alt" loading="lazy" decoding="async" width="2500" height="1500"></div><figcaption>{{content.imageCaption}}</figcaption></figure>
+  <figure class="service-tall-photo"><div class="service-photo"><img :src="content.media.feature.src" :alt="content.media.feature.alt" loading="lazy" decoding="async" :width="content.media.feature.width" :height="content.media.feature.height"></div><figcaption>{{content.media.feature.caption}}</figcaption></figure>
   <div class="service-scope"><div data-reveal><p class="eyebrow">{{content.transformationEyebrow}}</p><h2 id="transformation-title" class="service-heading">{{content.transformationTitle}}{{' '}}<em>{{content.transformationItalic}}</em></h2></div><ol class="service-scope-list"><li v-for="(item,i) in content.scope" :key="i" data-reveal><span aria-hidden="true">0{{i+1}}</span><div><h3>{{item.title}}</h3><p>{{item.text}}</p></div></li></ol></div>
  </section>
  <section class="service-vision" aria-labelledby="vision-title">
-  <div class="service-photo"><img src="/photos/web-villa-silver-02.jpg" :alt="content.imageCaption" loading="lazy" decoding="async" width="2560" height="1709"></div>
+  <div class="service-photo"><img :src="content.media.pause.src" :alt="content.media.pause.alt" loading="lazy" decoding="async" :width="content.media.pause.width" :height="content.media.pause.height"></div>
   <div class="service-vision-copy" data-reveal><p class="eyebrow">{{content.visionEyebrow}}</p><h2 class="service-heading" id="vision-title">{{content.visionTitle}}{{' '}}<em>{{content.visionItalic}}</em></h2><p>{{content.visionText}}</p></div>
  </section>
  <section class="service-process service-container" id="process" aria-labelledby="process-title">
@@ -71,6 +74,6 @@ function prepareEnquiry(){
  <section class="service-enquiry service-container" id="enquiry" aria-labelledby="enquiry-title"><div data-reveal><p class="eyebrow">{{content.contactEyebrow}}</p><h2 class="service-heading" id="enquiry-title">{{content.contactTitle}}{{' '}}<em>{{content.contactItalic}}</em></h2><p>{{content.contactText}}</p><div class="service-direct-contact"><span>{{content.contactAlternative}}</span><a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com ↗</a><a href="tel:+34679979487">+34 679 97 94 87</a></div></div>
   <form class="service-form" @submit.prevent="prepareEnquiry" data-reveal><div class="service-form-row"><label for="enquiry-name">{{content.fields.name}}<input v-model="form.name" id="enquiry-name" name="name" autocomplete="name" required maxlength="150"></label><label for="enquiry-email">{{content.fields.email}}<input v-model="form.email" id="enquiry-email" name="email" type="email" autocomplete="email" required maxlength="254"></label></div><div class="service-form-row"><label for="enquiry-phone">{{content.fields.phone}}<input v-model="form.phone" id="enquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="50"></label><label for="enquiry-location">{{content.fields.location}}<input v-model="form.location" id="enquiry-location" name="location" required maxlength="200"></label></div><label for="enquiry-message">{{content.fields.message}}<textarea v-model="form.message" id="enquiry-message" name="message" rows="4" required maxlength="5000"></textarea></label><button type="submit" class="service-submit">{{content.submit}} <span aria-hidden="true">↗</span></button><p class="service-form-note">{{content.formNote}}</p></form>
  </section>
- <div class="service-end service-container"><span>GALVÁN ARQUITECTOS · MARBELLA</span><a href="#service-top">{{content.footerLink}} ↑</a><NuxtLink :to="renovationPaths[locale==='en'?'es':'en']" :hreflang="locale==='en'?'es':'en'">{{content.languageLabel}}</NuxtLink></div>
+ <div class="service-end service-container"><span>GALVÁN ARQUITECTOS{{page.locationName?' · '+page.locationName.toUpperCase():''}}</span><a href="#service-top">{{content.footerLink}} ↑</a><NuxtLink :to="page.alternates[otherLocale]" :hreflang="otherLocale">{{content.languageLabel}}</NuxtLink></div>
 </main>
 </template>

@@ -1,6 +1,7 @@
-import {renovationPaths} from './services/renovation'
+// Starter route list (menus, breadcrumbs, sitemap). Registry pages are derived from app/data/pages.
+import {pages} from './pages'
 export const routes=[
- ...Object.entries(renovationPaths).map(([language,path])=>({path,label:language==='en'?'Villa renovation in Marbella':'Reformas de villas en Marbella',kind:'servicio',plantilla:'service',parent:'/',status:'borrador',enlaces:['/'],language})),
+ ...pages.flatMap(page=>Object.entries(page.paths).map(([language,path])=>({path,label:page.content[language as 'en'|'es'].label,kind:'servicio',plantilla:page.template,parent:'/',status:page.status==='published'?'publicada':'borrador',enlaces:['/'],language,pageId:page.id}))),
  {path:'/',label:'Home',kind:'pagina',plantilla:'home',parent:null,status:'borrador',enlaces:['/villa-renovation','/interior-design','/landscape-design']},
  {path:'/villa-renovation',label:'Villa renovation',kind:'pagina',plantilla:'pagina',parent:'/',status:'borrador',enlaces:['/','/interior-design','/landscape-design']},
  {path:'/interior-design',label:'Interior design',kind:'pagina',plantilla:'pagina',parent:'/',status:'borrador',enlaces:['/','/villa-renovation','/landscape-design']},

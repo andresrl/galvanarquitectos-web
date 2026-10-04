@@ -1,6 +1,7 @@
 <script setup>
 import {casePaths} from '~/data/demo'
-import {renovationPaths} from '~/data/services/renovation'
+import {pageById} from '~/data/pages'
+const renovationPaths=pageById('renovation-marbella').paths
 import {createHomeMotion} from './motion/home-motion'
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()

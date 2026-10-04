@@ -1,10 +1,10 @@
 import {copy} from '~/data/demo'
-import {renovationPaths,renovationLocale} from '~/data/services/renovation'
+import {pathLocale,alternatePath} from '~/data/pages'
 export type GalvanLocale='en'|'es'
 export function useGalvan(){
   // English always starts a new request. No storage or browser-language detection.
   const route=useRoute()
-  const locale=useState<GalvanLocale>('galvan:language',()=>renovationLocale(route.path)??'en')
+  const locale=useState<GalvanLocale>('galvan:language',()=>pathLocale(route.path)??'en')
   const chapter=useState('galvan:chapter',()=>0)
   const tone=useState('galvan:tone',()=> 'light')
   const requestedScene=useState('galvan:scene-request',()=>({id:'inicio',serial:0}))
@@ -26,7 +26,8 @@ export function useGalvan(){
   }
   function toggleLanguage(){
     const next=locale.value==='en'?'es':'en'
-    if(renovationLocale(router.currentRoute.value.path))return router.push(renovationPaths[next])
+    const equivalent=alternatePath(router.currentRoute.value.path,next)
+    if(equivalent)return router.push(equivalent)
     locale.value=next
   }
   return {locale,t,chapter,tone,scenes,requestedScene,requestScene,toggleLanguage}

@@ -38,6 +38,9 @@ for(const [path,language,heading] of [['/villa-renovation/marbella','en','Luxury
  assert.ok(schema['@graph'].some(x=>x['@type']==='Service'))
  assert.ok(html.includes('id="enquiry-name"')&&html.includes('id="enquiry-message"'))
  assert.equal((html.match(/<details\b/g)??[]).length,6)
+ const other=language==='en'?'/es/reformas-villas/marbella':'/villa-renovation/marbella'
+ assert.match(html,new RegExp('<a href="'+other+'"[^>]*hreflang="'+(language==='en'?'es':'en')+'"'),'language link points to the registered equivalent')
+ assert.match(html,/class="service-breadcrumb"[\s\S]*?aria-current="page">Marbella</,'breadcrumb resolved from the page registry')
  console.log('PASS bilingual service SSR '+path)
 }
 assert.equal((await fetch(new URL('/photos/web-villa-carril-01.jpg',base))).status,200)
