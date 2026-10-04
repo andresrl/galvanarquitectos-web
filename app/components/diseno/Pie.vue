@@ -6,9 +6,14 @@ const {locale,requestScene,toggleLanguage}=useGalvan()
 const {openPreferences}=useCookieConsent()
 const groups=computed(()=>siteNavigation(locale.value))
 function go(link,event){if(!link.scene)return;event.preventDefault();requestScene(link.scene)}
+// Marks <html> while the footer is on screen: the Home hides its chapter dots and the transparent header gets a background.
+const footer=ref(null)
+let observer=null
+onMounted(()=>{observer=new IntersectionObserver(([entry])=>document.documentElement.classList.toggle('footer-in-view',entry.isIntersecting));observer.observe(footer.value)})
+onBeforeUnmount(()=>{observer?.disconnect();document.documentElement.classList.remove('footer-in-view')})
 function top(){if(route.path==='/')requestScene('inicio');else window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 </script>
-<template><footer class="site-footer">
+<template><footer ref="footer" :class="['site-footer',{'site-footer--home':route.path==='/'}]">
  <div class="site-footer-grid">
   <div class="site-footer-brand">
    <NuxtLink class="brand" to="/">GALVÁN<span>ARQUITECTOS</span></NuxtLink>

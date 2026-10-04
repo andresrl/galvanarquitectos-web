@@ -66,3 +66,8 @@
  .site-footer-grid{grid-template-columns:1fr}
  .site-footer-base span{flex-basis:100%}
 }
+
+/* Home ending: the footer continues the dark contact chapter instead of stacking a second green. */
+.site-footer--home{background:#18221d;border-top:1px solid #f6f4ef1a}
+.footer-in-view .chapter-nav{opacity:0;pointer-events:none;transition:opacity .3s}
+.footer-in-view .header[data-tone=light]{background:#18221df2;backdrop-filter:blur(10px);transition:background .3s}
