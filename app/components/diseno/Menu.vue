@@ -1,0 +1,55 @@
+<script setup>
+// Full-screen site menu. Links come from app/data/navigation.ts (page registry + Home chapters).
+import { siteNavigation } from '~/data/navigation'
+const { locale, requestScene, toggleLanguage } = useGalvan()
+const open = useState('galvan:menu', () => false)
+const route = useRoute()
+const groups = computed(() => siteNavigation(locale.value))
+const panel = ref(null)
+let returnFocus = null
+const isCurrent = link => !link.scene && route.path.replace(/\/$/, '') === link.path.replace(/\/$/, '')
+function close() { open.value = false }
+function go(link, event) {
+  if (!link.scene) return close()
+  event.preventDefault(); close(); requestScene(link.scene)
+}
+function onKey(event) { if (event.key === 'Escape') close() }
+watch(open, async value => {
+  if (!import.meta.client) return
+  document.documentElement.classList.toggle('menu-open', value)
+  if (value) {
+    returnFocus = document.activeElement
+    window.addEventListener('keydown', onKey)
+    await nextTick(); panel.value?.querySelector('.site-menu-body a')?.focus()
+  } else {
+    window.removeEventListener('keydown', onKey)
+    returnFocus?.focus?.(); returnFocus = null
+  }
+})
+watch(() => route.fullPath, close)
+onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('keydown', onKey); document.documentElement.classList.remove('menu-open') } })
+</script>
+<template>
+<Transition name="site-menu">
+ <div v-if="open" id="site-menu" ref="panel" class="site-menu" role="dialog" aria-modal="true" :aria-label="locale==='en'?'Site menu':'Menú del sitio'">
+  <div class="site-menu-top">
+   <NuxtLink class="brand" to="/" @click="close">GALVÁN<span>ARQUITECTOS</span></NuxtLink>
+   <button type="button" class="site-menu-close" @click="close">{{locale==='en'?'Close':'Cerrar'}} <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="site-menu-body">
+   <nav v-for="(group,g) in groups" :key="group.title" :class="['site-menu-group',{'site-menu-primary':g===0}]" :aria-label="group.title">
+    <p class="eyebrow">{{group.title}}</p>
+    <ul><li v-for="link in group.links" :key="link.path+link.label">
+     <NuxtLink :to="link.path" :aria-current="isCurrent(link)?'page':undefined" @click="go(link,$event)"><span>{{link.label}}</span><small v-if="link.detail">{{link.detail}}</small></NuxtLink>
+    </li></ul>
+   </nav>
+  </div>
+  <div class="site-menu-foot">
+   <a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com</a>
+   <a href="tel:+34679979487">+34 679 97 94 87</a>
+   <span>Marbella · Costa del Sol</span>
+   <button type="button" class="site-menu-language" @click="toggleLanguage">{{locale==='en'?'Español':'English'}}</button>
+  </div>
+ </div>
+</Transition>
+</template>

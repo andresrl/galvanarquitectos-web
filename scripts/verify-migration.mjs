@@ -45,3 +45,11 @@ for(const [path,language,heading] of [['/villa-renovation/marbella','en','Luxury
 }
 assert.equal((await fetch(new URL('/photos/web-villa-carril-01.jpg',base))).status,200)
 console.log('PASS pilot archive assets')
+
+for(const [path,services,pilot] of [['/','Services','/villa-renovation/marbella'],['/es/reformas-villas/marbella','Servicios','/es/reformas-villas/marbella'],['/interior-design','Services','/villa-renovation/marbella']]){
+ const html=await(await fetch(new URL(path,base))).text()
+ assert.ok(html.includes('class="menu-toggle"')&&html.includes('aria-controls="site-menu"'),path+' header has the site menu button')
+ assert.match(html,new RegExp('class="site-footer"[\\s\\S]*'+services+'[\\s\\S]*href="'+pilot+'"'),path+' footer links to the service pages in its language')
+ for(const demo of ['/villa-renovation','/interior-design','/landscape-design'])assert.ok(html.includes('href="'+demo+'"'),path+' footer links to '+demo)
+ console.log('PASS site navigation '+path)
+}
