@@ -32,3 +32,27 @@
 .service-related a span{color:#ad8d61}
 .service-related a:hover,.service-related a:focus-visible{color:#ad8d61}
 @media(max-width:700px){.service-zones,.service-related-groups{grid-template-columns:1fr;gap:30px}}
+/* Split hero (service × location pages): archive photo on one half at near-native size, copy on paper. */
+.service-hero--split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);color:var(--ink);background:var(--paper)}
+.service-hero--split .service-hero-image{position:relative;inset:auto;grid-column:2;grid-row:1;overflow:hidden}
+.service-hero--split .service-hero-image img{position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:cover;object-position:50% 50%}
+.service-hero--split .service-hero-image::after{content:'';position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(0deg,#07100e8c,transparent);pointer-events:none}
+.service-hero--split .service-hero-copy{position:relative;grid-column:1;grid-row:1;align-self:end;left:auto;right:auto;bottom:auto;max-width:none;padding:0 clamp(28px,4vw,70px) 17svh var(--gutter)}
+.service-hero--split h1{font-size:clamp(46px,4.9vw,86px)}
+.service-hero--split .service-hero-lead{max-width:430px;font-size:15px;color:#3d443f}
+.service-hero--split .text-link{color:var(--ink)}
+.service-hero--split .service-discover{color:var(--ink)}
+.service-hero--split .service-hero-caption{right:var(--gutter);color:#fff;opacity:.85;z-index:1}
+.service-hero--image-left .service-hero-image{grid-column:1}
+.service-hero--image-left .service-hero-copy{grid-column:2;padding:0 var(--gutter) 17svh clamp(28px,4vw,70px)}
+.service-hero--image-left .service-discover{left:calc(50% + clamp(28px,4vw,70px))}
+.service-hero--image-left .service-hero-caption{right:auto;left:var(--gutter)}
+@media(max-width:700px){
+ .service-hero--split{grid-template-columns:1fr;grid-template-rows:46svh auto;height:auto;max-height:none;min-height:0}
+ .service-hero--split .service-hero-image,.service-hero--image-left .service-hero-image{grid-column:1;grid-row:1}
+ .service-hero--split .service-hero-copy,.service-hero--image-left .service-hero-copy{grid-column:1;grid-row:2;padding:38px 26px 120px}
+ .service-hero--split h1{font-size:clamp(40px,10.5vw,58px)}
+ .service-hero--split .service-hero-lead{font-size:13px}
+ .service-hero--split .service-hero-caption,.service-hero--image-left .service-hero-caption{top:calc(46svh - 30px);bottom:auto;left:auto;right:26px}
+ .service-hero--image-left .service-discover{left:26px}
+}

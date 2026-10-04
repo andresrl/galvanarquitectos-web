@@ -1,11 +1,12 @@
 // Service hubs and service × location pages composed from service copy, local copy and the studio archive.
 // The approved pilot (renovation × Marbella) keeps its own hand-written file and is not generated here.
-import type { Locale, Media, PageDefinition, ServiceContent } from './types'
+import type { HeroLayout, Locale, Media, PageDefinition, ServiceContent } from './types'
 import { locales } from './types'
 import { services, serviceIds, locations, locationIds, type LocationId, type ServiceId } from '../taxonomy'
 import { serviceCopy, serviceMedia, commonCopy } from '../content/services'
 import { locationCopy } from '../content/locations'
 import { archive, type ArchiveKey } from '../content/archive'
+import { heroLeads, heroOrder } from '../content/hero'
 
 const handWritten = new Set(['renovation-marbella'])
 
@@ -17,16 +18,16 @@ function project(key: ArchiveKey, locale: Locale) {
   const a = archive[key]
   return { name: a.name, image: a.src.replace('/photos/', ''), alt: a.alt[locale], text: a.text[locale] }
 }
-const pick = (pool: ArchiveKey[], offset: number) => [0, 1, 2].map(n => pool[(offset + n) % pool.length])
+const pick = (pool: ArchiveKey[], offset: number, skip?: ArchiveKey) => { const p = pool.filter(k => k !== skip); return [0, 1, 2].map(n => p[(offset + n) % p.length]) }
 
-function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: LocationId }): ServiceContent {
+function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: LocationId; hero: ArchiveKey }): ServiceContent {
   const s = serviceCopy[id][locale], c = commonCopy[locale], m = serviceMedia[id]
-  const [feature, first, second] = pick(m.pool, offset)
+  const [feature, first, second] = pick(m.pool, offset, local?.hero)
   const loc = local && locations[local.loc], lc = local && locationCopy[local.loc]
   const place = loc?.in[locale]
   const base = {
     enquire: s.enquire, discover: c.discover, home: c.home, service: services[id].name[locale], navigation: s.navigation,
-    media: { hero: media(m.hero, locale), feature: media(feature, locale), pause: media(m.pause, locale) },
+    media: { hero: media(local?.hero ?? m.hero, locale), feature: media(feature, locale), pause: media(m.pause, locale) },
     introEyebrow: s.introEyebrow, introTitle: s.introTitle, introItalic: s.introItalic,
     transformationEyebrow: s.transformationEyebrow, transformationTitle: s.transformationTitle, transformationItalic: s.transformationItalic, scope: s.scope,
     archiveNote: s.archiveNote,
@@ -48,12 +49,12 @@ function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: L
     localTitle: s.hubLocalTitle, localText: c.hubLocalText, faqs: s.faqs, contactText: s.hubContactText,
     zonesEyebrow: s.zonesEyebrow, zonesTitle: s.zonesTitle, zonesItalic: s.zonesItalic, zonesText: s.zonesText
   }
-  const focus = lc.focus[id]?.[locale]
-  if (!focus) throw new Error(`Missing local focus for ${id} × ${local.loc} (${locale})`)
+  const focus = lc.focus[id]?.[locale], lead = heroLeads[local.loc][id]?.[locale]
+  if (!focus || !lead) throw new Error(`Missing local copy for ${id} × ${local.loc} (${locale})`)
   return {
     ...base,
     label: `${services[id].name[locale]} ${place}`, title: `${s.heading} ${place} · Galván Arquitectos`, description: s.describe(place),
-    eyebrow: `${loc.name[locale].toUpperCase()} · ${loc.area}`, heading: s.heading, italic: place + '.', lead: s.lead,
+    eyebrow: `${loc.name[locale].toUpperCase()} · ${loc.area}`, heading: s.heading, italic: place + '.', lead,
     introLead: lc.context[locale], introText: `${focus} ${s.introText}`,
     localTitle: s.localTitle(place), localText: lc.setting[locale], faqs: [lc.faq[locale], ...s.faqs], contactText: s.contactText(place)
   }
@@ -73,8 +74,9 @@ export const locationPages: PageDefinition[] = serviceIds.flatMap((id, s) => loc
   .filter(({ id, loc }) => !handWritten.has(`${id}-${loc}`))
   .map(({ id, loc, i, s }) => ({
     id: `${id}-${loc}`, type: 'service-location', template: 'service', serviceId: id, locationId: loc,
+    hero: ((i + s) % 2 ? 'split-left' : 'split-right') as HeroLayout,
     paths: { en: `/${services[id].slug.en}/${locations[loc].slug.en}`, es: `/es/${services[id].slug.es}/${locations[loc].slug.es}` },
-    status: 'draft', content: byLocale(locale => compose(id, locale, i + s * 3, { loc })),
+    status: 'draft', content: byLocale(locale => compose(id, locale, i + s * 3, { loc, hero: heroOrder[(i + 4 * s) % heroOrder.length] })),
     sources: ['CLAUDE.md §9 (borradores de servicio)', 'app/data/content/locations.ts (geografía general de la zona)'],
     pending: ['Proyectos documentados en esta zona', 'Revisión de Paco del texto local', 'Imágenes propias del servicio']
   }))

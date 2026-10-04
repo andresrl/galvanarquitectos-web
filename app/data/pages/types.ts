@@ -5,6 +5,7 @@ export type PageStatus = 'draft' | 'reviewed' | 'published'
 export type PageType = 'service' | 'service-location' | 'project' | 'editorial'
 export type PageTemplate = 'service'
 
+export type HeroLayout = 'full' | 'split-left' | 'split-right' // split: archive photo on one half, copy on paper
 export type Media = { src: string; width: number; height: number; alt: string; caption: string }
 export type Crumb = { label: string; path?: string }
 export type Faq = [question: string, answer: string]
@@ -39,6 +40,7 @@ export type PageDefinition<C = ServiceContent> = {
   id: string
   type: PageType
   template: PageTemplate
+  hero?: HeroLayout                 // default 'full': photo a sangre with the headline on top
   serviceId?: string
   locationId?: string
   projectIds?: string[]
@@ -57,6 +59,7 @@ export type ResolvedPage<C = ServiceContent> = {
   alternates: Record<Locale, string>
   breadcrumb: Crumb[]
   locationName?: string
+  hero: HeroLayout
   zones?: NavItem[]                         // hub: its location pages
   related?: { title: string; links: NavItem[] }[] // location page: a few neighbours, never the whole matrix
   relatedEyebrow?: string

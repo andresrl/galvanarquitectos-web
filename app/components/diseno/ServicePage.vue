@@ -28,9 +28,9 @@ function prepareEnquiry(){
 </script>
 <template>
 <main ref="root" class="service-editorial">
- <section class="service-hero" id="service-top" aria-labelledby="service-title">
+ <section :class="['service-hero',{'service-hero--split':page.hero!=='full','service-hero--image-left':page.hero==='split-left'}]" id="service-top" aria-labelledby="service-title">
   <div class="service-hero-image"><img :src="content.media.hero.src" :alt="content.media.hero.alt" fetchpriority="high" :width="content.media.hero.width" :height="content.media.hero.height"></div>
-  <div class="service-hero-shade"></div>
+  <div v-if="page.hero==='full'" class="service-hero-shade"></div>
   <div class="service-hero-copy">
    <p class="eyebrow" data-reveal>{{content.eyebrow}}</p>
    <h1 id="service-title" data-reveal>{{content.heading}}{{' '}}<em>{{content.italic}}</em></h1>

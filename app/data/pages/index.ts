@@ -18,6 +18,7 @@ for (const definition of pages) for (const [locale, path] of Object.entries(defi
 export const pageById = (id: string) => pages.find(p => p.id === id)
 export const findPage = (path: string) => byPath.get(normalisePath(path))
 export const pathLocale = (path: string) => findPage(path)?.locale
+export const heroLayout = (path: string) => findPage(path)?.definition.hero ?? 'full'
 export const alternatePath = (path: string, locale: Locale) => findPage(path)?.definition.paths[locale]
 
 // Home ES (/es/) is not built yet; both languages link to / until it is.
@@ -53,6 +54,7 @@ export function resolvePage(path: string): ResolvedPage | undefined {
   return {
     definition, locale, path: definition.paths[locale], content, alternates: definition.paths, breadcrumb,
     locationName: location?.name[locale],
+    hero: definition.hero ?? 'full',
     zones: definition.type === 'service' && serviceId ? zonesFor(serviceId, locale) : undefined,
     related: serviceId && locationId ? relatedFor(serviceId, locationId, locale) : undefined,
     relatedEyebrow: linkCopy[locale].relatedEyebrow

@@ -5,9 +5,11 @@ export function createServiceMotion({ root, gsap, ScrollTrigger, onTone }) {
  media.add({ reduced: '(prefers-reduced-motion: reduce)', mobile: '(max-width: 700px)', desktop: '(min-width: 701px)' }, ({ conditions }) => {
   const { reduced, mobile } = conditions
   const hero = root.querySelector('.service-hero')
-  const toneObserver = new IntersectionObserver(([entry]) => onTone(entry.isIntersecting ? 'light' : 'dark'), { rootMargin: '-100px 0px 0px 0px', threshold: 0 })
+  // Split heroes keep a paper header: the copy and the navigation never sit on the photo.
+  const split = hero.classList.contains('service-hero--split')
+  const toneObserver = new IntersectionObserver(([entry]) => onTone(entry.isIntersecting && !split ? 'light' : 'dark'), { rootMargin: '-100px 0px 0px 0px', threshold: 0 })
   toneObserver.observe(hero)
-  onTone(hero.getBoundingClientRect().bottom > 100 ? 'light' : 'dark')
+  onTone(hero.getBoundingClientRect().bottom > 100 && !split ? 'light' : 'dark')
   const graphics = createSpaceGraphics({ sections: [root.querySelector('.service-process')], gsap, ScrollTrigger, mobile, reduced })
   if (!reduced) {
    gsap.from(root.querySelectorAll('.service-hero [data-reveal]'), { y: 35, opacity: 0, duration: 1.3, stagger: .13, ease: 'power3.out' })
