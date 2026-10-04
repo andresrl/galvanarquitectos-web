@@ -1,0 +1,20 @@
+{
+  "direccion": "Editorial fullscreen architecture with GSAP and isometric line art",
+  "paleta": [
+    "#f6f4ef",
+    "#1c211e",
+    "#ad8d61",
+    "#788570"
+  ],
+  "tipografias": [
+    "Manrope (self-hosted)",
+    "Inter (self-hosted)",
+    "Georgia"
+  ],
+  "idiomaInicial": "en",
+  "idiomas": [
+    "en",
+    "es"
+  ],
+  "origen": "Accepted Galván Arquitectos demo; migrated from static HTML to Nuxt using an untouched source starter."
+}
