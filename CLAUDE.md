@@ -73,7 +73,9 @@ Zonas (4 de octubre de 2026, elegidas por Andrés y completadas con tres de Marb
 
 Total: 88 URLs de servicio (44 por idioma). Comprobación: `npm run verify:migration` y `npm run verify:pseo` (rastrea hubs y zonas, títulos/H1/intros únicos, hreflang recíproco, FAQ schema = FAQ visible).
 
-Hay infraestructura de blog, pero el mapa completo de LanzaderaWeb **todavía no está trasladado** al Nuxt actual. No anunciar como construidas las 38 páginas del mapa de origen.
+**Guías (4 de octubre de 2026):** 10 guías en EN (`/journal/<slug>`) y ES (`/es/guias/<slug>`), 20 archivos en `content/blog/{en,es}/`, todas `draft: true` hasta revisión de Paco. Las dos primeras (arquitectura e interiorismo; planos) se recuperaron de la app antigua de LanzaderaWeb, que nunca se habían trasladado; las otras ocho cubren renders, clientes en el extranjero, reformar o construir, parcela, licencias, presupuesto y honorarios, dirección de obra y jardín. Cada guía declara `translation` (slug del otro idioma), `order`, `image` (clave de `archive.ts`) y `service`. `/blog` y sus dos URLs antiguas redirigen 301 a `/es/guias`. Datos y SEO en `app/composables/useGuides.ts` (las páginas esperan los datos y luego llaman a los helpers síncronos: un `await` dentro de un composable pierde el contexto de Nuxt). Comprobación: `npm run verify:guides`.
+
+El resto del mapa de LanzaderaWeb (estudio, contacto, portfolio, legales) **todavía no está trasladado** al Nuxt actual. No anunciar como construidas las 38 páginas del mapa de origen.
 
 ### Archivos que debes conocer
 
@@ -86,7 +88,8 @@ app/app.vue                       shell común: aviso, cabecera, página, pie, c
 app/router.options.ts             scroll y coordinación con los capítulos Home
 app/pages/index.vue               entrada Home, datos y SEO
 app/pages/[...slug].vue            resuelve primero el registro de páginas; si no, demos. 404 y SEO
-app/pages/blog/                   entradas de Nuxt Content
+app/pages/journal/, app/pages/es/guias/ guías EN/ES (índice y artículo)
+app/data/guides.ts                rutas e idioma de las guías y textos de su interfaz
 app/middleware/service-locale.global.ts idioma y tono según la ruta (pathLocale del registro)
 app/components/diseno/
   Cabecera.vue                    marca, navegación y selector EN/ES

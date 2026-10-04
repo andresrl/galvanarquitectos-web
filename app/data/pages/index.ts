@@ -4,6 +4,7 @@ import { services, serviceIds, locations, locationIds, type ServiceId, type Loca
 import { linkCopy } from '../content/services'
 import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
+import { guideLocale } from '../guides'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
 
@@ -18,6 +19,8 @@ for (const definition of pages) for (const [locale, path] of Object.entries(defi
 export const pageById = (id: string) => pages.find(p => p.id === id)
 export const findPage = (path: string) => byPath.get(normalisePath(path))
 export const pathLocale = (path: string) => findPage(path)?.locale
+// Language fixed by the URL: registry pages and guides. The Home keeps the visitor's choice during SPA navigation.
+export const routeLocale = (path: string) => pathLocale(path) ?? guideLocale(normalisePath(path))
 export const heroLayout = (path: string) => findPage(path)?.definition.hero ?? 'full'
 export const alternatePath = (path: string, locale: Locale) => findPage(path)?.definition.paths[locale]
 

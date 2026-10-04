@@ -1,0 +1,65 @@
+/* Guides: index and reading template. Same tokens as service.css; paragraphs at a readable measure. */
+.guides,.guide{padding-top:110px;background:var(--paper)}
+.guides-head{padding-bottom:40px}
+.guides-head h1{font-size:clamp(46px,6vw,96px);max-width:14ch}
+.guides-lead{max-width:56ch;font-size:16px;line-height:1.75;color:var(--muted);margin-top:28px}
+.guides-list{list-style:none;padding-top:0}
+.guides-list li{border-top:1px solid var(--line)}
+.guides-list li:last-child{border-bottom:1px solid var(--line)}
+.guides-list a{display:grid;grid-template-columns:3em 132px minmax(0,1fr) 2em;gap:clamp(18px,3vw,44px);align-items:center;padding:26px 0;text-decoration:none;transition:color .25s}
+.guides-number{font-size:10px;letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+.guides-thumb{display:block;aspect-ratio:1;overflow:hidden;background:#d4d6cb}
+.guides-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.guides-copy{display:flex;flex-direction:column;gap:8px;max-width:70ch}
+.guides-title{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(22px,2.3vw,34px);line-height:1.15;letter-spacing:-.02em}
+.guides-description{font-size:14px;line-height:1.65;color:var(--muted)}
+.guides-copy small{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#ad8d61}
+.guides-arrow{color:#ad8d61;justify-self:end}
+.guides-list a:hover .guides-title,.guides-list a:focus-visible .guides-title{color:#ad8d61}
+.guides-list a:hover img{transform:scale(1.05)}
+
+.guide-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,7vw,120px);align-items:end;padding-bottom:50px}
+.guide-head h1{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(38px,4.6vw,72px);line-height:1.08;letter-spacing:-.04em;margin:0 0 28px;text-wrap:balance}
+.guide-lead{max-width:52ch;font-size:18px;line-height:1.65;color:#3d443f}
+.guide-meta{margin-top:26px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.guide-figure{margin:0}
+.guide-figure .service-photo{aspect-ratio:.86}
+.guide-figure img{width:100%;height:100%;object-fit:cover}
+.guide-figure figcaption{font-size:9px;color:var(--muted);padding-top:10px}
+.guide-breadcrumb{display:flex;flex-wrap:wrap;gap:10px;padding-top:0;padding-bottom:0;font-size:11px;color:var(--muted)}
+.guide-breadcrumb a{text-decoration:none}
+.guide-breadcrumb [aria-current]{color:var(--ink)}
+.guide-body{padding:clamp(50px,6vw,90px) var(--gutter) clamp(70px,8vw,120px)}
+.guide-prose{max-width:68ch;margin:0 auto;font-size:17px;line-height:1.78;color:#2a302c}
+.guide-prose p{margin:0 0 1.25em}
+.guide-prose h2{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(26px,2.6vw,36px);line-height:1.2;letter-spacing:-.02em;margin:2.2em 0 .8em;color:var(--ink)}
+.guide-prose h3{font-family:Manrope,Arial,sans-serif;font-weight:400;font-size:21px;margin:1.8em 0 .6em}
+.guide-prose ul,.guide-prose ol{margin:0 0 1.4em;padding-left:1.2em}
+.guide-prose li{margin-bottom:.55em;padding-left:.3em}
+.guide-prose li::marker{color:#ad8d61}
+.guide-prose strong{font-weight:600;color:var(--ink)}
+.guide-prose a{color:inherit;text-decoration:underline;text-decoration-color:#ad8d61;text-underline-offset:4px}
+.guide-prose a:hover{color:#ad8d61}
+.guide-prose h2 a,.guide-prose h3 a{text-decoration:none}
+.guide-service{background:#1c2a22;color:var(--paper)}
+.guide-service-inner{display:grid;grid-template-columns:1fr auto;gap:22px 40px;align-items:end;padding-top:70px;padding-bottom:70px}
+.guide-service .eyebrow{grid-column:1/-1;color:#ad8d61;margin:0}
+.guide-service-link{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(28px,3.4vw,52px);letter-spacing:-.03em;text-decoration:none;color:inherit}
+.guide-service-link:first-letter{text-transform:uppercase}
+.guide-service-link span{color:#ad8d61;font-size:.6em}
+.guide-service .text-link{color:var(--paper)}
+.guide-more ul{list-style:none;margin:0 0 34px;padding:0;border-top:1px solid var(--line)}
+.guide-more li{border-bottom:1px solid var(--line)}
+.guide-more a:not(.text-link){display:flex;justify-content:space-between;gap:20px;padding:16px 0;font-size:15px;text-decoration:none}
+.guide-more a span{color:#ad8d61}
+.guide-more a:hover{color:#ad8d61}
+@media(max-width:700px){
+ .guides,.guide{padding-top:90px}
+ .guides-list a{grid-template-columns:72px minmax(0,1fr);gap:16px}
+ .guides-number,.guides-arrow{display:none}
+ .guide-head{grid-template-columns:1fr;gap:30px}
+ .guide-head-copy{order:2}
+ .guide-lead{font-size:16px}
+ .guide-prose{font-size:16px}
+ .guide-service-inner{grid-template-columns:1fr}
+}

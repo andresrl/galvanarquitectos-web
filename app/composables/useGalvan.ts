@@ -1,14 +1,15 @@
 import {copy} from '~/data/demo'
-import {pathLocale,alternatePath} from '~/data/pages'
+import {routeLocale,alternatePath} from '~/data/pages'
 export type GalvanLocale='en'|'es'
 export function useGalvan(){
   // English always starts a new request. No storage or browser-language detection.
   const route=useRoute()
-  const locale=useState<GalvanLocale>('galvan:language',()=>pathLocale(route.path)??'en')
+  const locale=useState<GalvanLocale>('galvan:language',()=>routeLocale(route.path)??'en')
   const chapter=useState('galvan:chapter',()=>0)
   const tone=useState('galvan:tone',()=> 'light')
   const requestedScene=useState('galvan:scene-request',()=>({id:'inicio',serial:0}))
   const router=useRouter()
+  const alternates=useState<Record<string,Record<string,string>>>('galvan:alternates',()=>({}))
   const t=(key:string)=>(copy[locale.value] as Record<string,string>)[key]??key
   const scenes=[
     {id:'inicio',en:'Home',es:'Inicio'},
@@ -26,7 +27,8 @@ export function useGalvan(){
   }
   function toggleLanguage(){
     const next=locale.value==='en'?'es':'en'
-    const equivalent=alternatePath(router.currentRoute.value.path,next)
+    const current=router.currentRoute.value.path.replace(/\/$/,'')||'/'
+    const equivalent=alternatePath(current,next)??alternates.value[current]?.[next]
     if(equivalent)return router.push(equivalent)
     locale.value=next
   }
