@@ -37,7 +37,7 @@ onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('ke
  <div v-if="open" id="site-menu" ref="panel" class="site-menu" role="dialog" aria-modal="true" :aria-label="locale==='en'?'Site menu':'Menú del sitio'">
   <div class="site-menu-top">
    <NuxtLink class="brand" :to="homePath(locale)" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'" @click="close"><DisenoMarca /></NuxtLink>
-   <button type="button" class="site-menu-close" @click="close">{{locale==='en'?'Close':'Cerrar'}} <span aria-hidden="true">×</span></button>
+   <button type="button" class="site-menu-close" @click="close">{{locale==='en'?'Close':'Cerrar'}} <span aria-hidden="true"><DisenoIcon name="close" /></span></button>
   </div>
   <div class="site-menu-body">
    <nav v-for="group in groups" :key="group.title" class="site-menu-group site-menu-explore" :aria-label="group.title">

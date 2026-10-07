@@ -81,8 +81,8 @@ onBeforeUnmount(stop)
 
  <section class="project-cta" data-header="light" aria-labelledby="projects-cta-title">
   <div data-reveal><p class="eyebrow">{{ ui.ctaEyebrow }}</p><h2 id="projects-cta-title">{{ t.closingTitle }} <em>{{ t.closingItalic }}</em></h2></div>
-  <div data-reveal><p>{{ t.closingText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></a></div>
+  <div data-reveal><p>{{ t.closingText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a></div>
  </section>
- <div class="project-end" data-header="light"><span>{{ t.count(items.length).toUpperCase() }}</span><a href="#projects-top">{{ ui.top }} ↑</a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
+ <div class="project-end" data-header="light"><span>{{ t.count(items.length).toUpperCase() }}</span><a href="#projects-top">{{ ui.top }} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
 </main>
 </template>

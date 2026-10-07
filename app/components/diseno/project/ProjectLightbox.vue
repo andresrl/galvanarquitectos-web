@@ -26,10 +26,10 @@ onBeforeUnmount(() => { if (import.meta.client) document.documentElement.classLi
    <img :src="current.image.src" :srcset="current.image.srcset" sizes="100vw" :alt="current.alt" :width="current.image.width" :height="current.image.height">
    <figcaption><span>{{ String(index + 1).padStart(2, '0') }} {{ ui.of }} {{ String(items.length).padStart(2, '0') }}</span>{{ current.alt }}</figcaption>
   </figure>
-  <button type="button" class="project-lightbox-close" @click="close">{{ ui.close }} <span aria-hidden="true">×</span></button>
+  <button type="button" class="project-lightbox-close" @click="close">{{ ui.close }} <span aria-hidden="true"><DisenoIcon name="close" /></span></button>
   <template v-if="items.length > 1">
-   <button type="button" class="project-lightbox-nav project-lightbox-prev" :aria-label="ui.previous" @click="go(-1)"><span aria-hidden="true">←</span></button>
-   <button type="button" class="project-lightbox-nav project-lightbox-next" :aria-label="ui.next" @click="go(1)"><span aria-hidden="true">→</span></button>
+   <button type="button" class="project-lightbox-nav project-lightbox-prev" :aria-label="ui.previous" @click="go(-1)"><span aria-hidden="true"><DisenoIcon name="arrow-left" /></span></button>
+   <button type="button" class="project-lightbox-nav project-lightbox-next" :aria-label="ui.next" @click="go(1)"><span aria-hidden="true"><DisenoIcon name="arrow-right" /></span></button>
   </template>
  </template>
 </dialog>

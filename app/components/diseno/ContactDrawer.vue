@@ -37,7 +37,7 @@ onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('ke
  <Transition name="contact-drawer">
   <div v-if="open" class="contact-drawer" @click.self="close">
    <div ref="panel" class="contact-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-    <button type="button" class="contact-drawer-close" @click="close">{{ c.close }} <span aria-hidden="true">×</span></button>
+    <button type="button" class="contact-drawer-close" @click="close">{{ c.close }} <span aria-hidden="true"><DisenoIcon name="close" /></span></button>
     <ContactPanel :active="open" id-prefix="drawer" />
    </div>
   </div>

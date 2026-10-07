@@ -54,8 +54,8 @@ const id = s => `${props.idPrefix}-${s}`
   <label :for="id('message')">{{ c.fields.message }}<textarea :id="id('message')" v-model="form.message" name="message" rows="4" required maxlength="5000"></textarea></label>
   <p class="contact-panel-note">{{ c.note }}</p>
   <div class="contact-panel-actions">
-   <button type="submit" class="contact-panel-button">{{ c.send }} <span aria-hidden="true">↗</span></button>
-   <a :href="tel" class="contact-panel-button">{{ c.call }} <span aria-hidden="true">↗</span></a>
+   <button type="submit" class="contact-panel-button">{{ c.send }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button>
+   <a :href="tel" class="contact-panel-button">{{ c.call }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
   </div>
   <p class="contact-panel-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="tel">{{ negocio.contacto.telefono }}</a><span>Marbella · Costa del Sol</span></p>
  </form>

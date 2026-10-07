@@ -1,9 +1,10 @@
 /* Site navigation: header menu button, full-screen menu and footer. Shares tokens with diseno.css. */
 :root{--forest:#1c2a22;--brass:#ad8d61}
+.site-icon{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.15em;pointer-events:none}
 
 /* Header menu button */
 .header .menu-toggle{display:flex;align-items:center;gap:12px;width:auto;height:36px;margin-right:18px;padding:0;border:0;border-radius:0;font-family:Inter,Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.menu-lines{position:relative;display:block;width:22px;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+.menu-lines{display:block;width:22px;height:22px}
 .menu-open,.menu-open body{overflow:hidden}
 
 /* Full-screen menu */

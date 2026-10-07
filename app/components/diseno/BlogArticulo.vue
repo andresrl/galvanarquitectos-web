@@ -26,14 +26,14 @@ useHead({ bodyAttrs: { class: 'luxury-service-page' } })
  <aside class="guide-service" :aria-label="t.related">
   <div class="service-container guide-service-inner">
    <p class="eyebrow">{{t.related}}</p>
-   <NuxtLink class="guide-service-link" :to="post.service">{{post.serviceAnchor}} <span aria-hidden="true">↗</span></NuxtLink>
-   <NuxtLink class="text-link" :to="post.service+'#enquiry'"><span>{{t.contact}}</span><span aria-hidden="true">↗</span></NuxtLink>
+   <NuxtLink class="guide-service-link" :to="post.service">{{post.serviceAnchor}} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
+   <NuxtLink class="text-link" :to="post.service+'#enquiry'"><span>{{t.contact}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
   </div>
  </aside>
  <nav v-if="more.length" class="guide-more service-container" :aria-label="t.more">
   <p class="eyebrow">{{t.more}}</p>
-  <ul><li v-for="item in more" :key="item.href"><NuxtLink :to="item.href">{{item.title}}<span aria-hidden="true">↗</span></NuxtLink></li></ul>
-  <NuxtLink class="text-link" :to="guideIndex[locale]"><span>{{t.all}}</span><span aria-hidden="true">↗</span></NuxtLink>
+  <ul><li v-for="item in more" :key="item.href"><NuxtLink :to="item.href">{{item.title}}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
+  <NuxtLink class="text-link" :to="guideIndex[locale]"><span>{{t.all}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
  </nav>
 </main>
 </template>

@@ -137,7 +137,7 @@ function step(dir) {
   <p v-if="copy.body[2]" class="project-closing" data-reveal><span class="project-rule" aria-hidden="true"></span>{{ copy.body[2] }}</p>
   <button v-if="single" type="button" class="project-photo project-single" :aria-label="ui.open + ': ' + altOf(single)" @click="show(single)"><DisenoProjectImage :image="single" :alt="altOf(single)" sizes="(max-width:700px) 100vw, 84vw" /></button>
   <div v-if="reel.length" class="project-reel">
-   <div class="project-reel-head"><p class="eyebrow">{{ ui.gallery }} <span>{{ String(reel.length).padStart(2, '0') }}</span></p><div class="project-reel-controls"><span>{{ ui.scrollHint }}</span><button type="button" :aria-label="ui.previous" @click="step(-1)">←</button><button type="button" :aria-label="ui.next" @click="step(1)">→</button></div></div>
+   <div class="project-reel-head"><p class="eyebrow">{{ ui.gallery }} <span>{{ String(reel.length).padStart(2, '0') }}</span></p><div class="project-reel-controls"><span>{{ ui.scrollHint }}</span><button type="button" :aria-label="ui.previous" @click="step(-1)"><DisenoIcon name="arrow-left" /></button><button type="button" :aria-label="ui.next" @click="step(1)"><DisenoIcon name="arrow-right" /></button></div></div>
    <div ref="track" class="project-reel-track" tabindex="0" :aria-label="ui.gallery" @pointerdown="down" @pointermove="move" @pointerup="up" @pointerleave="up" @dragstart.prevent>
     <button v-for="image in reel" :key="image.src" type="button" class="project-reel-item" :style="{ aspectRatio: image.width + ' / ' + image.height }" :aria-label="ui.open + ': ' + altOf(image)" @click="reelClick(image)"><DisenoProjectImage :image="image" :alt="altOf(image)" sizes="(max-width:700px) 90vw, 60vw" /></button>
    </div>
@@ -158,7 +158,7 @@ function step(dir) {
   </div>
   <nav class="project-setting-services" :aria-label="setting.servicesTitle" data-reveal>
    <h3>{{ setting.servicesTitle }}</h3>
-   <ul><li v-for="link in setting.services" :key="link.path"><NuxtLink :to="link.path">{{ link.label }}<span aria-hidden="true">↗</span></NuxtLink></li></ul>
+   <ul><li v-for="link in setting.services" :key="link.path"><NuxtLink :to="link.path">{{ link.label }}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
   </nav>
   <nav v-if="setting.projects.length" class="project-setting-projects" :aria-label="setting.projectsTitle">
    <h3 data-reveal>{{ setting.projectsTitle }}</h3>
@@ -170,13 +170,13 @@ function step(dir) {
   <div class="project-byservice-head" data-reveal>
    <p class="eyebrow">{{ locale === 'en' ? 'By service' : 'Por servicio' }}</p>
    <h2 :id="'byservice-' + project.id">{{ locale === 'en' ? 'Related projects' : 'Proyectos relacionados' }}</h2>
-   <ul class="project-byservice-services"><li v-for="s in byService.services" :key="s.path"><NuxtLink :to="s.path">{{ s.label }} <span aria-hidden="true">↗</span></NuxtLink></li></ul>
+   <ul class="project-byservice-services"><li v-for="s in byService.services" :key="s.path"><NuxtLink :to="s.path">{{ s.label }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
   </div>
   <ul class="project-byservice-list"><li v-for="item in byService.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 24vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
 
  <nav class="project-related" data-header="dark" :aria-labelledby="'related-' + project.id">
-  <div class="project-related-head"><h2 :id="'related-' + project.id">{{ ui.other }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ ui.all }}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+  <div class="project-related-head"><h2 :id="'related-' + project.id">{{ ui.other }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ ui.all }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
   <ul>
    <li v-for="item in related" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 25vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li>
   </ul>
@@ -190,17 +190,17 @@ function step(dir) {
    <p data-reveal>{{ ui.architect.background }}</p>
    <p data-reveal>{{ ui.architect.approach }}</p>
    <dl class="project-principles"><div v-for="[term, text] in ui.architect.principles" :key="term" data-reveal><dt>{{ term }}</dt><dd>{{ text }}</dd></div></dl>
-   <NuxtLink class="text-link" :to="studioPaths[locale]" data-reveal><span>{{ ui.architect.link }}</span><span aria-hidden="true">↗</span></NuxtLink>
+   <NuxtLink class="text-link" :to="studioPaths[locale]" data-reveal><span>{{ ui.architect.link }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
   </div>
   <figure class="project-architect-scene"><img src="/media/studio/studio-drawing-1280.avif" :alt="ui.architect.studioAlt" width="1280" height="720" loading="lazy" decoding="async"></figure>
  </section>
 
  <section class="project-cta" data-header="light" aria-labelledby="project-cta-title">
   <div data-reveal><p class="eyebrow">{{ ui.ctaEyebrow }}</p><h2 id="project-cta-title">{{ ui.ctaTitle }} <em>{{ ui.ctaItalic }}</em></h2></div>
-  <div data-reveal><p>{{ ui.ctaText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></a>
+  <div data-reveal><p>{{ ui.ctaText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
    <p class="project-direct"><span>{{ ui.direct }}</span><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')">{{ negocio.contacto.telefono }}</a></p></div>
  </section>
- <div class="project-end" data-header="light"><span>{{ name.toUpperCase() }} · {{ negocio.marca.toUpperCase() }}</span><a href="#project-top">{{ ui.top }} ↑</a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
+ <div class="project-end" data-header="light"><span>{{ name.toUpperCase() }} · {{ negocio.marca.toUpperCase() }}</span><a href="#project-top">{{ ui.top }} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
  <DisenoProjectLightbox v-model="open" :items="viewer" :ui="ui" />
 </main>
 </template>

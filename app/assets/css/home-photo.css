@@ -1,5 +1,12 @@
 /* Home chapters on full-bleed photography and video (7 Oct 2026): replaces the line-art backgrounds of
    «servicios» and «estudio», keeps the eight chapters, their ids, pins and timings. Loaded after diseno.css. */
+/* Constant extra dimming above the video and its poster, independent of the scroll shade. */
+.hero-visual::after{content:'';position:absolute;inset:0;background:rgb(20 22 23 / 30%);pointer-events:none}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 30px}
+.hero-actions .hero-cta-primary{justify-content:space-between;min-height:48px;gap:32px;padding:12px 20px;border:1px solid var(--paper);background:var(--paper);color:var(--ink);font-size:13px;font-weight:500;line-height:1.1;transition:background .25s,border-color .25s}
+.hero-actions .hero-cta-primary:hover{background:#fff;border-color:#fff}
+.hero-actions a:focus-visible{outline:2px solid #fff;outline-offset:5px}
+.hero-cta-secondary{min-height:44px;line-height:1.1}
 .photo-slide{color:#fff;background:#14201b}
 .photo-bg{inset:0}
 .photo-bg img,.photo-bg video{display:block;width:100%;height:100%;object-fit:cover}
@@ -23,6 +30,9 @@
 .interiors .vertical-caption,.scene-foot .photo-credit{font-size:8px;letter-spacing:.08em}
 @media(prefers-reduced-motion:reduce){.ambient-video{visibility:hidden;will-change:auto}}
 @media(max-width:700px){
+ .hero-content{bottom:max(20svh,calc(166px + env(safe-area-inset-bottom)))}
+ .hero-actions{align-items:flex-start;flex-direction:column;gap:10px}
+ .hero-actions .hero-cta-primary{min-width:180px}
  .photo-shade{background:linear-gradient(0deg,#0b1410f0 0%,#0b1410b3 45%,#0b141033 75%,#0b141059 100%)}
  .studio.photo-slide .slide-inner{width:100%}
  .studio-visual video,.studio-visual{background-position:70% center;object-position:70% center}

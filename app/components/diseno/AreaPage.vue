@@ -50,13 +50,13 @@ onBeforeRouteLeave(stop); onBeforeUnmount(stop)
   <h2 id="area-services" data-reveal>{{ t.servicesTitle(inPlace) }}</h2>
   <ul><li v-for="cell in cells" :key="cell.id" data-reveal><NuxtLink :to="cell.path">
    <div class="project-photo project-image"><img :src="cell.image.src" :srcset="cell.image.srcset" sizes="(max-width:700px) 90vw, 45vw" :alt="cell.image.alt" :width="cell.image.width" :height="cell.image.height" loading="lazy" decoding="async"></div>
-   <h3>{{ cell.name }} <span aria-hidden="true">↗</span></h3><p>{{ cell.text }}</p></NuxtLink></li></ul>
+   <h3>{{ cell.name }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></h3><p>{{ cell.text }}</p></NuxtLink></li></ul>
  </section>
  <nav v-if="projectCards.length" class="project-setting-projects area-projects" data-header="dark" :aria-label="t.projectsTitle(inPlace)">
   <h3>{{ t.projectsTitle(inPlace) }}</h3>
   <ul><li v-for="item in projectCards" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
- <nav class="area-near" data-header="dark" :aria-label="t.nearTitle"><h3>{{ t.nearTitle }}</h3><ul><li v-for="n in near" :key="n.path"><NuxtLink :to="n.path">{{ n.label }} <span aria-hidden="true">↗</span></NuxtLink></li></ul></nav>
- <section class="project-cta" data-header="light"><div data-reveal><h2>{{ t.ctaTitle }} <em>{{ t.ctaItalic }}</em></h2></div><div data-reveal><p>{{ t.lead(inPlace) }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ t.cta }}</span><span aria-hidden="true">↗</span></a></div></section>
+ <nav class="area-near" data-header="dark" :aria-label="t.nearTitle"><h3>{{ t.nearTitle }}</h3><ul><li v-for="n in near" :key="n.path"><NuxtLink :to="n.path">{{ n.label }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul></nav>
+ <section class="project-cta" data-header="light"><div data-reveal><h2>{{ t.ctaTitle }} <em>{{ t.ctaItalic }}</em></h2></div><div data-reveal><p>{{ t.lead(inPlace) }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ t.cta }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a></div></section>
 </main>
 </template>

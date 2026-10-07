@@ -94,15 +94,18 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
             <source :src="homeReel.desktop" type="video/mp4">
           </video>
         </div>
-        <div class="hero-shade"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content scene-copy">
           <p class="eyebrow" v-html="t('heroEyebrow')"></p>
           <h1 class="display-title" v-html="heroHeading"></h1>
           <p class="hero-summary" v-html="t('heroSummary')"></p>
-          <a class="text-link light" :href="home+'#servicios'" @click.prevent="requestScene('servicios')"><span v-html="t('explore')"></span><span aria-hidden="true">↗</span></a>
+          <div class="hero-actions">
+            <NuxtLink class="text-link hero-cta-primary" :to="projectsIndexPath[locale]"><span>{{t('heroProjects')}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
+            <NuxtLink class="text-link light hero-cta-secondary" :to="studioPaths[locale]"><span>{{t('heroStudio')}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
+          </div>
         </div>
         <span class="hero-caption">Martínez Galván · Costa del Sol</span>
-        <a class="scroll-hint" :href="home+'#servicios'" @click.prevent="requestScene('servicios')" :aria-label="locale==='en'?'View services':'Ver servicios'"><span v-html="t('scroll')"></span><span aria-hidden="true">↓</span></a>
+        <a class="scroll-hint" :href="home+'#servicios'" @click.prevent="requestScene('servicios')" :aria-label="locale==='en'?'View services':'Ver servicios'"><span v-html="t('scroll')"></span><span aria-hidden="true"><DisenoIcon name="arrow-down" /></span></a>
         <div class="hero-frame" aria-hidden="true"></div>
       </section>
       <section class="slide introduction photo-slide" id="servicios" data-tone="light" data-chapter="Services">
@@ -111,37 +114,37 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
           <p class="eyebrow" v-html="t('introEyebrow')"></p>
           <h2 class="display-title" v-html="t('introTitle')"></h2>
           <div class="intro-bottom"><p v-html="t('introText')"></p><p class="muted" v-html="t('introLocation')"></p></div>
-          <ul class="intro-services"><li v-for="link in serviceLinks" :key="link.path"><NuxtLink :to="link.path">{{link.label}}<span aria-hidden="true">↗</span></NuxtLink></li></ul>
+          <ul class="intro-services"><li v-for="link in serviceLinks" :key="link.path"><NuxtLink :to="link.path">{{link.label}}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
         </div>
         <span class="scene-number" aria-hidden="true">02 — 08</span>
-        <NuxtLink class="intro-caption photo-credit" :to="credit('the-house').path">{{credit('the-house').name}} · {{credit('the-house').label}} ↗</NuxtLink>
+        <NuxtLink class="intro-caption photo-credit" :to="credit('the-house').path">{{credit('the-house').name}} · {{credit('the-house').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
       </section>
       <section class="slide service-slide renovation" id="villas" data-tone="light" data-chapter="Villa renovation">
         <div class="visual service-visual"><img :src="photo('villas').src" :srcset="photo('villas').srcset" sizes="100vw" :width="photo('villas').width" :height="photo('villas').height" :alt="projectById('villa-paris').copy[locale].heroAlt" loading="lazy" decoding="async"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('renovationName')"></p><h2 class="display-title" v-html="t('renovationBrief')"></h2><NuxtLink class="text-link case" :to="hub('renovation')[locale]"><span>{{locale==='en'?'Explore villa renovation':'Explorar reformas de villas'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
-        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('villa-paris').path">{{credit('villa-paris').name}} · {{credit('villa-paris').label}} ↗</NuxtLink><NuxtLink class="photo-credit" :to="projectsIndexPath[locale]">{{locale==='en'?'All projects':'Todos los proyectos'}} ↗</NuxtLink></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('renovationName')"></p><h2 class="display-title" v-html="t('renovationBrief')"></h2><NuxtLink class="text-link case" :to="hub('renovation')[locale]"><span>{{locale==='en'?'Explore villa renovation':'Explorar reformas de villas'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
+        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('villa-paris').path">{{credit('villa-paris').name}} · {{credit('villa-paris').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink><NuxtLink class="photo-credit" :to="projectsIndexPath[locale]">{{locale==='en'?'All projects':'Todos los proyectos'}} <DisenoIcon name="arrow-up-right" /></NuxtLink></div>
       </section>
       <section class="slide service-slide interiors" id="interiores" data-tone="dark" data-chapter="Interior design">
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('interiorName')"></p><h2 class="display-title" v-html="t('interiorBrief')"></h2><NuxtLink class="text-link case" :to="hub('interiors')[locale]"><span>{{locale==='en'?'Explore interior design':'Explorar interiorismo'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('interiorName')"></p><h2 class="display-title" v-html="t('interiorBrief')"></h2><NuxtLink class="text-link case" :to="hub('interiors')[locale]"><span>{{locale==='en'?'Explore interior design':'Explorar interiorismo'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
         <div class="visual service-visual"><img :src="photo('interiores').src" :srcset="photo('interiores').srcset" sizes="(max-width:700px) 100vw, 50vw" :width="photo('interiores').width" :height="photo('interiores').height" :alt="locale==='en'?'Vaulted living room opening onto the garden, Bleu Royal':'Salón abovedado abierto al jardín, Bleu Royal'" loading="lazy" decoding="async" class="interior-crop"></div>
-        <NuxtLink class="vertical-caption photo-credit" :to="credit('bleu-royal').path">{{credit('bleu-royal').name}} · {{credit('bleu-royal').label}} ↗</NuxtLink>
+        <NuxtLink class="vertical-caption photo-credit" :to="credit('bleu-royal').path">{{credit('bleu-royal').name}} · {{credit('bleu-royal').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
       </section>
       <section class="slide service-slide landscape" id="exteriores" data-tone="light" data-chapter="Landscape design">
         <div class="visual service-visual"><img :src="photo('exteriores').src" :srcset="photo('exteriores').srcset" sizes="100vw" :width="photo('exteriores').width" :height="photo('exteriores').height" :alt="locale==='en'?'Garden with a pond and planting in front of the villa, Cútar':'Jardín con estanque y vegetación frente a la villa, Cútar'" loading="lazy" decoding="async"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('landscapeName')"></p><h2 class="display-title" v-html="t('landscapeBrief')"></h2><NuxtLink class="text-link case" :to="hub('landscape')[locale]"><span>{{locale==='en'?'Explore landscape design':'Explorar paisajismo'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
-        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('cutar').path">{{credit('cutar').name}} · {{credit('cutar').label}} ↗</NuxtLink></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('landscapeName')"></p><h2 class="display-title" v-html="t('landscapeBrief')"></h2><NuxtLink class="text-link case" :to="hub('landscape')[locale]"><span>{{locale==='en'?'Explore landscape design':'Explorar paisajismo'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
+        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('cutar').path">{{credit('cutar').name}} · {{credit('cutar').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink></div>
       </section>
       <section class="slide studio photo-slide" id="estudio" data-tone="light" data-chapter="Studio">
         <div class="visual photo-bg studio-visual"><video class="ambient-video" data-ambient muted loop playsinline preload="none" poster="/media/studio/studio-drawing-2560.avif" aria-hidden="true"><source src="/video/studio-drawing.webm" type="video/webm"><source src="/video/studio-drawing.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><p class="muted small" v-html="t('studioSeparate')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><p class="muted small" v-html="t('studioSeparate')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
       </section>
       <section class="slide international" id="internacional" data-tone="dark" data-chapter="International clients">
         <div class="visual international-visual"><img :src="photo('internacional').src" :srcset="photo('internacional').srcset" sizes="(max-width:700px) 90vw, 45vw" :width="photo('internacional').width" :height="photo('internacional').height" :alt="locale==='en'?'Aerial view at dusk of villas on the hillside, La Resina, Estepona':'Vista aérea al anochecer de villas en la ladera, La Resina, Estepona'" loading="lazy" decoding="async"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('internationalEyebrow')"></p><h2 class="display-title" v-html="t('internationalTitle')"></h2><p class="body-copy" v-html="t('internationalText')"></p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span v-html="t('talkProject')"></span><span aria-hidden="true">↗</span></a></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('internationalEyebrow')"></p><h2 class="display-title" v-html="t('internationalTitle')"></h2><p class="body-copy" v-html="t('internationalText')"></p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span v-html="t('talkProject')"></span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a></div>
       </section>
       <section class="slide contact" id="contacto" data-tone="light" data-chapter="Contact">
         <div class="contact-ring" aria-hidden="true"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('contactEyebrow')"></p><h2 class="display-title" v-html="t('contactTitle')"></h2><a class="contact-email" href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com ↗</a><a class="contact-phone" href="tel:+34679979487">+34 679 97 94 87</a></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('contactEyebrow')"></p><h2 class="display-title" v-html="t('contactTitle')"></h2><a class="contact-email" href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com <DisenoIcon name="arrow-up-right" /></a><a class="contact-phone" href="tel:+34679979487">+34 679 97 94 87</a></div>
       </section>
     </div>
 </main></template>

@@ -25,7 +25,7 @@ function top(){if(isHome(route.path))requestScene('inicio');else window.scrollTo
 <template><footer ref="footer" :class="['site-footer',{'site-footer--home':isHome(route.path)}]">
  <div class="site-menu-top">
   <NuxtLink class="brand" :to="homePath(locale)" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'"><DisenoMarca /></NuxtLink>
-  <button type="button" class="site-menu-close" @click="top">{{locale==='en'?'Back to the top':'Volver arriba'}} <span aria-hidden="true">↑</span></button>
+  <button type="button" class="site-menu-close" @click="top">{{locale==='en'?'Back to the top':'Volver arriba'}} <span aria-hidden="true"><DisenoIcon name="arrow-up" /></span></button>
  </div>
  <div class="site-menu-body">
   <nav v-for="(group,g) in groups" :key="group.title" :class="['site-menu-group',{'site-menu-primary':g===0}]" :aria-label="group.title">

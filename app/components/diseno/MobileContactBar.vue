@@ -12,7 +12,7 @@ const c = computed(() => contactCopy[locale.value])
 </script>
 <template>
 <nav class="mobile-contact" :class="{ 'is-hidden': hidden }" :aria-label="c.label" :aria-hidden="hidden ? 'true' : undefined">
- <a :href="contact.path.value" :tabindex="hidden ? -1 : undefined" @click="contact.show($event)">{{ c.label }} <span aria-hidden="true">↗</span></a>
- <a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')" :tabindex="hidden ? -1 : undefined">{{ c.call }} <span aria-hidden="true">↗</span></a>
+ <a :href="contact.path.value" :tabindex="hidden ? -1 : undefined" @click="contact.show($event)">{{ c.label }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
+ <a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')" :tabindex="hidden ? -1 : undefined">{{ c.call }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
 </nav>
 </template>
