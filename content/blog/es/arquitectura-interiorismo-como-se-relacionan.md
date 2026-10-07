@@ -5,6 +5,7 @@ date: "2026-10-03"
 draft: true
 lang: "es"
 translation: "architecture-and-interior-design-how-they-work-together"
+seoTitle: "Arquitectura e interiorismo: cómo se relacionan"
 order: 1
 author: "Martínez Galván"
 image: "hotel-boutique"

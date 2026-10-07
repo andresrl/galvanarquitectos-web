@@ -5,6 +5,7 @@ date: "2026-10-04"
 draft: true
 lang: "en"
 translation: "disenar-el-jardin-desde-el-principio"
+seoTitle: "Why design the garden from the start"
 order: 10
 author: "Martínez Galván"
 image: "zagaleta-210"

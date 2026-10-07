@@ -5,6 +5,7 @@ date: "2026-10-04"
 draft: true
 lang: "en"
 translation: "direccion-de-obra-y-coordinacion"
+seoTitle: "Site supervision and contractor coordination"
 order: 9
 author: "Martínez Galván"
 image: "villas-j6a-j6b"

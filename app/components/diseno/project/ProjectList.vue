@@ -42,7 +42,7 @@ onBeforeUnmount(stop)
 <main ref="root" class="projects-page">
  <section class="projects-hero" id="projects-top" data-header="light" aria-labelledby="projects-title">
   <video v-if="!reduced" ref="video" class="projects-hero-media" muted loop playsinline preload="metadata" poster="/video/projects-reel-poster.avif" aria-hidden="true">
-   <source src="/video/projects-reel.mp4" type="video/mp4">
+   <source src="/video/projects-reel-720.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/video/projects-reel.mp4" type="video/mp4">
   </video>
   <img v-else class="projects-hero-media" src="/video/projects-reel-poster.avif" alt="" width="1920" height="1080">
   <div class="project-hero-shade" aria-hidden="true"></div>

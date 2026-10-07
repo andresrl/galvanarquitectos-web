@@ -5,6 +5,7 @@ date: "2026-10-04"
 draft: true
 lang: "en"
 translation: "reformar-o-construir-de-nuevo"
+seoTitle: "Renovate your villa or build new? How to decide"
 order: 5
 author: "Martínez Galván"
 image: "villa-bruselas"

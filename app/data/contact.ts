@@ -6,7 +6,7 @@ export const contactPaths: Record<Locale, string> = { en: '/contact', es: '/es/c
 
 export const contactCopy = {
  en: {
-  label: 'Contact', title: 'Contact: tell us about your project · Martínez Galván',
+  label: 'Contact', title: 'Contact an architect in Marbella',
   description: 'A new villa, a renovation, interiors or a garden on the Costa del Sol. Write to Francisco Martínez Galván, architect in Marbella, in English or Spanish.',
   heading: 'Contact', tagline: 'In Marbella since 1998.', taglineItalic: 'Designing ways of living.',
   lead: 'A new villa, a renovation, interiors or a garden. Let’s start with what you have in mind.',
@@ -16,7 +16,7 @@ export const contactCopy = {
   regarding: 'Regarding', subject: 'Project enquiry', videoAlt: 'A design conversation in the studio'
  },
  es: {
-  label: 'Contacto', title: 'Contacto: cuéntanos tu proyecto · Martínez Galván',
+  label: 'Contacto', title: 'Contacto con un arquitecto en Marbella',
   description: 'Una nueva villa, una reforma, los interiores o un jardín en la Costa del Sol. Escribe a Francisco Martínez Galván, arquitecto en Marbella, en español o inglés.',
   heading: 'Contacto', tagline: 'En Marbella desde 1998.', taglineItalic: 'Diseñando formas de vivir.',
   lead: 'Una nueva villa, una reforma, los interiores o un jardín. Empecemos por lo que tienes en mente.',

@@ -4,6 +4,10 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/home.jpg",
   "alt": "Spaces for living well."
  },
+ "/es": {
+  "image": "/og/es.jpg",
+  "alt": "Espacios para vivir mejor."
+ },
  "/journal": {
   "image": "/og/journal.jpg",
   "alt": "Questions before your project."
@@ -12,17 +16,29 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--guias.jpg",
   "alt": "Preguntas antes de tu proyecto."
  },
- "/examples/villa-renovation": {
-  "image": "/og/examples--villa-renovation.jpg",
-  "alt": "COMPLETE VILLA RENOVATION"
+ "/projects": {
+  "image": "/og/projects.jpg",
+  "alt": "Architecture, spaces and ways of living."
  },
- "/examples/interior-design": {
-  "image": "/og/examples--interior-design.jpg",
-  "alt": "INTERIOR DESIGN"
+ "/es/proyectos": {
+  "image": "/og/es--proyectos.jpg",
+  "alt": "Arquitectura, espacios y formas de vivir."
  },
- "/examples/landscape-design": {
-  "image": "/og/examples--landscape-design.jpg",
-  "alt": "LANDSCAPE DESIGN"
+ "/studio": {
+  "image": "/og/studio.jpg",
+  "alt": "Design and personal attention. From the idea to the site."
+ },
+ "/es/estudio": {
+  "image": "/og/es--estudio.jpg",
+  "alt": "Diseño y trato directo. De la idea a la obra."
+ },
+ "/contact": {
+  "image": "/og/contact.jpg",
+  "alt": "Tell us about your project."
+ },
+ "/es/contacto": {
+  "image": "/og/es--contacto.jpg",
+  "alt": "Cuéntanos tu proyecto."
  },
  "/villa-architecture": {
   "image": "/og/villa-architecture.jpg",
@@ -394,7 +410,7 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  },
  "/journal/renovate-or-rebuild-your-villa": {
   "image": "/og/journal--renovate-or-rebuild-your-villa.jpg",
-  "alt": "Renovate your villa or build new? How to approach the decision"
+  "alt": "Renovate your villa or build new? How to decide"
  },
  "/journal/what-to-study-on-a-plot-before-designing": {
   "image": "/og/journal--what-to-study-on-a-plot-before-designing.jpg",
@@ -410,15 +426,15 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  },
  "/journal/site-supervision-and-contractor-coordination": {
   "image": "/og/journal--site-supervision-and-contractor-coordination.jpg",
-  "alt": "Site supervision and contractor coordination: what they mean, and what they do not"
+  "alt": "Site supervision and contractor coordination"
  },
  "/journal/designing-the-garden-from-the-start": {
   "image": "/og/journal--designing-the-garden-from-the-start.jpg",
-  "alt": "Why the garden should be designed from the start of the project"
+  "alt": "Why design the garden from the start"
  },
  "/es/guias/arquitectura-interiorismo-como-se-relacionan": {
   "image": "/og/es--guias--arquitectura-interiorismo-como-se-relacionan.jpg",
-  "alt": "Arquitectura e interiorismo: cómo se relacionan en un proyecto"
+  "alt": "Arquitectura e interiorismo: cómo se relacionan"
  },
  "/es/guias/planos-arquitectura-como-leerlos-preparar-dudas": {
   "image": "/og/es--guias--planos-arquitectura-como-leerlos-preparar-dudas.jpg",
@@ -434,7 +450,7 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  },
  "/es/guias/reformar-o-construir-de-nuevo": {
   "image": "/og/es--guias--reformar-o-construir-de-nuevo.jpg",
-  "alt": "¿Reformar tu villa o construir de nuevo? Cómo plantear la decisión"
+  "alt": "¿Reformar tu villa o construir de nuevo?"
  },
  "/es/guias/parcela-que-estudiar-antes-de-disenar": {
   "image": "/og/es--guias--parcela-que-estudiar-antes-de-disenar.jpg",
@@ -446,14 +462,230 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  },
  "/es/guias/presupuesto-y-honorarios-definir-el-alcance": {
   "image": "/og/es--guias--presupuesto-y-honorarios-definir-el-alcance.jpg",
-  "alt": "Presupuesto y honorarios: por qué conviene definir antes el alcance"
+  "alt": "Presupuesto y honorarios: definir antes el alcance"
  },
  "/es/guias/direccion-de-obra-y-coordinacion": {
   "image": "/og/es--guias--direccion-de-obra-y-coordinacion.jpg",
-  "alt": "Dirección de obra y coordinación de empresas: qué significa y qué no"
+  "alt": "Dirección de obra y coordinación de empresas"
  },
  "/es/guias/disenar-el-jardin-desde-el-principio": {
   "image": "/og/es--guias--disenar-el-jardin-desde-el-principio.jpg",
   "alt": "Por qué diseñar el jardín desde el principio del proyecto"
+ },
+ "/projects/the-house": {
+  "image": "/og/projects--the-house.jpg",
+  "alt": "The House"
+ },
+ "/projects/villa-silver": {
+  "image": "/og/projects--villa-silver.jpg",
+  "alt": "Villa Silver"
+ },
+ "/projects/la-resina": {
+  "image": "/og/projects--la-resina.jpg",
+  "alt": "La Resina"
+ },
+ "/projects/cutar": {
+  "image": "/og/projects--cutar.jpg",
+  "alt": "Cútar"
+ },
+ "/projects/villa-paris": {
+  "image": "/og/projects--villa-paris.jpg",
+  "alt": "Villa París"
+ },
+ "/projects/villa-soal": {
+  "image": "/og/projects--villa-soal.jpg",
+  "alt": "Villa Soal"
+ },
+ "/projects/orion": {
+  "image": "/og/projects--orion.jpg",
+  "alt": "Orion"
+ },
+ "/projects/la-montua": {
+  "image": "/og/projects--la-montua.jpg",
+  "alt": "La Montua"
+ },
+ "/projects/villa-alcala": {
+  "image": "/og/projects--villa-alcala.jpg",
+  "alt": "Villa Alcalá"
+ },
+ "/projects/villas-in-the-landscape": {
+  "image": "/og/projects--villas-in-the-landscape.jpg",
+  "alt": "Villas in the landscape"
+ },
+ "/projects/the-villas": {
+  "image": "/og/projects--the-villas.jpg",
+  "alt": "The Villas"
+ },
+ "/projects/altos-de-los-monteros": {
+  "image": "/og/projects--altos-de-los-monteros.jpg",
+  "alt": "Altos de los Monteros"
+ },
+ "/projects/villa-feliz": {
+  "image": "/og/projects--villa-feliz.jpg",
+  "alt": "Villa Feliz"
+ },
+ "/projects/bleu-royal": {
+  "image": "/og/projects--bleu-royal.jpg",
+  "alt": "Bleu Royal"
+ },
+ "/projects/alcala-solvilla": {
+  "image": "/og/projects--alcala-solvilla.jpg",
+  "alt": "Alcalá Solvilla"
+ },
+ "/projects/elviria": {
+  "image": "/og/projects--elviria.jpg",
+  "alt": "Elviria"
+ },
+ "/projects/cortijo-nagueles": {
+  "image": "/og/projects--cortijo-nagueles.jpg",
+  "alt": "Cortijo Nagüeles"
+ },
+ "/projects/villa-pareja": {
+  "image": "/og/projects--villa-pareja.jpg",
+  "alt": "Villa Pareja"
+ },
+ "/projects/sirio": {
+  "image": "/og/projects--sirio.jpg",
+  "alt": "Sirio"
+ },
+ "/projects/villa-relojero": {
+  "image": "/og/projects--villa-relojero.jpg",
+  "alt": "Villa Relojero"
+ },
+ "/projects/villa-ambar": {
+  "image": "/og/projects--villa-ambar.jpg",
+  "alt": "Villa Ámbar"
+ },
+ "/projects/villa-pino": {
+  "image": "/og/projects--villa-pino.jpg",
+  "alt": "Villa Pino"
+ },
+ "/projects/atalaya": {
+  "image": "/og/projects--atalaya.jpg",
+  "alt": "Atalaya"
+ },
+ "/projects/hotel-boutique": {
+  "image": "/og/projects--hotel-boutique.jpg",
+  "alt": "Hotel Boutique"
+ },
+ "/projects/huerta-belon": {
+  "image": "/og/projects--huerta-belon.jpg",
+  "alt": "Huerta Belón"
+ },
+ "/projects/castilla": {
+  "image": "/og/projects--castilla.jpg",
+  "alt": "Castilla"
+ },
+ "/projects/villa-del-golf": {
+  "image": "/og/projects--villa-del-golf.jpg",
+  "alt": "Villa del Golf"
+ },
+ "/es/proyectos/the-house": {
+  "image": "/og/es--proyectos--the-house.jpg",
+  "alt": "The House"
+ },
+ "/es/proyectos/villa-silver": {
+  "image": "/og/es--proyectos--villa-silver.jpg",
+  "alt": "Villa Silver"
+ },
+ "/es/proyectos/la-resina": {
+  "image": "/og/es--proyectos--la-resina.jpg",
+  "alt": "La Resina"
+ },
+ "/es/proyectos/cutar": {
+  "image": "/og/es--proyectos--cutar.jpg",
+  "alt": "Cútar"
+ },
+ "/es/proyectos/villa-paris": {
+  "image": "/og/es--proyectos--villa-paris.jpg",
+  "alt": "Villa París"
+ },
+ "/es/proyectos/villa-soal": {
+  "image": "/og/es--proyectos--villa-soal.jpg",
+  "alt": "Villa Soal"
+ },
+ "/es/proyectos/orion": {
+  "image": "/og/es--proyectos--orion.jpg",
+  "alt": "Orion"
+ },
+ "/es/proyectos/la-montua": {
+  "image": "/og/es--proyectos--la-montua.jpg",
+  "alt": "La Montua"
+ },
+ "/es/proyectos/villa-alcala": {
+  "image": "/og/es--proyectos--villa-alcala.jpg",
+  "alt": "Villa Alcalá"
+ },
+ "/es/proyectos/villas-en-el-paisaje": {
+  "image": "/og/es--proyectos--villas-en-el-paisaje.jpg",
+  "alt": "Villas en el paisaje"
+ },
+ "/es/proyectos/the-villas": {
+  "image": "/og/es--proyectos--the-villas.jpg",
+  "alt": "The Villas"
+ },
+ "/es/proyectos/altos-de-los-monteros": {
+  "image": "/og/es--proyectos--altos-de-los-monteros.jpg",
+  "alt": "Altos de los Monteros"
+ },
+ "/es/proyectos/villa-feliz": {
+  "image": "/og/es--proyectos--villa-feliz.jpg",
+  "alt": "Villa Feliz"
+ },
+ "/es/proyectos/bleu-royal": {
+  "image": "/og/es--proyectos--bleu-royal.jpg",
+  "alt": "Bleu Royal"
+ },
+ "/es/proyectos/alcala-solvilla": {
+  "image": "/og/es--proyectos--alcala-solvilla.jpg",
+  "alt": "Alcalá Solvilla"
+ },
+ "/es/proyectos/elviria": {
+  "image": "/og/es--proyectos--elviria.jpg",
+  "alt": "Elviria"
+ },
+ "/es/proyectos/cortijo-nagueles": {
+  "image": "/og/es--proyectos--cortijo-nagueles.jpg",
+  "alt": "Cortijo Nagüeles"
+ },
+ "/es/proyectos/villa-pareja": {
+  "image": "/og/es--proyectos--villa-pareja.jpg",
+  "alt": "Villa Pareja"
+ },
+ "/es/proyectos/sirio": {
+  "image": "/og/es--proyectos--sirio.jpg",
+  "alt": "Sirio"
+ },
+ "/es/proyectos/villa-relojero": {
+  "image": "/og/es--proyectos--villa-relojero.jpg",
+  "alt": "Villa Relojero"
+ },
+ "/es/proyectos/villa-ambar": {
+  "image": "/og/es--proyectos--villa-ambar.jpg",
+  "alt": "Villa Ámbar"
+ },
+ "/es/proyectos/villa-pino": {
+  "image": "/og/es--proyectos--villa-pino.jpg",
+  "alt": "Villa Pino"
+ },
+ "/es/proyectos/atalaya": {
+  "image": "/og/es--proyectos--atalaya.jpg",
+  "alt": "Atalaya"
+ },
+ "/es/proyectos/hotel-boutique": {
+  "image": "/og/es--proyectos--hotel-boutique.jpg",
+  "alt": "Hotel Boutique"
+ },
+ "/es/proyectos/huerta-belon": {
+  "image": "/og/es--proyectos--huerta-belon.jpg",
+  "alt": "Huerta Belón"
+ },
+ "/es/proyectos/castilla": {
+  "image": "/og/es--proyectos--castilla.jpg",
+  "alt": "Castilla"
+ },
+ "/es/proyectos/villa-del-golf": {
+  "image": "/og/es--proyectos--villa-del-golf.jpg",
+  "alt": "Villa del Golf"
  }
 }

@@ -15,7 +15,7 @@ export const guideData = (locale: Locale, slug: string) =>
 export function useGuideIndex(locale: Locale, list: Ref<any[] | null | undefined>) {
   const cfg = useRuntimeConfig().public, t = guideCopy[locale]
   // The index is indexable once at least 3 guides are published (before that it would be a near-empty page).
-  usePageSeo({ title: `${t.title} · Martínez Galván`, description: t.description, path: guideIndex[locale],
+  usePageSeo({ title: t.seoTitle ?? t.title, description: t.description, path: guideIndex[locale],
     draft: (list.value ?? []).filter(p => !p.draft).length < 3, alternates: { en: guideIndex.en, es: guideIndex.es } })
   return computed(() => (list.value ?? []).filter(p => isVisible(cfg, p)).map(p => ({ ...p, href: guidePath(locale, guideSlug(p.path)) })))
 }
@@ -26,7 +26,7 @@ export function useGuidePage(locale: Locale, slug: string, post: Ref<any>, list:
   const other: Locale = locale === 'en' ? 'es' : 'en'
   const path = guidePath(locale, slug)
   const alternates = { [locale]: path, [other]: guidePath(other, post.value.translation) } as Record<Locale, string>
-  usePageSeo({ title: `${post.value.title} · Martínez Galván`, description: post.value.description ?? '', path, draft: post.value.draft, alternates,
+  usePageSeo({ title: post.value.seoTitle ?? post.value.title, description: post.value.description ?? '', path, draft: post.value.draft, alternates,
     article: { datePublished: post.value.date, dateModified: post.value.updated ?? post.value.date, author: post.value.author },
     // The guide is about the service page it links to (its Service node lives on that page).
     about: post.value.service ? (site: string) => ({ '@id': new URL(post.value.service, site).href + '#servicio' }) : undefined })

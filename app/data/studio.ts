@@ -6,7 +6,7 @@ export const studioPaths: Record<Locale, string> = { en: '/studio', es: '/es/est
 
 export const studioCopy = {
  en: {
-  label: 'The studio', title: 'The studio: Francisco Martínez Galván, architect in Marbella · Martínez Galván',
+  label: 'The studio', title: 'Francisco Martínez Galván, architect in Marbella',
   description: 'Francisco Martínez Galván brings a personal approach to architecture, interiors and landscape on the Costa del Sol, from the first conversation to the site.',
   eyebrow: 'The studio · Marbella', heading: 'Design and personal attention.', italic: 'From the idea to the site.',
   intro: 'Francisco Martínez Galván brings a personal approach to architecture, interiors and landscape on the Costa del Sol. Each commission starts with the client, the setting and the way the spaces will be used.',
@@ -35,7 +35,7 @@ export const studioCopy = {
   portraitAlt: 'Francisco Martínez Galván, architect, in his studio in Marbella', home: 'Home'
  },
  es: {
-  label: 'El estudio', title: 'El estudio: Francisco Martínez Galván, arquitecto en Marbella · Martínez Galván',
+  label: 'El estudio', title: 'Francisco Martínez Galván, arquitecto en Marbella',
   description: 'Francisco Martínez Galván aporta un trato personal a la arquitectura, los interiores y el paisaje en la Costa del Sol, desde la primera conversación hasta la obra.',
   eyebrow: 'El estudio · Marbella', heading: 'Diseño y trato directo.', italic: 'De la idea a la obra.',
   intro: 'Francisco Martínez Galván aporta un trato personal a la arquitectura, los interiores y el paisaje en la Costa del Sol. Cada encargo empieza por el cliente, el lugar y la forma de utilizar los espacios.',

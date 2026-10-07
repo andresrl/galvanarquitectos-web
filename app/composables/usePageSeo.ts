@@ -13,6 +13,18 @@ export function migasDe(path:string){
  if(path!=='/'&&out[0]?.path!=='/')out.unshift({path:'/',label:'Home'})
  return out
 }
+// <title>: «Title | Martínez Galván» when it fits in 60 characters, otherwise the title alone (the brand is in og:site_name).
+export function brandTitle(raw:string){
+ const base=raw.replace(/\s*[·|]\s*Martínez Galván$/,'').trim(), branded=`${base} | Martínez Galván`
+ return branded.length<=60?branded:base
+}
+// <meta description>: at most 160 characters, cut at a word boundary. The visible copy is never changed.
+export function clampDescription(text:string,max=158){
+ const t=text.replace(/\s+/g,' ').trim()
+ if(t.length<=160)return t
+ const cut=t.slice(0,max),at=cut.lastIndexOf(' ')
+ return cut.slice(0,at>100?at:max).replace(/[,;:.\s]+$/,'')+'…'
+}
 export function usePageSeo(o:{title:string;description:string;path:string;draft?:boolean;legal?:boolean;faqs?:{pregunta:string;respuesta:string}[];servicio?:string;page?:ResolvedPage<any>;extraSchema?:(site:string,url:string,businessId:string)=>object[];pageType?:string;about?:(site:string)=>object;alternates?:Record<'en'|'es',string>;article?:{datePublished:string;dateModified:string;author:string}}){
  const cfg=useRuntimeConfig().public
  const {locale}=useGalvan()
@@ -22,7 +34,8 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
  const site=cfg.indexable?cfg.siteUrl:(/^(localhost|127\.|\[::1\])/.test(request.hostname)?request.origin:'https://'+request.host)
  const url=new URL(o.path,site).href
  // Open Graph image generated per page by scripts/og/generate.py; the studio photo is the fallback.
- const og=o.page?.content.image?{image:o.page.content.image.src,alt:o.page.content.image.alt}:ogImages[o.path]
+ // Generated card first (scripts/og/generate.py), then the page's own image (project hero crop), then the studio photo.
+ const og=ogImages[o.path]??(o.page?.content.image?{image:o.page.content.image.src,alt:o.page.content.image.alt}:undefined)
  const image={url:new URL(og?.image??'/photos/web-villa-silver-01.jpg',site).href,width:og?1200:2500,height:og?630:1500,type:'image/jpeg' as const,alt:og?.alt??negocio.nombre}
  const indexable=cfg.indexable&&!o.draft&&!o.legal
  const key=Object.keys(casePaths).find(key=>casePaths[key]===o.path) as keyof typeof cases|undefined
@@ -32,8 +45,8 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
  // Pages outside the registry (guides) publish their equivalents so the language switch can follow them.
  if(alternates)useState<Record<string,Record<string,string>>>('galvan:alternates',()=>({})).value[o.path]=alternates
  const translatedCase=computed(()=>key?cases[key][locale.value]:null)
- const title=computed(()=>serviceCopy.value?.title??(translatedCase.value?translatedCase.value.label+' · Martínez Galván':o.title))
- const description=computed(()=>serviceCopy.value?.description??translatedCase.value?.lead??o.description)
+ const title=computed(()=>brandTitle(serviceCopy.value?.title??(translatedCase.value?translatedCase.value.label:o.title)))
+ const description=computed(()=>clampDescription(serviceCopy.value?.description??translatedCase.value?.lead??o.description))
  const faqs=computed(()=>serviceCopy.value?serviceCopy.value.faqs.map(([pregunta,respuesta])=>({pregunta,respuesta})):(translatedCase.value?translatedCase.value.faqs.map(([pregunta,respuesta])=>({pregunta,respuesta})):o.faqs??[]))
  useSeoMeta({title:()=>title.value,description:()=>description.value,robots:indexable?'index, follow, max-image-preview:large':'noindex, nofollow',ogTitle:()=>title.value,ogDescription:()=>description.value,ogUrl:url,ogSiteName:negocio.nombre,ogLocale:()=>locale.value==='en'?'en_GB':'es_ES',
   ogLocaleAlternate:alternates?()=>locale.value==='en'?'es_ES':'en_GB':undefined,ogType:o.article?'article':'website',ogImage:image,

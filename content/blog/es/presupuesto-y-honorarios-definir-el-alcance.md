@@ -5,6 +5,7 @@ date: "2026-10-04"
 draft: true
 lang: "es"
 translation: "budget-and-fees-defining-the-scope-first"
+seoTitle: "Presupuesto y honorarios: definir antes el alcance"
 order: 8
 author: "Martínez Galván"
 image: "villa-pareja"

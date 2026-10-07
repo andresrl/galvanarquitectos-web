@@ -11,7 +11,8 @@
     "verify:migration": "node scripts/verify-migration.mjs",
     "verify:pseo": "node scripts/verify-pseo.mjs",
     "verify:guides": "node scripts/verify-guides.mjs",
-    "og": "python3 scripts/og/generate.py && python3 scripts/og/icons.py"
+    "og": "python3 scripts/og/generate.py && python3 scripts/og/icons.py",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "nuxt": "4.5.2",

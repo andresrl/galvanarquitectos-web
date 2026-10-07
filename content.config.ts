@@ -26,6 +26,8 @@ export default defineContentConfig({
         serviceAnchor: z.string(),
         /** Reviewer responsible before publishing. */
         reviewedBy: z.string().optional(),
+        /** Shorter <title> when the headline does not fit in 60 characters. */
+        seoTitle: z.string().optional(),
       }),
     }),
   },

@@ -79,12 +79,13 @@ onMounted(async()=>{
 })
 onBeforeRouteLeave(()=>{alive=false;mountReady=false;stopHeroVideo();stop();tone.value='dark'})
 onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stop()})
-useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architecture, interior design and landscape design for villas in Marbella and on the Costa del Sol, with personal attention from the architect, from the idea to the site.':'Arquitectura, interiorismo y paisajismo para villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
+useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architect in Marbella: new-build villas, complete renovations, interior and landscape design on the Costa del Sol, with personal attention from idea to site.':'Arquitectura, interiorismo y paisajismo para villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
 </script>
 <template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">08</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
       <section class="slide hero" id="inicio" data-tone="light" data-chapter="Home">
         <div class="visual hero-visual" aria-hidden="true">
           <video ref="heroVideo" class="hero-video" :autoplay="videoMotionAllowed" muted loop playsinline preload="metadata" poster="/video/home-reel-poster.avif" @loadeddata="syncHeroVideo">
+            <source src="/video/home-reel-720.mp4" type="video/mp4" media="(max-width: 700px)">
             <source src="/video/home-reel.mp4" type="video/mp4">
           </video>
         </div>

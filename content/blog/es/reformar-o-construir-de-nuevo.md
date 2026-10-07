@@ -5,6 +5,7 @@ date: "2026-10-04"
 draft: true
 lang: "es"
 translation: "renovate-or-rebuild-your-villa"
+seoTitle: "¿Reformar tu villa o construir de nuevo?"
 order: 5
 author: "Martínez Galván"
 image: "villa-bruselas"

@@ -6,6 +6,7 @@ import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
 import { guideLocale } from '../guides'
 import { projectsIndexPage, projectPages, studioPage, contactPage } from './projects'
+import { publishedIds } from '../publish'
 import { projectsIndexPath } from '../projects/projects'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
@@ -13,6 +14,9 @@ export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...loca
 export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, contactPage]
 // Every registered page, whatever its template: paths, languages, alternates, sitemap.
 export const allPages: PageDefinition<any>[] = [...pages, ...archivePages]
+// Publication switch (app/data/publish.ts) applied once, so every consumer (SEO, sitemap, headers) agrees.
+for (const p of allPages) if (publishedIds.has(p.id)) p.status = 'published'
+export const homePublished = publishedIds.has('home')
 
 export const normalisePath = (path: string) => path.replace(/\/$/, '') || '/'
 
