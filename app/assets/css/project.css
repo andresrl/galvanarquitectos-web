@@ -162,8 +162,9 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
  .project-reel-item{height:min(56svh,320px);scroll-snap-stop:always}
  .project-pause{height:62svh}
  .project-related-head{flex-direction:column;align-items:start}
- .project-related ul,.projects-selected ul{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter)}
- .project-related li,.projects-selected li{flex:0 0 72%;scroll-snap-align:start}
+ .project-related ul,.projects-selected ul{grid-template-columns:minmax(0,1fr);gap:36px}
+ .projects-selected{padding-right:var(--gutter)}
+ .projects-selected ul{padding-right:0}
  .project-cta{grid-template-columns:1fr}
  .projects-grid{grid-template-columns:1fr;row-gap:70px}
  .projects-card[class*=projects-card--]{grid-column:1;margin-top:0}
@@ -222,6 +223,7 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 .studio-method-1,.studio-method-3{margin-top:clamp(40px,6vw,110px)}
 .studio-intl{background:#141d18}
 .studio-projects{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+@media(max-width:700px){.project-related .studio-projects{grid-template-columns:minmax(0,1fr)!important}}
 @media(max-width:700px){
  .studio-principles-list,.studio-method-list{grid-template-columns:1fr}
  .studio-method-1,.studio-method-3{margin-top:0}
@@ -252,8 +254,7 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 @media(max-width:700px){
  .project-setting{grid-template-columns:1fr}
  .project-setting-services{grid-column:1}
- .project-setting-projects ul{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter)}
- .project-setting-projects li{flex:0 0 78%;scroll-snap-align:start}
+ .project-setting-projects ul{grid-template-columns:minmax(0,1fr);gap:36px}
 }
 @media(min-width:701px){.project-setting-head{position:sticky;top:120px;align-self:start;grid-row:span 2}}
 
@@ -313,7 +314,10 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 .project-byservice-list em{display:block;margin-top:6px;font-family:var(--serif);font-size:15px;color:var(--muted)}
 .project-byservice-list a:hover .project-related-name{color:var(--brass)}
 .project-byservice + .project-related{background:#efece5}
-@media(max-width:700px){.project-byservice{grid-template-columns:1fr}.project-byservice-list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter)}.project-byservice-list li{flex:0 0 72%;scroll-snap-align:start}}
+@media(max-width:700px){.project-byservice{grid-template-columns:minmax(0,1fr)}.project-byservice-list{grid-template-columns:minmax(0,1fr);gap:36px}}
+@media(max-width:700px){
+ .project-related .project-image,.projects-selected .project-image,.project-setting-projects .project-image,.project-byservice-list .project-image{height:auto}
+}
 
 /* Studio: facts, press, where we work */
 .studio-facts{padding:clamp(60px,7vw,110px) var(--gutter);background:var(--paper);border-top:1px solid var(--line)}

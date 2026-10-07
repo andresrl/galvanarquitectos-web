@@ -21,7 +21,7 @@ export function createProjectMotion({ root, gsap, ScrollTrigger, onTone }) {
   const hero = root.querySelector('.project-hero, .projects-hero')
   if (hero) {
    gsap.from(hero.querySelectorAll('[data-reveal]'), { y: 40, opacity: 0, duration: 1.4, stagger: .14, ease: 'power3.out', delay: .1 })
-   const media = hero.querySelector('img, video')
+   const media = hero.querySelector('img')
    if (media) gsap.fromTo(media, { scale: 1 }, { scale: 1.12, yPercent: 6, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1.2 } })
   }
   root.querySelectorAll('[data-reveal]').forEach(el => {

@@ -45,7 +45,7 @@ onBeforeRouteLeave(stop); onBeforeUnmount(stop)
  </section>
  <nav class="project-related" data-header="dark" aria-labelledby="intl-projects">
   <div class="project-related-head"><h2 id="intl-projects">{{ c.projectsTitle }}</h2></div>
-  <ul class="studio-projects"><li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 20vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+  <ul class="studio-projects"><li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
  <section class="project-cta" data-header="light"><div data-reveal><h2>{{ c.heading }} <em>{{ c.italic }}</em></h2></div><div data-reveal><p>{{ c.lead }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ c.cta }}</span><span aria-hidden="true">↗</span></a></div></section>
 </main>

@@ -111,7 +111,7 @@ onBeforeUnmount(stop)
 
  <nav class="project-related" data-header="dark" aria-labelledby="studio-projects-title">
   <div class="project-related-head"><h2 id="studio-projects-title">{{ c.projectsEyebrow }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ c.projectsLink }}</span><span aria-hidden="true">↗</span></NuxtLink></div>
-  <ul class="studio-projects"><li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 20vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+  <ul class="studio-projects"><li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
 
  <section class="project-cta" data-header="light" aria-labelledby="studio-cta-title">

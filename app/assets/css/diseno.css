@@ -34,7 +34,7 @@
 
 .story-section h2,.faq h2{font-family:Manrope,Arial,sans-serif;font-size:22px;margin-bottom:12px}.case-page .body-copy{font-size:14px}
 
-.hero-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;will-change:transform}
+.hero-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.hero-video{visibility:hidden;will-change:auto}.hero-visual{background:url(/photos/web-villa-silver-01.jpg) 54% center/cover no-repeat}}
 
 .hero-shade{background:linear-gradient(180deg,#0e171e6b 0%,#0e171e14 35%,#101918b8 100%)}

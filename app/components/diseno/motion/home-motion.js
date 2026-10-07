@@ -25,7 +25,7 @@ function initMotion(){
    splits.push({split,heading});
    gsap.set(split.words,{transformPerspective:900,transformOrigin:'50% 100%',filter:'blur(0px)'});
    const visual=slide.querySelector('.visual');
-   const image=visual?.querySelector('img,video');
+   const image=visual?.querySelector('img');
    const copyItems=slide.querySelectorAll('.eyebrow,.body-copy,.hero-summary,.intro-bottom,.text-link,.contact-email,.contact-phone,.small');
    // A native scroll interval holds each full-screen scene while its composition evolves.
    const hold=gsap.timeline({scrollTrigger:{id:'pin-'+slide.id,trigger:slide,start:'top top',end:()=>'+='+innerHeight*(mobile ? .38 : .68),pin:index<slides.length-1,pinSpacing:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,onEnter:()=>activateChapter(slide,index),onEnterBack:()=>activateChapter(slide,index)}});
@@ -34,7 +34,7 @@ function initMotion(){
    if(index===0){
     gsap.from(split.words,{yPercent:125,x:mobile ? 8:18,rotationX:-82,filter:mobile ? 'blur(1.5px)':'blur(3px)',opacity:0,stagger:.075,duration:1.4,ease:'power4.out',delay:.1});
     gsap.from(copyItems,{y:32,opacity:0,stagger:.08,duration:1,ease:'power3.out',delay:.6});
-    gsap.from(image,{scale:1.18,duration:2.2,ease:'power3.out'});
+    if(image)gsap.from(image,{scale:1.18,duration:2.2,ease:'power3.out'});
     hold.to(slide.querySelector('.hero-content'),{yPercent:-16,ease:'none'},0).to(slide.querySelector('.hero-frame'),{opacity:.8,inset:mobile ? '8% 4% 8%':'8% 4% 8%',ease:'none'},0).to(slide.querySelector('.hero-shade'),{opacity:.65,ease:'none'},0);
    }else{
     reveal=gsap.timeline({scrollTrigger:{trigger:slide,start:'top 88%',end:'top 8%',scrub:.75,invalidateOnRefresh:true}});

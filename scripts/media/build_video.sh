@@ -13,10 +13,11 @@ encode() { # source, name, width, crf-h264, crf-vp9 ("-" = no WebM), poster time
 }
 # Home hero (replaces viseni.mp4, 7 Oct 2026) and project listing hero
 # Reels: MP4 only (VP9 came out larger than H.264 for this footage)
-encode galvan-arquitectos_video_reel_30s_hero.mp4 home-reel 1920 29 - 11
+if [ ! -f app/data/home-reel.ts ] || [ ! -f "$OUT/home-reel.mp4" ] || [ ! -f "$OUT/home-reel-720.mp4" ] || [ ! -f "$OUT/home-reel-poster.avif" ] || [ ! -f "$OUT/home-reel-720-poster.avif" ] || [ "$SRC/galvan-arquitectos_video_reel_40s_hero.mp4" -nt "$OUT/home-reel.mp4" ]; then
+  bash scripts/media/replace_home_reel.sh
+fi
 encode galvan-arquitectos_video_reel_full.mp4 projects-reel 1280 27 - 30 45
 # Mobile versions (served with <source media="(max-width: 700px)">): 720 px wide, lighter.
-encode galvan-arquitectos_video_reel_30s_hero.mp4 home-reel-720 720 30 - 11
 encode galvan-arquitectos_video_reel_full.mp4 projects-reel-720 720 30 - 30 45
 encode "Arquitecto dibujando en su estudio.mp4" studio-drawing 1264 23 34
 encode "Arquitecto revisando planos en obra.mp4" studio-site 1264 23 34

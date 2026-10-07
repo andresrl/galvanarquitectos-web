@@ -11,13 +11,14 @@ const locale = computed(() => props.page.locale)
 const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const ui = computed(() => projectUi[locale.value])
 const t = computed(() => ui.value.list)
-const filter = ref('all')
+const filter = useState('galvan:project-filter:' + props.page.locale, () => 'all')
 const items = computed(() => projects.map(p => ({ id: p.id, status: p.status, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, featured: p.featured, path: projectPath(p, locale.value),
  meta: [p.status ? ui.value.status[p.status] : '', p.zone ? locations[p.zone].name[locale.value] : ''].filter(Boolean).join(' · ') })))
 const visible = computed(() => filter.value === 'all' ? items.value : items.value.filter(i => i.status === filter.value))
 const featured = computed(() => items.value.filter(i => i.featured))
 const filters = computed(() => (['all', 'completed', 'ongoing']).map(id => ({ id, label: t.value.filters[id], count: id === 'all' ? items.value.length : items.value.filter(i => i.status === id).length })))
 const root = ref(null), video = ref(null)
+const pageScroll = usePageScroll()
 const reduced = ref(false)
 let motion = null, alive = false, observer = null
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
@@ -32,6 +33,7 @@ onMounted(async () => {
  await document.fonts.ready
  const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
  if (alive && root.value) motion = createProjectMotion({ root: root.value, gsap, ScrollTrigger, onTone: v => { tone.value = v } })
+ pageScroll.ready()
 })
 watch(filter, async () => { await nextTick(); motion?.refresh() })
 function stop() { alive = false; observer?.disconnect(); motion?.destroy(); motion = null }
@@ -72,7 +74,7 @@ onBeforeUnmount(stop)
  <section class="projects-selected" data-header="light" aria-labelledby="selected-title">
   <h2 id="selected-title" data-reveal>{{ t.selected }} <em>{{ t.selectedItalic }}</em></h2>
   <ul>
-   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 20vw" /><span>{{ item.name }}</span></NuxtLink></li>
+   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span>{{ item.name }}</span></NuxtLink></li>
   </ul>
  </section>
 

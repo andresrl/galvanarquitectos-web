@@ -47,6 +47,7 @@ const byService = computed(() => ({
 }))
 const contact = useContact()
 const root = ref(null), track = ref(null)
+const pageScroll = usePageScroll()
 let motion = null, alive = false
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
 onMounted(async () => {
@@ -54,6 +55,7 @@ onMounted(async () => {
  await document.fonts.ready
  const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
  if (alive && root.value) motion = createProjectMotion({ root: root.value, gsap, ScrollTrigger, onTone: v => { tone.value = v } })
+ pageScroll.ready()
 })
 function stop() { alive = false; motion?.destroy(); motion = null }
 onBeforeRouteLeave(stop)
@@ -160,7 +162,7 @@ function step(dir) {
   </nav>
   <nav v-if="setting.projects.length" class="project-setting-projects" :aria-label="setting.projectsTitle">
    <h3 data-reveal>{{ setting.projectsTitle }}</h3>
-   <ul><li v-for="item in setting.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+   <ul><li v-for="item in setting.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
   </nav>
  </section>
 
@@ -170,13 +172,13 @@ function step(dir) {
    <h2 :id="'byservice-' + project.id">{{ locale === 'en' ? 'Related projects' : 'Proyectos relacionados' }}</h2>
    <ul class="project-byservice-services"><li v-for="s in byService.services" :key="s.path"><NuxtLink :to="s.path">{{ s.label }} <span aria-hidden="true">↗</span></NuxtLink></li></ul>
   </div>
-  <ul class="project-byservice-list"><li v-for="item in byService.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 24vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+  <ul class="project-byservice-list"><li v-for="item in byService.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 24vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
 
  <nav class="project-related" data-header="dark" :aria-labelledby="'related-' + project.id">
   <div class="project-related-head"><h2 :id="'related-' + project.id">{{ ui.other }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ ui.all }}</span><span aria-hidden="true">↗</span></NuxtLink></div>
   <ul>
-   <li v-for="item in related" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 25vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li>
+   <li v-for="item in related" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 25vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li>
   </ul>
  </nav>
 

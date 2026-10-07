@@ -1,5 +1,6 @@
 <script setup>
 import {casePaths} from '~/data/demo'
+import {homeReel} from '~/data/home-reel'
 import {pageById} from '~/data/pages'
 const hub=id=>pageById(id+'-hub').paths
 import {createHomeMotion} from './motion/home-motion'
@@ -19,6 +20,7 @@ const route=useRoute()
 const contact=useContact()
 const home=computed(()=>locale.value==='es'?'/es':'/')
 const root=ref(null)
+const pageScroll=usePageScroll()
 const heroVideo=ref(null)
 const videoMotionAllowed=ref(false)
 let videoObserver=null,videoMotionQuery=null,heroVisible=true
@@ -75,7 +77,10 @@ onMounted(async()=>{
  if(!alive)return
  mountReady=true
  const id=route.hash.slice(1)||'inicio'
- if(casePaths[id])await navigateTo(casePaths[id]);else motion?.goToScene(id,false)
+ if(!pageScroll.isRestoring()){
+  if(casePaths[id])await navigateTo(casePaths[id]);else if(route.hash)motion?.goToScene(id,false)
+ }
+ pageScroll.ready()
 })
 onBeforeRouteLeave(()=>{alive=false;mountReady=false;stopHeroVideo();stop();tone.value='dark'})
 onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stop()})
@@ -83,10 +88,10 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
 </script>
 <template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">08</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
       <section class="slide hero" id="inicio" data-tone="light" data-chapter="Home">
-        <div class="visual hero-visual" aria-hidden="true">
-          <video ref="heroVideo" class="hero-video" :autoplay="videoMotionAllowed" muted loop playsinline preload="metadata" poster="/video/home-reel-poster.avif" @loadeddata="syncHeroVideo">
-            <source src="/video/home-reel-720.mp4" type="video/mp4" media="(max-width: 700px)">
-            <source src="/video/home-reel.mp4" type="video/mp4">
+        <div class="visual hero-visual" :style="{backgroundImage:'url('+homeReel.poster+')'}" aria-hidden="true">
+          <video ref="heroVideo" class="hero-video" :autoplay="videoMotionAllowed" muted loop playsinline preload="metadata" :poster="homeReel.poster" @loadeddata="syncHeroVideo">
+            <source :src="homeReel.mobile" type="video/mp4" media="(max-width: 700px)">
+            <source :src="homeReel.desktop" type="video/mp4">
           </video>
         </div>
         <div class="hero-shade"></div>
