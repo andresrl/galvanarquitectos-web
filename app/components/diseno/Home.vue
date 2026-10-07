@@ -16,6 +16,7 @@ const serviceLinks=computed(()=>serviceIds.map(id=>({label:services[id].name[loc
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
 const route=useRoute()
+const contact=useContact()
 const root=ref(null)
 const heroVideo=ref(null)
 const videoMotionAllowed=ref(false)
@@ -129,7 +130,7 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
       </section>
       <section class="slide international" id="internacional" data-tone="dark" data-chapter="International clients">
         <div class="visual international-visual"><img :src="photo('internacional').src" :srcset="photo('internacional').srcset" sizes="(max-width:700px) 90vw, 45vw" :width="photo('internacional').width" :height="photo('internacional').height" :alt="locale==='en'?'Aerial view at dusk of villas on the hillside, La Resina, Estepona':'Vista aérea al anochecer de villas en la ladera, La Resina, Estepona'" loading="lazy" decoding="async"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('internationalEyebrow')"></p><h2 class="display-title" v-html="t('internationalTitle')"></h2><p class="body-copy" v-html="t('internationalText')"></p><a class="text-link" href="/#contacto" @click.prevent="requestScene('contacto')"><span v-html="t('talkProject')"></span><span aria-hidden="true">↗</span></a></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('internationalEyebrow')"></p><h2 class="display-title" v-html="t('internationalTitle')"></h2><p class="body-copy" v-html="t('internationalText')"></p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span v-html="t('talkProject')"></span><span aria-hidden="true">↗</span></a></div>
       </section>
       <section class="slide contact" id="contacto" data-tone="light" data-chapter="Contact">
         <div class="contact-ring" aria-hidden="true"></div>

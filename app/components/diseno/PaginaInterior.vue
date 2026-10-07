@@ -22,7 +22,7 @@ onMounted(()=>{tone.value='dark'})
         <section class="story-section" v-for="([title,text],index) in content.sections" :key="index"><h2>{{title}}</h2><p>{{text}}</p></section>
         <div class="faq"><h2>{{locale==='en'?'Useful questions':'Preguntas útiles'}}</h2><details v-for="([question,answer],index) in content.faqs" :key="index"><summary>{{question}}</summary><p>{{answer}}</p></details></div>
         <p class="image-note">{{locale==='en'?'The case study describes an imagined scenario. No location, completion status or outcome is attributed to a real project.':'El relato describe un supuesto. No se atribuyen ubicación, estado de ejecución ni resultados a un proyecto real.'}}</p>
-        <a class="text-link" href="/#contacto" @click.prevent="requestScene('contacto')"><span>{{t('talkProject')}}</span><span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="/contact" @click="useContact().show($event)"><span>{{t('talkProject')}}</span><span aria-hidden="true">↗</span></a>
       </div></div>
     </article>
   </div>

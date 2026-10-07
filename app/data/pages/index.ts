@@ -5,12 +5,12 @@ import { linkCopy } from '../content/services'
 import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
 import { guideLocale } from '../guides'
-import { projectsIndexPage, projectPages, studioPage } from './projects'
+import { projectsIndexPage, projectPages, studioPage, contactPage } from './projects'
 import { projectsIndexPath } from '../projects/projects'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
 // Project archive: listing + one page per project (ProjectList.vue / ProjectPage.vue).
-export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage]
+export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, contactPage]
 // Every registered page, whatever its template: paths, languages, alternates, sitemap.
 export const allPages: PageDefinition<any>[] = [...pages, ...archivePages]
 
@@ -66,7 +66,7 @@ export function resolvePage(path: string): ResolvedPage<any> | undefined {
   if (serviceId) breadcrumb.push({ label: services[serviceId].name[locale], path: hubOf(serviceId)?.paths[locale] })
   if (location) breadcrumb.push({ label: location.name[locale] })
   if (definition.template === 'project') breadcrumb.push({ label: content.projects, path: projectsIndexPath[locale] }, { label: content.label })
-  if (definition.template === 'projects' || definition.template === 'studio') breadcrumb.push({ label: content.label })
+  if (['projects', 'studio', 'contact'].includes(definition.template)) breadcrumb.push({ label: content.label })
   return {
     definition, locale, path: definition.paths[locale], content, alternates: definition.paths, breadcrumb,
     locationName: location?.name[locale],

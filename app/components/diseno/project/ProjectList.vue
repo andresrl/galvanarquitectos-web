@@ -6,6 +6,7 @@ import { locations } from '~/data/taxonomy'
 import { createProjectMotion } from '../motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true } })
 const { tone } = useGalvan()
+const contact = useContact()
 const locale = computed(() => props.page.locale)
 const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const ui = computed(() => projectUi[locale.value])
@@ -77,7 +78,7 @@ onBeforeUnmount(stop)
 
  <section class="project-cta" data-header="light" aria-labelledby="projects-cta-title">
   <div data-reveal><p class="eyebrow">{{ ui.ctaEyebrow }}</p><h2 id="projects-cta-title">{{ t.closingTitle }} <em>{{ t.closingItalic }}</em></h2></div>
-  <div data-reveal><p>{{ t.closingText }}</p><NuxtLink class="text-link" to="/#contacto"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+  <div data-reveal><p>{{ t.closingText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></a></div>
  </section>
  <div class="project-end" data-header="light"><span>{{ t.count(items.length).toUpperCase() }}</span><a href="#projects-top">{{ ui.top }} ↑</a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
 </main>

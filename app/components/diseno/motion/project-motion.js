@@ -10,6 +10,10 @@ export function createProjectMotion({ root, gsap, ScrollTrigger, onTone }) {
  }
  const triggers = bands.map(band => ScrollTrigger.create({ trigger: band, start: `top ${LINE}px`, end: `bottom ${LINE}px`, onToggle: self => self.isActive && onTone(band.dataset.header) }))
  toneAt()
+ // Past the hero, the header gets a solid background so text never runs underneath it (mobile above all).
+ const heroBand = root.querySelector('.project-hero, .projects-hero')
+ const solidAt = () => document.documentElement.classList.toggle('header-solid', !!heroBand && heroBand.getBoundingClientRect().bottom <= LINE)
+ addEventListener('scroll', solidAt, { passive: true }); solidAt()
  const media = gsap.matchMedia()
  media.add({ reduced: '(prefers-reduced-motion: reduce)', mobile: '(max-width: 700px)', desktop: '(min-width: 701px)' }, ({ conditions }) => {
   const { reduced, mobile } = conditions
@@ -35,5 +39,5 @@ export function createProjectMotion({ root, gsap, ScrollTrigger, onTone }) {
    gsap.from(card, { y: mobile ? 26 : 60, opacity: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 94%', toggleActions: 'play none none none' } })
   })
  }, root)
- return { destroy: () => { triggers.forEach(t => t.kill()); media.revert() }, refresh: () => { ScrollTrigger.refresh(); toneAt() } }
+ return { destroy: () => { triggers.forEach(t => t.kill()); removeEventListener('scroll', solidAt); document.documentElement.classList.remove('header-solid'); media.revert() }, refresh: () => { ScrollTrigger.refresh(); toneAt() } }
 }

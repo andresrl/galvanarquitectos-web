@@ -6,8 +6,9 @@ import { services, serviceIds } from './taxonomy'
 import { guideIndex } from './guides'
 import { projectsIndexPath } from './projects/projects'
 import { studioPaths } from './studio'
+import { contactPaths } from './contact'
 
-export type NavLink = { label: string; path: string; scene?: string; detail?: string; children?: NavItem[] }
+export type NavLink = { label: string; path: string; scene?: string; contact?: boolean; detail?: string; children?: NavItem[] }
 export type NavGroup = { title: string; links: NavLink[] }
 
 const text = {
@@ -29,7 +30,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
       { label: t.studio, path: studioPaths[locale] },
       { label: t.international, path: home + '#internacional', scene: 'internacional' },
       { label: t.guides, path: guideIndex[locale] },
-      { label: t.contact, path: home + '#contacto', scene: 'contacto' }
+      { label: t.contact, path: contactPaths[locale], contact: true }
     ] }
   ]
 }

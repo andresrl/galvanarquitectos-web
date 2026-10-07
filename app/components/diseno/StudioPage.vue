@@ -10,6 +10,7 @@ import { negocio } from '~/data/negocio'
 import { createProjectMotion } from './motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true } })
 const { tone } = useGalvan()
+const contact = useContact()
 const locale = computed(() => props.page.locale)
 const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const c = computed(() => studioCopy[locale.value])
@@ -100,7 +101,7 @@ onBeforeUnmount(stop)
 
  <section class="project-cta" data-header="light" aria-labelledby="studio-cta-title">
   <div data-reveal><p class="eyebrow">{{ c.ctaEyebrow }}</p><h2 id="studio-cta-title">{{ c.ctaTitle }} <em>{{ c.ctaItalic }}</em></h2></div>
-  <div data-reveal><p>{{ c.ctaText }}</p><NuxtLink class="text-link" to="/#contacto"><span>{{ c.ctaLink }}</span><span aria-hidden="true">↗</span></NuxtLink>
+  <div data-reveal><p>{{ c.ctaText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ c.ctaLink }}</span><span aria-hidden="true">↗</span></a>
    <p class="project-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')">{{ negocio.contacto.telefono }}</a></p></div>
  </section>
  <div class="project-end" data-header="light"><span>{{ negocio.marca.toUpperCase() }} · MARBELLA</span><a href="#studio-top">{{ projectUi[locale].top }} ↑</a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ projectUi[locale].language }}</NuxtLink></div>

@@ -38,7 +38,7 @@ const open = ref(-1)
 const show = image => { open.value = viewer.value.findIndex(v => v.image === image) }
 const related = computed(() => relatedProjects(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
 const setting = computed(() => projectSetting(props.project, locale.value))
-const contactPath = '/#contacto'
+const contact = useContact()
 const root = ref(null), track = ref(null)
 let motion = null, alive = false
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
@@ -179,7 +179,7 @@ function step(dir) {
 
  <section class="project-cta" data-header="light" aria-labelledby="project-cta-title">
   <div data-reveal><p class="eyebrow">{{ ui.ctaEyebrow }}</p><h2 id="project-cta-title">{{ ui.ctaTitle }} <em>{{ ui.ctaItalic }}</em></h2></div>
-  <div data-reveal><p>{{ ui.ctaText }}</p><NuxtLink class="text-link" :to="contactPath"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></NuxtLink>
+  <div data-reveal><p>{{ ui.ctaText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true">↗</span></a>
    <p class="project-direct"><span>{{ ui.direct }}</span><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')">{{ negocio.contacto.telefono }}</a></p></div>
  </section>
  <div class="project-end" data-header="light"><span>{{ name.toUpperCase() }} · {{ negocio.marca.toUpperCase() }}</span><a href="#project-top">{{ ui.top }} ↑</a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>

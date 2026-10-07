@@ -6,6 +6,7 @@ import { resolvePage } from '~/data/pages'
 import { projectById, projects, projectPath } from '~/data/projects/projects'
 import { locations } from '~/data/taxonomy'
 import StudioPage from '~/components/diseno/StudioPage.vue'
+import ContactPage from '~/components/diseno/ContactPage.vue'
 definePageMeta({ key: (route) => route.path })
 const route = useRoute(), cfg = useRuntimeConfig().public, path = route.path.replace(/\/$/, '') || '/'
 const page = resolvePage(path)
@@ -37,5 +38,6 @@ if (!page) {
  <DisenoProjectPage v-else-if="project" :page="page" :project="project" />
  <DisenoProjectList v-else-if="page?.definition.template === 'projects'" :page="page" />
  <StudioPage v-else-if="page?.definition.template === 'studio'" :page="page" />
+ <ContactPage v-else-if="page?.definition.template === 'contact'" :page="page" />
  <DisenoPaginaInterior v-else :pagina="pagina" :contenido="contenido" />
 </template>

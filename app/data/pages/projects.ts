@@ -3,6 +3,7 @@ import type { Locale, PageDefinition, ProjectPageContent } from './types'
 import { projects, projectPath, projectsIndexPath } from '../projects/projects'
 import { negocio } from '../negocio'
 import { studioCopy, studioPaths } from '../studio'
+import { contactCopy, contactPaths } from '../contact'
 
 const ui = {
  en: { home: 'Home', projects: 'Projects' },
@@ -38,4 +39,13 @@ export const studioPage: PageDefinition<ProjectPageContent> = {
   es: page('es', { label: studioCopy.es.label, title: studioCopy.es.title, description: studioCopy.es.description, image: { src: '/media/studio/studio-og.jpg', alt: studioCopy.es.portraitAlt } })
  },
  sources: ['CLAUDE.md §5 and §9.6', 'Graphics/VISENI (portrait, studio scenes)'], pending: ['Review biography and approach with Paco', 'The studio scenes are AI-generated; Paco approved their use']
+}
+
+export const contactPage: PageDefinition<ProjectPageContent> = {
+ id: 'contact', type: 'editorial', template: 'contact', paths: contactPaths, status: 'draft',
+ content: {
+  en: page('en', { label: contactCopy.en.label, title: contactCopy.en.title, description: contactCopy.en.description, image: { src: '/media/studio/studio-og.jpg', alt: contactCopy.en.videoAlt } }),
+  es: page('es', { label: contactCopy.es.label, title: contactCopy.es.title, description: contactCopy.es.description, image: { src: '/media/studio/studio-og.jpg', alt: contactCopy.es.videoAlt } })
+ },
+ sources: ['CLAUDE.md §5 and §9.7 (agreed form fields, contact details)'], pending: ['Form has no backend: it prepares an email in the visitor’s app']
 }

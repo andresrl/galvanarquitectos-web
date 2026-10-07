@@ -9,7 +9,9 @@ const panel = ref(null)
 let returnFocus = null
 const isCurrent = link => !link.scene && route.path.replace(/\/$/, '') === link.path.replace(/\/$/, '')
 function close() { open.value = false }
+const contact = useContact()
 function go(link, event) {
+  if (link.contact) { close(); return contact.show(event) }
   if (!link.scene) return close()
   event.preventDefault(); close(); requestScene(link.scene)
 }
@@ -40,7 +42,7 @@ onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('ke
    <nav v-for="(group,g) in groups" :key="group.title" :class="['site-menu-group',{'site-menu-primary':g===0}]" :aria-label="group.title">
     <p class="eyebrow">{{group.title}}</p>
     <ul><li v-for="link in group.links" :key="link.path+link.label">
-     <NuxtLink :to="link.path" :aria-current="isCurrent(link)?'page':undefined" @click="go(link,$event)"><span>{{link.label}}</span><small v-if="link.detail">{{link.detail}}</small></NuxtLink>
+     <a v-if="link.contact" :href="link.path" @click="go(link,$event)"><span>{{link.label}}</span></a><NuxtLink v-else :to="link.path" :aria-current="isCurrent(link)?'page':undefined" @click="go(link,$event)"><span>{{link.label}}</span><small v-if="link.detail">{{link.detail}}</small></NuxtLink>
      <ul v-if="link.children?.length" class="site-menu-areas"><li v-for="area in link.children" :key="area.path"><NuxtLink :to="area.path" :aria-current="isCurrent(area)?'page':undefined" @click="close">{{area.label}}</NuxtLink></li></ul>
     </li></ul>
    </nav>
