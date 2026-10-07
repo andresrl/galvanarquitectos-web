@@ -17,6 +17,7 @@ defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
 const route=useRoute()
 const contact=useContact()
+const home=computed(()=>locale.value==='es'?'/es':'/')
 const root=ref(null)
 const heroVideo=ref(null)
 const videoMotionAllowed=ref(false)
@@ -80,7 +81,7 @@ onBeforeRouteLeave(()=>{alive=false;mountReady=false;stopHeroVideo();stop();tone
 onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stop()})
 useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architecture, interior design and landscape design for villas in Marbella and on the Costa del Sol, with personal attention from the architect, from the idea to the site.':'Arquitectura, interiorismo y paisajismo para villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
 </script>
-<template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="'/#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">08</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
+<template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">08</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
       <section class="slide hero" id="inicio" data-tone="light" data-chapter="Home">
         <div class="visual hero-visual" aria-hidden="true">
           <video ref="heroVideo" class="hero-video" :autoplay="videoMotionAllowed" muted loop playsinline preload="metadata" poster="/video/home-reel-poster.avif" @loadeddata="syncHeroVideo">
@@ -92,10 +93,10 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
           <p class="eyebrow" v-html="t('heroEyebrow')"></p>
           <h1 class="display-title" v-html="heroHeading"></h1>
           <p class="hero-summary" v-html="t('heroSummary')"></p>
-          <a class="text-link light" href="/#servicios" @click.prevent="requestScene('servicios')"><span v-html="t('explore')"></span><span aria-hidden="true">↗</span></a>
+          <a class="text-link light" :href="home+'#servicios'" @click.prevent="requestScene('servicios')"><span v-html="t('explore')"></span><span aria-hidden="true">↗</span></a>
         </div>
         <span class="hero-caption">Martínez Galván · Costa del Sol</span>
-        <a class="scroll-hint" href="/#servicios" @click.prevent="requestScene('servicios')" :aria-label="locale==='en'?'View services':'Ver servicios'"><span v-html="t('scroll')"></span><span aria-hidden="true">↓</span></a>
+        <a class="scroll-hint" :href="home+'#servicios'" @click.prevent="requestScene('servicios')" :aria-label="locale==='en'?'View services':'Ver servicios'"><span v-html="t('scroll')"></span><span aria-hidden="true">↓</span></a>
         <div class="hero-frame" aria-hidden="true"></div>
       </section>
       <section class="slide introduction photo-slide" id="servicios" data-tone="light" data-chapter="Services">

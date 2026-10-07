@@ -42,12 +42,12 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
   const graph:any[]=[
    {'@type':'LocalBusiness','@id':businessId,name:negocio.nombre,telephone:negocio.contacto.telefono,email:negocio.contacto.email,address:negocio.contacto.direccion,url:site},
    {'@type':'WebSite','@id':site+'/#website',url:site,name:negocio.nombre,inLanguage:locale.value},
-   {'@type':faqs.value.length?['WebPage','FAQPage']:'WebPage','@id':url+'#webpage',url,name:title.value,description:description.value,inLanguage:locale.value,isPartOf:{'@id':site+'/#website'},...(o.path!=='/'?{breadcrumb:{'@id':url+'#breadcrumb'}}:{}),...(faqs.value.length?{mainEntity:faqs.value.map(f=>({'@type':'Question',name:f.pregunta,acceptedAnswer:{'@type':'Answer',text:f.respuesta}}))}:{})}
+   {'@type':faqs.value.length?['WebPage','FAQPage']:'WebPage','@id':url+'#webpage',url,name:title.value,description:description.value,inLanguage:locale.value,isPartOf:{'@id':site+'/#website'},...(o.path!=='/'&&o.path!=='/es'?{breadcrumb:{'@id':url+'#breadcrumb'}}:{}),...(faqs.value.length?{mainEntity:faqs.value.map(f=>({'@type':'Question',name:f.pregunta,acceptedAnswer:{'@type':'Answer',text:f.respuesta}}))}:{})}
   ]
   // Project archive pages carry their own trail (Home / Projects / name); the rest keep the starter's route tree.
   const trail=o.page&&['project','projects','studio','contact'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
   if(trail)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:trail.map((m:any,i:number)=>({'@type':'ListItem',position:i+1,name:m.label,item:new URL(m.path,site).href}))})
-  else if(o.path!=='/')graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(locale.value==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})
+  else if(o.path!=='/'&&o.path!=='/es')graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(locale.value==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})
   if(o.article)graph.push({'@type':'Article','@id':url+'#article',headline:title.value.replace(/ · Martínez Galván$/,''),description:description.value,inLanguage:locale.value,datePublished:o.article.datePublished,dateModified:o.article.dateModified,author:{'@type':'Organization',name:o.article.author},publisher:{'@id':businessId},mainEntityOfPage:{'@id':url+'#webpage'}})
   if(o.extraSchema)graph.push(...o.extraSchema(site,url,businessId))
   if(o.servicio)graph.push({'@type':'Service','@id':url+'#servicio',name:serviceCopy.value?.label??o.servicio,provider:{'@id':businessId},areaServed:negocio.zonaServicio,url})

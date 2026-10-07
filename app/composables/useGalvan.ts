@@ -1,5 +1,5 @@
 import {copy} from '~/data/demo'
-import {routeLocale,alternatePath} from '~/data/pages'
+import {routeLocale,alternatePath,homePath} from '~/data/pages'
 export type GalvanLocale='en'|'es'
 export function useGalvan(){
   // English always starts a new request. No storage or browser-language detection.
@@ -22,11 +22,14 @@ export function useGalvan(){
     {id:'contacto',en:'Contact',es:'Contacto'}
   ]
   async function requestScene(id:string){
-    if(router.currentRoute.value.path==='/'&&router.currentRoute.value.hash==='#'+id){requestedScene.value={id,serial:requestedScene.value.serial+1};return}
-    await router.push({path:'/',hash:'#'+id})
+    const home=homePath(locale.value)
+    if(router.currentRoute.value.path===home&&router.currentRoute.value.hash==='#'+id){requestedScene.value={id,serial:requestedScene.value.serial+1};return}
+    await router.push({path:home,hash:'#'+id})
   }
   function toggleLanguage(){
     const next=locale.value==='en'?'es':'en'
+    // An explicit choice is remembered: the server never redirects this visitor by browser language again.
+    if(import.meta.client)document.cookie=`galvan-lang=${next};path=/;max-age=31536000;samesite=lax`
     const current=router.currentRoute.value.path.replace(/\/$/,'')||'/'
     const equivalent=alternatePath(current,next)??alternates.value[current]?.[next]
     if(equivalent)return router.push(equivalent)

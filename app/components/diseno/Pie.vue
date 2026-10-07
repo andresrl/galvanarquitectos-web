@@ -2,6 +2,7 @@
 // Site footer on every page, with the same design as the full-screen menu (services with their areas, explore).
 // Links come from app/data/navigation.ts.
 import { siteNavigation } from '~/data/navigation'
+import { isHome, homePath } from '~/data/pages'
 const route=useRoute()
 const {locale,requestScene,toggleLanguage}=useGalvan()
 const {openPreferences}=useCookieConsent()
@@ -14,11 +15,11 @@ const footer=ref(null)
 let observer=null
 onMounted(()=>{observer=new IntersectionObserver(([entry])=>document.documentElement.classList.toggle('footer-in-view',entry.isIntersecting));observer.observe(footer.value)})
 onBeforeUnmount(()=>{observer?.disconnect();document.documentElement.classList.remove('footer-in-view')})
-function top(){if(route.path==='/')requestScene('inicio');else window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+function top(){if(isHome(route.path))requestScene('inicio');else window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 </script>
-<template><footer ref="footer" :class="['site-footer',{'site-footer--home':route.path==='/'}]">
+<template><footer ref="footer" :class="['site-footer',{'site-footer--home':isHome(route.path)}]">
  <div class="site-menu-top">
-  <NuxtLink class="brand" to="/" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'"><DisenoMarca /></NuxtLink>
+  <NuxtLink class="brand" :to="homePath(locale)" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'"><DisenoMarca /></NuxtLink>
   <button type="button" class="site-menu-close" @click="top">{{locale==='en'?'Back to the top':'Volver arriba'}} <span aria-hidden="true">↑</span></button>
  </div>
  <div class="site-menu-body">

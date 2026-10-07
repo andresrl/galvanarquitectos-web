@@ -144,7 +144,7 @@ public/diseno/                    SVG originales exportados
 
 ## 4. Idiomas: regla comercial y comportamiento
 
-**Inglés es el idioma principal SIEMPRE.** La raíz y las URLs inglesas deben abrir en inglés. No detectar el idioma del navegador y no guardar ES en cookies/localStorage para convertir una futura entrada normal a la web en española.
+**Idioma (cambiado el 7 oct 2026 a petición de Andrés):** inglés sigue siendo el idioma por defecto y `x-default`, pero en la **primera visita** un navegador que prefiere español (o catalán, gallego, euskera) va con un 302 de la página inglesa a su equivalente ES (`server/middleware/idioma-navegador.ts`). Nunca a bots ni vistas previas, ni si ya existe la cookie `galvan-lang` (la pone esa redirección o el selector EN/ES). Quien elige EN se queda en EN. Home ES en `/es` (`app/pages/es/index.vue`), con hreflang recíproco.
 
 La petición posterior de interiores bilingües se implementó con URLs ES explícitas: quien entra en `/es/reformas-villas/marbella` debe ver español desde el SSR. No forzar inglés sobre una URL española elegida expresamente.
 
@@ -155,7 +155,7 @@ La petición posterior de interiores bilingües se implementó con URLs ES expl�
 - Portada de las páginas servicio × zona: partida (`hero: 'split-left' | 'split-right'`), con foto del archivo a casi su tamaño real y subtítulo propio (`app/data/content/hero.ts`). La foto no se repite dentro de un servicio ni de una zona; hubs y piloto conservan la portada a sangre con Villa Silver. Con 16 fotos de 720×720 para 39 páginas, una imagen puede aparecer en dos páginas de servicio y zona distintos; sustituir cuando lleguen las fotos nuevas.
 - Cada página servicio × zona añade contenido local propio (contexto, enfoque del servicio en la zona, emplazamiento, FAQ local) a los módulos comunes del servicio. Los textos locales son geografía general y temas a estudiar; Paco debe revisarlos antes de publicar (`pending` en cada definición).
 - Las equivalencias salen de `paths` en cada `PageDefinition` (`app/data/pages`). Una página nueva se registra en `pages` y obtiene idioma, selector, hreflang y sitemap. `homePath()` devuelve `/` en ambos idiomas hasta que exista `/es/`.
-- Home ES con URL propia `/es/` es **pendiente**, no implementada. Añadirla como parte de la arquitectura bilingüe completa, manteniendo `/` EN.
+- Home ES implementada en `/es` (7 oct 2026); `/` sigue siendo EN.
 - Metadatos, cabecera, breadcrumbs, formularios, alt, FAQ, schema y avisos deben estar en el mismo idioma que la página.
 
 ## 5. Negocio y afirmaciones permitidas

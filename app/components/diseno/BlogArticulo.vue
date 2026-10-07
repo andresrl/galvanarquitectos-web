@@ -20,7 +20,7 @@ useHead({ bodyAttrs: { class: 'luxury-service-page' } })
   </div>
   <figure v-if="image" class="guide-figure"><div class="service-photo"><img :src="image.src" :alt="image.alt[locale]" fetchpriority="high" :width="image.width" :height="image.height"></div><figcaption>{{image.name}} · {{commonCopy[locale].archiveCaption}}</figcaption></figure>
  </header>
- <nav class="guide-breadcrumb service-container" :aria-label="locale==='en'?'Breadcrumb':'Ruta de navegación'"><NuxtLink to="/">{{commonCopy[locale].home}}</NuxtLink><span aria-hidden="true">/</span><NuxtLink :to="guideIndex[locale]">{{t.title}}</NuxtLink><span aria-hidden="true">/</span><span aria-current="page">{{post.title}}</span></nav>
+ <nav class="guide-breadcrumb service-container" :aria-label="locale==='en'?'Breadcrumb':'Ruta de navegación'"><NuxtLink :to="locale==='es'?'/es':'/'">{{commonCopy[locale].home}}</NuxtLink><span aria-hidden="true">/</span><NuxtLink :to="guideIndex[locale]">{{t.title}}</NuxtLink><span aria-hidden="true">/</span><span aria-current="page">{{post.title}}</span></nav>
  <article class="guide-body"><ContentRenderer :value="post" class="guide-prose" /></article>
  <aside class="guide-service" :aria-label="t.related">
   <div class="service-container guide-service-inner">

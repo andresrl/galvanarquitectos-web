@@ -26,12 +26,15 @@ export const pageById = (id: string) => allPages.find(p => p.id === id)
 export const findPage = (path: string) => byPath.get(normalisePath(path))
 export const pathLocale = (path: string) => findPage(path)?.locale
 // Language fixed by the URL: registry pages and guides. The Home keeps the visitor's choice during SPA navigation.
-export const routeLocale = (path: string) => pathLocale(path) ?? guideLocale(normalisePath(path))
+// Home: / is English, /es is Spanish (7 Oct 2026, browser-language detection on first visit).
+export const homePaths: Record<Locale, string> = { en: '/', es: '/es' }
+export const isHome = (path: string) => Object.values(homePaths).includes(normalisePath(path))
+const homeLocale = (path: string) => (Object.entries(homePaths) as [Locale, string][]).find(([, p]) => p === normalisePath(path))?.[0]
+export const routeLocale = (path: string) => homeLocale(path) ?? pathLocale(path) ?? guideLocale(normalisePath(path))
 export const heroLayout = (path: string) => findPage(path)?.definition.hero ?? 'full'
-export const alternatePath = (path: string, locale: Locale) => findPage(path)?.definition.paths[locale]
+export const alternatePath = (path: string, locale: Locale) => homeLocale(path) ? homePaths[locale] : findPage(path)?.definition.paths[locale]
 
-// Home ES (/es/) is not built yet; both languages link to / until it is.
-export const homePath = (_locale: Locale) => '/'
+export const homePath = (locale: Locale) => homePaths[locale]
 
 const hubOf = (serviceId: ServiceId) => pages.find(p => p.type === 'service' && p.serviceId === serviceId)
 const cellOf = (serviceId: ServiceId, locationId: LocationId) => pages.find(p => p.type === 'service-location' && p.serviceId === serviceId && p.locationId === locationId)
