@@ -67,7 +67,7 @@ No modificar la antigua aplicación de LanzaderaWeb en 3040. El proyecto actual 
 | `/es/arquitectura-villas`, `/es/reformas-villas`, `/es/interiorismo`, `/es/paisajismo` | Hubs ES |
 | `/{servicio-en}/{zona}` y `/es/{servicio-es}/{zona}` | 40 páginas servicio × zona por idioma (4 servicios × 10 zonas), borrador noindex |
 | `/villa-renovation/marbella`, `/es/reformas-villas/marbella` | Piloto aprobado, escrito a mano en `renovation.ts`; forma parte de las 40 |
-| `/examples/villa-renovation`, `/examples/interior-design`, `/examples/landscape-design` | Antiguos casos ficticios, marcados demostrativos (antes ocupaban las URLs de los hubs) |
+| `/examples/*` | Ejemplos demostrativos retirados (7 oct 2026): 301 a su hub real; textos conservados en `demo.ts`, sin enlaces en el sitio |
 
 Zonas (4 de octubre de 2026, elegidas por Andrés y completadas con tres de Marbella): Marbella, Benahavís, Los Monteros, Nueva Andalucía, Estepona, Guadalmina, La Zagaleta, Milla de Oro (`golden-mile` / `milla-de-oro`), Río Real y Elviria. Se cambian en `app/data/taxonomy.ts`.
 

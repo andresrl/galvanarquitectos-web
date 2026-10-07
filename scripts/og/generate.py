@@ -19,7 +19,7 @@ W, H, PHOTO = 1200, 630, 630
 PAPER, INK, BRASS, MUTED = (246, 244, 239), (28, 33, 30), (173, 141, 97), (98, 105, 97)
 HUBS = ['/villa-architecture', '/villa-renovation', '/interior-design', '/landscape-design',
         '/es/arquitectura-villas', '/es/reformas-villas', '/es/interiorismo', '/es/paisajismo']
-EXTRA = ['/', '/journal', '/es/guias', '/examples/villa-renovation', '/examples/interior-design', '/examples/landscape-design']
+EXTRA = ['/', '/journal', '/es/guias']
 SUFFIX = ' · Martínez Galván'
 
 

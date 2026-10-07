@@ -1,5 +1,5 @@
 <script setup>
-// Site footer on every page, with the same design as the full-screen menu (services with their areas, explore, examples).
+// Site footer on every page, with the same design as the full-screen menu (services with their areas, explore).
 // Links come from app/data/navigation.ts.
 import { siteNavigation } from '~/data/navigation'
 const route=useRoute()
