@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "renovate-or-rebuild-your-villa"
 order: 5
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-bruselas"
 keyword: "reforma integral villa"
 service: "/es/reformas-villas"

@@ -1,5 +1,5 @@
 import { routes } from '../../app/data/routes'
-import { pages } from '../../app/data/pages'
+import { allPages as pages } from '../../app/data/pages'
 // Only published pages, and only while indexing is enabled. Registry pages list their language equivalents.
 export default defineEventHandler(event=>{
  const cfg=useRuntimeConfig(event).public;setResponseHeader(event,'content-type','application/xml')

@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "direccion-de-obra-y-coordinacion"
 order: 9
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villas-j6a-j6b"
 keyword: "architect site supervision"
 service: "/villa-renovation"
@@ -21,7 +21,7 @@ This guide explains in general terms what site supervision and contractor coordi
 
 The architect designs the project and, if the commission includes it, supervises the works. The contractor and specialist companies carry out the work. These are complementary roles, but they are different.
 
-Galván Arquitectos offers design, planning permissions, site supervision and contractor coordination according to the agreed scope. The studio does not act as the builder: the companies that carry out the works are engaged separately.
+Martínez Galván offers design, planning permissions, site supervision and contractor coordination according to the agreed scope. The studio does not act as the builder: the companies that carry out the works are engaged separately.
 
 ## What site supervision involves
 

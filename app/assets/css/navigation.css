@@ -57,3 +57,10 @@
 .site-footer--home{background:#18221d;border-top:1px solid #f6f4ef1a}
 .footer-in-view .chapter-nav{opacity:0;pointer-events:none;transition:opacity .3s}
 .footer-in-view .header[data-tone=light]{background:#18221df2;backdrop-filter:blur(10px);transition:background .3s}
+
+/* Martínez Galván logo: symbol + wordmark as masks in the current text colour (Marca.vue) */
+.brand .brand-logo{display:flex;align-items:center;gap:14px;margin:0;font-size:0;letter-spacing:0}
+.brand .brand-logo span{display:block;margin:0;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.brand .brand-logo .brand-mark{width:34px;height:31px;-webkit-mask-image:url(/brand/mark.png);mask-image:url(/brand/mark.png)}
+.brand .brand-logo .brand-word{width:168px;height:32px;-webkit-mask-image:url(/brand/wordmark.png);mask-image:url(/brand/wordmark.png)}
+@media(max-width:700px){.brand .brand-logo{gap:10px}.brand .brand-logo .brand-mark{width:26px;height:24px}.brand .brand-logo .brand-word{width:132px;height:25px}}

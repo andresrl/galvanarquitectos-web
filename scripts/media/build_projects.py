@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Project archive derivatives: reads scripts/media/projects.json and the originals in
-../Graphics/VISENI/proyectos, writes AVIF derivatives to public/projects/<id>/ and the
+../Graphics/VISENI/proyectos, writes AVIF derivatives to public/media/projects/<id>/ and the
 manifest app/data/projects/media.generated.ts.
 
 Originals stay outside public/. Never upscales. Incremental: existing outputs are kept
@@ -12,7 +12,7 @@ from pathlib import Path
 
 APP = Path(__file__).resolve().parents[2]
 SRC = APP.parent / 'Graphics' / 'VISENI' / 'proyectos'
-OUT = APP / 'public' / 'projects'
+OUT = APP / 'public' / 'media' / 'projects'
 CACHE = APP / '.cache' / 'lqip'
 MANIFEST = APP / 'app' / 'data' / 'projects' / 'media.generated.ts'
 CURATION = json.loads((APP / 'scripts' / 'media' / 'projects.json').read_text())['projects']
@@ -36,10 +36,10 @@ def size(path: Path) -> tuple[int, int]:
     return int(run('vipsheader', '-f', 'width', str(path))), int(run('vipsheader', '-f', 'height', str(path)))
 
 
-def derive(src: Path, dest: Path, width: int, opts: str) -> None:
+def derive(src: Path, dest: Path, width: int, opts: str, *extra: str) -> None:
     if dest.exists() and not FORCE:
         return
-    run('vips', 'thumbnail', str(src), f'{dest}[{opts}]', str(width), '--export-profile', 'srgb')
+    run('vips', 'thumbnail', str(src), f'{dest}[{opts}]', str(width), '--export-profile', 'srgb', *extra)
 
 
 def process(project: dict, file: str, role: str) -> dict:
@@ -53,9 +53,9 @@ def process(project: dict, file: str, role: str) -> dict:
     for width in widths:
         dest = folder / f'{name}-{width}.avif'
         derive(src, dest, width, 'Q=52,effort=4,strip')
-        variants.append((width, f'/projects/{project["id"]}/{dest.name}'))
-    if role == 'hero':  # JPEG for Open Graph and non-AVIF fallbacks
-        derive(src, folder / f'{name}-1600.jpg', min(1600, w), 'Q=80,strip,optimize-coding,interlace')
+        variants.append((width, f'/media/projects/{project["id"]}/{dest.name}'))
+    if role == 'hero':  # Open Graph: exact 1200x630 crop, JPEG
+        derive(src, folder / f'{name}-og.jpg', 1200, 'Q=82,strip,optimize-coding,interlace', '--height', '630', '--crop', 'centre')
     CACHE.mkdir(parents=True, exist_ok=True)
     lqip = CACHE / f'{project["id"]}-{name}.webp'
     derive(src, lqip, 24, 'Q=40,strip')
@@ -64,7 +64,7 @@ def process(project: dict, file: str, role: str) -> dict:
         'file': file, 'src': default, 'srcset': ', '.join(f'{p} {wd}w' for wd, p in variants),
         'width': w, 'height': h,
         'lqip': 'data:image/webp;base64,' + base64.b64encode(lqip.read_bytes()).decode(),
-        **({'jpg': f'/projects/{project["id"]}/{name}-1600.jpg'} if role == 'hero' else {})
+        **({'jpg': f'/media/projects/{project["id"]}/{name}-og.jpg'} if role == 'hero' else {})
     }
 
 
@@ -95,7 +95,7 @@ def main() -> None:
         f'export const projectMedia: Record<string, ProjectMedia> = {body}\n'
     )
     total = sum(f.stat().st_size for f in OUT.rglob('*') if f.is_file())
-    print(f'Wrote {MANIFEST.relative_to(APP)} · public/projects {total / 1e6:.1f} MB')
+    print(f'Wrote {MANIFEST.relative_to(APP)} · public/media/projects {total / 1e6:.1f} MB')
 
 
 if __name__ == '__main__':

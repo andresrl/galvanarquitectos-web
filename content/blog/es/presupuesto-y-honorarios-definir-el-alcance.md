@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "budget-and-fees-defining-the-scope-first"
 order: 8
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-pareja"
 keyword: "presupuesto reforma villa"
 service: "/es/reformas-villas"

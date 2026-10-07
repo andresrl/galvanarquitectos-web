@@ -5,14 +5,15 @@ import { pageById, homePath, zonesFor } from './pages'
 import { services, serviceIds } from './taxonomy'
 import { casePaths } from './demo'
 import { guideIndex } from './guides'
+import { projectsIndexPath } from './projects/projects'
 
 export type NavLink = { label: string; path: string; demo?: boolean; scene?: string; detail?: string; children?: NavItem[] }
 export type NavGroup = { title: string; links: NavLink[] }
 
 const text = {
-  en: { home: 'Home', services: 'Services', explore: 'Explore', studio: 'The studio', guides: 'Journal', contact: 'Contact', international: 'International clients', examples: 'Illustrative examples', demo: 'Illustrative example',
+  en: { projects: 'Projects', home: 'Home', services: 'Services', explore: 'Explore', studio: 'The studio', guides: 'Journal', contact: 'Contact', international: 'International clients', examples: 'Illustrative examples', demo: 'Illustrative example',
     demos: ['Villa renovation', 'Interior design', 'Landscape design'] },
-  es: { home: 'Inicio', services: 'Servicios', explore: 'Explorar', studio: 'El estudio', guides: 'Guías', contact: 'Contacto', international: 'Clientes internacionales', examples: 'Ejemplos demostrativos', demo: 'Ejemplo demostrativo',
+  es: { projects: 'Proyectos', home: 'Inicio', services: 'Servicios', explore: 'Explorar', studio: 'El estudio', guides: 'Guías', contact: 'Contacto', international: 'Clientes internacionales', examples: 'Ejemplos demostrativos', demo: 'Ejemplo demostrativo',
     demos: ['Reforma de villa', 'Interiorismo', 'Paisajismo'] }
 }
 
@@ -26,6 +27,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
   return [
     { title: t.services, links: serviceLinks },
     { title: t.explore, links: [
+      { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.home, path: home },
       { label: t.studio, path: home + '#estudio', scene: 'estudio' },
       { label: t.international, path: home + '#internacional', scene: 'internacional' },

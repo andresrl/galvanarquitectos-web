@@ -20,7 +20,7 @@ PAPER, INK, BRASS, MUTED = (246, 244, 239), (28, 33, 30), (173, 141, 97), (98, 1
 HUBS = ['/villa-architecture', '/villa-renovation', '/interior-design', '/landscape-design',
         '/es/arquitectura-villas', '/es/reformas-villas', '/es/interiorismo', '/es/paisajismo']
 EXTRA = ['/', '/journal', '/es/guias', '/examples/villa-renovation', '/examples/interior-design', '/examples/landscape-design']
-SUFFIX = ' · Galván Arquitectos'
+SUFFIX = ' · Martínez Galván'
 
 
 def font(name, size, weight):
@@ -101,7 +101,7 @@ def render(info, target):
     for ln in lines:
         d.text((x, y), ln, font=f, fill=INK)
         y += int(size * 1.14)
-    spaced(d, (x, H - 104), 'GALVÁN', font('manrope', 30, 400), INK, 7)
+    spaced(d, (x, H - 104), 'MARTÍNEZ GALVÁN', font('manrope', 30, 400), INK, 7)
     spaced(d, (x + 1, H - 64), 'ARQUITECTOS', font('manrope', 12, 500), INK, 4.6)
     place = 'Marbella · Costa del Sol'
     d.text((x + width - d.textlength(place, font=font('inter', 14, 400)), H - 62), place, font=font('inter', 14, 400), fill=MUTED)

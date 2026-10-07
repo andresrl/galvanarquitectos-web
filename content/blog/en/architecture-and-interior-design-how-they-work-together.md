@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "arquitectura-interiorismo-como-se-relacionan"
 order: 1
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "hotel-boutique"
 keyword: "architecture and interior design"
 service: "/interior-design"
@@ -40,7 +40,7 @@ You do not need to arrive with a finished layout. You can share needs, preferenc
 
 ## Connect the design with the setting and sustainability
 
-Galván Arquitectos approaches architecture with criteria of sustainability, respect for the setting, balance and proportion. To discuss these principles in your project, it helps to turn them into concrete questions.
+Martínez Galván approaches architecture with criteria of sustainability, respect for the setting, balance and proportion. To discuss these principles in your project, it helps to turn them into concrete questions.
 
 You can ask how the relationship with the site is approached, which criteria guide the design decisions and how different alternatives are assessed. If you have a preference about materials or an expectation about energy use, say so, so that it can be studied, without assuming a particular performance in advance.
 
@@ -48,7 +48,7 @@ You can ask how the relationship with the site is approached, which criteria gui
 
 ## Be clear about what the commission includes
 
-Galván Arquitectos offers architecture, interior design and the coordination of projects that combine both. Before moving forward, ask how that combination applies to your case.
+Martínez Galván offers architecture, interior design and the coordination of projects that combine both. Before moving forward, ask how that combination applies to your case.
 
 These questions can be useful in the conversation:
 
@@ -64,4 +64,4 @@ Do not assume that decoration, purchasing or furnishing work is included simply 
 
 If you are preparing a home in Marbella or elsewhere on the Costa del Sol, start with a short document setting out your priorities, references and questions. It does not need to be a design proposal: it is enough for it to explain what you expect from your future home.
 
-You can see how Galván Arquitectos approaches [interior design for villas](/interior-design) and, when you are ready to share your idea, [contact the studio](/interior-design#enquiry).
+You can see how Martínez Galván approaches [interior design for villas](/interior-design) and, when you are ready to share your idea, [contact the studio](/interior-design#enquiry).

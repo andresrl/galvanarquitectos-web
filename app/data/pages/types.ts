@@ -3,7 +3,7 @@ export type Locale = 'en' | 'es'
 export const locales: Locale[] = ['en', 'es']
 export type PageStatus = 'draft' | 'reviewed' | 'published'
 export type PageType = 'service' | 'service-location' | 'project' | 'editorial'
-export type PageTemplate = 'service'
+export type PageTemplate = 'service' | 'project' | 'projects'
 
 export type HeroLayout = 'full' | 'split-left' | 'split-right' // split: archive photo on one half, copy on paper
 export type Media = { src: string; width: number; height: number; alt: string; caption: string }
@@ -34,6 +34,12 @@ export interface ServiceContent {
   submit: string; formNote: string; contactAlternative: string
   footerLink: string; languageLabel: string; reference: string; illustration: string
   zonesEyebrow?: string; zonesTitle?: string; zonesItalic?: string; zonesText?: string
+}
+
+// SEO and navigation copy for the project archive pages; the project itself comes from app/data/projects.
+export interface ProjectPageContent {
+  label: string; title: string; description: string; home: string; projects: string
+  faqs: Faq[]; image?: { src: string; alt: string }   // Open Graph: the project's hero crop
 }
 
 export type PageDefinition<C = ServiceContent> = {

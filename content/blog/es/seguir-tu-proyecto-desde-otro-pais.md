@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "following-your-villa-project-from-abroad"
 order: 4
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-guadalmina-27"
 keyword: "arquitecto para clientes internacionales"
 service: "/es/reformas-villas"
@@ -23,7 +23,7 @@ La distancia se lleva mejor cuando la comunicación tiene un ritmo claro. Antes 
 
 - **El canal principal.** Videollamadas para revisar el diseño, correo para dejar constancia de lo decidido.
 - **La frecuencia.** No hace falta hablar todos los días, pero sí saber cuándo habrá novedades.
-- **El idioma.** En Galván Arquitectos la atención es en español e inglés. Elegir uno para la documentación evita confusiones.
+- **El idioma.** En Martínez Galván la atención es en español e inglés. Elegir uno para la documentación evita confusiones.
 - **Quién decide.** Si sois varias personas, aclara quién da la aprobación final en cada tema.
 
 Una buena organización evita la sensación de no saber en qué punto está el proyecto.

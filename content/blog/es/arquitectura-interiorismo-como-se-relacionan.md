@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "architecture-and-interior-design-how-they-work-together"
 order: 1
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "hotel-boutique"
 keyword: "arquitectura e interiorismo"
 service: "/es/interiorismo"
@@ -40,7 +40,7 @@ No necesitas llegar con una distribución resuelta. Puedes presentar necesidades
 
 ## Relaciona el diseño con el entorno y la sostenibilidad
 
-Galván Arquitectos desarrolla proyectos de arquitectura con criterios de sostenibilidad, ecología, respeto del entorno, equilibrio y proporcionalidad. Para conversar sobre estos principios en tu proyecto, conviene traducirlos en preguntas concretas.
+Martínez Galván desarrolla proyectos de arquitectura con criterios de sostenibilidad, ecología, respeto del entorno, equilibrio y proporcionalidad. Para conversar sobre estos principios en tu proyecto, conviene traducirlos en preguntas concretas.
 
 Puedes preguntar cómo se plantea la relación con el lugar, qué criterios orientan las decisiones de diseño y cómo se valoran las distintas alternativas. Si tienes una preferencia sobre materiales o una expectativa relacionada con el consumo, exprésala para que pueda estudiarse, sin asumir de antemano una prestación determinada.
 
@@ -48,7 +48,7 @@ Puedes preguntar cómo se plantea la relación con el lugar, qué criterios orie
 
 ## Aclara qué incluye el encargo
 
-Galván Arquitectos ofrece arquitectura, interiorismo y gestión integral de proyectos de ambas disciplinas. Antes de avanzar, pregunta cómo se concreta esa combinación para tu caso.
+Martínez Galván ofrece arquitectura, interiorismo y gestión integral de proyectos de ambas disciplinas. Antes de avanzar, pregunta cómo se concreta esa combinación para tu caso.
 
 Puede ser útil llevar estas cuestiones a la conversación:
 
@@ -64,4 +64,4 @@ No des por incluidos trabajos concretos de decoración, compras o equipamiento p
 
 Si estás preparando una vivienda en Marbella o en la Costa del Sol, empieza por un documento breve con tus prioridades, referencias y preguntas. No tiene que ser una propuesta de diseño: basta con que explique qué esperas de tu futuro espacio.
 
-Puedes conocer cómo plantea Galván Arquitectos el [interiorismo para villas](/es/interiorismo) y, cuando quieras plantear tu idea, [contactar con el estudio](/es/interiorismo#enquiry). ¿Hablamos?
+Puedes conocer cómo plantea Martínez Galván el [interiorismo para villas](/es/interiorismo) y, cuando quieras plantear tu idea, [contactar con el estudio](/es/interiorismo#enquiry). ¿Hablamos?

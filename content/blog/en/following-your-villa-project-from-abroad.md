@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "seguir-tu-proyecto-desde-otro-pais"
 order: 4
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-guadalmina-27"
 keyword: "architect for international clients"
 service: "/villa-renovation"
@@ -23,7 +23,7 @@ Distance is easier to manage when communication has a clear rhythm. Before start
 
 - **The main channel.** Video calls to review the design, email to record what has been decided.
 - **The frequency.** You do not need to speak every day, but you should know when there will be news.
-- **The language.** Galván Arquitectos works in English and Spanish. Choosing one for the documentation avoids confusion.
+- **The language.** Martínez Galván works in English and Spanish. Choosing one for the documentation avoids confusion.
 - **Who decides.** If several people are involved, make clear who gives final approval on each subject.
 
 Good organisation avoids the feeling of not knowing where the project stands.

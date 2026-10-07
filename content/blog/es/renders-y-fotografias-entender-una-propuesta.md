@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "renders-and-photographs-understanding-a-design-proposal"
 order: 3
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-silver-03"
 keyword: "diseño de interiores 3d"
 service: "/es/interiorismo"

@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "what-to-study-on-a-plot-before-designing"
 order: 6
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "cortijo-nagueles"
 keyword: "parcela para construir villa"
 service: "/es/arquitectura-villas"

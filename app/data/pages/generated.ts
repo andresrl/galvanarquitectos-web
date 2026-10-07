@@ -43,7 +43,7 @@ function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: L
   }
   if (!loc || !lc || !place) return {
     ...base,
-    label: services[id].name[locale], title: `${s.heading} ${s.hubItalic.replace(/\.$/, '')} · Galván Arquitectos`, description: s.hubDescription,
+    label: services[id].name[locale], title: `${s.heading} ${s.hubItalic.replace(/\.$/, '')} · Martínez Galván`, description: s.hubDescription,
     eyebrow: c.hubEyebrow, heading: s.heading, italic: s.hubItalic, lead: s.hubLead,
     introLead: s.hubIntroLead, introText: s.hubIntroText,
     localTitle: s.hubLocalTitle, localText: c.hubLocalText, faqs: s.faqs, contactText: s.hubContactText,
@@ -53,7 +53,7 @@ function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: L
   if (!focus || !lead) throw new Error(`Missing local copy for ${id} × ${local.loc} (${locale})`)
   return {
     ...base,
-    label: `${services[id].name[locale]} ${place}`, title: `${s.heading} ${place} · Galván Arquitectos`, description: s.describe(place),
+    label: `${services[id].name[locale]} ${place}`, title: `${s.heading} ${place} · Martínez Galván`, description: s.describe(place),
     eyebrow: `${loc.name[locale].toUpperCase()} · ${loc.area}`, heading: s.heading, italic: place + '.', lead,
     introLead: lc.context[locale], introText: `${focus} ${s.introText}`,
     localTitle: s.localTitle(place), localText: lc.setting[locale], faqs: [lc.faq[locale], ...s.faqs], contactText: s.contactText(place)

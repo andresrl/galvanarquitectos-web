@@ -1,22 +1,28 @@
 // Page registry: one place to resolve a path into its language, equivalents and content.
-import type { Crumb, Locale, NavItem, PageDefinition, ResolvedPage } from './types'
+import type { Crumb, Locale, NavItem, PageDefinition, ProjectPageContent, ResolvedPage } from './types'
 import { services, serviceIds, locations, locationIds, type ServiceId, type LocationId } from '../taxonomy'
 import { linkCopy } from '../content/services'
 import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
 import { guideLocale } from '../guides'
+import { projectsIndexPage, projectPages } from './projects'
+import { projectsIndexPath } from '../projects/projects'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
+// Project archive: listing + one page per project (ProjectList.vue / ProjectPage.vue).
+export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages]
+// Every registered page, whatever its template: paths, languages, alternates, sitemap.
+export const allPages: PageDefinition<any>[] = [...pages, ...archivePages]
 
 export const normalisePath = (path: string) => path.replace(/\/$/, '') || '/'
 
-const byPath = new Map<string, { definition: PageDefinition; locale: Locale }>()
-for (const definition of pages) for (const [locale, path] of Object.entries(definition.paths) as [Locale, string][]) {
+const byPath = new Map<string, { definition: PageDefinition<any>; locale: Locale }>()
+for (const definition of allPages) for (const [locale, path] of Object.entries(definition.paths) as [Locale, string][]) {
   if (byPath.has(path)) throw new Error(`Duplicate page path ${path}`)
   byPath.set(path, { definition, locale })
 }
 
-export const pageById = (id: string) => pages.find(p => p.id === id)
+export const pageById = (id: string) => allPages.find(p => p.id === id)
 export const findPage = (path: string) => byPath.get(normalisePath(path))
 export const pathLocale = (path: string) => findPage(path)?.locale
 // Language fixed by the URL: registry pages and guides. The Home keeps the visitor's choice during SPA navigation.
@@ -43,7 +49,7 @@ function relatedFor(serviceId: ServiceId, locationId: LocationId, locale: Locale
   return [{ title: t.samePlace(loc.in[locale]), links: samePlace }, { title: t.sameService(services[serviceId].name[locale]), links: nearby }]
 }
 
-export function resolvePage(path: string): ResolvedPage | undefined {
+export function resolvePage(path: string): ResolvedPage<any> | undefined {
   const hit = findPage(path)
   if (!hit) return
   const { definition, locale } = hit
@@ -54,6 +60,8 @@ export function resolvePage(path: string): ResolvedPage | undefined {
   const breadcrumb: Crumb[] = [{ label: content.home, path: homePath(locale) }]
   if (serviceId) breadcrumb.push({ label: services[serviceId].name[locale], path: hubOf(serviceId)?.paths[locale] })
   if (location) breadcrumb.push({ label: location.name[locale] })
+  if (definition.template === 'project') breadcrumb.push({ label: content.projects, path: projectsIndexPath[locale] }, { label: content.label })
+  if (definition.template === 'projects') breadcrumb.push({ label: content.label })
   return {
     definition, locale, path: definition.paths[locale], content, alternates: definition.paths, breadcrumb,
     locationName: location?.name[locale],

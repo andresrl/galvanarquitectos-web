@@ -7,7 +7,7 @@ const caseKey=computed(()=>Object.keys(casePaths).find(key=>casePaths[key]===pro
 const data=computed(()=>caseKey.value?cases[caseKey.value]:null)
 const content=computed(()=>data.value?.[locale.value])
 useHead({bodyAttrs:{class:'case-page'}})
-useSeoMeta({title:()=>content.value?content.value.label+' · Galván Arquitectos':props.contenido.title,description:()=>content.value?.lead??props.contenido.description,ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
+useSeoMeta({title:()=>content.value?content.value.label+' · Martínez Galván':props.contenido.title,description:()=>content.value?.lead??props.contenido.description,ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
 onMounted(()=>{tone.value='dark'})
 </script>
 <template>

@@ -4,7 +4,7 @@ const silverHero = { src: '/photos/web-villa-silver-02.jpg', width: 2560, height
 const silverWide = { src: '/photos/web-villa-silver-01.jpg', width: 2500, height: 1500 }
 export const renovation: Record<Locale, ServiceContent> = {
  en: {
-  label: 'Villa renovation in Marbella', title: 'Luxury villa renovations in Marbella · Galván Arquitectos',
+  label: 'Villa renovation in Marbella', title: 'Luxury villa renovations in Marbella · Martínez Galván',
   description: 'Complete villa renovation in Marbella: architecture, interior and landscape design, with personal attention, site supervision and project coordination.',
   eyebrow: 'MARBELLA · COSTA DEL SOL', heading: 'Luxury villa renovations', italic: 'in Marbella.',
   lead: 'A new chapter for your home. Architecture, interiors and landscape, considered together.',
@@ -59,7 +59,7 @@ export const renovation: Record<Locale, ServiceContent> = {
   footerLink: 'Back to the top', languageLabel: 'Español', reference: 'Studio archive', illustration: 'Concept illustration · not a project drawing'
  },
  es: {
-  label: 'Reformas de villas en Marbella', title: 'Reformas integrales de villas en Marbella · Galván Arquitectos',
+  label: 'Reformas de villas en Marbella', title: 'Reformas integrales de villas en Marbella · Martínez Galván',
   description: 'Reformas integrales de villas en Marbella: arquitectura, interiorismo y paisajismo, con trato directo, dirección de obra y coordinación del proyecto.',
   eyebrow: 'MARBELLA · COSTA DEL SOL', heading: 'Reformas integrales de villas', italic: 'en Marbella.',
   lead: 'Una nueva etapa para tu casa. Arquitectura, interiores y paisaje, pensados en conjunto.',

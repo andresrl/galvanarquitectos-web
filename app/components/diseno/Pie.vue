@@ -17,7 +17,7 @@ function top(){if(route.path==='/')requestScene('inicio');else window.scrollTo({
 </script>
 <template><footer ref="footer" :class="['site-footer',{'site-footer--home':route.path==='/'}]">
  <div class="site-menu-top">
-  <NuxtLink class="brand" to="/">GALVÁN<span>ARQUITECTOS</span></NuxtLink>
+  <NuxtLink class="brand" to="/" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'"><DisenoMarca /></NuxtLink>
   <button type="button" class="site-menu-close" @click="top">{{locale==='en'?'Back to the top':'Volver arriba'}} <span aria-hidden="true">↑</span></button>
  </div>
  <div class="site-menu-body">

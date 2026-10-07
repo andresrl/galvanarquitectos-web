@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "site-supervision-and-contractor-coordination"
 order: 9
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villas-j6a-j6b"
 keyword: "dirección de obra arquitecto"
 service: "/es/reformas-villas"
@@ -21,7 +21,7 @@ Esta guía explica en términos generales qué suele implicar la dirección de o
 
 El arquitecto diseña el proyecto y, si el encargo lo incluye, dirige la obra. La constructora y las empresas especializadas son quienes ejecutan los trabajos. Son papeles complementarios, pero distintos.
 
-Galván Arquitectos ofrece diseño, licencias, dirección de obra y coordinación de empresas según el alcance acordado. El estudio no actúa como constructora: las empresas que ejecutan la obra se contratan aparte.
+Martínez Galván ofrece diseño, licencias, dirección de obra y coordinación de empresas según el alcance acordado. El estudio no actúa como constructora: las empresas que ejecutan la obra se contratan aparte.
 
 ## Qué implica la dirección de obra
 

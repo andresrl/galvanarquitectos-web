@@ -21,8 +21,8 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       es: 'Paco trabaja desde Marbella, por lo que las visitas a la vivienda y a la obra forman parte natural del trabajo. La luz, las vistas y el entorno de cada parcela se estudian sobre el terreno.'
     },
     faq: {
-      en: ['Is the studio based in Marbella?', 'Yes. Galván Arquitectos is based in Marbella, which makes visits to the property and follow-up during the works easier to organise.'],
-      es: ['¿El estudio está en Marbella?', 'Sí. Galván Arquitectos tiene su sede en Marbella, lo que facilita organizar las visitas a la vivienda y el seguimiento durante la obra.']
+      en: ['Is the studio based in Marbella?', 'Yes. Martínez Galván is based in Marbella, which makes visits to the property and follow-up during the works easier to organise.'],
+      es: ['¿El estudio está en Marbella?', 'Sí. Martínez Galván tiene su sede en Marbella, lo que facilita organizar las visitas a la vivienda y el seguimiento durante la obra.']
     },
     focus: {
       architecture: {

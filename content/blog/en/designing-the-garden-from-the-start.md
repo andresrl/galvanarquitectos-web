@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "disenar-el-jardin-desde-el-principio"
 order: 10
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "zagaleta-210"
 keyword: "villa landscape design"
 service: "/landscape-design"

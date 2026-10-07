@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "reformar-o-construir-de-nuevo"
 order: 5
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-bruselas"
 keyword: "renovate or rebuild villa"
 service: "/villa-renovation"

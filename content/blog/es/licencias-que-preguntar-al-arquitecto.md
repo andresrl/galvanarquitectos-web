@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "planning-permissions-what-to-ask-your-architect"
 order: 7
-author: "Galván Arquitectos"
+author: "Martínez Galván"
 image: "villa-flamingos-58"
 keyword: "licencia de obra villa"
 service: "/es/arquitectura-villas"

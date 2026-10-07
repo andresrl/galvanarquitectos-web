@@ -28,7 +28,7 @@ icon(180).save(public / 'apple-touch-icon.png')
 for s in (192, 512):
     icon(s).save(public / f'icon-{s}.png')
 (public / 'site.webmanifest').write_text(json.dumps({
-    'name': 'Galván Arquitectos', 'short_name': 'Galván', 'start_url': '/', 'display': 'browser',
+    'name': 'Martínez Galván', 'short_name': 'M. Galván', 'start_url': '/', 'display': 'browser',
     'background_color': '#f6f4ef', 'theme_color': '#1c2a22',
     'icons': [{'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png'}, {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png'}]
 }, indent=1) + '\n')
