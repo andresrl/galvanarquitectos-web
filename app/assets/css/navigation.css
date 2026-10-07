@@ -64,3 +64,6 @@
 .brand .brand-logo .brand-mark{width:34px;height:31px;-webkit-mask-image:url(/brand/mark.png);mask-image:url(/brand/mark.png)}
 .brand .brand-logo .brand-word{width:168px;height:32px;-webkit-mask-image:url(/brand/wordmark.png);mask-image:url(/brand/wordmark.png)}
 @media(max-width:700px){.brand .brand-logo{gap:10px}.brand .brand-logo .brand-mark{width:26px;height:24px}.brand .brand-logo .brand-word{width:132px;height:25px}}
+
+/* Mobile menu: Explore (Projects, Studio, Contact…) first, above the services */
+@media(max-width:700px){.site-menu .site-menu-body>.site-menu-group:nth-child(2){order:-1}}
