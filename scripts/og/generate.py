@@ -160,6 +160,11 @@ def main():
         paths += links(get(index), 'class="guides-list')
     for index in ('/projects', '/es/proyectos'):
         paths += links(get(index), 'class="projects-grid"')
+    for home in ('/', '/es'):  # footer rows: area pages and legal pages
+        page = get(home)
+        for block in re.findall(r'class="site-footer-legal"[\s\S]*?</nav>', page):
+            paths += [p for p in re.findall(r'href="(/[^"#]+)"', block) if p not in ('/', '/es')]
+    paths += ['/international-clients', '/es/clientes-internacionales']
     paths = list(dict.fromkeys(paths))
     manifest = {}
     for path in paths:

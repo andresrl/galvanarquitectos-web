@@ -67,13 +67,13 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
   if(o.about)pageNode.about=o.about(site)
   const graph:any[]=[studioNode(site,lang),personNode(site,lang),websiteNode(site),pageNode]
   // Project archive pages carry their own trail (Home / Projects / name); the rest keep the starter's route tree.
-  const trail=o.page&&['project','projects','studio','contact'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
+  const trail=o.page&&['project','projects','studio','contact','legal','international','area'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
   if(trail)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:trail.map((m:any,i:number)=>({'@type':'ListItem',position:i+1,name:m.label,item:new URL(m.path,site).href}))})
   else if(o.page?.breadcrumb)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:o.page.breadcrumb.map((c:any,i:number)=>({'@type':'ListItem',position:i+1,name:c.label,item:new URL(c.path??o.path,site).href}))})
   else if(!isHomePage)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(lang==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})
   if(o.article)graph.push({'@type':'Article','@id':url+'#article',headline:title.value.replace(/ [·|] Martínez Galván$/,''),description:description.value,inLanguage:lang,image:image.url,datePublished:o.article.datePublished,dateModified:o.article.dateModified,
-   // Authored by the studio until Paco reviews each guide; then author becomes {'@id': paco}.
-   author:{'@id':businessId},publisher:{'@id':businessId},mainEntityOfPage:{'@id':url+'#webpage'},...(o.about?{about:o.about(site)}:{})})
+   // Written under the architect's name (Andrés, 7 Oct 2026); reviewedBy is added when Paco reviews each guide.
+   author:{'@id':id.paco},publisher:{'@id':businessId},mainEntityOfPage:{'@id':url+'#webpage'},...(o.about?{about:o.about(site)}:{})})
   if(o.extraSchema)graph.push(...o.extraSchema(site,url,businessId))
   if(o.servicio){
    const def=o.page?.definition, sid=def?.serviceId as keyof typeof serviceNames|undefined, loc=def?.locationId

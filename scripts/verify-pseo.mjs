@@ -32,7 +32,7 @@ for(const [path,{lang,html,hub}] of pages){
  const webpage=schema['@graph'].find(x=>x['@id'].endsWith('#webpage'))
  assert.equal(webpage.inLanguage,lang);assert.equal(webpage.mainEntity.length,(html.match(/<details\b/g)??[]).length,path+' FAQ schema matches visible FAQ')
  assert.ok(html.includes('id="enquiry-name"'),path+' enquiry form')
- if(!hub){const related=[...(html.match(/class="service-related[\s\S]*?<\/nav>/)?.[0]??'').matchAll(/href="([^"]+)"/g)].map(m=>m[1]);assert.ok(related.length>=6,path+' related links');for(const r of related)assert.ok(pages.has(r),path+' related link resolves: '+r)}
+ if(!hub){const related=[...(html.match(/class="service-related[\s\S]*?<\/nav>/)?.[0]??'').matchAll(/href="([^"]+)"/g)].map(m=>m[1]);assert.ok(related.length>=6,path+' related links');for(const r of related)assert.ok(pages.has(r)||(r.startsWith('/areas/')||r.startsWith('/es/zonas/'))&&(await fetch(new URL(r,base))).status===200,path+' related link resolves: '+r)}
  assert.ok(!/undefined|\[object Object\]|NaN/.test(strip(html.match(/<main[\s\S]*<\/main>/)[0])),path+' no placeholder text')
 }
 const heroBy={service:{},area:{}},leads=new Set()

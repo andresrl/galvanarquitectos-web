@@ -9,6 +9,8 @@ import { locations, locationIds, services, serviceIds } from '../../app/data/tax
 import { studioPaths } from '../../app/data/studio'
 import { contactPaths } from '../../app/data/contact'
 import { guideIndex, guidePath, guideSlug } from '../../app/data/guides'
+import { internationalPaths } from '../../app/data/international'
+import { areaIds, areaPath } from '../../app/data/areas'
 
 export async function buildLlms(event: H3Event, full: boolean) {
  const cfg = useRuntimeConfig(event).public, req = getRequestURL(event)
@@ -57,7 +59,12 @@ export async function buildLlms(event: H3Event, full: boolean) {
 
  line('## Studio and contact')
  line(`- [The studio and the architect](${u(studioPaths.en)}): ${a.descripcion.en}`)
+ line(`- [International clients](${u(internationalPaths.en)}): how projects are followed from abroad — video calls, site visits, follow-up of the works, English and Spanish.`)
  line(`- [Contact](${u(contactPaths.en)}): form, email and phone; replies in English or Spanish.`)
+ line()
+ line('## Areas')
+ line(`- Marbella (the studio's base): ${u(homePaths.en)}`)
+ for (const id of areaIds) line(`- [Architect ${locations[id].in.en}](${u(areaPath(id, 'en'))})`)
  line(`- [Home](${u(homePaths.en)}) · [Inicio](${u(homePaths.es)})`)
  line()
 

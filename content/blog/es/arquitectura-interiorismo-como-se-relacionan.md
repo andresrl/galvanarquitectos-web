@@ -7,7 +7,7 @@ lang: "es"
 translation: "architecture-and-interior-design-how-they-work-together"
 seoTitle: "Arquitectura e interiorismo: cómo se relacionan"
 order: 1
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "hotel-boutique"
 keyword: "arquitectura e interiorismo"
 service: "/es/interiorismo"

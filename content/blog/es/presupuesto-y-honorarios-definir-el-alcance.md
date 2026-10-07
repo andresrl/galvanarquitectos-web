@@ -7,7 +7,7 @@ lang: "es"
 translation: "budget-and-fees-defining-the-scope-first"
 seoTitle: "Presupuesto y honorarios: definir antes el alcance"
 order: 8
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-pareja"
 keyword: "presupuesto reforma villa"
 service: "/es/reformas-villas"

@@ -1,4 +1,5 @@
 <script setup>
+import { studioPaths } from '~/data/studio'
 // Guide reading template. Data comes from useGuide (pages/journal/[slug], pages/es/guias/[slug]).
 import { archive } from '~/data/content/archive'
 import { guideCopy, guideIndex } from '~/data/guides'
@@ -16,7 +17,7 @@ useHead({ bodyAttrs: { class: 'luxury-service-page' } })
    <p class="eyebrow">{{t.guide}} · <time :datetime="post.date">{{date}}</time></p>
    <h1>{{post.title}}</h1>
    <p class="guide-lead">{{post.description}}</p>
-   <p class="guide-meta">{{t.by}} {{post.author}}<span v-if="post.draft"> · {{t.draft}}</span></p>
+   <p class="guide-meta">{{t.by}} <NuxtLink :to="studioPaths[locale]" rel="author">{{post.author}}</NuxtLink>, {{t.role}}<span v-if="post.draft"> · {{t.draft}}</span></p>
   </div>
   <figure v-if="image" class="guide-figure"><div class="service-photo"><img :src="image.src" :alt="image.alt[locale]" fetchpriority="high" :width="image.width" :height="image.height"></div><figcaption>{{image.name}} · {{commonCopy[locale].archiveCaption}}</figcaption></figure>
  </header>

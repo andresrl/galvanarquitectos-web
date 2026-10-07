@@ -50,3 +50,35 @@ export const contactPage: PageDefinition<ProjectPageContent> = {
  },
  sources: ['CLAUDE.md §5 and §9.7 (agreed form fields, contact details)'], pending: ['Form has no backend: it prepares an email in the visitor’s app']
 }
+
+// Legal pages: drafts until the identification data pending below is confirmed (never published with placeholders).
+import { legalCopy, legalPaths, type LegalId } from '../legal'
+export const legalPages: PageDefinition<ProjectPageContent>[] = (Object.keys(legalPaths) as LegalId[]).map(id => ({
+ id: `legal-${id}`, type: 'editorial', template: 'legal', paths: legalPaths[id], status: 'draft',
+ content: { en: page('en', { label: legalCopy[id].en.label, title: legalCopy[id].en.title, description: legalCopy[id].en.description }), es: page('es', { label: legalCopy[id].es.label, title: legalCopy[id].es.title, description: legalCopy[id].es.description }) },
+ sources: ['CLAUDE.md §5 (contact details, address)', 'How the site works (no form backend, analytics disabled)'],
+ pending: ['Tax ID (NIF) of the holder', 'Professional association and registration number (Colegio de Arquitectos)', 'Legal form if the studio is a company', 'Hosting and email providers (processors)']
+}))
+
+// International clients.
+import { internationalCopy, internationalPaths } from '../international'
+export const internationalPage: PageDefinition<ProjectPageContent> = {
+ id: 'international', type: 'editorial', template: 'international', paths: internationalPaths, status: 'draft',
+ content: {
+  en: { ...page('en', { label: internationalCopy.en.label, title: internationalCopy.en.title, description: internationalCopy.en.description }), faqs: internationalCopy.en.faqs },
+  es: { ...page('es', { label: internationalCopy.es.label, title: internationalCopy.es.title, description: internationalCopy.es.description }), faqs: internationalCopy.es.faqs }
+ },
+ sources: ['CLAUDE.md §5 (clients abroad: video calls, visits, follow-up; EN/ES)'], pending: ['Review with Paco']
+}
+
+// Area pages (all areas except Marbella, covered by the Home).
+import { areaIds, areaPath, areaUi } from '../areas'
+import { locationCopy } from '../content/locations'
+export const areaPages: PageDefinition<ProjectPageContent>[] = areaIds.map(loc => ({
+ id: `area-${loc}`, type: 'editorial', template: 'area', locationId: loc, paths: { en: areaPath(loc, 'en'), es: areaPath(loc, 'es') }, status: 'draft',
+ content: {
+  en: { ...page('en', { label: locations[loc].name.en, title: areaUi.en.heading(locations[loc].in.en), description: areaUi.en.description(locations[loc].in.en) }), faqs: [locationCopy[loc].faq.en] },
+  es: { ...page('es', { label: locations[loc].name.es, title: areaUi.es.heading(locations[loc].in.es), description: areaUi.es.description(locations[loc].in.es) }), faqs: [locationCopy[loc].faq.es] }
+ },
+ sources: ['app/data/content/locations.ts (general geography of the area)'], pending: ['Review of the local copy with Paco', 'Projects confirmed in this area']
+}))

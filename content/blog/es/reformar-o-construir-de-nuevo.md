@@ -7,7 +7,7 @@ lang: "es"
 translation: "renovate-or-rebuild-your-villa"
 seoTitle: "¿Reformar tu villa o construir de nuevo?"
 order: 5
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-bruselas"
 keyword: "reforma integral villa"
 service: "/es/reformas-villas"

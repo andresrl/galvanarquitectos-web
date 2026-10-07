@@ -7,6 +7,9 @@ import { projects, projectPath, projectsIndexPath } from '~/data/projects/projec
 import { services, serviceIds } from '~/data/taxonomy'
 import { pageById } from '~/data/pages'
 import { negocio } from '~/data/negocio'
+import { areaIds, areaPath } from '~/data/areas'
+import { locations } from '~/data/taxonomy'
+import { projectById } from '~/data/projects/projects'
 import { createProjectMotion } from './motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true } })
 const { tone } = useGalvan()
@@ -17,6 +20,8 @@ const c = computed(() => studioCopy[locale.value])
 const principles = computed(() => projectUi[locale.value].architect.principles)
 const serviceLinks = computed(() => serviceIds.map(id => ({ label: services[id].name[locale.value], path: pageById(id + '-hub').paths[locale.value] })))
 const scenes = ['studio-drawing', 'studio-site', 'studio-conversation', 'studio-inspection']
+const areas = computed(() => [{ label: 'Marbella', path: locale.value === 'en' ? '/' : '/es' }, ...areaIds.map(id => ({ label: locations[id].name[locale.value], path: areaPath(id, locale.value) }))])
+const bleuRoyal = computed(() => projectPath(projectById('bleu-royal'), locale.value))
 const featured = computed(() => projects.filter(p => p.featured).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
 const root = ref(null)
 const reduced = ref(false)
@@ -93,6 +98,16 @@ onBeforeUnmount(stop)
   <div data-reveal><p class="eyebrow">{{ c.intlEyebrow }}</p><h2 id="studio-intl-title">{{ c.intlTitle }} <em>{{ c.intlItalic }}</em></h2></div>
   <div data-reveal><p>{{ c.intlText }}</p></div>
  </section>
+
+ <section class="studio-facts" data-header="dark" aria-label="facts"><dl><div v-for="[k, v] in c.facts" :key="k" data-reveal><dt>{{ k }}</dt><dd>{{ v }}</dd></div></dl></section>
+
+ <section class="studio-press" data-header="light" aria-labelledby="studio-press-title">
+  <div class="studio-press-copy" data-reveal><p class="eyebrow">{{ c.pressEyebrow }}</p><h2 id="studio-press-title">{{ c.pressTitle }} <em>{{ c.pressItalic }}</em></h2><p>{{ c.pressText }}</p>
+   <p class="eyebrow studio-collab-eyebrow">{{ c.collabEyebrow }}</p><p>{{ c.collabText }}</p><NuxtLink class="text-link" :to="bleuRoyal"><span>{{ c.collabLink }}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+  <div class="studio-press-covers"><figure v-for="(alt, i) in c.pressAlts" :key="alt" data-reveal><img :src="`/media/studio/espacio-${i + 1}.avif`" :alt="alt" width="900" height="1146" loading="lazy" decoding="async"><figcaption>ESPACIO · {{ i + 1 }}</figcaption></figure></div>
+ </section>
+
+ <nav class="area-near studio-where" data-header="dark" :aria-label="c.whereEyebrow"><h3>{{ c.whereEyebrow }}</h3><p class="studio-where-title">{{ c.whereTitle }} <em>{{ c.whereItalic }}</em></p><ul><li v-for="a in areas" :key="a.path"><NuxtLink :to="a.path">{{ a.label }} <span aria-hidden="true">↗</span></NuxtLink></li></ul></nav>
 
  <nav class="project-related" data-header="dark" aria-labelledby="studio-projects-title">
   <div class="project-related-head"><h2 id="studio-projects-title">{{ c.projectsEyebrow }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ c.projectsLink }}</span><span aria-hidden="true">↗</span></NuxtLink></div>

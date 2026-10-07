@@ -1,7 +1,7 @@
 // Project archive model. Curation (order, slugs, hero) lives in scripts/media/projects.json;
 // facts in projects.ts; copy in content.ts; image derivatives in media.generated.ts.
 import type { Locale } from '../pages/types'
-import type { LocationId } from '../taxonomy'
+import type { LocationId, ServiceId } from '../taxonomy'
 
 export type ProjectImage = {
   file: string            // original file name in Graphics/VISENI/proyectos (never served)
@@ -22,6 +22,7 @@ export type ProjectFacts = {
   zone?: LocationId       // only when confirmed in the project sheet
   kind?: ProjectKind      // only when confirmed
   imagery: Imagery        // honest label: built photography or architectural visualisation
+  services?: ServiceId[]  // services the images and text show; pending Paco's confirmation (see projects.ts)
   pending: string[]       // internal: what Paco must confirm before publishing
 }
 

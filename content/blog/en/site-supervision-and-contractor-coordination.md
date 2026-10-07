@@ -7,7 +7,7 @@ lang: "en"
 translation: "direccion-de-obra-y-coordinacion"
 seoTitle: "Site supervision and contractor coordination"
 order: 9
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villas-j6a-j6b"
 keyword: "architect site supervision"
 service: "/villa-renovation"

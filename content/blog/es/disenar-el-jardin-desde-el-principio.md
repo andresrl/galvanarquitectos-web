@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "designing-the-garden-from-the-start"
 order: 10
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "zagaleta-210"
 keyword: "paisajismo villa"
 service: "/es/paisajismo"

@@ -432,6 +432,26 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/journal--designing-the-garden-from-the-start.jpg",
   "alt": "Why design the garden from the start"
  },
+ "/journal/choosing-an-architect-in-marbella": {
+  "image": "/og/journal--choosing-an-architect-in-marbella.jpg",
+  "alt": "How to choose an architect in Marbella"
+ },
+ "/journal/buying-a-villa-to-renovate": {
+  "image": "/og/journal--buying-a-villa-to-renovate.jpg",
+  "alt": "Buying a villa to renovate: what to check"
+ },
+ "/journal/building-licence-in-marbella": {
+  "image": "/og/journal--building-licence-in-marbella.jpg",
+  "alt": "Building licence in Marbella: the process"
+ },
+ "/journal/building-on-a-sloping-plot-in-benahavis": {
+  "image": "/og/journal--building-on-a-sloping-plot-in-benahavis.jpg",
+  "alt": "Building on a sloping plot in Benahavís"
+ },
+ "/journal/working-with-a-spanish-architect-from-abroad": {
+  "image": "/og/journal--working-with-a-spanish-architect-from-abroad.jpg",
+  "alt": "Working with a Spanish architect from abroad"
+ },
  "/es/guias/arquitectura-interiorismo-como-se-relacionan": {
   "image": "/og/es--guias--arquitectura-interiorismo-como-se-relacionan.jpg",
   "alt": "Arquitectura e interiorismo: cómo se relacionan"
@@ -471,6 +491,26 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/guias/disenar-el-jardin-desde-el-principio": {
   "image": "/og/es--guias--disenar-el-jardin-desde-el-principio.jpg",
   "alt": "Por qué diseñar el jardín desde el principio del proyecto"
+ },
+ "/es/guias/como-elegir-arquitecto-en-marbella": {
+  "image": "/og/es--guias--como-elegir-arquitecto-en-marbella.jpg",
+  "alt": "Cómo elegir arquitecto en Marbella"
+ },
+ "/es/guias/comprar-villa-para-reformar": {
+  "image": "/og/es--guias--comprar-villa-para-reformar.jpg",
+  "alt": "Comprar una villa para reformar: qué revisar"
+ },
+ "/es/guias/licencia-de-obra-en-marbella": {
+  "image": "/og/es--guias--licencia-de-obra-en-marbella.jpg",
+  "alt": "Licencia de obra en Marbella: el proceso"
+ },
+ "/es/guias/construir-en-parcela-en-pendiente-benahavis": {
+  "image": "/og/es--guias--construir-en-parcela-en-pendiente-benahavis.jpg",
+  "alt": "Construir en parcela en pendiente en Benahavís"
+ },
+ "/es/guias/arquitecto-espanol-desde-el-extranjero": {
+  "image": "/og/es--guias--arquitecto-espanol-desde-el-extranjero.jpg",
+  "alt": "Trabajar con un arquitecto en España desde fuera"
  },
  "/projects/the-house": {
   "image": "/og/projects--the-house.jpg",
@@ -687,5 +727,109 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/proyectos/villa-del-golf": {
   "image": "/og/es--proyectos--villa-del-golf.jpg",
   "alt": "Villa del Golf"
+ },
+ "/areas/benahavis": {
+  "image": "/og/areas--benahavis.jpg",
+  "alt": "Architect in Benahavís"
+ },
+ "/areas/los-monteros": {
+  "image": "/og/areas--los-monteros.jpg",
+  "alt": "Architect in Los Monteros"
+ },
+ "/areas/nueva-andalucia": {
+  "image": "/og/areas--nueva-andalucia.jpg",
+  "alt": "Architect in Nueva Andalucía"
+ },
+ "/areas/estepona": {
+  "image": "/og/areas--estepona.jpg",
+  "alt": "Architect in Estepona"
+ },
+ "/areas/guadalmina": {
+  "image": "/og/areas--guadalmina.jpg",
+  "alt": "Architect in Guadalmina"
+ },
+ "/areas/la-zagaleta": {
+  "image": "/og/areas--la-zagaleta.jpg",
+  "alt": "Architect in La Zagaleta"
+ },
+ "/areas/golden-mile": {
+  "image": "/og/areas--golden-mile.jpg",
+  "alt": "Architect on the Golden Mile"
+ },
+ "/areas/rio-real": {
+  "image": "/og/areas--rio-real.jpg",
+  "alt": "Architect in Río Real"
+ },
+ "/areas/elviria": {
+  "image": "/og/areas--elviria.jpg",
+  "alt": "Architect in Elviria"
+ },
+ "/legal-notice": {
+  "image": "/og/legal-notice.jpg",
+  "alt": "Legal notice"
+ },
+ "/privacy-policy": {
+  "image": "/og/privacy-policy.jpg",
+  "alt": "Privacy policy"
+ },
+ "/cookie-policy": {
+  "image": "/og/cookie-policy.jpg",
+  "alt": "Cookie policy"
+ },
+ "/es/zonas/benahavis": {
+  "image": "/og/es--zonas--benahavis.jpg",
+  "alt": "Arquitecto en Benahavís"
+ },
+ "/es/zonas/los-monteros": {
+  "image": "/og/es--zonas--los-monteros.jpg",
+  "alt": "Arquitecto en Los Monteros"
+ },
+ "/es/zonas/nueva-andalucia": {
+  "image": "/og/es--zonas--nueva-andalucia.jpg",
+  "alt": "Arquitecto en Nueva Andalucía"
+ },
+ "/es/zonas/estepona": {
+  "image": "/og/es--zonas--estepona.jpg",
+  "alt": "Arquitecto en Estepona"
+ },
+ "/es/zonas/guadalmina": {
+  "image": "/og/es--zonas--guadalmina.jpg",
+  "alt": "Arquitecto en Guadalmina"
+ },
+ "/es/zonas/la-zagaleta": {
+  "image": "/og/es--zonas--la-zagaleta.jpg",
+  "alt": "Arquitecto en La Zagaleta"
+ },
+ "/es/zonas/milla-de-oro": {
+  "image": "/og/es--zonas--milla-de-oro.jpg",
+  "alt": "Arquitecto en la Milla de Oro"
+ },
+ "/es/zonas/rio-real": {
+  "image": "/og/es--zonas--rio-real.jpg",
+  "alt": "Arquitecto en Río Real"
+ },
+ "/es/zonas/elviria": {
+  "image": "/og/es--zonas--elviria.jpg",
+  "alt": "Arquitecto en Elviria"
+ },
+ "/es/aviso-legal": {
+  "image": "/og/es--aviso-legal.jpg",
+  "alt": "Aviso legal"
+ },
+ "/es/politica-privacidad": {
+  "image": "/og/es--politica-privacidad.jpg",
+  "alt": "Política de privacidad"
+ },
+ "/es/politica-cookies": {
+  "image": "/og/es--politica-cookies.jpg",
+  "alt": "Política de cookies"
+ },
+ "/international-clients": {
+  "image": "/og/international-clients.jpg",
+  "alt": "Architect in Marbella for international clients"
+ },
+ "/es/clientes-internacionales": {
+  "image": "/og/es--clientes-internacionales.jpg",
+  "alt": "Arquitecto en Marbella para clientes que viven fuera"
  }
 }

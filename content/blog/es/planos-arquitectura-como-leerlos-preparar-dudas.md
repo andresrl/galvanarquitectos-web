@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "reading-architectural-drawings-and-preparing-your-questions"
 order: 2
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-paris"
 keyword: "planos de arquitectura"
 service: "/es/arquitectura-villas"

@@ -3,9 +3,14 @@
 // Links come from app/data/navigation.ts.
 import { siteNavigation } from '~/data/navigation'
 import { isHome, homePath } from '~/data/pages'
+import { areaIds, areaPath } from '~/data/areas'
+import { legalCopy, legalPaths } from '~/data/legal'
+import { locations } from '~/data/taxonomy'
 const route=useRoute()
 const {locale,requestScene,toggleLanguage}=useGalvan()
 const {openPreferences}=useCookieConsent()
+const areas=computed(()=>areaIds.map(id=>({label:locations[id].name[locale.value],path:areaPath(id,locale.value)})))
+const legal=computed(()=>Object.keys(legalPaths).map(id=>({label:legalCopy[id][locale.value].label,path:legalPaths[id][locale.value]})))
 const groups=computed(()=>siteNavigation(locale.value,{withAreas:true}))
 const isCurrent=link=>!link.scene&&route.path.replace(/\/$/,'')===link.path.replace(/\/$/,'')
 const contact=useContact()
@@ -38,4 +43,6 @@ function top(){if(isHome(route.path))requestScene('inicio');else window.scrollTo
   <button type="button" class="site-menu-language" @click="toggleLanguage">{{locale==='en'?'Español':'English'}}</button>
   <button type="button" class="site-footer-cookies" @click="openPreferences">{{locale==='en'?'Cookie settings':'Configurar cookies'}}</button>
  </div>
+ <nav class="site-footer-legal" :aria-label="locale==='en'?'Areas':'Zonas'"><span>{{locale==='en'?'Architect in':'Arquitecto en'}}</span><NuxtLink :to="homePath(locale)">Marbella</NuxtLink><NuxtLink v-for="a in areas" :key="a.path" :to="a.path">{{a.label}}</NuxtLink></nav>
+ <nav class="site-footer-legal" :aria-label="locale==='en'?'Legal':'Legal'"><NuxtLink v-for="l in legal" :key="l.path" :to="l.path">{{l.label}}</NuxtLink></nav>
 </footer></template>

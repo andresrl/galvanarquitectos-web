@@ -2,7 +2,9 @@
 // Project page (archive). Receives the resolved registry page and its project; holds no copy of its own.
 // Rhythm: full-bleed hero → dark forest block (lead, facts, two columns) → image crossing into paper → gallery → pause → other projects → contact.
 import { projectUi } from '~/data/projects/ui'
-import { relatedProjects, projectPath, projectsIndexPath } from '~/data/projects/projects'
+import { relatedProjects, projectPath, projectsIndexPath, projectsByService } from '~/data/projects/projects'
+import { services as serviceNames } from '~/data/taxonomy'
+import { pageById } from '~/data/pages'
 import { locations } from '~/data/taxonomy'
 import { negocio } from '~/data/negocio'
 import { studioPaths } from '~/data/studio'
@@ -38,6 +40,11 @@ const open = ref(-1)
 const show = image => { open.value = viewer.value.findIndex(v => v.image === image) }
 const related = computed(() => relatedProjects(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
 const setting = computed(() => projectSetting(props.project, locale.value))
+// Related by service: the services this project shows (links to their pages) and projects that share them.
+const byService = computed(() => ({
+ services: (props.project.services ?? []).map(id => ({ label: serviceNames[id].name[locale.value], path: pageById(`${id}-hub`).paths[locale.value] })),
+ projects: projectsByService(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) }))
+}))
 const contact = useContact()
 const root = ref(null), track = ref(null)
 let motion = null, alive = false
@@ -156,6 +163,15 @@ function step(dir) {
    <ul><li v-for="item in setting.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
   </nav>
  </section>
+
+ <nav class="project-byservice" data-header="dark" :aria-labelledby="'byservice-' + project.id">
+  <div class="project-byservice-head" data-reveal>
+   <p class="eyebrow">{{ locale === 'en' ? 'By service' : 'Por servicio' }}</p>
+   <h2 :id="'byservice-' + project.id">{{ locale === 'en' ? 'Related projects' : 'Proyectos relacionados' }}</h2>
+   <ul class="project-byservice-services"><li v-for="s in byService.services" :key="s.path"><NuxtLink :to="s.path">{{ s.label }} <span aria-hidden="true">↗</span></NuxtLink></li></ul>
+  </div>
+  <ul class="project-byservice-list"><li v-for="item in byService.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 24vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+ </nav>
 
  <nav class="project-related" data-header="dark" :aria-labelledby="'related-' + project.id">
   <div class="project-related-head"><h2 :id="'related-' + project.id">{{ ui.other }}</h2><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{ ui.all }}</span><span aria-hidden="true">↗</span></NuxtLink></div>

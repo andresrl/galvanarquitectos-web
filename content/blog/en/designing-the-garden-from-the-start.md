@@ -7,7 +7,7 @@ lang: "en"
 translation: "disenar-el-jardin-desde-el-principio"
 seoTitle: "Why design the garden from the start"
 order: 10
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "zagaleta-210"
 keyword: "villa landscape design"
 service: "/landscape-design"

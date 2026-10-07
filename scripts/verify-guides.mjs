@@ -9,7 +9,7 @@ for(const [lang,index] of [['en','/journal'],['es','/es/guias']]){
  const html=await get(index)
  assert.match(html,new RegExp('<html[^>]*lang="'+lang+'"'),index+' lang')
  const links=[...(html.match(/class="guides-list[\s\S]*?<\/ol>/)?.[0]??'').matchAll(/href="([^"]+)"/g)].map(m=>m[1])
- assert.equal(links.length,10,index+' lists 10 guides')
+ assert.equal(links.length,15,index+' lists 15 guides')
  for(const l of links)guides.set(l,{lang,html:await get(l)})
 }
 for(const [path,{lang,html}] of guides){
@@ -25,4 +25,4 @@ for(const [path,{lang,html}] of guides){
  assert.ok(!html.includes('href="/blog'),path+' no links to the old /blog')
 }
 for(const [from,to] of [['/blog','/es/guias'],['/blog/planos-arquitectura-como-leerlos-preparar-dudas','/es/guias/planos-arquitectura-como-leerlos-preparar-dudas']]){const r=await fetch(new URL(from,base),{redirect:'manual'});assert.equal(r.status,301,from);assert.equal(r.headers.get('location'),to)}
-console.log(`PASS guides: ${guides.size} guides (10 EN + 10 ES), lang, canonical, reciprocal hreflang, Article schema, ${checked.size} internal links resolve, /blog redirects`)
+console.log(`PASS guides: ${guides.size} guides (15 EN + 15 ES), lang, canonical, reciprocal hreflang, Article schema, ${checked.size} internal links resolve, /blog redirects`)

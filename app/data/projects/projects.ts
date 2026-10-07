@@ -3,6 +3,7 @@
 import curation from '../../../scripts/media/projects.json'
 import type { Locale } from '../pages/types'
 import type { Project, ProjectFacts } from './types'
+import type { ServiceId } from '../taxonomy'
 import { projectCopy } from './content'
 import { projectMedia } from './media.generated'
 
@@ -37,11 +38,17 @@ const facts: Record<string, ProjectFacts> = {
  'villa-silver': { status: 'completed', imagery: 'photography', pending: ['Project text: only a short visual reading is published', 'Zone'] }
 }
 
+// Services shown by each project (text of proyecto.md + images). Pending Paco's confirmation; used for
+// «related by service» links, never as a claim about the commission's contract.
+const interiors = new Set(['villa-silver', 'bleu-royal', 'villas-in-the-landscape', 'alcala-solvilla'])
+const landscape = new Set(['cutar', 'villa-pareja', 'villa-paris', 'villa-pino', 'castilla', 'villa-relojero', 'villa-del-golf', 'the-villas', 'elviria', 'la-montua'])
+const servicesOf = (id: string): ServiceId[] => [id === 'atalaya' ? 'renovation' : 'architecture', ...(interiors.has(id) ? ['interiors' as const] : []), ...(landscape.has(id) ? ['landscape' as const] : [])]
+
 export const projects: Project[] = curation.projects.map((c, order) => {
  const copy = projectCopy[c.id], media = projectMedia[c.id], fact = facts[c.id]
  if (!copy || !media || !fact) throw new Error(`Project ${c.id} is missing copy, media or facts`)
  const { name, nameEn, ...byLocale } = copy
- return { id: c.id, order, name: { en: nameEn ?? name, es: name }, slug: c.slug as Record<Locale, string>, featured: !!c.featured, copy: byLocale, media, ...fact }
+ return { id: c.id, order, name: { en: nameEn ?? name, es: name }, slug: c.slug as Record<Locale, string>, featured: !!c.featured, copy: byLocale, media, services: servicesOf(c.id), ...fact }
 })
 
 export const projectById = (id: string) => projects.find(p => p.id === id)
@@ -54,4 +61,11 @@ export function relatedProjects(project: Project, count = 4): Project[] {
  const next = after.slice(0, 2)
  const same = after.filter(p => !next.includes(p) && p.status && p.status === project.status)
  return [...next, ...same, ...after.filter(p => !next.includes(p) && !same.includes(p))].slice(0, count)
+}
+
+// Projects sharing a service with this one (most shared services first), excluding itself.
+export function projectsByService(project: Project, count = 3): Project[] {
+ const mine = new Set(project.services ?? [])
+ return projects.filter(p => p !== project).map(p => ({ p, shared: (p.services ?? []).filter(s => mine.has(s) && s !== 'architecture').length * 2 + ((p.services ?? []).includes('architecture') && mine.has('architecture') ? 1 : 0) }))
+  .sort((a, b) => b.shared - a.shared || ((a.p.order - project.order + projects.length) % projects.length) - ((b.p.order - project.order + projects.length) % projects.length)).slice(0, count).map(x => x.p)
 }

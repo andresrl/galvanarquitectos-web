@@ -7,7 +7,7 @@ lang: "en"
 translation: "reformar-o-construir-de-nuevo"
 seoTitle: "Renovate your villa or build new? How to decide"
 order: 5
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-bruselas"
 keyword: "renovate or rebuild villa"
 service: "/villa-renovation"

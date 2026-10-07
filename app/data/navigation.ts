@@ -7,6 +7,7 @@ import { guideIndex } from './guides'
 import { projectsIndexPath } from './projects/projects'
 import { studioPaths } from './studio'
 import { contactPaths } from './contact'
+import { internationalPaths } from './international'
 
 export type NavLink = { label: string; path: string; scene?: string; contact?: boolean; detail?: string; children?: NavItem[] }
 export type NavGroup = { title: string; links: NavLink[] }
@@ -28,7 +29,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
       { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.home, path: home },
       { label: t.studio, path: studioPaths[locale] },
-      { label: t.international, path: home + '#internacional', scene: 'internacional' },
+      { label: t.international, path: internationalPaths[locale] },
       { label: t.guides, path: guideIndex[locale] },
       { label: t.contact, path: contactPaths[locale], contact: true }
     ] }

@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "renders-y-fotografias-entender-una-propuesta"
 order: 3
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-silver-03"
 keyword: "renders and photographs"
 service: "/interior-design"

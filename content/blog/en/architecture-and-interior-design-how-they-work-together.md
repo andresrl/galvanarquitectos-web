@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "arquitectura-interiorismo-como-se-relacionan"
 order: 1
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "hotel-boutique"
 keyword: "architecture and interior design"
 service: "/interior-design"

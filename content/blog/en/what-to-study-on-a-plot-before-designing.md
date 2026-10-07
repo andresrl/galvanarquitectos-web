@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "parcela-que-estudiar-antes-de-disenar"
 order: 6
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "cortijo-nagueles"
 keyword: "plot for a new villa"
 service: "/villa-architecture"

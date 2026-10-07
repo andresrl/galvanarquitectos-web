@@ -6,7 +6,7 @@ draft: true
 lang: "en"
 translation: "planos-arquitectura-como-leerlos-preparar-dudas"
 order: 2
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-paris"
 keyword: "architectural drawings"
 service: "/villa-architecture"

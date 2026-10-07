@@ -7,6 +7,9 @@ import { projectById, projects, projectPath, projectsIndexPath } from '~/data/pr
 import { place } from '~/data/schema'
 import StudioPage from '~/components/diseno/StudioPage.vue'
 import ContactPage from '~/components/diseno/ContactPage.vue'
+import LegalPage from '~/components/diseno/LegalPage.vue'
+import InternationalPage from '~/components/diseno/InternationalPage.vue'
+import AreaPage from '~/components/diseno/AreaPage.vue'
 definePageMeta({ key: (route) => route.path })
 const route = useRoute(), cfg = useRuntimeConfig().public, path = route.path.replace(/\/$/, '') || '/'
 const page = resolvePage(path)
@@ -33,7 +36,7 @@ function archiveSchema(site: string, url: string, businessId: string) {
 if (page) {
  const draft = page.definition.status !== 'published'
  if (hidden(draft)) throw createError({ statusCode: 404, statusMessage: 'Página no encontrada' })
- usePageSeo({ title: page.content.title, description: page.content.description, path, draft, page, extraSchema: archiveSchema, about: project ? (site: string) => ({ '@id': new URL(path, site).href + '#project' }) : undefined, servicio: page.definition.serviceId ? page.content.label : undefined })
+ usePageSeo({ title: page.content.title, description: page.content.description, path, draft, page, legal: page.definition.template === 'legal', extraSchema: archiveSchema, about: project ? (site: string) => ({ '@id': new URL(path, site).href + '#project' }) : undefined, servicio: page.definition.serviceId ? page.content.label : undefined })
 }
 const pagina = page ? undefined : routes.find((r: any) => r.path === path), contenido = page ? undefined : contenidos[path]
 if (!page) {
@@ -47,5 +50,8 @@ if (!page) {
  <DisenoProjectList v-else-if="page?.definition.template === 'projects'" :page="page" />
  <StudioPage v-else-if="page?.definition.template === 'studio'" :page="page" />
  <ContactPage v-else-if="page?.definition.template === 'contact'" :page="page" />
+ <LegalPage v-else-if="page?.definition.template === 'legal'" :page="page" />
+ <InternationalPage v-else-if="page?.definition.template === 'international'" :page="page" />
+ <AreaPage v-else-if="page?.definition.template === 'area'" :page="page" />
  <DisenoPaginaInterior v-else :pagina="pagina" :contenido="contenido" />
 </template>

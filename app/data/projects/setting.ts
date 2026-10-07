@@ -8,6 +8,7 @@ import { locationCopy } from '../content/locations'
 import { pageById, servicesIn } from '../pages'
 import { services, serviceIds } from '../taxonomy'
 import { projects, projectPath } from './projects'
+import { areaPath } from '../areas'
 import type { Project } from './types'
 
 const ui = {
@@ -51,6 +52,6 @@ export function projectSetting(project: Project, locale: Locale): ProjectSetting
   eyebrow: t.eyebrow, name: place.name[locale], italic: general[locale].italic,
   text: [copy.context[locale], copy.setting[locale], t.studio],
   projectsTitle: t.projectsIn(place.in[locale]), projects: neighbours,
-  servicesTitle: t.servicesIn(place.in[locale]), services: servicesIn(zone, locale)
+  servicesTitle: t.servicesIn(place.in[locale]), services: [...servicesIn(zone, locale), ...(zone !== 'marbella' ? [{ label: locale === 'en' ? `Architect ${place.in.en}` : `Arquitecto ${place.in.es}`, path: areaPath(zone, locale) }] : [])]
  }
 }

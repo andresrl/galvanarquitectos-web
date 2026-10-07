@@ -5,13 +5,13 @@ import { linkCopy } from '../content/services'
 import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
 import { guideLocale } from '../guides'
-import { projectsIndexPage, projectPages, studioPage, contactPage } from './projects'
+import { projectsIndexPage, projectPages, studioPage, contactPage, legalPages, internationalPage, areaPages } from './projects'
 import { publishedIds } from '../publish'
 import { projectsIndexPath } from '../projects/projects'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
 // Project archive: listing + one page per project (ProjectList.vue / ProjectPage.vue).
-export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, contactPage]
+export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, contactPage, internationalPage, ...areaPages, ...legalPages]
 // Every registered page, whatever its template: paths, languages, alternates, sitemap.
 export const allPages: PageDefinition<any>[] = [...pages, ...archivePages]
 // Publication switch (app/data/publish.ts) applied once, so every consumer (SEO, sitemap, headers) agrees.
@@ -36,6 +36,8 @@ export const isHome = (path: string) => Object.values(homePaths).includes(normal
 const homeLocale = (path: string) => (Object.entries(homePaths) as [Locale, string][]).find(([, p]) => p === normalisePath(path))?.[0]
 export const routeLocale = (path: string) => homeLocale(path) ?? pathLocale(path) ?? guideLocale(normalisePath(path))
 export const heroLayout = (path: string) => findPage(path)?.definition.hero ?? 'full'
+// Header tone on first paint: light over photographic heroes and dark pages, dark over paper (legal pages, split heroes).
+export const headerTone = (path: string): 'light' | 'dark' => { const d = findPage(path)?.definition; return !d || d.template === 'legal' || (d.hero && d.hero !== 'full') ? 'dark' : 'light' }
 export const alternatePath = (path: string, locale: Locale) => homeLocale(path) ? homePaths[locale] : findPage(path)?.definition.paths[locale]
 
 export const homePath = (locale: Locale) => homePaths[locale]
@@ -58,6 +60,9 @@ function relatedFor(serviceId: ServiceId, locationId: LocationId, locale: Locale
   const nearby = loc.near.flatMap(near => { const p = cellOf(serviceId, near); return p ? [{ label: locations[near].name[locale], path: p.paths[locale] }] : [] })
   const hub = hubOf(serviceId)
   if (hub) nearby.push({ label: t.allAreas, path: hub.paths[locale] })
+  // The area page gathers every service and project in this area (none for Marbella: the Home covers it).
+  const area = allPages.find(p => p.template === 'area' && p.locationId === locationId)
+  if (area) samePlace.unshift({ label: locale === 'en' ? `Architect ${loc.in.en}` : `Arquitecto ${loc.in.es}`, path: area.paths[locale] })
   return [{ title: t.samePlace(loc.in[locale]), links: samePlace }, { title: t.sameService(services[serviceId].name[locale]), links: nearby }]
 }
 
@@ -73,7 +78,7 @@ export function resolvePage(path: string): ResolvedPage<any> | undefined {
   if (serviceId) breadcrumb.push({ label: services[serviceId].name[locale], path: hubOf(serviceId)?.paths[locale] })
   if (location) breadcrumb.push({ label: location.name[locale] })
   if (definition.template === 'project') breadcrumb.push({ label: content.projects, path: projectsIndexPath[locale] }, { label: content.label })
-  if (['projects', 'studio', 'contact'].includes(definition.template)) breadcrumb.push({ label: content.label })
+  if (['projects', 'studio', 'contact', 'legal', 'international'].includes(definition.template)) breadcrumb.push({ label: content.label })
   return {
     definition, locale, path: definition.paths[locale], content, alternates: definition.paths, breadcrumb,
     locationName: location?.name[locale],

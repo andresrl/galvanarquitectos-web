@@ -6,7 +6,7 @@ draft: true
 lang: "es"
 translation: "following-your-villa-project-from-abroad"
 order: 4
-author: "Martínez Galván"
+author: "Francisco Martínez Galván"
 image: "villa-guadalmina-27"
 keyword: "arquitecto para clientes internacionales"
 service: "/es/reformas-villas"
