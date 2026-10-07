@@ -64,8 +64,9 @@ onBeforeUnmount(stop)
   <ol class="projects-grid">
    <li v-for="(item, i) in visible" :key="item.id" :class="['projects-card', 'projects-card--' + (i % 5)]">
     <NuxtLink :to="item.path">
+     <div class="projects-card-heading"><span class="projects-card-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span><h2 class="projects-card-name">{{ item.name }}</h2></div>
      <DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" :eager="i < 2" :sizes="i % 5 === 4 ? '(max-width:700px) 100vw, 70vw' : '(max-width:700px) 100vw, 50vw'" />
-     <span class="projects-card-text"><span class="projects-card-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span><span class="projects-card-name">{{ item.name }}</span><em>{{ item.heading }}</em><small v-if="item.meta">{{ item.meta }}</small></span>
+     <div class="projects-card-text"><em>{{ item.heading }}</em><small v-if="item.meta">{{ item.meta }}</small></div>
     </NuxtLink>
    </li>
   </ol>
