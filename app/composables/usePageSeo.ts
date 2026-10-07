@@ -4,6 +4,8 @@ import {routes} from '~/data/routes'
 import {cases,casePaths} from '~/data/demo'
 import type {ResolvedPage} from '~/data/pages/types'
 import {ogImages} from '~/data/og-manifest'
+import {ids,studioNode,personNode,websiteNode,place,allAreas} from '~/data/schema'
+import {services as serviceNames} from '~/data/taxonomy'
 export function migasDe(path:string){
  const out:{path:string;label:string}[]=[]
  let route:any=routes.find(r=>r.path===path)
@@ -11,7 +13,7 @@ export function migasDe(path:string){
  if(path!=='/'&&out[0]?.path!=='/')out.unshift({path:'/',label:'Home'})
  return out
 }
-export function usePageSeo(o:{title:string;description:string;path:string;draft?:boolean;legal?:boolean;faqs?:{pregunta:string;respuesta:string}[];servicio?:string;page?:ResolvedPage<any>;extraSchema?:(site:string,url:string,businessId:string)=>object[];alternates?:Record<'en'|'es',string>;article?:{datePublished:string;dateModified:string;author:string}}){
+export function usePageSeo(o:{title:string;description:string;path:string;draft?:boolean;legal?:boolean;faqs?:{pregunta:string;respuesta:string}[];servicio?:string;page?:ResolvedPage<any>;extraSchema?:(site:string,url:string,businessId:string)=>object[];pageType?:string;about?:(site:string)=>object;alternates?:Record<'en'|'es',string>;article?:{datePublished:string;dateModified:string;author:string}}){
  const cfg=useRuntimeConfig().public
  const {locale}=useGalvan()
  // Absolute URLs: the final domain once indexing is on; while the site is a noindex preview, the host serving it,
@@ -38,19 +40,37 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
   articlePublishedTime:o.article?.datePublished,articleModifiedTime:o.article?.dateModified,
   twitterCard:'summary_large_image',twitterTitle:()=>title.value,twitterDescription:()=>description.value,twitterImage:image.url,twitterImageAlt:image.alt})
  useHead(()=>{
-  const businessId=site+'/#negocio'
-  const graph:any[]=[
-   {'@type':'LocalBusiness','@id':businessId,name:negocio.nombre,telephone:negocio.contacto.telefono,email:negocio.contacto.email,address:negocio.contacto.direccion,url:site},
-   {'@type':'WebSite','@id':site+'/#website',url:site,name:negocio.nombre,inLanguage:locale.value},
-   {'@type':faqs.value.length?['WebPage','FAQPage']:'WebPage','@id':url+'#webpage',url,name:title.value,description:description.value,inLanguage:locale.value,isPartOf:{'@id':site+'/#website'},...(o.path!=='/'&&o.path!=='/es'?{breadcrumb:{'@id':url+'#breadcrumb'}}:{}),...(faqs.value.length?{mainEntity:faqs.value.map(f=>({'@type':'Question',name:f.pregunta,acceptedAnswer:{'@type':'Answer',text:f.respuesta}}))}:{})}
-  ]
+  const lang=locale.value as 'en'|'es', id=ids(site), businessId=id.studio
+  const isHomePage=o.path==='/'||o.path==='/es'
+  const template=o.page?.definition.template
+  // Page type: registry templates and explicit overrides; FAQPage only when the FAQ is visible on the page.
+  const baseType=o.pageType??(template==='projects'?'CollectionPage':template==='studio'?'ProfilePage':template==='contact'?'ContactPage':'WebPage')
+  const pageNode:any={'@type':faqs.value.length?[baseType,'FAQPage']:baseType,'@id':url+'#webpage',url,name:title.value,description:description.value,inLanguage:lang,isPartOf:{'@id':id.website},
+   primaryImageOfPage:{'@type':'ImageObject',url:image.url,width:image.width,height:image.height},
+   ...(!isHomePage?{breadcrumb:{'@id':url+'#breadcrumb'}}:{}),
+   ...(faqs.value.length?{mainEntity:faqs.value.map(f=>({'@type':'Question',name:f.pregunta,acceptedAnswer:{'@type':'Answer',text:f.respuesta}}))}:{})}
+  if(isHomePage||template==='contact'){pageNode.about={'@id':businessId};if(!faqs.value.length)pageNode.mainEntity={'@id':businessId}}
+  if(template==='studio'){pageNode.about={'@id':id.paco};pageNode.mainEntity={'@id':id.paco}}
+  if(o.about)pageNode.about=o.about(site)
+  const graph:any[]=[studioNode(site,lang),personNode(site,lang),websiteNode(site),pageNode]
   // Project archive pages carry their own trail (Home / Projects / name); the rest keep the starter's route tree.
   const trail=o.page&&['project','projects','studio','contact'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
   if(trail)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:trail.map((m:any,i:number)=>({'@type':'ListItem',position:i+1,name:m.label,item:new URL(m.path,site).href}))})
-  else if(o.path!=='/'&&o.path!=='/es')graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(locale.value==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})
-  if(o.article)graph.push({'@type':'Article','@id':url+'#article',headline:title.value.replace(/ · Martínez Galván$/,''),description:description.value,inLanguage:locale.value,datePublished:o.article.datePublished,dateModified:o.article.dateModified,author:{'@type':'Organization',name:o.article.author},publisher:{'@id':businessId},mainEntityOfPage:{'@id':url+'#webpage'}})
+  else if(o.page?.breadcrumb)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:o.page.breadcrumb.map((c:any,i:number)=>({'@type':'ListItem',position:i+1,name:c.label,item:new URL(c.path??o.path,site).href}))})
+  else if(!isHomePage)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(lang==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})
+  if(o.article)graph.push({'@type':'Article','@id':url+'#article',headline:title.value.replace(/ [·|] Martínez Galván$/,''),description:description.value,inLanguage:lang,image:image.url,datePublished:o.article.datePublished,dateModified:o.article.dateModified,
+   // Authored by the studio until Paco reviews each guide; then author becomes {'@id': paco}.
+   author:{'@id':businessId},publisher:{'@id':businessId},mainEntityOfPage:{'@id':url+'#webpage'},...(o.about?{about:o.about(site)}:{})})
   if(o.extraSchema)graph.push(...o.extraSchema(site,url,businessId))
-  if(o.servicio)graph.push({'@type':'Service','@id':url+'#servicio',name:serviceCopy.value?.label??o.servicio,provider:{'@id':businessId},areaServed:negocio.zonaServicio,url})
+  if(o.servicio){
+   const def=o.page?.definition, sid=def?.serviceId as keyof typeof serviceNames|undefined, loc=def?.locationId
+   const service:any={'@type':'Service','@id':url+'#servicio',name:serviceCopy.value?.label??o.servicio,serviceType:sid?serviceNames[sid].name[lang]:o.servicio,description:description.value,image:image.url,url,
+    provider:{'@id':businessId},areaServed:loc?place(loc,lang):[{'@type':'Place',name:'Costa del Sol'},...allAreas(lang)],availableLanguage:['en','es']}
+   // Service hub: its areas as an offer catalogue (no prices: none are published).
+   if(o.page?.zones?.length)service.hasOfferCatalog={'@type':'OfferCatalog',name:serviceCopy.value?.label,itemListElement:o.page.zones.map((z:any)=>({'@type':'Offer',itemOffered:{'@type':'Service',name:`${serviceCopy.value?.label} · ${z.label}`,url:new URL(z.path,site).href}}))}
+   pageNode.about={'@id':url+'#servicio'}
+   graph.push(service)
+  }
   return {link:[{rel:'canonical',href:url},...(alternates?[...Object.entries(alternates).map(([hreflang,path])=>({rel:'alternate',hreflang,href:new URL(path,site).href})),{rel:'alternate',hreflang:'x-default',href:new URL(alternates.en,site).href}]:[])],script:[{key:'galvan-schema',type:'application/ld+json',textContent:JSON.stringify({'@context':'https://schema.org','@graph':graph}).replaceAll('<','\\u003c')}]}
  })
 }

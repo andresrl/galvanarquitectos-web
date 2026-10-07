@@ -27,7 +27,9 @@ export function useGuidePage(locale: Locale, slug: string, post: Ref<any>, list:
   const path = guidePath(locale, slug)
   const alternates = { [locale]: path, [other]: guidePath(other, post.value.translation) } as Record<Locale, string>
   usePageSeo({ title: `${post.value.title} · Martínez Galván`, description: post.value.description ?? '', path, draft: post.value.draft, alternates,
-    article: { datePublished: post.value.date, dateModified: post.value.updated ?? post.value.date, author: post.value.author } })
+    article: { datePublished: post.value.date, dateModified: post.value.updated ?? post.value.date, author: post.value.author },
+    // The guide is about the service page it links to (its Service node lives on that page).
+    about: post.value.service ? (site: string) => ({ '@id': new URL(post.value.service, site).href + '#servicio' }) : undefined })
   // The next three guides after this one, wrapping round, so every guide gets suggested somewhere.
   const more = computed(() => {
     const all = (list.value ?? []).filter(p => isVisible(cfg, p)), at = all.findIndex(p => p.path === post.value.path)
