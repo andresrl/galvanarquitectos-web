@@ -6,6 +6,7 @@ import { services, serviceIds } from './taxonomy'
 import { casePaths } from './demo'
 import { guideIndex } from './guides'
 import { projectsIndexPath } from './projects/projects'
+import { studioPaths } from './studio'
 
 export type NavLink = { label: string; path: string; demo?: boolean; scene?: string; detail?: string; children?: NavItem[] }
 export type NavGroup = { title: string; links: NavLink[] }
@@ -29,7 +30,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
     { title: t.explore, links: [
       { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.home, path: home },
-      { label: t.studio, path: home + '#estudio', scene: 'estudio' },
+      { label: t.studio, path: studioPaths[locale] },
       { label: t.international, path: home + '#internacional', scene: 'internacional' },
       { label: t.guides, path: guideIndex[locale] },
       { label: t.contact, path: home + '#contacto', scene: 'contacto' }

@@ -5,6 +5,7 @@ import { projectUi } from '~/data/projects/ui'
 import { relatedProjects, projectPath, projectsIndexPath } from '~/data/projects/projects'
 import { locations } from '~/data/taxonomy'
 import { negocio } from '~/data/negocio'
+import { studioPaths } from '~/data/studio'
 import { createProjectMotion } from '../motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true }, project: { type: Object, required: true } })
 const { tone } = useGalvan()
@@ -151,7 +152,7 @@ function step(dir) {
    <p data-reveal>{{ ui.architect.background }}</p>
    <p data-reveal>{{ ui.architect.approach }}</p>
    <dl class="project-principles"><div v-for="[term, text] in ui.architect.principles" :key="term" data-reveal><dt>{{ term }}</dt><dd>{{ text }}</dd></div></dl>
-   <NuxtLink class="text-link" to="/#estudio" data-reveal><span>{{ ui.architect.link }}</span><span aria-hidden="true">↗</span></NuxtLink>
+   <NuxtLink class="text-link" :to="studioPaths[locale]" data-reveal><span>{{ ui.architect.link }}</span><span aria-hidden="true">↗</span></NuxtLink>
   </div>
   <figure class="project-architect-scene"><img src="/media/studio/studio-drawing-1280.avif" :alt="ui.architect.studioAlt" width="1280" height="720" loading="lazy" decoding="async"></figure>
  </section>

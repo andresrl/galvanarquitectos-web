@@ -2,6 +2,7 @@
 import type { Locale, PageDefinition, ProjectPageContent } from './types'
 import { projects, projectPath, projectsIndexPath } from '../projects/projects'
 import { negocio } from '../negocio'
+import { studioCopy, studioPaths } from '../studio'
 
 const ui = {
  en: { home: 'Home', projects: 'Projects' },
@@ -29,3 +30,12 @@ export const projectPages: PageDefinition<ProjectPageContent>[] = projects.map(p
  },
  sources: [`Graphics/VISENI/proyectos (${p.id})`], pending: p.pending
 }))
+
+export const studioPage: PageDefinition<ProjectPageContent> = {
+ id: 'studio', type: 'editorial', template: 'studio', paths: studioPaths, status: 'draft',
+ content: {
+  en: page('en', { label: studioCopy.en.label, title: studioCopy.en.title, description: studioCopy.en.description, image: { src: '/media/studio/studio-og.jpg', alt: studioCopy.en.portraitAlt } }),
+  es: page('es', { label: studioCopy.es.label, title: studioCopy.es.title, description: studioCopy.es.description, image: { src: '/media/studio/studio-og.jpg', alt: studioCopy.es.portraitAlt } })
+ },
+ sources: ['CLAUDE.md §5 and §9.6', 'Graphics/VISENI (portrait, studio scenes)'], pending: ['Review biography and approach with Paco', 'The studio scenes are AI-generated; Paco approved their use']
+}

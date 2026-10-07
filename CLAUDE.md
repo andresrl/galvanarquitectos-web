@@ -630,3 +630,11 @@ Ubicación: solo el nombre sugiere zona en algunos casos (Guadalmina, Los Altos 
 ## 11. Control de versiones
 
 Repositorio Git creado el 4 de octubre de 2026 en la raíz Nuxt (`app/`). Remoto: `git@github.com:andresrl/galvanarquitectos-web.git`, rama `main`. El commit inicial recoge el estado aprobado de la Home y del piloto de reformas en Marbella. Hacer commit antes y después de cada refactor que toque los módulos aprobados.
+
+## 12. Ampliación del 7 de octubre de 2026 (proyectos, estudio, marca)
+
+- **Marca:** Martínez Galván (logo de `Graphics/VISENI`, en `public/brand/`, pintado como máscara CSS en `Marca.vue`). Sustituye «Galván Arquitectos» en textos, SEO, OG y guías. Dominio y email sin cambios.
+- **Proyectos:** 27 fichas EN/ES (`/projects/<slug>`, `/es/proyectos/<slug>`) y listado (`/projects`, `/es/proyectos`), todas borrador noindex. Fuente: `Graphics/VISENI/proyectos/*/proyecto.md` (ES literal; notas internas nunca publicadas). Curación, orden y hero elegido en `scripts/media/projects.json`; derivados AVIF con `python3 scripts/media/build_projects.py` → `public/media/projects/` y `app/data/projects/media.generated.ts`. Datos en `app/data/projects/` (hechos/pending en `projects.ts`). No usar `__IA__` ni las variantes «AI» (decisión de Andrés). Estado y zona solo si están confirmados.
+- **Plantillas:** `project/ProjectPage.vue` (hero a sangre, verde, galería con arrastre e inercia, bloque del arquitecto), `project/ProjectList.vue`, `StudioPage.vue`; estilos en `project.css`; movimiento en `motion/project-motion.js`.
+- **Estudio:** `/studio` · `/es/estudio` (`app/data/studio.ts`). Menú, cabecera, Home y fichas enlazan ahí, no a `/#estudio`. Las escenas de Paco son generadas con IA y Andrés autorizó su uso.
+- **Home:** el hero usa `galvan-arquitectos_video_reel_30s_hero.mp4` (`/video/home-reel.mp4`, petición expresa de Andrés: sustituye a viseni). Lineart retirado de `servicios` (foto The House) y `estudio` (vídeo de Paco); estilos en `home-photo.css`. Vídeos con `scripts/media/build_video.sh`.

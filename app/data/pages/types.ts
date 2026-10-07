@@ -3,7 +3,7 @@ export type Locale = 'en' | 'es'
 export const locales: Locale[] = ['en', 'es']
 export type PageStatus = 'draft' | 'reviewed' | 'published'
 export type PageType = 'service' | 'service-location' | 'project' | 'editorial'
-export type PageTemplate = 'service' | 'project' | 'projects'
+export type PageTemplate = 'service' | 'project' | 'projects' | 'studio'
 
 export type HeroLayout = 'full' | 'split-left' | 'split-right' // split: archive photo on one half, copy on paper
 export type Media = { src: string; width: number; height: number; alt: string; caption: string }

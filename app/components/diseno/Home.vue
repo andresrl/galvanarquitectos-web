@@ -5,6 +5,7 @@ const hub=id=>pageById(id+'-hub').paths
 import {createHomeMotion} from './motion/home-motion'
 import {projectById,projectPath,projectsIndexPath} from '~/data/projects/projects'
 import {projectUi} from '~/data/projects/ui'
+import {studioPaths} from '~/data/studio'
 import {services,serviceIds} from '~/data/taxonomy'
 // Archive photographs (4K originals, AVIF srcset) and the project each one belongs to.
 const pic=(id,file)=>{const m=projectById(id).media;return [m.hero,m.pause,...m.gallery].find(i=>i.file===file)}
@@ -124,7 +125,7 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
       </section>
       <section class="slide studio photo-slide" id="estudio" data-tone="light" data-chapter="Studio">
         <div class="visual photo-bg studio-visual"><video class="ambient-video" data-ambient muted loop playsinline preload="none" poster="/media/studio/studio-drawing-2560.avif" aria-hidden="true"><source src="/video/studio-drawing.webm" type="video/webm"><source src="/video/studio-drawing.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><p class="muted small" v-html="t('studioSeparate')"></p><NuxtLink class="text-link" :to="projectsIndexPath[locale]"><span>{{locale==='en'?'Explore the projects':'Explorar los proyectos'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><p class="muted small" v-html="t('studioSeparate')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true">↗</span></NuxtLink></div>
       </section>
       <section class="slide international" id="internacional" data-tone="dark" data-chapter="International clients">
         <div class="visual international-visual"><img :src="photo('internacional').src" :srcset="photo('internacional').srcset" sizes="(max-width:700px) 90vw, 45vw" :width="photo('internacional').width" :height="photo('internacional').height" :alt="locale==='en'?'Aerial view at dusk of villas on the hillside, La Resina, Estepona':'Vista aérea al anochecer de villas en la ladera, La Resina, Estepona'" loading="lazy" decoding="async"></div>

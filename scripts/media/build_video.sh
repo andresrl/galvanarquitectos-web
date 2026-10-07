@@ -23,5 +23,6 @@ for pair in "Arquitecto dibujando en su estudio:studio-drawing" "Arquitecto revi
   src="${pair%%:*}"; name="${pair##*:}"
   for w in 1280 2560; do [ -f "public/media/studio/$name-$w.avif" ] || { mkdir -p public/media/studio; VIPS_WARNING=0 vips thumbnail "$SRC/$src.png" "public/media/studio/$name-$w.avif[Q=52,strip]" $w --export-profile srgb; }; done
 done
+[ -f public/media/studio/studio-og.jpg ] || VIPS_WARNING=0 vips thumbnail "$SRC/Arquitecto dibujando en su estudio.png" "public/media/studio/studio-og.jpg[Q=82,strip]" 1200 --height 630 --crop centre
 [ -f public/media/studio/francisco-martinez-galvan.avif ] || VIPS_WARNING=0 vips thumbnail "$SRC/francisco-galvan_foto.jpg" "public/media/studio/francisco-martinez-galvan.avif[Q=60,strip]" 740
 echo "public/video $(du -sh $OUT | cut -f1) · public/media/studio $(du -sh public/media/studio | cut -f1)"
