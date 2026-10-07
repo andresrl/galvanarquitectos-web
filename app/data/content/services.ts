@@ -67,7 +67,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       steps: steps.en({ title: 'Develop the design', text: 'Study the plot, the brief and the relationship between house and exterior.' }, { title: 'Define the project', text: 'Agree the project documentation, permissions and coordination required.' }),
       archiveEyebrow: 'THE STUDIO’S ARCHITECTURAL LANGUAGE', archiveTitle: 'Architecture', archiveItalic: 'from the archive.',
       archiveText: 'Two views from the studio archive: volume, light and the relationship with the exterior.',
-      archiveNote: 'Archive images illustrate the studio’s architectural work; they are not presented as projects located in this area.',
+      archiveNote: 'Projects labelled with the name of the area are located there; the others illustrate the studio’s work and are not presented as projects in this area.',
       localTitle: place => `Your future home ${place}.`, hubLocalTitle: 'Your future home here.', localItalic: 'Wherever you are.',
       faqs: [
         ['Can we begin with a plot I already own?', 'Yes. The first step is to study the plot: its orientation, access, surroundings and the planning conditions that apply. That study helps define what can be designed.'],
@@ -103,7 +103,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       steps: steps.es({ title: 'Desarrollar el diseño', text: 'Estudiar la parcela, el programa y la relación entre la casa y el exterior.' }, { title: 'Definir el proyecto', text: 'Acordar la documentación, las licencias y la coordinación necesarias.' }),
       archiveEyebrow: 'EL LENGUAJE ARQUITECTÓNICO DEL ESTUDIO', archiveTitle: 'Arquitectura', archiveItalic: 'del archivo.',
       archiveText: 'Dos miradas del archivo del estudio: volumen, luz y relación con el exterior.',
-      archiveNote: 'Las imágenes del archivo ilustran el trabajo arquitectónico del estudio; no se presentan como proyectos situados en esta zona.',
+      archiveNote: 'Los proyectos rotulados con el nombre de la zona están situados en ella; los demás ilustran el trabajo del estudio y no se presentan como proyectos de esta zona.',
       localTitle: place => `Tu futura casa ${place}.`, hubLocalTitle: 'Tu futura casa aquí.', localItalic: 'Estés donde estés.',
       faqs: [
         ['¿Podemos empezar con una parcela que ya tengo?', 'Sí. El primer paso es estudiar la parcela: su orientación, sus accesos, su entorno y las condiciones urbanísticas que le afectan. Ese estudio ayuda a definir lo que se puede diseñar.'],

@@ -2,6 +2,7 @@
 // Approved service template. Receives a page resolved by app/data/pages; holds no copy of its own.
 import { createServiceMotion } from './motion/service-motion'
 const props = defineProps({ page: { type: Object, required: true } })
+const NuxtLink = resolveComponent('NuxtLink')
 const { tone } = useGalvan()
 const content = computed(() => props.page.content)
 const locale = computed(() => props.page.locale)
@@ -29,7 +30,7 @@ function prepareEnquiry(){
 <template>
 <main ref="root" class="service-editorial">
  <section :class="['service-hero',{'service-hero--split':page.hero!=='full','service-hero--image-left':page.hero==='split-left'}]" id="service-top" aria-labelledby="service-title">
-  <div class="service-hero-image"><img :src="content.media.hero.src" :alt="content.media.hero.alt" fetchpriority="high" :width="content.media.hero.width" :height="content.media.hero.height"></div>
+  <div class="service-hero-image"><img :src="content.media.hero.src" :srcset="content.media.hero.srcset" sizes="(max-width:700px) 100vw, 100vw" :alt="content.media.hero.alt" fetchpriority="high" :width="content.media.hero.width" :height="content.media.hero.height"></div>
   <div v-if="page.hero==='full'" class="service-hero-shade"></div>
   <div class="service-hero-copy">
    <p class="eyebrow" data-reveal>{{content.eyebrow}}</p>
@@ -49,11 +50,11 @@ function prepareEnquiry(){
   <div class="service-intro-body" data-reveal><p class="service-lead">{{content.introLead}}</p><p>{{content.introText}}</p><a class="text-link" href="#enquiry"><span>{{content.enquire}}</span><span aria-hidden="true">↗</span></a></div>
  </section>
  <section class="service-transformation service-container" id="transformation" aria-labelledby="transformation-title">
-  <figure class="service-tall-photo"><div class="service-photo"><img :src="content.media.feature.src" :alt="content.media.feature.alt" loading="lazy" decoding="async" :width="content.media.feature.width" :height="content.media.feature.height"></div><figcaption>{{content.media.feature.caption}}</figcaption></figure>
+  <figure class="service-tall-photo"><div class="service-photo"><img :src="content.media.feature.src" :srcset="content.media.feature.srcset" sizes="(max-width:700px) 100vw, 45vw" :alt="content.media.feature.alt" loading="lazy" decoding="async" :width="content.media.feature.width" :height="content.media.feature.height"></div><figcaption>{{content.media.feature.caption}}</figcaption></figure>
   <div class="service-scope"><div data-reveal><p class="eyebrow">{{content.transformationEyebrow}}</p><h2 id="transformation-title" class="service-heading">{{content.transformationTitle}}{{' '}}<em>{{content.transformationItalic}}</em></h2></div><ol class="service-scope-list"><li v-for="(item,i) in content.scope" :key="i" data-reveal><span aria-hidden="true">0{{i+1}}</span><div><h3>{{item.title}}</h3><p>{{item.text}}</p></div></li></ol></div>
  </section>
  <section class="service-vision" aria-labelledby="vision-title">
-  <div class="service-photo"><img :src="content.media.pause.src" :alt="content.media.pause.alt" loading="lazy" decoding="async" :width="content.media.pause.width" :height="content.media.pause.height"></div>
+  <div class="service-photo"><img :src="content.media.pause.src" :srcset="content.media.pause.srcset" sizes="100vw" :alt="content.media.pause.alt" loading="lazy" decoding="async" :width="content.media.pause.width" :height="content.media.pause.height"></div>
   <div class="service-vision-copy" data-reveal><p class="eyebrow">{{content.visionEyebrow}}</p><h2 class="service-heading" id="vision-title">{{content.visionTitle}}{{' '}}<em>{{content.visionItalic}}</em></h2><p>{{content.visionText}}</p></div>
  </section>
  <section class="service-process service-container" id="process" aria-labelledby="process-title">
@@ -63,7 +64,7 @@ function prepareEnquiry(){
  </section>
  <section class="service-archive service-container" aria-labelledby="archive-title">
   <div class="service-archive-intro"><div data-reveal><p class="eyebrow">{{content.archiveEyebrow}}</p><h2 class="service-heading" id="archive-title">{{content.archiveTitle}}{{' '}}<em>{{content.archiveItalic}}</em></h2></div><p data-reveal>{{content.archiveText}}</p></div>
-  <div class="service-projects"><figure v-for="(project,i) in content.projects" :key="project.name" :class="{'service-project-offset':i===1}"><div class="service-photo"><img :src="'/photos/'+project.image" :alt="project.alt" loading="lazy" decoding="async"></div><figcaption><div><h3>{{project.name}}</h3><p>{{project.text}}</p></div><span>{{content.reference}}</span></figcaption></figure></div>
+  <div class="service-projects"><figure v-for="(project,i) in content.projects" :key="project.name" :class="{'service-project-offset':i===1}"><component :is="project.path?NuxtLink:'div'" :to="project.path" class="service-project-link"><div class="service-photo"><img :src="project.src??'/photos/'+project.image" :srcset="project.srcset" sizes="(max-width:700px) 100vw, 45vw" :width="project.width" :height="project.height" :alt="project.alt" loading="lazy" decoding="async"></div><figcaption><div><h3>{{project.name}}<span v-if="project.path" aria-hidden="true"> ↗</span></h3><p>{{project.text}}</p></div><span>{{project.local&&page.locationName?page.locationName:content.reference}}</span></figcaption></component></figure></div>
   <p class="service-image-note">{{content.archiveNote}}</p>
  </section>
  <section v-if="page.zones?.length" class="service-zones service-container" aria-labelledby="zones-title">

@@ -1,40 +1,30 @@
-// Service hubs and service × location pages composed from service copy, local copy and the studio archive.
+// Service hubs and service × location pages composed from service copy, local copy and the project archive (content/service-images.ts).
 // The approved pilot (renovation × Marbella) keeps its own hand-written file and is not generated here.
-import type { HeroLayout, Locale, Media, PageDefinition, ServiceContent } from './types'
+import type { HeroLayout, Locale, PageDefinition, ServiceContent } from './types'
 import { locales } from './types'
 import { services, serviceIds, locations, locationIds, type LocationId, type ServiceId } from '../taxonomy'
-import { serviceCopy, serviceMedia, commonCopy } from '../content/services'
+import { serviceCopy, commonCopy } from '../content/services'
 import { locationCopy } from '../content/locations'
-import { archive, type ArchiveKey } from '../content/archive'
-import { heroLeads, heroOrder } from '../content/hero'
+import { heroLeads } from '../content/hero'
+import { areaHero, hubHero, servicePause, feature as featureImage, serviceProjects } from '../content/service-images'
 
 const handWritten = new Set(['renovation-marbella'])
 
-function media(key: ArchiveKey, locale: Locale): Media {
-  const a = archive[key]
-  return { src: a.src, width: a.width, height: a.height, alt: a.alt[locale], caption: `${a.name} · ${commonCopy[locale].archiveCaption}` }
-}
-function project(key: ArchiveKey, locale: Locale) {
-  const a = archive[key]
-  return { name: a.name, image: a.src.replace('/photos/', ''), alt: a.alt[locale], text: a.text[locale] }
-}
-const pick = (pool: ArchiveKey[], offset: number, skip?: ArchiveKey) => { const p = pool.filter(k => k !== skip); return [0, 1, 2].map(n => p[(offset + n) % p.length]) }
-
-function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: LocationId; hero: ArchiveKey }): ServiceContent {
-  const s = serviceCopy[id][locale], c = commonCopy[locale], m = serviceMedia[id]
-  const [feature, first, second] = pick(m.pool, offset, local?.hero)
+function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: LocationId }): ServiceContent {
+  const s = serviceCopy[id][locale], c = commonCopy[locale]
+  const heroImage = local ? areaHero(id, local.loc, locale) : hubHero(id, locale)
   const loc = local && locations[local.loc], lc = local && locationCopy[local.loc]
   const place = loc?.in[locale]
   const base = {
     enquire: s.enquire, discover: c.discover, home: c.home, service: services[id].name[locale], navigation: s.navigation,
-    media: { hero: media(local?.hero ?? m.hero, locale), feature: media(feature, locale), pause: media(m.pause, locale) },
+    media: { hero: heroImage, feature: featureImage(id, offset, heroImage, locale), pause: servicePause(id, locale, heroImage) },
     introEyebrow: s.introEyebrow, introTitle: s.introTitle, introItalic: s.introItalic,
     transformationEyebrow: s.transformationEyebrow, transformationTitle: s.transformationTitle, transformationItalic: s.transformationItalic, scope: s.scope,
     archiveNote: s.archiveNote,
     visionEyebrow: s.visionEyebrow, visionTitle: s.visionTitle, visionItalic: s.visionItalic, visionText: s.visionText,
     processEyebrow: s.processEyebrow, processTitle: s.processTitle, processItalic: s.processItalic, processText: s.processText, steps: s.steps,
     archiveEyebrow: s.archiveEyebrow, archiveTitle: s.archiveTitle, archiveItalic: s.archiveItalic, archiveText: s.archiveText,
-    projects: [project(first, locale), project(second, locale)],
+    projects: serviceProjects(id, local?.loc, offset, locale, heroImage.src),
     localEyebrow: c.localEyebrow, localItalic: s.localItalic, remoteText: c.remoteText, localPoints: c.localPoints,
     faqEyebrow: c.faqEyebrow, faqTitle: c.faqTitle,
     contactEyebrow: s.contactEyebrow, contactTitle: s.contactTitle, contactItalic: s.contactItalic,
@@ -67,7 +57,7 @@ export const hubPages: PageDefinition[] = serviceIds.map(id => ({
   paths: { en: `/${services[id].slug.en}`, es: `/es/${services[id].slug.es}` },
   status: 'draft', content: byLocale(locale => compose(id, locale, 5)),
   sources: ['CLAUDE.md §9 (borradores de servicio)', 'Piloto aprobado de reformas en Marbella'],
-  pending: ['Imágenes propias del servicio: hoy se usa el archivo arquitectónico']
+  pending: ['Las fotos son de proyectos del archivo, no documentan este servicio en concreto']
 }))
 
 export const locationPages: PageDefinition[] = serviceIds.flatMap((id, s) => locationIds.map((loc, i) => ({ id, loc, i, s })))
@@ -76,7 +66,7 @@ export const locationPages: PageDefinition[] = serviceIds.flatMap((id, s) => loc
     id: `${id}-${loc}`, type: 'service-location', template: 'service', serviceId: id, locationId: loc,
     hero: ((i + s) % 2 ? 'split-left' : 'split-right') as HeroLayout,
     paths: { en: `/${services[id].slug.en}/${locations[loc].slug.en}`, es: `/es/${services[id].slug.es}/${locations[loc].slug.es}` },
-    status: 'draft', content: byLocale(locale => compose(id, locale, i + s * 3, { loc, hero: heroOrder[(i + 4 * s) % heroOrder.length] })),
+    status: 'draft', content: byLocale(locale => compose(id, locale, i + s * 3, { loc })),
     sources: ['CLAUDE.md §9 (borradores de servicio)', 'app/data/content/locations.ts (geografía general de la zona)'],
     pending: ['Proyectos documentados en esta zona', 'Revisión de Paco del texto local', 'Imágenes propias del servicio']
   }))

@@ -6,7 +6,7 @@ export type PageType = 'service' | 'service-location' | 'project' | 'editorial'
 export type PageTemplate = 'service' | 'project' | 'projects' | 'studio'
 
 export type HeroLayout = 'full' | 'split-left' | 'split-right' // split: archive photo on one half, copy on paper
-export type Media = { src: string; width: number; height: number; alt: string; caption: string }
+export type Media = { src: string; srcset?: string; width: number; height: number; alt: string; caption: string }
 export type Crumb = { label: string; path?: string }
 export type Faq = [question: string, answer: string]
 
@@ -25,7 +25,7 @@ export interface ServiceContent {
   processEyebrow: string; processTitle: string; processItalic: string; processText: string
   steps: { title: string; text: string }[]
   archiveEyebrow: string; archiveTitle: string; archiveItalic: string; archiveText: string
-  projects: { name: string; image: string; alt: string; text: string }[]
+  projects: { name: string; image: string; alt: string; text: string; src?: string; srcset?: string; width?: number; height?: number; path?: string; local?: boolean }[]
   localEyebrow: string; localTitle: string; localItalic: string; localText: string; remoteText: string
   localPoints: string[]
   faqEyebrow: string; faqTitle: string; faqs: Faq[]
