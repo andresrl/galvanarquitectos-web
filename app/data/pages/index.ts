@@ -36,6 +36,11 @@ export const homePath = (_locale: Locale) => '/'
 const hubOf = (serviceId: ServiceId) => pages.find(p => p.type === 'service' && p.serviceId === serviceId)
 const cellOf = (serviceId: ServiceId, locationId: LocationId) => pages.find(p => p.type === 'service-location' && p.serviceId === serviceId && p.locationId === locationId)
 
+// Service pages available in one area (service × location), for project «setting» sections.
+export function servicesIn(locationId: LocationId, locale: Locale): NavItem[] {
+  return serviceIds.flatMap(id => { const p = cellOf(id, locationId); return p ? [{ label: services[id].name[locale], path: p.paths[locale] }] : [] })
+}
+
 export function zonesFor(serviceId: ServiceId, locale: Locale): NavItem[] {
   return locationIds.flatMap(loc => { const p = cellOf(serviceId, loc); return p ? [{ label: locations[loc].name[locale], path: p.paths[locale] }] : [] })
 }

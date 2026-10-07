@@ -228,3 +228,31 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
  .studio-services{grid-template-columns:1fr}
  .studio-scene{height:60svh}
 }
+
+/* The setting (projectSetting): area or Costa del Sol, services there, other projects there */
+.project-setting{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,110px) clamp(40px,7vw,130px);padding:clamp(110px,12vw,190px) var(--gutter);background:var(--paper)}
+.project-setting-head h2{margin:0;font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:clamp(48px,6.4vw,112px);line-height:1;letter-spacing:-.055em}
+.project-setting-head h2 em{display:block;margin-top:14px;font-family:var(--serif);font-weight:400;font-size:.36em;letter-spacing:-.01em;line-height:1.3;color:var(--muted)}
+.project-setting-head .eyebrow{color:var(--brass)}
+.project-setting-body{max-width:640px;padding-top:clamp(0px,3vw,46px)}
+.project-setting-body p{font-size:15px;line-height:1.95;color:var(--ink)}
+.project-setting-body p:last-child{color:var(--muted);font-size:13px}
+.project-setting-body .project-setting-lead{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(19px,1.7vw,25px);line-height:1.6;letter-spacing:-.015em}
+.project-setting h3{margin:0 0 22px;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+.project-setting-services{grid-column:2;max-width:640px}
+.project-setting-services ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.project-setting-services a{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(19px,1.6vw,25px);letter-spacing:-.02em;transition:color .25s,padding .35s}
+.project-setting-services a:hover{color:var(--brass);padding-left:10px}
+.project-setting-projects{grid-column:1/-1;margin-top:clamp(20px,3vw,50px);padding-top:clamp(50px,5vw,80px);border-top:1px solid var(--line)}
+.project-setting-projects ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,32px)}
+.project-setting-projects .project-image{aspect-ratio:3/2}
+.project-setting-projects em{display:block;margin-top:6px;font-family:var(--serif);font-size:16px;color:var(--muted)}
+.project-setting-projects a:hover .project-related-name{color:var(--brass)}
+.project-setting + .project-related{border-top:0;background:#efece5}
+@media(max-width:700px){
+ .project-setting{grid-template-columns:1fr}
+ .project-setting-services{grid-column:1}
+ .project-setting-projects ul{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter)}
+ .project-setting-projects li{flex:0 0 78%;scroll-snap-align:start}
+}
+@media(min-width:701px){.project-setting-head{position:sticky;top:120px;align-self:start;grid-row:span 2}}

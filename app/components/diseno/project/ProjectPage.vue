@@ -6,6 +6,7 @@ import { relatedProjects, projectPath, projectsIndexPath } from '~/data/projects
 import { locations } from '~/data/taxonomy'
 import { negocio } from '~/data/negocio'
 import { studioPaths } from '~/data/studio'
+import { projectSetting } from '~/data/projects/setting'
 import { createProjectMotion } from '../motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true }, project: { type: Object, required: true } })
 const { tone } = useGalvan()
@@ -36,6 +37,7 @@ const altOf = image => viewer.value.find(v => v.image === image)?.alt ?? name.va
 const open = ref(-1)
 const show = image => { open.value = viewer.value.findIndex(v => v.image === image) }
 const related = computed(() => relatedProjects(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
+const setting = computed(() => projectSetting(props.project, locale.value))
 const contactPath = '/#contacto'
 const root = ref(null), track = ref(null)
 let motion = null, alive = false
@@ -135,6 +137,24 @@ function step(dir) {
 
  <section class="project-pause" data-header="light">
   <button type="button" class="project-photo project-pause-photo" :aria-label="ui.open + ': ' + altOf(media.pause)" @click="show(media.pause)"><DisenoProjectImage :image="media.pause" :alt="altOf(media.pause)" sizes="100vw" /></button>
+ </section>
+
+ <section class="project-setting" data-header="dark" :aria-labelledby="'setting-' + project.id">
+  <div class="project-setting-head" data-reveal>
+   <p class="eyebrow">{{ setting.eyebrow }}</p>
+   <h2 :id="'setting-' + project.id">{{ setting.name }} <em>{{ setting.italic }}</em></h2>
+  </div>
+  <div class="project-setting-body">
+   <p v-for="(text, i) in setting.text" :key="i" :class="{ 'project-setting-lead': i === 0 }" data-reveal>{{ text }}</p>
+  </div>
+  <nav class="project-setting-services" :aria-label="setting.servicesTitle" data-reveal>
+   <h3>{{ setting.servicesTitle }}</h3>
+   <ul><li v-for="link in setting.services" :key="link.path"><NuxtLink :to="link.path">{{ link.label }}<span aria-hidden="true">↗</span></NuxtLink></li></ul>
+  </nav>
+  <nav v-if="setting.projects.length" class="project-setting-projects" :aria-label="setting.projectsTitle">
+   <h3 data-reveal>{{ setting.projectsTitle }}</h3>
+   <ul><li v-for="item in setting.projects" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) 80vw, 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+  </nav>
  </section>
 
  <nav class="project-related" data-header="dark" :aria-labelledby="'related-' + project.id">
