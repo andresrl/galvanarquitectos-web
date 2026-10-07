@@ -22,7 +22,7 @@ const lists: Record<ServiceId, { hub: Ref; pause: Ref; areas: Ref[] }> = {
   ['villa-silver', 'silver 2.jpg'], ['villa-pino', 'calle_pino_01.jpg'], ['villa-relojero', 'carril_del_relojero_03.jpg'], ['villa-paris', 'villa_paris_02.jpg'], ['la-resina', 'la_resina_02.jpg'],
   ['sirio', 'sirio_01.jpg'], ['villa-ambar', 'villa_ambar_04.jpg'], ['cortijo-nagueles', 'cortijo_nagueles_44_04.jpg'], ['atalaya', 'atalaya_03.jpg'], ['villa-del-golf', 'parcelas_del_golf_02.jpg']] },
  interiors: { hub: ['bleu-royal', 'bleu_royal_01.jpg'], pause: ['villa-silver', 'terraza-atardecer.jpg'], areas: [
-  ['villa-silver', 'VillaSilver_03-scaled.jpg'], ['villas-in-the-landscape', 'parcelas_p8_12.jpg'], ['castilla', 'castilla_03.jpg'], ['villas-in-the-landscape', 'parcelas_p8_04.jpg'], ['alcala-solvilla', 'alcala_solvilla_04.jpg'],
+  ['villa-silver', 'VillaSilver_03-scaled.jpg'], ['villas-in-the-landscape', 'parcelas_p8_12.jpg'], ['castilla', 'castilla_03.jpg'], ['villas-in-the-landscape', 'parcelas_p8_04.jpg'], ['alcala-solvilla', 'alcala_solvilla_06.jpg'],
   ['la-montua', 'la_montua_04.jpg'], ['villas-in-the-landscape', 'parcelas_p8_07.jpg'], ['alcala-solvilla', 'alcala_solvilla_05.jpg'], ['villas-in-the-landscape', 'parcelas_p8_15.jpg'], ['the-villas', 'the_villas_04.jpg']] },
  landscape: { hub: ['cutar', 'cutar_05.jpg'], pause: ['villa-paris', 'villa_paris_03.jpg'], areas: [
   ['castilla', 'castilla_04.jpg'], ['la-montua', 'la_montua_03.jpg'], ['villa-relojero', 'carril_del_relojero_05.jpg'], ['villa-feliz', 'villa_feliz_03.jpg'], ['the-villas', 'the_villas_05.jpg'],

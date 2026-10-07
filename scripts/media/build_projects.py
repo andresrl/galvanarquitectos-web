@@ -1,23 +1,29 @@
 #!/usr/bin/env python3
 """Project archive derivatives: reads scripts/media/projects.json and the originals in
-../Graphics/VISENI/proyectos, writes AVIF derivatives to public/media/projects/<id>/ and the
+../Graphics/VISENI/01 - Selección Proyectos, writes AVIF derivatives to public/media/projects/<id>/ and the
 manifest app/data/projects/media.generated.ts.
 
 Originals stay outside public/. Never upscales. Incremental: existing outputs are kept
-(pass --force to rebuild). Requires the vips CLI with HEIF/AVIF support.
+(pass --force to rebuild). --projects ID [ID ...] rebuilds only those projects.
+Content hashes in filenames invalidate cached images when originals change.
+Requires the vips CLI with HEIF/AVIF support.
 """
-import base64, json, os, re, subprocess, sys, unicodedata
+import argparse, base64, hashlib, json, os, re, subprocess, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 APP = Path(__file__).resolve().parents[2]
-SRC = APP.parent / 'Graphics' / 'VISENI' / 'proyectos'
+SRC = APP.parent / 'Graphics' / 'VISENI' / '01 - Selección Proyectos'
 OUT = APP / 'public' / 'media' / 'projects'
 CACHE = APP / '.cache' / 'lqip'
 MANIFEST = APP / 'app' / 'data' / 'projects' / 'media.generated.ts'
 CURATION = json.loads((APP / 'scripts' / 'media' / 'projects.json').read_text())['projects']
-FORCE = '--force' in sys.argv
-ENV = {**os.environ, 'VIPS_WARNING': '0'}
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--force', action='store_true')
+parser.add_argument('--projects', nargs='+', metavar='ID')
+ARGS = parser.parse_args()
+FORCE = ARGS.force
+ENV = {**os.environ, 'VIPS_WARNING': '0', 'VIPS_CONCURRENCY': '2'}
 IMAGE = re.compile(r'\.(jpe?g|png)$', re.I)
 WIDTHS = [800, 1600]          # gallery
 WIDTHS_WIDE = [800, 1600, 2560]  # hero and pause are shown full-bleed
@@ -45,7 +51,8 @@ def derive(src: Path, dest: Path, width: int, opts: str, *extra: str) -> None:
 def process(project: dict, file: str, role: str) -> dict:
     src = SRC / project['folder'] / file
     w, h = size(src)
-    name = slugify(Path(file).stem)
+    digest = hashlib.sha256(src.read_bytes()).hexdigest()[:12]
+    name = f'{slugify(Path(file).stem)}-{digest}'
     folder = OUT / project['id']
     folder.mkdir(parents=True, exist_ok=True)
     widths = sorted({min(x, w) for x in (WIDTHS_WIDE if role != 'gallery' else WIDTHS)})
@@ -84,9 +91,19 @@ def build(project: dict) -> tuple[str, dict]:
 
 
 def main() -> None:
-    print(f'Projects: {len(CURATION)} from {SRC}')
-    with ThreadPoolExecutor(max_workers=os.cpu_count() or 4) as pool:
-        media = dict(pool.map(build, CURATION))
+    selected = CURATION
+    media = {}
+    if ARGS.projects:
+        unknown = set(ARGS.projects) - {p['id'] for p in CURATION}
+        if unknown:
+            parser.error(f'Unknown project IDs: {", ".join(sorted(unknown))}')
+        if not MANIFEST.exists():
+            parser.error('A full build is required before rebuilding selected projects')
+        media = json.loads(MANIFEST.read_text().split(' = ', 1)[1])
+        selected = [p for p in CURATION if p['id'] in ARGS.projects]
+    print(f'Projects: {len(selected)} from {SRC}')
+    with ThreadPoolExecutor(max_workers=min(os.cpu_count() or 4, 4)) as pool:
+        media.update(pool.map(build, selected))
     MANIFEST.parent.mkdir(parents=True, exist_ok=True)
     body = json.dumps({p['id']: media[p['id']] for p in CURATION}, ensure_ascii=False, indent=1)
     MANIFEST.write_text(

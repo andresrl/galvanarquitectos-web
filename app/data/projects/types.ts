@@ -4,7 +4,7 @@ import type { Locale } from '../pages/types'
 import type { LocationId, ServiceId } from '../taxonomy'
 
 export type ProjectImage = {
-  file: string            // original file name in Graphics/VISENI/proyectos (never served)
+  file: string            // original file name in Graphics/VISENI/01 - Selección Proyectos (never served)
   src: string             // AVIF, ~1600 px
   srcset: string
   width: number; height: number
