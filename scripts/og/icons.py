@@ -1,29 +1,32 @@
-"""Site icons: a thin Manrope "G" on the studio's dark green. Writes favicon.ico, PNG icons and site.webmanifest in public/.
+"""Site icons: the Martínez Galván isologo (public/brand/mark.png) in paper on the brand's ink.
+Writes favicon.ico, PNG icons and site.webmanifest in public/.
 
     python3 scripts/og/icons.py
 """
 import json
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-FOREST, PAPER, BRASS = (28, 42, 34), (246, 244, 239), (173, 141, 97)
+INK, PAPER = (28, 33, 30), (246, 244, 239)
+MARK = Image.open(ROOT / 'public' / 'brand' / 'mark.png').getchannel('A')
+MARK = MARK.crop(MARK.getbbox())
 
 
-def icon(size, weight=300):
-    img = Image.new('RGB', (size, size), FOREST)
-    d = ImageDraw.Draw(img)
-    f = ImageFont.truetype(str(Path(__file__).with_name('manrope.ttf')), int(size * .66))
-    f.set_variation_by_axes([weight if size >= 64 else 500])
-    box = d.textbbox((0, 0), 'G', font=f)
-    d.text(((size - (box[2] - box[0])) / 2 - box[0], (size - (box[3] - box[1])) / 2 - box[1] - size * .02), 'G', font=f, fill=PAPER)
-    if size >= 64:
-        d.rectangle((size * .38, size * .82, size * .62, size * .82 + max(2, size // 90)), fill=BRASS)
+def icon(size):
+    # Small favicons need a larger mark to stay legible in the browser tab.
+    scale = .8 if size <= 32 else .72 if size <= 48 else .58
+    w = round(size * scale)
+    h = round(w * MARK.height / MARK.width)
+    if h > size * scale:
+        h = round(size * scale); w = round(h * MARK.width / MARK.height)
+    img = Image.new('RGB', (size, size), INK)
+    img.paste(Image.new('RGB', (w, h), PAPER), ((size - w) // 2, (size - h) // 2), MARK.resize((w, h), Image.LANCZOS))
     return img
 
 
 public = ROOT / 'public'
-icon(48).save(public / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
+icon(48).save(public / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)], append_images=[icon(16), icon(32)])
 icon(180).save(public / 'apple-touch-icon.png')
 for s in (192, 512):
     icon(s).save(public / f'icon-{s}.png')
