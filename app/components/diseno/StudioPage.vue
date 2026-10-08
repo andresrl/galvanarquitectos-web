@@ -3,7 +3,7 @@
 // Same editorial family as the project archive (project.css); motion from project-motion.js.
 import { studioCopy } from '~/data/studio'
 import { projectUi } from '~/data/projects/ui'
-import { projects, projectPath, projectsIndexPath } from '~/data/projects/projects'
+import { projects, projectPath, projectCard, projectsIndexPath } from '~/data/projects/projects'
 import { services, serviceIds } from '~/data/taxonomy'
 import { pageById } from '~/data/pages'
 import { negocio } from '~/data/negocio'
@@ -22,23 +22,23 @@ const serviceLinks = computed(() => serviceIds.map(id => ({ label: services[id].
 const scenes = ['studio-drawing', 'studio-site', 'studio-conversation', 'studio-inspection']
 const areas = computed(() => [{ label: 'Marbella', path: locale.value === 'en' ? '/' : '/es' }, ...areaIds.map(id => ({ label: locations[id].name[locale.value], path: areaPath(id, locale.value) }))])
 const bleuRoyal = computed(() => projectPath(projectById('bleu-royal'), locale.value))
-const featured = computed(() => projects.filter(p => p.featured).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
+const featured = computed(() => projects.filter(p => p.featured).map(p => projectCard(p, locale.value)))
 const root = ref(null)
 const reduced = ref(false)
-let motion = null, alive = false, observer = null
+let motion = null, alive = false, videos = null
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
 onMounted(async () => {
  alive = true
  reduced.value = matchMedia('(prefers-reduced-motion: reduce)').matches
  await nextTick()
  // Background videos play only while visible.
- observer = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && !document.hidden ? e.target.play().catch(() => {}) : e.target.pause()))
- root.value?.querySelectorAll('video').forEach(v => observer.observe(v))
+ videos = createAmbientVideos()
+ root.value?.querySelectorAll('video').forEach(v => videos.observe(v))
  await document.fonts.ready
  const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
  if (alive && root.value) motion = createProjectMotion({ root: root.value, gsap, ScrollTrigger, onTone: v => { tone.value = v } })
 })
-function stop() { alive = false; observer?.disconnect(); motion?.destroy(); motion = null }
+function stop() { alive = false; videos?.destroy(); videos = null; motion?.destroy(); motion = null }
 onBeforeRouteLeave(stop)
 onBeforeUnmount(stop)
 </script>

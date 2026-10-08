@@ -47,12 +47,16 @@ const servicesOf = (id: string): ServiceId[] => [id === 'atalaya' ? 'renovation'
 export const projects: Project[] = curation.projects.map((c, order) => {
  const copy = projectCopy[c.id], media = projectMedia[c.id], fact = facts[c.id]
  if (!copy || !media || !fact) throw new Error(`Project ${c.id} is missing copy, media or facts`)
+ if (media.card && !(copy.es.cardAlt && copy.en.cardAlt)) throw new Error(`Project ${c.id} has a card image without cardAlt`)
  const { name, nameEn, ...byLocale } = copy
  return { id: c.id, order, name: { en: nameEn ?? name, es: name }, slug: c.slug as Record<Locale, string>, featured: !!c.featured, copy: byLocale, media, services: servicesOf(c.id), ...fact }
 })
 
 export const projectById = (id: string) => projects.find(p => p.id === id)
 export const projectPath = (project: Project, locale: Locale) => locale === 'en' ? `/projects/${project.slug.en}` : `/es/proyectos/${project.slug.es}`
+// Thumbnail for listings and related-project cards: media.card when curated, otherwise the hero.
+export const projectCard = (p: Project, locale: Locale) => ({ id: p.id, name: p.name[locale], heading: p.copy[locale].heading,
+ alt: p.media.card ? p.copy[locale].cardAlt! : p.copy[locale].heroAlt, image: p.media.card ?? p.media.hero, path: projectPath(p, locale) })
 export const projectsIndexPath: Record<Locale, string> = { en: '/projects', es: '/es/proyectos' }
 
 // Next projects for a page: the following two in curated order, then two more with the same status.

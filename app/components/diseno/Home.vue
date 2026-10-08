@@ -23,32 +23,21 @@ const root=ref(null)
 const pageScroll=usePageScroll()
 const heroVideo=ref(null)
 const videoMotionAllowed=ref(false)
-let videoObserver=null,videoMotionQuery=null,heroVisible=true
-// Other background videos (studio chapter): same rules as the hero.
-let ambientObserver=null
-function syncAmbient(video,visible){if(videoMotionAllowed.value&&visible&&!document.hidden){video.muted=true;video.play().catch(()=>{})}else video.pause()}
-function syncHeroVideo(){
- const video=heroVideo.value
- if(!video)return
- if(videoMotionAllowed.value&&heroVisible&&!document.hidden){video.muted=true;video.play().catch(()=>{})}
- else video.pause()
-}
-function updateVideoPreference(){videoMotionAllowed.value=!videoMotionQuery.matches;syncHeroVideo();if(!videoMotionAllowed.value)root.value?.querySelectorAll('video[data-ambient]').forEach(v=>v.pause())}
+let videoMotionQuery=null,videos=null
+// Hero and studio-chapter videos: shared rules in utils/ambient-video.ts (view, tab, sleep, reduced motion).
+function syncHeroVideo(){videos?.sync()}
+function updateVideoPreference(){videoMotionAllowed.value=!videoMotionQuery.matches;syncHeroVideo()}
 function setupHeroVideo(){
  videoMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)')
- updateVideoPreference()
+ videoMotionAllowed.value=!videoMotionQuery.matches
  videoMotionQuery.addEventListener('change',updateVideoPreference)
- document.addEventListener('visibilitychange',syncHeroVideo)
- videoObserver=new IntersectionObserver(([entry])=>{heroVisible=entry.isIntersecting;syncHeroVideo()},{threshold:.01})
- videoObserver.observe(root.value.querySelector('#inicio'))
- ambientObserver=new IntersectionObserver(entries=>entries.forEach(e=>syncAmbient(e.target,e.isIntersecting)),{threshold:.01})
- root.value.querySelectorAll('video[data-ambient]').forEach(v=>ambientObserver.observe(v))
+ videos=createAmbientVideos(()=>videoMotionAllowed.value)
+ if(heroVideo.value)videos.observe(heroVideo.value,root.value.querySelector('#inicio'))
+ root.value.querySelectorAll('video[data-ambient]').forEach(v=>videos.observe(v))
 }
 function stopHeroVideo(){
- videoObserver?.disconnect();videoObserver=null
- ambientObserver?.disconnect();ambientObserver=null;root.value?.querySelectorAll('video[data-ambient]').forEach(v=>v.pause())
+ videos?.destroy();videos=null
  videoMotionQuery?.removeEventListener('change',updateVideoPreference)
- document.removeEventListener('visibilitychange',syncHeroVideo)
  heroVideo.value?.pause()
 }
 let motion=null,alive=false,mountReady=false,savedScroll=0,motionGeneration=0

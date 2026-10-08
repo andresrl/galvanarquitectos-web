@@ -16,9 +16,12 @@ const context = computed(() => {
 })
 const form = reactive({ name: '', email: '', phone: '', message: '' })
 const video = ref(null), reduced = ref(false)
-onMounted(() => { reduced.value = matchMedia('(prefers-reduced-motion: reduce)').matches; sync() })
-function sync() { const v = video.value; if (!v) return; props.active && !reduced.value ? v.play().catch(() => {}) : v.pause() }
+// Plays while the panel is open; resumes after a hidden tab or sleep (utils/ambient-video.ts).
+let videos = null
+onMounted(async () => { reduced.value = matchMedia('(prefers-reduced-motion: reduce)').matches; await nextTick(); videos = createAmbientVideos(() => !reduced.value); sync() })
+function sync() { if (video.value) videos?.set(video.value, props.active) }
 watch(() => props.active, sync)
+onBeforeUnmount(() => { videos?.destroy(); videos = null })
 function send() {
  const t = c.value, f = t.fields
  const details = [context.value ? `${t.regarding}: ${context.value.label}` : '', `${f.name}: ${form.name}`, `${f.email}: ${form.email}`, form.phone ? `${f.phone}: ${form.phone}` : ''].filter(Boolean)

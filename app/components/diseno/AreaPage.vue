@@ -4,7 +4,7 @@ import { areaUi, areaPath } from '~/data/areas'
 import { locations, services, serviceIds } from '~/data/taxonomy'
 import { locationCopy } from '~/data/content/locations'
 import { areaHero, projectsIn } from '~/data/content/service-images'
-import { projectPath } from '~/data/projects/projects'
+import { projectCard } from '~/data/projects/projects'
 import { servicesIn } from '~/data/pages'
 import { createProjectMotion } from './motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true } })
@@ -23,7 +23,7 @@ const heroMedia = computed(() => areaHero('architecture', loc.value, locale.valu
 // Archive image (no project confirmed here): say so, so the photo is not read as a project in this area.
 const caption = computed(() => hero.value ? local.value[0].name[locale.value] : `${heroMedia.value.caption} · ${locale.value === 'en' ? 'Studio archive' : 'Archivo del estudio'}`)
 const cells = computed(() => { const links = servicesIn(loc.value, locale.value); return serviceIds.map((id, i) => ({ id, name: services[id].name[locale.value], text: copy.value.focus[id]?.[locale.value] ?? '', path: links.find(l => l.label === services[id].name[locale.value])?.path, image: areaHero(id, loc.value, locale.value) })).filter(c => c.path) })
-const projectCards = computed(() => local.value.map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
+const projectCards = computed(() => local.value.map(p => projectCard(p, locale.value)))
 const near = computed(() => place.value.near.map(n => ({ label: locations[n].name[locale.value], path: areaPath(n, locale.value) })))
 const root = ref(null)
 let motion = null, alive = false

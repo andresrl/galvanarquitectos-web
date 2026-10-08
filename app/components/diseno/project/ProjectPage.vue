@@ -2,7 +2,7 @@
 // Project page (archive). Receives the resolved registry page and its project; holds no copy of its own.
 // Rhythm: full-bleed hero → dark forest block (lead, facts, two columns) → image crossing into paper → gallery → pause → other projects → contact.
 import { projectUi } from '~/data/projects/ui'
-import { relatedProjects, projectPath, projectsIndexPath, projectsByService } from '~/data/projects/projects'
+import { relatedProjects, projectCard, projectsIndexPath, projectsByService } from '~/data/projects/projects'
 import { services as serviceNames } from '~/data/taxonomy'
 import { pageById } from '~/data/pages'
 import { locations } from '~/data/taxonomy'
@@ -38,12 +38,12 @@ const viewer = computed(() => [media.value.hero, ...gallery.value, media.value.p
 const altOf = image => viewer.value.find(v => v.image === image)?.alt ?? name.value
 const open = ref(-1)
 const show = image => { open.value = viewer.value.findIndex(v => v.image === image) }
-const related = computed(() => relatedProjects(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
+const related = computed(() => relatedProjects(props.project).map(p => projectCard(p, locale.value)))
 const setting = computed(() => projectSetting(props.project, locale.value))
 // Related by service: the services this project shows (links to their pages) and projects that share them.
 const byService = computed(() => ({
  services: (props.project.services ?? []).map(id => ({ label: serviceNames[id].name[locale.value], path: pageById(`${id}-hub`).paths[locale.value] })),
- projects: projectsByService(props.project).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) }))
+ projects: projectsByService(props.project).map(p => projectCard(p, locale.value))
 }))
 const contact = useContact()
 const root = ref(null), track = ref(null)

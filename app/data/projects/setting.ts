@@ -7,7 +7,7 @@ import { locations } from '../taxonomy'
 import { locationCopy } from '../content/locations'
 import { pageById, servicesIn } from '../pages'
 import { services, serviceIds } from '../taxonomy'
-import { projects, projectPath } from './projects'
+import { projects, projectCard } from './projects'
 import { areaPath } from '../areas'
 import type { Project } from './types'
 
@@ -47,7 +47,7 @@ export function projectSetting(project: Project, locale: Locale): ProjectSetting
    services: serviceIds.map(id => ({ label: services[id].name[locale], path: pageById(`${id}-hub`)!.paths[locale] })) }
  }
  const place = locations[zone], copy = locationCopy[zone]
- const neighbours = projects.filter(p => p.zone === zone && p.id !== project.id).map(p => ({ id: p.id, name: p.name[locale], heading: p.copy[locale].heading, alt: p.copy[locale].heroAlt, image: p.media.hero, path: projectPath(p, locale) }))
+ const neighbours = projects.filter(p => p.zone === zone && p.id !== project.id).map(p => projectCard(p, locale))
  return {
   eyebrow: t.eyebrow, name: place.name[locale], italic: general[locale].italic,
   text: [copy.context[locale], copy.setting[locale], t.studio],

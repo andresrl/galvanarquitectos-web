@@ -1,7 +1,7 @@
 <script setup>
 // Project archive listing: reel hero, real filters (status), asymmetric editorial grid, selected villas, closing.
 import { projectUi } from '~/data/projects/ui'
-import { projects, projectPath } from '~/data/projects/projects'
+import { projects, projectCard } from '~/data/projects/projects'
 import { locations } from '~/data/taxonomy'
 import { createProjectMotion } from '../motion/project-motion'
 import { homeReel } from '~/data/home-reel'
@@ -13,7 +13,7 @@ const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const ui = computed(() => projectUi[locale.value])
 const t = computed(() => ui.value.list)
 const filter = useState('galvan:project-filter:' + props.page.locale, () => 'all')
-const items = computed(() => projects.map(p => ({ id: p.id, status: p.status, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, featured: p.featured, path: projectPath(p, locale.value),
+const items = computed(() => projects.map(p => ({ ...projectCard(p, locale.value), status: p.status, featured: p.featured,
  meta: [p.status ? ui.value.status[p.status] : '', p.zone ? locations[p.zone].name[locale.value] : ''].filter(Boolean).join(' · ') })))
 const visible = computed(() => filter.value === 'all' ? items.value : items.value.filter(i => i.status === filter.value))
 const featured = computed(() => items.value.filter(i => i.featured))
@@ -21,15 +21,15 @@ const filters = computed(() => (['all', 'completed', 'ongoing']).map(id => ({ id
 const root = ref(null), video = ref(null)
 const pageScroll = usePageScroll()
 const reduced = ref(false)
-let motion = null, alive = false, observer = null
+let motion = null, alive = false, videos = null
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
 onMounted(async () => {
  alive = true
  reduced.value = matchMedia('(prefers-reduced-motion: reduce)').matches
  // The reel plays only while visible, never with reduced motion.
  if (video.value && !reduced.value) {
-  observer = new IntersectionObserver(([entry]) => entry.isIntersecting && !document.hidden ? video.value?.play().catch(() => {}) : video.value?.pause())
-  observer.observe(video.value)
+  videos = createAmbientVideos()
+  videos.observe(video.value)
  }
  await document.fonts.ready
  const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
@@ -37,7 +37,7 @@ onMounted(async () => {
  pageScroll.ready()
 })
 watch(filter, async () => { await nextTick(); motion?.refresh() })
-function stop() { alive = false; observer?.disconnect(); motion?.destroy(); motion = null }
+function stop() { alive = false; videos?.destroy(); videos = null; motion?.destroy(); motion = null }
 onBeforeRouteLeave(stop)
 onBeforeUnmount(stop)
 </script>

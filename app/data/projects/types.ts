@@ -11,7 +11,7 @@ export type ProjectImage = {
   lqip: string            // tiny blurred placeholder, data URI
   jpg?: string            // hero only: JPEG for Open Graph
 }
-export type ProjectMedia = { hero: ProjectImage; pause: ProjectImage; gallery: ProjectImage[] }
+export type ProjectMedia = { hero: ProjectImage; pause: ProjectImage; gallery: ProjectImage[]; card?: ProjectImage }  // card: thumbnail when not the hero
 
 export type ProjectStatus = 'completed' | 'ongoing' | null   // null: not confirmed, never shown
 export type ProjectKind = 'renovation' | 'hospitality' | 'tender'
@@ -31,6 +31,7 @@ export type ProjectCopy = {
   lead: string
   body: [string, string, string] | string[]
   heroAlt: string
+  cardAlt?: string        // required when media.card is set
 }
 
 export type Project = ProjectFacts & {

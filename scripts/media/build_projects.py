@@ -88,6 +88,11 @@ def build(project: dict) -> tuple[str, dict]:
         'pause': process(project, project['pause'], 'pause'),
         'gallery': [process(project, f, 'gallery') for f in gallery],
     }
+    if 'card' in project:  # thumbnail: reuses the derivatives of an image already processed above
+        card = next((i for i in (entry['hero'], entry['pause'], *entry['gallery']) if i['file'] == project['card']), None)
+        if not card:
+            raise SystemExit(f'{project["id"]}: card {project["card"]!r} not found')
+        entry['card'] = card
     print(f'  {project["id"]}: {len(files)} images')
     return project['id'], entry
 

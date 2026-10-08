@@ -330,17 +330,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "orion": {
   "hero": {
    "file": "orion_03.jpg",
-   "src": "/media/projects/orion/orion-03-1600.avif",
-   "srcset": "/media/projects/orion/orion-03-800.avif 800w, /media/projects/orion/orion-03-1600.avif 1600w, /media/projects/orion/orion-03-2560.avif 2560w",
+   "src": "/media/projects/orion/orion-03-6c331b8cb1c7-1600.avif",
+   "srcset": "/media/projects/orion/orion-03-6c331b8cb1c7-800.avif 800w, /media/projects/orion/orion-03-6c331b8cb1c7-1600.avif 1600w, /media/projects/orion/orion-03-6c331b8cb1c7-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JYgCdEftgG76SLSaZhD1V6AD+wFEKJAwGSOIV0C0HQ+nD8migo7oMprz4ghBILWFIqXV/eP29Q8XHnprfVV617jkNq3WSBh82BwsNKpWKRfVu0L3z0aWG4NdOPL6a5pqG7B62D8WaatZS3Xs6yzv8QkhvjL76dRCq2D9+oOIAAA==",
-   "jpg": "/media/projects/orion/orion-03-og.jpg"
+   "jpg": "/media/projects/orion/orion-03-6c331b8cb1c7-og.jpg"
   },
   "pause": {
    "file": "orion_04.jpg",
-   "src": "/media/projects/orion/orion-04-1600.avif",
-   "srcset": "/media/projects/orion/orion-04-800.avif 800w, /media/projects/orion/orion-04-1600.avif 1600w, /media/projects/orion/orion-04-2560.avif 2560w",
+   "src": "/media/projects/orion/orion-04-5b5275115ed4-1600.avif",
+   "srcset": "/media/projects/orion/orion-04-5b5275115ed4-800.avif 800w, /media/projects/orion/orion-04-5b5275115ed4-1600.avif 1600w, /media/projects/orion/orion-04-5b5275115ed4-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOj+ABZgjw1DZoMOQYYwAD+pZAr11Jq/viDgYWUuGkv7wXaMAyUl4xOrKKCgyyv5g4xwE8RKu1McPvsNXxmIYuAwaAL8YRuRgswmU/5EB31DljsE862nOdVFPYG0C+FeLR6EKYAAA=="
@@ -348,29 +348,37 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "orion_01.jpg",
-    "src": "/media/projects/orion/orion-01-1600.avif",
-    "srcset": "/media/projects/orion/orion-01-800.avif 800w, /media/projects/orion/orion-01-1600.avif 1600w",
+    "src": "/media/projects/orion/orion-01-ba64ef0d6021-1600.avif",
+    "srcset": "/media/projects/orion/orion-01-ba64ef0d6021-800.avif 800w, /media/projects/orion/orion-01-ba64ef0d6021-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZAC7MoBOAbUMkMuBJHhGY8R0APk7sD+m07ujACs0Z7fXKUXHhK9o7lw1Q7GlKHtI80oqlaRA4rDHa3KP117AG7wX52rpLqMkKyJbfAzG2uLtuXOHeWb7L2AnI8bi7EylsbbV4qPAImDwlrUEp6Ir7jG8xP2yteEp3Nt9BnWReucXPAo+YbzFSB8LWdtN778m8T95iEH0kgAA"
    },
    {
     "file": "orion_02.jpg",
-    "src": "/media/projects/orion/orion-02-1600.avif",
-    "srcset": "/media/projects/orion/orion-02-800.avif 800w, /media/projects/orion/orion-02-1600.avif 1600w",
+    "src": "/media/projects/orion/orion-02-dd4d721c6ab4-1600.avif",
+    "srcset": "/media/projects/orion/orion-02-dd4d721c6ab4-800.avif 800w, /media/projects/orion/orion-02-dd4d721c6ab4-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZgCsICXgvhAg+eYO5ufZlpgAAP68dCTgGYl1kl1fLzZhWaEU3Ekwb1LAGA6+zFEgszryfxnHvw9vX0Ld0DaF/Z7prT7u2uEf9JREBZ8vVVGEWdtZ4DfPsAHnySqiLhJ+O2gAAv85UCJVcQumG9GwQV+3LHyJDkOdd40d8Nh7YXTDcGwe/DVFFFse52VUuLVKHo8jlGY3fS3drRAAAA=="
    },
    {
     "file": "orion_05.jpg",
-    "src": "/media/projects/orion/orion-05-1600.avif",
-    "srcset": "/media/projects/orion/orion-05-800.avif 800w, /media/projects/orion/orion-05-1600.avif 1600w",
+    "src": "/media/projects/orion/orion-05-2923b9c131c2-1600.avif",
+    "srcset": "/media/projects/orion/orion-05-2923b9c131c2-800.avif 800w, /media/projects/orion/orion-05-2923b9c131c2-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAACwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JZgCdAAyfTvxTFZtNMAD+zgHWDayWUVuSmcB1nuwNXNZFK3aWt4/trwEY3mOVxN2HjIakJjuk0OvZqeMp9pMRl3YSJVnX82LLDwC2u1BohFudNXOz21xLJB51BLjAXklrBBzjr7SuTEGMKfN3nfzvoZIqUMgCh6QIq4ZfHFCN2vC5eAAAAA=="
    }
-  ]
+  ],
+  "card": {
+   "file": "orion_01.jpg",
+   "src": "/media/projects/orion/orion-01-ba64ef0d6021-1600.avif",
+   "srcset": "/media/projects/orion/orion-01-ba64ef0d6021-800.avif 800w, /media/projects/orion/orion-01-ba64ef0d6021-1600.avif 1600w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZAC7MoBOAbUMkMuBJHhGY8R0APk7sD+m07ujACs0Z7fXKUXHhK9o7lw1Q7GlKHtI80oqlaRA4rDHa3KP117AG7wX52rpLqMkKyJbfAzG2uLtuXOHeWb7L2AnI8bi7EylsbbV4qPAImDwlrUEp6Ir7jG8xP2yteEp3Nt9BnWReucXPAo+YbzFSB8LWdtN778m8T95iEH0kgAA"
+  }
  },
  "la-montua": {
   "hero": {
@@ -736,7 +744,15 @@ export const projectMedia: Record<string, ProjectMedia> = {
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOmUABp0cC+oWAms8Uf/6+AAP7l9TLVD97jc9evn7KbCC2q9+NmmCg7KkMa+Qy/KBh77+ZdhV6s/+aP+Londcs4gG5aOnp+ndQx6Z/cwWasgAv+zbAcA1+YbcUyjwYALLeYorMVI/wN/iwaYAGICwAUswwkgAeNkERMuy/gLuKAAAA="
    }
-  ]
+  ],
+  "card": {
+   "file": "villa_feliz_03.jpg",
+   "src": "/media/projects/villa-feliz/villa-feliz-03-0744b928816a-1600.avif",
+   "srcset": "/media/projects/villa-feliz/villa-feliz-03-0744b928816a-800.avif 800w, /media/projects/villa-feliz/villa-feliz-03-0744b928816a-1600.avif 1600w, /media/projects/villa-feliz/villa-feliz-03-0744b928816a-2560.avif 2560w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdMoMljEwMIWYhdS3Oq+DzvPAA/l8rjEQCkW/Kb9PNpcUvDDOrMGA8E4F+XcEpAAmChBZn9wprOz1F0l7naS7hV2dDgJRh3MP67GQdbjv5pNo4VVULwM3xKCaZMzjs5Ui7ARqDqmvvxgEM6aey5SRjM7tuhvkof4E6ZNv4HPb43l75VXylhXmXIOl23tsoDTf045AAAA=="
+  }
  },
  "bleu-royal": {
   "hero": {
@@ -887,7 +903,15 @@ export const projectMedia: Record<string, ProjectMedia> = {
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOgMY2VQNrhC7d37OsAagAA/sdtb+91xMls6EwuKIxeLzwAyQa2gioqxk86rwkXO8AVFSN0JJxDLt5d+fBg3Yw7lwwz3F207Fn9+eybPHWULN6L/1FGIMQKdKugljdYuqGK6JX509zuxcRzf1cayrzBeLqPXRsVC4boAAA="
    }
-  ]
+  ],
+  "card": {
+   "file": "elviria_05.jpg",
+   "src": "/media/projects/elviria/elviria-05-7065d3f68040-1600.avif",
+   "srcset": "/media/projects/elviria/elviria-05-7065d3f68040-800.avif 800w, /media/projects/elviria/elviria-05-7065d3f68040-1600.avif 1600w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdACFZ07gewJ6mDAAA/gh//GEOJqsJhl7UWxOkGZBdEfluu0kHvlgEQu+wu1FYdO/HXXk5bAqqQR1XCpUAJTCho2mlntzgVLYoTz7ZCuJmW+7a0jDigWrrAq5KBnj/L1RhiIyJZ3XUe6/8HD6HXWjUDuh67eMPvqBqC/N06VSRCdrAAA=="
+  }
  },
  "cortijo-nagueles": {
   "hero": {
@@ -1326,6 +1350,14 @@ export const projectMedia: Record<string, ProjectMedia> = {
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwAwCdASoYAA0APu1iqk2ppaQiMAgBMB2JZAC7ABK3BWfLOCiPLysAAP5m3E3zGur+WwGsOp118TshjAmJYO/4Tvs8mU0vto3YOmiVdg0/89ar5NrpkIsz61RGp53VC4QnLq+VkkZpGmeH32jVILM/RUCkqf/UjGOmZhR8VOwVa8GT2ZbN+aCJapzxbtuei5ETLfWAAAA="
    }
-  ]
+  ],
+  "card": {
+   "file": "parcelas_del_golf_04.jpg",
+   "src": "/media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-1600.avif",
+   "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-1600.avif 1600w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwAwCdASoYAA0APu1iqk2ppaQiMAgBMB2JZAC7ABK3BWfLOCiPLysAAP5m3E3zGur+WwGsOp118TshjAmJYO/4Tvs8mU0vto3YOmiVdg0/89ar5NrpkIsz61RGp53VC4QnLq+VkkZpGmeH32jVILM/RUCkqf/UjGOmZhR8VOwVa8GT2ZbN+aCJapzxbtuei5ETLfWAAAA="
+  }
  }
 }

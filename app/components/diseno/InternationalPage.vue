@@ -1,7 +1,7 @@
 <script setup>
 // International clients (app/data/international.ts): hero, how working from abroad works, what you can count on, FAQ, projects.
 import { internationalCopy } from '~/data/international'
-import { projects, projectPath, projectById } from '~/data/projects/projects'
+import { projects, projectCard, projectById } from '~/data/projects/projects'
 import { guidePath } from '~/data/guides'
 import { createProjectMotion } from './motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true } })
@@ -10,7 +10,7 @@ const contact = useContact()
 const locale = computed(() => props.page.locale)
 const c = computed(() => internationalCopy[locale.value])
 const hero = projectById('the-villas').media.pause
-const featured = computed(() => projects.filter(p => p.featured).map(p => ({ id: p.id, name: p.name[locale.value], heading: p.copy[locale.value].heading, alt: p.copy[locale.value].heroAlt, image: p.media.hero, path: projectPath(p, locale.value) })))
+const featured = computed(() => projects.filter(p => p.featured).map(p => projectCard(p, locale.value)))
 const guide = computed(() => guidePath(locale.value, locale.value === 'en' ? 'following-your-villa-project-from-abroad' : 'seguir-tu-proyecto-desde-otro-pais'))
 const root = ref(null)
 let motion = null, alive = false
