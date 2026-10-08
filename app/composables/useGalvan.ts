@@ -1,4 +1,5 @@
 import {copy} from '~/data/demo'
+import {homeProjects} from '~/data/home-projects'
 import {routeLocale,alternatePath,homePath} from '~/data/pages'
 export type GalvanLocale='en'|'es'
 export function useGalvan(){
@@ -13,12 +14,8 @@ export function useGalvan(){
   const t=(key:string)=>(copy[locale.value] as Record<string,string>)[key]??key
   const scenes=[
     {id:'inicio',en:'Home',es:'Inicio'},
-    {id:'servicios',en:'Services',es:'Servicios'},
-    {id:'villas',en:'Villa renovation',es:'Reforma integral'},
-    {id:'interiores',en:'Interior design',es:'Interiorismo'},
-    {id:'exteriores',en:'Landscape design',es:'Paisajismo'},
+    ...homeProjects.map(({id,project})=>({id,en:project.name.en,es:project.name.es})),
     {id:'estudio',en:'Studio',es:'El estudio'},
-    {id:'internacional',en:'International clients',es:'Clientes internacionales'},
     {id:'contacto',en:'Contact',es:'Contacto'}
   ]
   async function requestScene(id:string){

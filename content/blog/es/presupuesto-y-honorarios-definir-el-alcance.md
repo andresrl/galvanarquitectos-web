@@ -22,14 +22,14 @@ Esta guía explica por qué el alcance va primero y cómo preparar una conversac
 
 Conviene separar dos cosas que a menudo se mezclan:
 
-- **Los honorarios del arquitecto**, que dependen de los servicios que incluya el encargo: diseño, licencias, dirección de obra, coordinación, interiorismo o paisajismo.
+- **Los honorarios del arquitecto**, que dependen de los servicios que incluya el encargo: diseño, licencias, dirección de obra o coordinación.
 - **El coste de la obra**, que depende de lo que se construya o reforme, de los materiales elegidos y de las empresas que la ejecuten.
 
 Ambas se relacionan con el alcance del proyecto, pero no son lo mismo. Pregunta por cada una por separado.
 
 ## Por qué el alcance va primero
 
-Dos reformas «integrales» pueden ser proyectos muy diferentes. Una puede mantener la estructura y renovar interiores; otra, reorganizar la casa entera, ampliar y rehacer el jardín. Llamarlas igual no las hace comparables.
+Dos reformas «integrales» pueden ser proyectos muy diferentes. Una puede mantener la estructura y renovar interiores; otra, reorganizar la casa entera, ampliar y rehacer las terrazas y la piscina. Llamarlas igual no las hace comparables.
 
 Definir el alcance significa acordar qué se va a hacer, qué no y con qué nivel de detalle. Solo a partir de ahí tiene sentido estimar costes y comparar opciones.
 

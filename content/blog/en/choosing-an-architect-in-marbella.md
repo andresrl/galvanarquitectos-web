@@ -24,7 +24,7 @@ In Spain, the project for a residential building must be drawn up by an architec
 
 ## Have they designed something comparable?
 
-Look at built projects and proposals of a similar type and scale: a new villa, a complete renovation, interiors or a garden. Photographs of finished work and architectural visualisations of proposals are both useful, as long as you know which is which.
+Look at built projects and proposals of a similar type and scale: a new villa or a complete renovation. Photographs of finished work and architectural visualisations of proposals are both useful, as long as you know which is which.
 
 Ask what the architect would do differently on your plot or in your house. The answer says more than any portfolio.
 

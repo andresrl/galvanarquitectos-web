@@ -13,8 +13,8 @@ export const place = (loc: LocationId, locale: Locale) => ({ '@type': 'Place', n
 export const allAreas = (locale: Locale) => locationIds.map(loc => place(loc, locale))
 
 const studioDescription: Record<Locale, string> = {
- en: 'Architecture studio in Marbella led by architect Francisco Martínez Galván: new-build villas, complete villa renovations, interior design and landscape design on the Costa del Sol, with personal attention in English and Spanish.',
- es: 'Estudio de arquitectura en Marbella dirigido por el arquitecto Francisco Martínez Galván: villas de nueva construcción, reformas integrales, interiorismo y paisajismo en la Costa del Sol, con trato directo en español e inglés.'
+ en: 'Architecture studio in Marbella led by architect Francisco Martínez Galván: new-build villas and complete villa renovations on the Costa del Sol, with personal attention in English and Spanish.',
+ es: 'Estudio de arquitectura en Marbella dirigido por el arquitecto Francisco Martínez Galván: villas de nueva construcción y reformas integrales en la Costa del Sol, con trato directo en español e inglés.'
 }
 
 export function studioNode(site: string, locale: Locale) {

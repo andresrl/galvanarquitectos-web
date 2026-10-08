@@ -16,9 +16,9 @@ export const projectsIndexPage: PageDefinition<ProjectPageContent> = {
  id: 'projects', type: 'editorial', template: 'projects', paths: projectsIndexPath, status: 'draft',
  content: {
   en: page('en', { label: 'Projects', title: 'Villa projects on the Costa del Sol',
-   description: 'Villas, renovations and residential projects by architect Francisco Martínez Galván in Marbella and on the Costa del Sol: architecture, interiors, landscape.' }),
+   description: 'Villas, renovations and residential projects by architect Francisco Martínez Galván in Marbella and on the Costa del Sol: villa architecture and renovation.' }),
   es: page('es', { label: 'Proyectos', title: 'Proyectos de villas en la Costa del Sol',
-   description: 'Villas, reformas y proyectos residenciales del arquitecto Francisco Martínez Galván en Marbella y la Costa del Sol: arquitectura, interiores y paisaje.' })
+   description: 'Villas, reformas y proyectos residenciales del arquitecto Francisco Martínez Galván en Marbella y la Costa del Sol: arquitectura y reformas de villas.' })
  },
  sources: ['Graphics/VISENI/proyectos'], pending: ['Review the listing order with Paco']
 }

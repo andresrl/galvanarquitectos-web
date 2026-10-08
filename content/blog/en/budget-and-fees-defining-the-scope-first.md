@@ -21,14 +21,14 @@ This guide explains why scope comes first and how to prepare a budget conversati
 
 It helps to separate two things that are often mixed up:
 
-- **The architect's fees**, which depend on the services included in the commission: design, permissions, site supervision, coordination, interiors or landscape.
+- **The architect's fees**, which depend on the services included in the commission: design, permissions, site supervision or coordination.
 - **The cost of the works**, which depends on what is built or renovated, the materials chosen and the companies that carry it out.
 
 Both relate to the scope of the project, but they are not the same. Ask about each one separately.
 
 ## Why scope comes first
 
-Two "complete" renovations can be very different projects. One might keep the structure and renew the interiors; another might reorganise the whole house, extend it and rework the garden. Calling them the same does not make them comparable.
+Two "complete" renovations can be very different projects. One might keep the structure and renew the interiors; another might reorganise the whole house, extend it and rework the terraces and pool. Calling them the same does not make them comparable.
 
 Defining the scope means agreeing what will be done, what will not, and in how much detail. Only then does it make sense to estimate costs and compare options.
 

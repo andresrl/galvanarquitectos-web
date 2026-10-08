@@ -1,7 +1,7 @@
 // Crawls the service hubs and their area pages through their own links and checks every page.
 import assert from 'node:assert/strict'
 const base=process.argv[2]??'http://127.0.0.1:3048'
-const hubs={en:['/villa-architecture','/villa-renovation','/interior-design','/landscape-design'],es:['/es/arquitectura-villas','/es/reformas-villas','/es/interiorismo','/es/paisajismo']}
+const hubs={en:['/villa-architecture','/villa-renovation'],es:['/es/arquitectura-villas','/es/reformas-villas']}
 const get=async path=>{const r=await fetch(new URL(path,base));assert.equal(r.status,200,path);return r.text()}
 const one=(html,re)=>(html.match(re)??[])[1]
 const strip=s=>s.replace(/<[^>]+>/g,'').replace(/&#39;|&#x27;/g,"'").replace(/&amp;/g,'&').replace(/\s+/g,' ').trim()
@@ -12,7 +12,7 @@ for(const [lang,list] of Object.entries(hubs))for(const hub of list){
  assert.equal(zones.length,10,hub+' lists its 10 areas')
  for(const z of zones)pages.set(z,{lang,html:await get(z),hub:false})
 }
-assert.equal(pages.size,88,'4 hubs + 40 area pages per language')
+assert.equal(pages.size,44,'2 hubs + 20 area pages per language')
 const titles=new Set(),descriptions=new Set(),h1s=new Set(),intros=new Set()
 for(const [path,{lang,html,hub}] of pages){
  assert.match(html,new RegExp('<html[^>]*lang="'+lang+'"'),path+' lang')
@@ -32,7 +32,7 @@ for(const [path,{lang,html,hub}] of pages){
  const webpage=schema['@graph'].find(x=>x['@id'].endsWith('#webpage'))
  assert.equal(webpage.inLanguage,lang);assert.equal(webpage.mainEntity.length,(html.match(/<details\b/g)??[]).length,path+' FAQ schema matches visible FAQ')
  assert.ok(html.includes('id="enquiry-name"'),path+' enquiry form')
- if(!hub){const related=[...(html.match(/class="service-related[\s\S]*?<\/nav>/)?.[0]??'').matchAll(/href="([^"]+)"/g)].map(m=>m[1]);assert.ok(related.length>=6,path+' related links');for(const r of related)assert.ok(pages.has(r)||(r.startsWith('/areas/')||r.startsWith('/es/zonas/'))&&(await fetch(new URL(r,base))).status===200,path+' related link resolves: '+r)}
+ if(!hub){const related=[...(html.match(/class="service-related[\s\S]*?<\/nav>/)?.[0]??'').matchAll(/href="([^"]+)"/g)].map(m=>m[1]);assert.ok(related.length>=5,path+' related links');for(const r of related)assert.ok(pages.has(r)||(r.startsWith('/areas/')||r.startsWith('/es/zonas/'))&&(await fetch(new URL(r,base))).status===200,path+' related link resolves: '+r)}
  assert.ok(!/undefined|\[object Object\]|NaN/.test(strip(html.match(/<main[\s\S]*<\/main>/)[0])),path+' no placeholder text')
 }
 const heroBy={service:{},area:{}},leads=new Set()

@@ -3,7 +3,7 @@
 export const negocio={
  nombre:'Martínez Galván Arquitecto',marca:'Martínez Galván',
  alternateNames:['Martínez Galván Arquitectos','Galván Arquitectos','Francisco Martínez Galván Arquitecto'],
- actividad:'architecture, interior and landscape design',ciudad:'Marbella',zonaServicio:'Costa del Sol',
+ actividad:'architecture',ciudad:'Marbella',zonaServicio:'Costa del Sol',
  contacto:{telefono:'+34 679 97 94 87',email:'info@galvanarquitectos.com',
   // Address confirmed in the briefing (CLAUDE.md §5).
   direccion:{'@type':'PostalAddress',streetAddress:'Calle Estébanez Calderón, 1',postalCode:'29602',addressLocality:'Marbella',addressRegion:'Málaga',addressCountry:'ES'}},
@@ -15,8 +15,8 @@ export const negocio={
  imagen:{src:'/media/studio/studio-og.jpg',width:1200,height:630},
  idiomas:['en','es'],
  knowsAbout:{
-  en:['Villa architecture','New-build luxury villas','Complete villa renovation','Interior design','Landscape design','Architectural site supervision','Planning permissions','Mediterranean architecture','Costa del Sol','Marbella'],
-  es:['Arquitectura de villas','Villas de lujo de nueva construcción','Reforma integral de villas','Interiorismo','Paisajismo','Dirección de obra','Licencias de obra','Arquitectura mediterránea','Costa del Sol','Marbella']
+  en:['Villa architecture','New-build luxury villas','Complete villa renovation','Architectural site supervision','Planning permissions','Mediterranean architecture','Costa del Sol','Marbella'],
+  es:['Arquitectura de villas','Villas de lujo de nueva construcción','Reforma integral de villas','Dirección de obra','Licencias de obra','Arquitectura mediterránea','Costa del Sol','Marbella']
  },
  // The architect (biography reviewed in LanzaderaWeb: trained in Madrid, Marbella since 1998, studio consolidated in 2003).
  arquitecto:{
@@ -25,8 +25,8 @@ export const negocio={
   formacion:'Escuela Politécnica de Madrid',
   retrato:{src:'/media/studio/francisco-martinez-galvan.jpg',width:740,height:980},
   descripcion:{
-   en:'Architect based in Marbella since 1998, trained in Madrid. He leads every commission personally: new-build villas, complete renovations, interiors and landscape on the Costa del Sol.',
-   es:'Arquitecto en Marbella desde 1998, formado en Madrid. Dirige personalmente cada encargo: villas de nueva construcción, reformas integrales, interiorismo y paisajismo en la Costa del Sol.'
+   en:'Architect based in Marbella since 1998, trained in Madrid. He leads every commission personally: new-build villas and complete renovations on the Costa del Sol.',
+   es:'Arquitecto en Marbella desde 1998, formado en Madrid. Dirige personalmente cada encargo: villas de nueva construcción y reformas integrales en la Costa del Sol.'
   }
  },
  cta:{url:'/contact',label:'Let’s talk about your project'},pruebaSocial:{resenas:[]}

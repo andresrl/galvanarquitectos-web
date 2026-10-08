@@ -76,6 +76,6 @@ Agrupa tus notas en tres apartados: dudas de lectura, necesidades de uso y posib
 
 ## Lleva tus preguntas a la conversación
 
-Martínez Galván es un estudio de arquitectura e interiorismo en Marbella, con servicio en la Costa del Sol y atención en español e inglés.
+Martínez Galván es un estudio de arquitectura en Marbella, con servicio en la Costa del Sol y atención en español e inglés.
 
 Si estás preparando un encargo, puedes conocer cómo plantea el estudio la [arquitectura de villas](/es/arquitectura-villas) y [contactar con el estudio](/es/arquitectura-villas#enquiry) para explicar tus necesidades. No hace falta llegar con todas las respuestas: una lista clara de preguntas es un buen punto de partida.

@@ -34,7 +34,7 @@ El alcance exacto, la frecuencia de visitas y las responsabilidades se acuerdan 
 
 En una villa intervienen muchos oficios a la vez o en secuencia. La coordinación ayuda a que sus trabajos encajen entre sí y con el proyecto: que cada empresa tenga la información que necesita y que las decisiones de una no comprometan las de otra.
 
-Cuando arquitectura, interiorismo y paisajismo forman parte del mismo encargo, la coordinación permite mantener una visión común de principio a fin.
+Cuando el diseño y la dirección de obra forman parte del mismo encargo, la coordinación permite mantener una visión común de principio a fin.
 
 ## Lo que conviene aclarar al principio
 

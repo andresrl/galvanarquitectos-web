@@ -1,8 +1,8 @@
 // Service pages (hubs and service × location) illustrated with the project archive (4K originals, AVIF srcset).
 // Rules: a project confirmed in an area appears on every service page of that area, whatever the service,
 // and its photographs are used first as heroes there. Otherwise each service draws from its own list:
-// exteriors for new-build and renovation, covered rooms and interiors for interior design, gardens for landscape.
-// Heroes never repeat within a service (10 areas) or within an area (4 services).
+// exteriors for new-build and renovation.
+// Heroes never repeat within a service (10 areas) or within an area (2 services).
 import type { Locale, Media } from '../pages/types'
 import type { LocationId, ServiceId } from '../taxonomy'
 import { locationIds } from '../taxonomy'
@@ -20,15 +20,9 @@ const lists: Record<ServiceId, { hub: Ref; pause: Ref; areas: Ref[] }> = {
   ['villa-alcala', 'calle_alcala_4_02.jpg'], ['altos-de-los-monteros', 'altos_de_los_monteros_04.jpg'], ['orion', 'orion_03.jpg'], ['huerta-belon', 'huerta_belon_34_01.jpg'], ['elviria', 'elviria_02.jpg']] },
  renovation: { hub: ['atalaya', 'atalaya_01.jpg'], pause: ['villa-ambar', 'villa_ambar_03.jpg'], areas: [
   ['villa-silver', 'silver 2.jpg'], ['villa-pino', 'calle_pino_01.jpg'], ['villa-relojero', 'carril_del_relojero_03.jpg'], ['villa-paris', 'villa_paris_02.jpg'], ['la-resina', 'la_resina_02.jpg'],
-  ['sirio', 'sirio_01.jpg'], ['villa-ambar', 'villa_ambar_04.jpg'], ['cortijo-nagueles', 'cortijo_nagueles_44_04.jpg'], ['atalaya', 'atalaya_03.jpg'], ['villa-del-golf', 'parcelas_del_golf_02.jpg']] },
- interiors: { hub: ['bleu-royal', 'bleu_royal_01.jpg'], pause: ['villa-silver', 'terraza-atardecer.jpg'], areas: [
-  ['villa-silver', 'VillaSilver_03-scaled.jpg'], ['villas-in-the-landscape', 'parcelas_p8_12.jpg'], ['castilla', 'castilla_03.jpg'], ['villas-in-the-landscape', 'parcelas_p8_04.jpg'], ['alcala-solvilla', 'alcala_solvilla_06.jpg'],
-  ['la-montua', 'la_montua_04.jpg'], ['villas-in-the-landscape', 'parcelas_p8_07.jpg'], ['alcala-solvilla', 'alcala_solvilla_05.jpg'], ['villas-in-the-landscape', 'parcelas_p8_15.jpg'], ['the-villas', 'the_villas_04.jpg']] },
- landscape: { hub: ['cutar', 'cutar_05.jpg'], pause: ['villa-paris', 'villa_paris_03.jpg'], areas: [
-  ['castilla', 'castilla_04.jpg'], ['la-montua', 'la_montua_03.jpg'], ['villa-relojero', 'carril_del_relojero_05.jpg'], ['villa-feliz', 'villa_feliz_03.jpg'], ['the-villas', 'the_villas_05.jpg'],
-  ['villa-del-golf', 'parcelas_del_golf_01.jpg'], ['villas-in-the-landscape', 'parcelas_p8_10.jpg'], ['cutar', 'cutar_02.jpg'], ['cutar', 'cutar_03.jpg'], ['villas-in-the-landscape', 'parcelas_p8_16.jpg']] }
+  ['sirio', 'sirio_01.jpg'], ['villa-ambar', 'villa_ambar_04.jpg'], ['cortijo-nagueles', 'cortijo_nagueles_44_04.jpg'], ['atalaya', 'atalaya_03.jpg'], ['villa-del-golf', 'parcelas_del_golf_02.jpg']] }
 }
-const serviceOrder: ServiceId[] = ['architecture', 'renovation', 'interiors', 'landscape']
+const serviceOrder: ServiceId[] = ['architecture', 'renovation']
 
 const all = (p: Project) => [p.media.hero, ...p.media.gallery, p.media.pause]
 function image(projectId: string, file: string): ProjectImage {

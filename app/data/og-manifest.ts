@@ -48,14 +48,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/villa-renovation.jpg",
   "alt": "Luxury villa renovations on the Costa del Sol"
  },
- "/interior-design": {
-  "image": "/og/interior-design.jpg",
-  "alt": "Interior design for villas on the Costa del Sol"
- },
- "/landscape-design": {
-  "image": "/og/landscape-design.jpg",
-  "alt": "Landscape design for villas on the Costa del Sol"
- },
  "/es/arquitectura-villas": {
   "image": "/og/es--arquitectura-villas.jpg",
   "alt": "Villas de nueva construcción en la Costa del Sol"
@@ -63,14 +55,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/reformas-villas": {
   "image": "/og/es--reformas-villas.jpg",
   "alt": "Reformas integrales de villas en la Costa del Sol"
- },
- "/es/interiorismo": {
-  "image": "/og/es--interiorismo.jpg",
-  "alt": "Interiorismo para villas en la Costa del Sol"
- },
- "/es/paisajismo": {
-  "image": "/og/es--paisajismo.jpg",
-  "alt": "Paisajismo para villas en la Costa del Sol"
  },
  "/villa-architecture/marbella": {
   "image": "/og/villa-architecture--marbella.jpg",
@@ -152,86 +136,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/villa-renovation--elviria.jpg",
   "alt": "Luxury villa renovations in Elviria"
  },
- "/interior-design/marbella": {
-  "image": "/og/interior-design--marbella.jpg",
-  "alt": "Interior design for villas in Marbella"
- },
- "/interior-design/benahavis": {
-  "image": "/og/interior-design--benahavis.jpg",
-  "alt": "Interior design for villas in Benahavís"
- },
- "/interior-design/los-monteros": {
-  "image": "/og/interior-design--los-monteros.jpg",
-  "alt": "Interior design for villas in Los Monteros"
- },
- "/interior-design/nueva-andalucia": {
-  "image": "/og/interior-design--nueva-andalucia.jpg",
-  "alt": "Interior design for villas in Nueva Andalucía"
- },
- "/interior-design/estepona": {
-  "image": "/og/interior-design--estepona.jpg",
-  "alt": "Interior design for villas in Estepona"
- },
- "/interior-design/guadalmina": {
-  "image": "/og/interior-design--guadalmina.jpg",
-  "alt": "Interior design for villas in Guadalmina"
- },
- "/interior-design/la-zagaleta": {
-  "image": "/og/interior-design--la-zagaleta.jpg",
-  "alt": "Interior design for villas in La Zagaleta"
- },
- "/interior-design/golden-mile": {
-  "image": "/og/interior-design--golden-mile.jpg",
-  "alt": "Interior design for villas on the Golden Mile"
- },
- "/interior-design/rio-real": {
-  "image": "/og/interior-design--rio-real.jpg",
-  "alt": "Interior design for villas in Río Real"
- },
- "/interior-design/elviria": {
-  "image": "/og/interior-design--elviria.jpg",
-  "alt": "Interior design for villas in Elviria"
- },
- "/landscape-design/marbella": {
-  "image": "/og/landscape-design--marbella.jpg",
-  "alt": "Landscape design for villas in Marbella"
- },
- "/landscape-design/benahavis": {
-  "image": "/og/landscape-design--benahavis.jpg",
-  "alt": "Landscape design for villas in Benahavís"
- },
- "/landscape-design/los-monteros": {
-  "image": "/og/landscape-design--los-monteros.jpg",
-  "alt": "Landscape design for villas in Los Monteros"
- },
- "/landscape-design/nueva-andalucia": {
-  "image": "/og/landscape-design--nueva-andalucia.jpg",
-  "alt": "Landscape design for villas in Nueva Andalucía"
- },
- "/landscape-design/estepona": {
-  "image": "/og/landscape-design--estepona.jpg",
-  "alt": "Landscape design for villas in Estepona"
- },
- "/landscape-design/guadalmina": {
-  "image": "/og/landscape-design--guadalmina.jpg",
-  "alt": "Landscape design for villas in Guadalmina"
- },
- "/landscape-design/la-zagaleta": {
-  "image": "/og/landscape-design--la-zagaleta.jpg",
-  "alt": "Landscape design for villas in La Zagaleta"
- },
- "/landscape-design/golden-mile": {
-  "image": "/og/landscape-design--golden-mile.jpg",
-  "alt": "Landscape design for villas on the Golden Mile"
- },
- "/landscape-design/rio-real": {
-  "image": "/og/landscape-design--rio-real.jpg",
-  "alt": "Landscape design for villas in Río Real"
- },
- "/landscape-design/elviria": {
-  "image": "/og/landscape-design--elviria.jpg",
-  "alt": "Landscape design for villas in Elviria"
- },
  "/es/arquitectura-villas/marbella": {
   "image": "/og/es--arquitectura-villas--marbella.jpg",
   "alt": "Villas de nueva construcción en Marbella"
@@ -312,90 +216,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--reformas-villas--elviria.jpg",
   "alt": "Reformas integrales de villas en Elviria"
  },
- "/es/interiorismo/marbella": {
-  "image": "/og/es--interiorismo--marbella.jpg",
-  "alt": "Interiorismo para villas en Marbella"
- },
- "/es/interiorismo/benahavis": {
-  "image": "/og/es--interiorismo--benahavis.jpg",
-  "alt": "Interiorismo para villas en Benahavís"
- },
- "/es/interiorismo/los-monteros": {
-  "image": "/og/es--interiorismo--los-monteros.jpg",
-  "alt": "Interiorismo para villas en Los Monteros"
- },
- "/es/interiorismo/nueva-andalucia": {
-  "image": "/og/es--interiorismo--nueva-andalucia.jpg",
-  "alt": "Interiorismo para villas en Nueva Andalucía"
- },
- "/es/interiorismo/estepona": {
-  "image": "/og/es--interiorismo--estepona.jpg",
-  "alt": "Interiorismo para villas en Estepona"
- },
- "/es/interiorismo/guadalmina": {
-  "image": "/og/es--interiorismo--guadalmina.jpg",
-  "alt": "Interiorismo para villas en Guadalmina"
- },
- "/es/interiorismo/la-zagaleta": {
-  "image": "/og/es--interiorismo--la-zagaleta.jpg",
-  "alt": "Interiorismo para villas en La Zagaleta"
- },
- "/es/interiorismo/milla-de-oro": {
-  "image": "/og/es--interiorismo--milla-de-oro.jpg",
-  "alt": "Interiorismo para villas en la Milla de Oro"
- },
- "/es/interiorismo/rio-real": {
-  "image": "/og/es--interiorismo--rio-real.jpg",
-  "alt": "Interiorismo para villas en Río Real"
- },
- "/es/interiorismo/elviria": {
-  "image": "/og/es--interiorismo--elviria.jpg",
-  "alt": "Interiorismo para villas en Elviria"
- },
- "/es/paisajismo/marbella": {
-  "image": "/og/es--paisajismo--marbella.jpg",
-  "alt": "Paisajismo para villas en Marbella"
- },
- "/es/paisajismo/benahavis": {
-  "image": "/og/es--paisajismo--benahavis.jpg",
-  "alt": "Paisajismo para villas en Benahavís"
- },
- "/es/paisajismo/los-monteros": {
-  "image": "/og/es--paisajismo--los-monteros.jpg",
-  "alt": "Paisajismo para villas en Los Monteros"
- },
- "/es/paisajismo/nueva-andalucia": {
-  "image": "/og/es--paisajismo--nueva-andalucia.jpg",
-  "alt": "Paisajismo para villas en Nueva Andalucía"
- },
- "/es/paisajismo/estepona": {
-  "image": "/og/es--paisajismo--estepona.jpg",
-  "alt": "Paisajismo para villas en Estepona"
- },
- "/es/paisajismo/guadalmina": {
-  "image": "/og/es--paisajismo--guadalmina.jpg",
-  "alt": "Paisajismo para villas en Guadalmina"
- },
- "/es/paisajismo/la-zagaleta": {
-  "image": "/og/es--paisajismo--la-zagaleta.jpg",
-  "alt": "Paisajismo para villas en La Zagaleta"
- },
- "/es/paisajismo/milla-de-oro": {
-  "image": "/og/es--paisajismo--milla-de-oro.jpg",
-  "alt": "Paisajismo para villas en la Milla de Oro"
- },
- "/es/paisajismo/rio-real": {
-  "image": "/og/es--paisajismo--rio-real.jpg",
-  "alt": "Paisajismo para villas en Río Real"
- },
- "/es/paisajismo/elviria": {
-  "image": "/og/es--paisajismo--elviria.jpg",
-  "alt": "Paisajismo para villas en Elviria"
- },
- "/journal/architecture-and-interior-design-how-they-work-together": {
-  "image": "/og/journal--architecture-and-interior-design-how-they-work-together.jpg",
-  "alt": "Architecture and interior design: how they work together"
- },
  "/journal/reading-architectural-drawings-and-preparing-your-questions": {
   "image": "/og/journal--reading-architectural-drawings-and-preparing-your-questions.jpg",
   "alt": "Reading architectural drawings and preparing your questions"
@@ -428,10 +248,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/journal--site-supervision-and-contractor-coordination.jpg",
   "alt": "Site supervision and contractor coordination"
  },
- "/journal/designing-the-garden-from-the-start": {
-  "image": "/og/journal--designing-the-garden-from-the-start.jpg",
-  "alt": "Why design the garden from the start"
- },
  "/journal/choosing-an-architect-in-marbella": {
   "image": "/og/journal--choosing-an-architect-in-marbella.jpg",
   "alt": "How to choose an architect in Marbella"
@@ -451,10 +267,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/journal/working-with-a-spanish-architect-from-abroad": {
   "image": "/og/journal--working-with-a-spanish-architect-from-abroad.jpg",
   "alt": "Working with a Spanish architect from abroad"
- },
- "/es/guias/arquitectura-interiorismo-como-se-relacionan": {
-  "image": "/og/es--guias--arquitectura-interiorismo-como-se-relacionan.jpg",
-  "alt": "Arquitectura e interiorismo: cómo se relacionan"
  },
  "/es/guias/planos-arquitectura-como-leerlos-preparar-dudas": {
   "image": "/og/es--guias--planos-arquitectura-como-leerlos-preparar-dudas.jpg",
@@ -487,10 +299,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/guias/direccion-de-obra-y-coordinacion": {
   "image": "/og/es--guias--direccion-de-obra-y-coordinacion.jpg",
   "alt": "Dirección de obra y coordinación de empresas"
- },
- "/es/guias/disenar-el-jardin-desde-el-principio": {
-  "image": "/og/es--guias--disenar-el-jardin-desde-el-principio.jpg",
-  "alt": "Por qué diseñar el jardín desde el principio del proyecto"
  },
  "/es/guias/como-elegir-arquitecto-en-marbella": {
   "image": "/og/es--guias--como-elegir-arquitecto-en-marbella.jpg",

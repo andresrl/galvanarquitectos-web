@@ -1,6 +1,6 @@
 ---
 title: "Renders y fotografías: cómo entender una propuesta de diseño"
-description: "Qué muestra un render, qué no muestra y qué preguntas hacer para leer una propuesta de interiorismo o arquitectura sin confundir una imagen con una decisión cerrada."
+description: "Qué muestra un render, qué no muestra y qué preguntas hacer para leer una propuesta de arquitectura sin confundir una imagen con una decisión cerrada."
 date: "2026-10-04"
 draft: true
 lang: "es"
@@ -8,9 +8,9 @@ translation: "renders-and-photographs-understanding-a-design-proposal"
 order: 3
 author: "Francisco Martínez Galván"
 image: "villa-silver-03"
-keyword: "diseño de interiores 3d"
-service: "/es/interiorismo"
-serviceAnchor: "interiorismo para villas"
+keyword: "render de arquitectura"
+service: "/es/arquitectura-villas"
+serviceAnchor: "arquitectura de villas"
 ---
 
 Una imagen bien resuelta convence enseguida. Por eso conviene saber qué estás mirando cuando recibes una propuesta: si es una **fotografía de un espacio construido** o un **render**, una imagen generada a partir de un modelo digital del diseño.
@@ -60,4 +60,4 @@ Esa información ayuda a ajustar el diseño mucho más que una aprobación o un 
 
 ## Un diseño que se entiende antes de construirse
 
-En [interiorismo para villas](/es/interiorismo), las imágenes, los planos y las muestras forman parte de una misma conversación. Si estás pensando en tus interiores, puedes [contactar con el estudio](/es/interiorismo#enquiry) y contar qué tienes en mente.
+En [arquitectura de villas](/es/arquitectura-villas), las imágenes, los planos y las muestras forman parte de una misma conversación. Si estás pensando en tu proyecto, puedes [contactar con el estudio](/es/arquitectura-villas#enquiry) y contar qué tienes en mente.

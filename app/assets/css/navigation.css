@@ -2,8 +2,11 @@
 :root{--forest:#1c2a22;--brass:#ad8d61}
 .site-icon{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.15em;pointer-events:none}
 
-/* Header menu button */
-.header .menu-toggle{display:flex;align-items:center;gap:12px;width:auto;height:36px;margin-right:18px;padding:0;border:0;border-radius:0;font-family:Inter,Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+/* Header links and menu button (desktop sizes; mobile hides the links) */
+.header nav{gap:clamp(36px,3vw,52px);margin-right:clamp(36px,3vw,52px);font-size:clamp(16px,1.2vw,19px);letter-spacing:.005em}
+.header #language{width:48px;height:48px;font-size:13px}
+.header .menu-lines{width:28px;height:28px}
+.header .menu-toggle{display:flex;align-items:center;gap:12px;width:auto;height:48px;margin-right:26px;padding:0;border:0;border-radius:0;font-family:Inter,Arial,sans-serif;font-size:clamp(14px,1vw,16px);letter-spacing:.14em;text-transform:uppercase}
 .menu-lines{display:block;width:22px;height:22px}
 .menu-open,.menu-open body{overflow:hidden}
 
@@ -36,17 +39,12 @@
 .site-menu-enter-from,.site-menu-leave-to{opacity:0;transform:translateY(-14px)}
 @media (prefers-reduced-motion:reduce){.site-menu-enter-active,.site-menu-leave-active{transition:none}}
 
-/* Footer: same design as the menu (shares its .site-menu-* classes) */
-.site-footer{position:relative;inset:auto;display:block;letter-spacing:normal;z-index:3;padding:clamp(40px,5vw,70px) var(--gutter) 34px;background:var(--forest);color:var(--paper)}
-.site-footer a,.site-footer button{color:inherit}
-.site-footer .brand{color:inherit;text-decoration:none}
-.site-footer ul{list-style:none;margin:0;padding:0}
-.site-footer .eyebrow{color:var(--brass);margin-bottom:26px}
-.site-footer .site-menu-body{padding:clamp(56px,8vw,110px) 0}
-.site-footer-cookies{background:none;border:0;padding:0;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 @media(max-width:700px){
  .header nav{display:none}
- .header .menu-toggle{height:30px;margin-right:14px;font-size:10px}
+ .header .menu-toggle{height:40px;width:40px;margin-right:-8px;justify-content:center}
+ .header .menu-toggle>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .header .menu-lines{width:26px;height:26px}
+ .header #language{display:none}
  .site-menu{padding:22px 26px 28px}
  .site-menu-body{grid-template-columns:1fr;align-content:start;gap:44px;padding:44px 0}
  .site-menu-primary>ul{grid-template-columns:1fr}
@@ -65,6 +63,7 @@
 .brand .brand-logo .brand-mark{width:34px;height:31px;-webkit-mask-image:url(/brand/mark.png);mask-image:url(/brand/mark.png)}
 .brand .brand-logo .brand-word{width:168px;height:32px;-webkit-mask-image:url(/brand/wordmark.png);mask-image:url(/brand/wordmark.png)}
 @media(max-width:700px){.brand .brand-logo{gap:10px}.brand .brand-logo .brand-mark{width:26px;height:24px}.brand .brand-logo .brand-word{width:132px;height:25px}}
+@media(min-width:701px){.header .brand .brand-logo{gap:18px}.header .brand .brand-logo .brand-mark{width:46px;height:42px}.header .brand .brand-logo .brand-word{width:228px;height:44px}}
 
 /* Simple menu: six main destinations, one typeface; colour marks the current page. */
 .site-menu .site-menu-body{grid-template-columns:minmax(0,1fr);align-content:center;gap:0}
@@ -77,16 +76,26 @@
  .site-menu .site-menu-explore a{font-size:clamp(32px,9.5vw,52px)}
 }
 
-/* Footer: same hierarchy as the menu — Explore leads, Services follow smaller with their areas */
-@media(max-width:700px){.site-footer .site-menu-body>.site-menu-group:nth-child(2){order:-1}}
-@media(min-width:701px){
- .site-footer .site-menu-body{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start;gap:0 clamp(48px,7vw,140px)}
- .site-footer .site-menu-body>.site-menu-group:nth-child(2){order:-1;grid-row:1}
- .site-footer .site-menu-body>.site-menu-group:nth-child(2) li+li{margin-top:clamp(4px,1svh,12px)}
- .site-footer .site-menu-body>.site-menu-group:nth-child(2) a{font-size:clamp(40px,4.6vw,84px);line-height:1.08;letter-spacing:-.045em;font-weight:250}
- .site-footer .site-menu-primary{grid-row:1;padding-left:clamp(28px,3vw,56px);border-left:1px solid #f6f4ef1f}
- .site-footer .site-menu-primary>ul{grid-template-columns:1fr 1fr;gap:clamp(22px,3.4svh,40px) clamp(20px,2.4vw,40px)}
- .site-footer .site-menu-primary>ul>li>a{font-size:clamp(22px,1.9vw,32px)}
- .site-footer .site-menu-areas{gap:2px 12px;margin-top:10px!important}
- .site-footer .site-menu-areas a{font-size:11px!important}
+/* Footer: minimal — brand, three short text columns, one quiet line (8 Oct 2026). */
+.site-footer{position:relative;inset:auto;display:block;z-index:3;padding:clamp(36px,4vw,56px) var(--gutter) 28px;background:var(--forest);color:var(--paper);font-size:13px;line-height:1.5;letter-spacing:normal}
+.site-footer a,.site-footer button{color:inherit;text-decoration:none}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer .brand{color:inherit}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-top-link,.footer-base button{background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.footer-top-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f6f4efb3}
+.footer-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px clamp(32px,5vw,96px);margin:clamp(40px,5vw,72px) 0}
+.footer-label{margin:0 0 14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.footer-col li+li{margin-top:6px}
+.footer-col li{color:#f6f4efb3}
+.footer-col a{color:var(--paper);transition:color .25s}
+.footer-col a:hover,.footer-col a:focus-visible,.footer-col a[aria-current=page],.footer-base a:hover,.footer-base button:hover{color:var(--brass)}
+.footer-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 40px;padding-top:20px;border-top:1px solid #f6f4ef1f;font-size:11px;color:#f6f4ef80}
+.footer-base nav{display:flex;flex-wrap:wrap;gap:4px 14px}
+.footer-top-link:hover{color:var(--paper)}
+@media(max-width:700px){
+ .footer-cols{grid-template-columns:1fr 1fr}
+ .footer-cols>:last-child{grid-column:1/-1}
+ .footer-base{flex-direction:column}
 }
+

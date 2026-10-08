@@ -12,7 +12,7 @@ for(const [path,title] of pages){
  assert.ok(!html.includes('data-esqueleto'))
  const schema=html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)
  assert.ok(schema,path+' has structured data');JSON.parse(schema[1])
- if(path==='/')assert.equal((html.match(/class="slide /g)??[]).length,8)
+ if(path==='/')assert.equal((html.match(/class="slide /g)??[]).length,7)
  console.log('PASS SSR '+path)
 }
 for(const path of ['/app/demo','/demo']){
@@ -34,10 +34,10 @@ for(const [path,language,heading] of [['/villa-renovation/marbella','en','Luxury
  assert.ok(html.includes('hreflang="en"')&&html.includes('hreflang="es"')&&html.includes('hreflang="x-default"'))
  const schema=JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)[1])
  const page=schema['@graph'].find(x=>x['@id'].endsWith('#webpage'))
- assert.equal(page.inLanguage,language);assert.equal(page.mainEntity.length,6)
+ assert.equal(page.inLanguage,language);assert.equal(page.mainEntity.length,5)
  assert.ok(schema['@graph'].some(x=>x['@type']==='Service'))
  assert.ok(html.includes('id="enquiry-name"')&&html.includes('id="enquiry-message"'))
- assert.equal((html.match(/<details\b/g)??[]).length,6)
+ assert.equal((html.match(/<details\b/g)??[]).length,5)
  const other=language==='en'?'/es/reformas-villas/marbella':'/villa-renovation/marbella'
  assert.match(html,new RegExp('<a href="'+other+'"[^>]*hreflang="'+(language==='en'?'es':'en')+'"'),'language link points to the registered equivalent')
  assert.match(html,/class="service-breadcrumb"[\s\S]*?aria-current="page">Marbella</,'breadcrumb resolved from the page registry')
@@ -53,7 +53,7 @@ for(const [path,services,pilot] of [['/','Services','/villa-renovation'],['/es/r
  assert.ok(!html.includes('/examples/'),path+' no links to the withdrawn illustrative examples')
  console.log('PASS site navigation '+path)
 }
-for(const [from,to] of [['/examples/villa-renovation','/villa-renovation'],['/examples/interior-design','/interior-design'],['/examples/landscape-design','/landscape-design']]){
+for(const [from,to] of [['/examples/villa-renovation','/villa-renovation'],['/examples/interior-design','/'],['/examples/landscape-design','/']]){
  const r=await fetch(new URL(from,base),{redirect:'manual'});assert.equal(r.status,301,from);assert.equal(new URL(r.headers.get('location'),base).pathname,to,from)
  console.log('PASS withdrawn example '+from+' → '+to)
 }

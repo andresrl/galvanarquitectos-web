@@ -19,7 +19,6 @@ const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const c = computed(() => studioCopy[locale.value])
 const principles = computed(() => projectUi[locale.value].architect.principles)
 const serviceLinks = computed(() => serviceIds.map(id => ({ label: services[id].name[locale.value], path: pageById(id + '-hub').paths[locale.value] })))
-const scenes = ['studio-drawing', 'studio-site', 'studio-conversation', 'studio-inspection']
 const areas = computed(() => [{ label: 'Marbella', path: locale.value === 'en' ? '/' : '/es' }, ...areaIds.map(id => ({ label: locations[id].name[locale.value], path: areaPath(id, locale.value) }))])
 const bleuRoyal = computed(() => projectPath(projectById('bleu-royal'), locale.value))
 const featured = computed(() => projects.filter(p => p.featured).map(p => projectCard(p, locale.value)))
@@ -88,7 +87,6 @@ onBeforeUnmount(stop)
   <div class="studio-method-head" data-reveal><p class="eyebrow">{{ c.methodEyebrow }}</p><h2 id="studio-method-title">{{ c.methodTitle }} <em>{{ c.methodItalic }}</em></h2></div>
   <ol class="studio-method-list">
    <li v-for="([title, text], i) in c.method" :key="title" :class="'studio-method-' + i">
-    <div class="project-photo"><img :src="'/media/studio/' + scenes[i] + '-1280.avif'" :alt="c.sceneAlts[i]" width="1280" height="720" loading="lazy" decoding="async"></div>
     <span aria-hidden="true">0{{ i + 1 }}</span><h3>{{ title }}</h3><p>{{ text }}</p>
    </li>
   </ol>

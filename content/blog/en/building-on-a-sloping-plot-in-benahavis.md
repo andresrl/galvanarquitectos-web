@@ -32,15 +32,15 @@ Building on a slope usually involves retaining walls and foundations adapted to 
 
 ## Water
 
-Rainwater on a slope needs a path. Drainage of the plot, the terraces and the walls is studied together with the landscape design, so that the garden and the house work with it, not against it.
+Rainwater on a slope needs a path. Drainage of the plot, the terraces and the walls is studied as part of the architectural project, so that the house and its outdoor spaces work with it, not against it.
 
 ## Views and privacy
 
 Height brings views, but also visibility from neighbouring plots and the road. The design decides what to frame, what to protect and how the house reads from outside.
 
-## The garden on a slope
+## Terraces on a slope
 
-Walls, planting and paths can make a sloping garden usable and pleasant. Native and drought-tolerant planting is often considered, but the choice is always made for the specific site.
+Retaining walls, platforms and steps can turn a slope into usable outdoor spaces at each level. Their position, height and access are drawn with the house, and decided for the specific site.
 
 ## Questions for your architect
 

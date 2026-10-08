@@ -32,15 +32,15 @@ Construir en pendiente suele implicar muros de contención y una cimentación ad
 
 ## El agua
 
-El agua de lluvia en una ladera necesita un camino. El drenaje de la parcela, las terrazas y los muros se estudia junto con el paisajismo, para que el jardín y la casa trabajen con él y no contra él.
+El agua de lluvia en una ladera necesita un camino. El drenaje de la parcela, las terrazas y los muros se estudia dentro del proyecto de arquitectura, para que la casa y sus espacios exteriores trabajen con él y no contra él.
 
 ## Vistas y privacidad
 
 La altura da vistas, pero también visibilidad desde las parcelas vecinas y desde el camino. El diseño decide qué enmarcar, qué proteger y cómo se lee la casa desde fuera.
 
-## El jardín en pendiente
+## Terrazas en pendiente
 
-Muros, vegetación y recorridos pueden hacer que un jardín en pendiente sea cómodo y agradable. A menudo se plantea vegetación autóctona y resistente a la sequía, pero la elección se hace siempre para el lugar concreto.
+Los muros de contención, las plataformas y las escaleras pueden convertir una ladera en espacios exteriores útiles en cada nivel. Su posición, su altura y sus accesos se dibujan con la casa y se deciden para el lugar concreto.
 
 ## Preguntas para tu arquitecto
 

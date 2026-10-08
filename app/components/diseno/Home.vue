@@ -1,19 +1,11 @@
 <script setup>
 import {casePaths} from '~/data/demo'
 import {homeReel} from '~/data/home-reel'
-import {pageById} from '~/data/pages'
-const hub=id=>pageById(id+'-hub').paths
+import {homeProjects} from '~/data/home-projects'
 import {createHomeMotion} from './motion/home-motion'
-import {projectById,projectPath,projectsIndexPath} from '~/data/projects/projects'
+import {projectPath,projectsIndexPath} from '~/data/projects/projects'
 import {projectUi} from '~/data/projects/ui'
 import {studioPaths} from '~/data/studio'
-import {services,serviceIds} from '~/data/taxonomy'
-// Archive photographs (4K originals, AVIF srcset) and the project each one belongs to.
-const pic=(id,file)=>{const m=projectById(id).media;return [m.hero,m.pause,...m.gallery].find(i=>i.file===file)}
-const credit=id=>{const p=projectById(id);return {name:p.name[locale.value],path:projectPath(p,locale.value),label:projectUi[locale.value].imagery[p.imagery]}}
-const photos={servicios:['the-house','the_house_06.jpg'],villas:['villa-paris','villa_paris_02.jpg'],interiores:['bleu-royal','bleu_royal_01.jpg'],exteriores:['cutar','cutar_05.jpg'],internacional:['la-resina','la_resina_07.jpg']}
-const photo=key=>pic(...photos[key])
-const serviceLinks=computed(()=>serviceIds.map(id=>({label:services[id].name[locale.value],path:pageById(id+'-hub').paths[locale.value]})))
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
 const route=useRoute()
@@ -40,6 +32,22 @@ function stopHeroVideo(){
  videoMotionQuery?.removeEventListener('change',updateVideoPreference)
  heroVideo.value?.pause()
 }
+// Project scenes: each cross-fades its four images while it is on screen (never with reduced motion or a hidden tab).
+const slideIndex=ref(homeProjects.map(()=>0))
+const SLIDE_MS=4800
+let slideTimer=null,slideObserver=null
+const visibleSlides=new Set()
+const imageAlt=(item,i)=>i===0?item.project.copy[locale.value].heroAlt:`${item.project.name[locale.value]} · ${projectUi[locale.value].imagery[item.project.imagery]} ${i+1} ${projectUi[locale.value].of} ${item.images.length}`
+function advanceSlides(){
+ if(!videoMotionAllowed.value||document.hidden)return
+ visibleSlides.forEach(i=>{slideIndex.value[i]=(slideIndex.value[i]+1)%homeProjects[i].images.length})
+}
+function setupSlideshows(){
+ slideObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{const i=Number(entry.target.dataset.slideshow);entry.isIntersecting?visibleSlides.add(i):visibleSlides.delete(i)}),{threshold:.35})
+ root.value.querySelectorAll('[data-slideshow]').forEach(el=>slideObserver.observe(el))
+ slideTimer=window.setInterval(advanceSlides,SLIDE_MS)
+}
+function stopSlideshows(){window.clearInterval(slideTimer);slideTimer=null;slideObserver?.disconnect();slideObserver=null;visibleSlides.clear()}
 let motion=null,alive=false,mountReady=false,savedScroll=0,motionGeneration=0
 const heroHeading=computed(()=>'<span>'+t('heroTitle')+'</span><em>'+t('heroItalic')+'</em>')
 function stop(){motionGeneration++;motion?.destroy();motion=null}
@@ -61,6 +69,7 @@ watch(requestedScene,()=>{if(mountReady)go(requestedScene.value.id)})
 onMounted(async()=>{
  alive=true
  setupHeroVideo()
+ setupSlideshows()
  await document.fonts.ready
  await start()
  if(!alive)return
@@ -71,11 +80,11 @@ onMounted(async()=>{
  }
  pageScroll.ready()
 })
-onBeforeRouteLeave(()=>{alive=false;mountReady=false;stopHeroVideo();stop();tone.value='dark'})
-onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stop()})
-useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architect in Marbella: new-build villas, complete renovations, interior and landscape design on the Costa del Sol, with personal attention from idea to site.':'Arquitectura, interiorismo y paisajismo para villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
+onBeforeRouteLeave(()=>{alive=false;mountReady=false;stopHeroVideo();stopSlideshows();stop();tone.value='dark'})
+onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stopSlideshows();stop()})
+useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architect in Marbella: new-build villas and complete villa renovations on the Costa del Sol, with personal attention from idea to site.':'Arquitectura y reformas de villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
 </script>
-<template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">08</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
+<template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">{{String(scenes.length).padStart(2,'0')}}</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">
       <section class="slide hero" id="inicio" data-tone="light" data-chapter="Home">
         <div class="visual hero-visual" :style="{backgroundImage:'url('+homeReel.poster+')'}" aria-hidden="true">
           <video ref="heroVideo" class="hero-video" :autoplay="videoMotionAllowed" muted loop playsinline preload="metadata" :poster="homeReel.poster" @loadeddata="syncHeroVideo">
@@ -85,51 +94,19 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
         </div>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content scene-copy">
-          <p class="eyebrow" v-html="t('heroEyebrow')"></p>
           <h1 class="display-title" v-html="heroHeading"></h1>
-          <p class="hero-summary" v-html="t('heroSummary')"></p>
-          <div class="hero-actions">
-            <NuxtLink class="text-link hero-cta-primary" :to="projectsIndexPath[locale]"><span>{{t('heroProjects')}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
-            <NuxtLink class="text-link light hero-cta-secondary" :to="studioPaths[locale]"><span>{{t('heroStudio')}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
-          </div>
         </div>
         <div class="hero-frame" aria-hidden="true"></div>
       </section>
-      <section class="slide introduction photo-slide" id="servicios" data-tone="light" data-chapter="Services">
-        <div class="visual photo-bg"><img :src="photo('servicios').src" :srcset="photo('servicios').srcset" sizes="100vw" :width="photo('servicios').width" :height="photo('servicios').height" alt="" loading="lazy" decoding="async"></div><div class="photo-shade" aria-hidden="true"></div>
-        <div class="slide-inner">
-          <p class="eyebrow" v-html="t('introEyebrow')"></p>
-          <h2 class="display-title" v-html="t('introTitle')"></h2>
-          <div class="intro-bottom"><p v-html="t('introText')"></p><p class="muted" v-html="t('introLocation')"></p></div>
-          <ul class="intro-services"><li v-for="link in serviceLinks" :key="link.path"><NuxtLink :to="link.path">{{link.label}}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
-        </div>
-        <div class="scene-foot intro-scene-foot">
-          <span class="scene-number" aria-hidden="true">02 — 08</span>
-          <NuxtLink class="photo-credit" :to="credit('the-house').path">{{credit('the-house').name}} · {{credit('the-house').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
-        </div>
+      <section v-for="(item,p) in homeProjects" :key="item.id" class="slide project-slide" :id="item.id" data-tone="light" :data-chapter="item.project.name.en" :data-slideshow="p">
+        <div class="visual project-visual"><div class="project-slides"><img v-for="(image,i) in item.images" :key="image.file" :class="{'is-active':slideIndex[p]===i}" :src="image.src" :srcset="image.srcset" sizes="100vw" :width="image.width" :height="image.height" :alt="imageAlt(item,i)" :aria-hidden="slideIndex[p]===i?undefined:'true'" loading="lazy" decoding="async"></div></div><div class="image-shade"></div>
+        <div class="slide-inner scene-copy"><h2 class="display-title">{{item.project.name[locale]}}</h2><NuxtLink class="text-link case" :to="projectPath(item.project,locale)"><span>{{projectUi[locale].list.view}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
+        <div class="scene-foot project-progress" aria-hidden="true"><span v-for="(image,i) in item.images" :key="image.file" :class="{'is-active':slideIndex[p]===i}"></span></div>
       </section>
-      <section class="slide service-slide renovation" id="villas" data-tone="light" data-chapter="Villa renovation">
-        <div class="visual service-visual"><img :src="photo('villas').src" :srcset="photo('villas').srcset" sizes="100vw" :width="photo('villas').width" :height="photo('villas').height" :alt="projectById('villa-paris').copy[locale].heroAlt" loading="lazy" decoding="async"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('renovationName')"></p><h2 class="display-title" v-html="t('renovationBrief')"></h2><NuxtLink class="text-link case" :to="hub('renovation')[locale]"><span>{{locale==='en'?'Explore villa renovation':'Explorar reformas de villas'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
-        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('villa-paris').path">{{credit('villa-paris').name}} · {{credit('villa-paris').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink><NuxtLink class="photo-credit" :to="projectsIndexPath[locale]">{{locale==='en'?'All projects':'Todos los proyectos'}} <DisenoIcon name="arrow-up-right" /></NuxtLink></div>
-      </section>
-      <section class="slide service-slide interiors" id="interiores" data-tone="dark" data-chapter="Interior design">
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('interiorName')"></p><h2 class="display-title" v-html="t('interiorBrief')"></h2><NuxtLink class="text-link case" :to="hub('interiors')[locale]"><span>{{locale==='en'?'Explore interior design':'Explorar interiorismo'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
-        <div class="visual service-visual"><img :src="photo('interiores').src" :srcset="photo('interiores').srcset" sizes="(max-width:700px) 100vw, 50vw" :width="photo('interiores').width" :height="photo('interiores').height" :alt="locale==='en'?'Vaulted living room opening onto the garden, Bleu Royal':'Salón abovedado abierto al jardín, Bleu Royal'" loading="lazy" decoding="async" class="interior-crop"></div>
-        <NuxtLink class="vertical-caption photo-credit" :to="credit('bleu-royal').path">{{credit('bleu-royal').name}} · {{credit('bleu-royal').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
-      </section>
-      <section class="slide service-slide landscape" id="exteriores" data-tone="light" data-chapter="Landscape design">
-        <div class="visual service-visual"><img :src="photo('exteriores').src" :srcset="photo('exteriores').srcset" sizes="100vw" :width="photo('exteriores').width" :height="photo('exteriores').height" :alt="locale==='en'?'Garden with a pond and planting in front of the villa, Cútar':'Jardín con estanque y vegetación frente a la villa, Cútar'" loading="lazy" decoding="async"></div><div class="image-shade"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('landscapeName')"></p><h2 class="display-title" v-html="t('landscapeBrief')"></h2><NuxtLink class="text-link case" :to="hub('landscape')[locale]"><span>{{locale==='en'?'Explore landscape design':'Explorar paisajismo'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
-        <div class="scene-foot"><NuxtLink class="photo-credit" :to="credit('cutar').path">{{credit('cutar').name}} · {{credit('cutar').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink></div>
-      </section>
+      <div class="home-more"><NuxtLink :to="projectsIndexPath[locale]"><span>{{locale==='en'?'See more projects':'Ver más proyectos'}}</span><i aria-hidden="true"></i><DisenoIcon name="arrow-up-right" /></NuxtLink></div>
       <section class="slide studio photo-slide" id="estudio" data-tone="light" data-chapter="Studio">
-        <div class="visual photo-bg studio-visual"><video class="ambient-video" data-ambient muted loop playsinline preload="none" poster="/media/studio/studio-drawing-2560.avif" aria-hidden="true"><source src="/video/studio-drawing.webm" type="video/webm"><source src="/video/studio-drawing.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><p class="muted small" v-html="t('studioSeparate')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
-      </section>
-      <section class="slide international" id="internacional" data-tone="dark" data-chapter="International clients">
-        <div class="visual international-visual"><img :src="photo('internacional').src" :srcset="photo('internacional').srcset" sizes="(max-width:700px) 90vw, 45vw" :width="photo('internacional').width" :height="photo('internacional').height" :alt="locale==='en'?'Aerial view at dusk of villas on the hillside, La Resina, Estepona':'Vista aérea al anochecer de villas en la ladera, La Resina, Estepona'" loading="lazy" decoding="async"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('internationalEyebrow')"></p><h2 class="display-title" v-html="t('internationalTitle')"></h2><p class="body-copy" v-html="t('internationalText')"></p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span v-html="t('talkProject')"></span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a></div>
+        <div class="visual photo-bg studio-visual"><!-- The encoded file names are swapped: studio-conversation.* shows Francisco drawing on a plan. --><video class="ambient-video" data-ambient muted loop playsinline preload="none" poster="/media/studio/studio-drawing-2560.avif" aria-hidden="true"><source src="/video/studio-conversation.webm" type="video/webm"><source src="/video/studio-conversation.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
       </section>
       <section class="slide contact" id="contacto" data-tone="light" data-chapter="Contact">
         <div class="contact-ring" aria-hidden="true"></div>

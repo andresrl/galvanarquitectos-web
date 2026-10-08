@@ -23,7 +23,7 @@ export async function buildLlms(event: H3Event, full: boolean) {
 
  line(`# ${negocio.nombre}`)
  line()
- line(`> Architecture studio in Marbella (Costa del Sol, Spain) led by architect ${a.nombre}. New-build luxury villas, complete villa renovations, interior design and landscape design, with design, planning permissions, site supervision and contractor coordination according to the agreed scope. Personal attention from the architect, in English and Spanish, including clients who live abroad.`)
+ line(`> Architecture studio in Marbella (Costa del Sol, Spain) led by architect ${a.nombre}. New-build luxury villas and complete villa renovations, with design, planning permissions, site supervision and contractor coordination according to the agreed scope. Personal attention from the architect, in English and Spanish, including clients who live abroad.`)
  line()
  line('## Key facts')
  line(`- Architect: ${a.nombre}. Trained at the ${a.formacion}; in Marbella since 1998; studio consolidated in 2003.`)
@@ -31,7 +31,7 @@ export async function buildLlms(event: H3Event, full: boolean) {
  line(`- Contact: ${negocio.contacto.email} · ${negocio.contacto.telefono} · ${u(contactPaths.en)}`)
  line('- Languages: English and Spanish (website in both: English at /, Spanish at /es)')
  line(`- Areas: Costa del Sol — ${locationIds.map(l => locations[l].name.en).join(', ')}`)
- line(`- Services: ${serviceIds.map(id => services[id].name.en).join(', ')}. Interior and landscape design can also be commissioned on their own.`)
+ line(`- Services: ${serviceIds.map(id => services[id].name.en).join(', ')}.`)
  line(`- Instagram: ${negocio.sameAs[0]}`)
  line()
 

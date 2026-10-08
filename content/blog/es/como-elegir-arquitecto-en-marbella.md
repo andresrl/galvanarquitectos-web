@@ -24,7 +24,7 @@ En España, el proyecto de un edificio de vivienda debe redactarlo un arquitecto
 
 ## ¿Ha diseñado algo comparable?
 
-Mira proyectos construidos y propuestas de tipo y escala parecidos: una villa nueva, una reforma integral, interiores o un jardín. Las fotografías de obra terminada y las visualizaciones de propuestas sirven, siempre que sepas cuál es cuál.
+Mira proyectos construidos y propuestas de tipo y escala parecidos: una villa nueva o una reforma integral. Las fotografías de obra terminada y las visualizaciones de propuestas sirven, siempre que sepas cuál es cuál.
 
 Pregunta qué haría distinto en tu parcela o en tu casa. La respuesta dice más que cualquier portfolio.
 

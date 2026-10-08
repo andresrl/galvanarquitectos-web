@@ -76,6 +76,6 @@ Group your notes under three headings: reading questions, needs of use and possi
 
 ## Bring your questions to the conversation
 
-Martínez Galván is an architecture and interior design studio in Marbella, working across the Costa del Sol in English and Spanish.
+Martínez Galván is an architecture studio in Marbella, working across the Costa del Sol in English and Spanish.
 
 If you are preparing a commission, you can see how the studio approaches [new-build villa architecture](/villa-architecture) and [contact the studio](/villa-architecture#enquiry) to explain your needs. You do not need to arrive with every answer: a clear list of questions is a good place to start.

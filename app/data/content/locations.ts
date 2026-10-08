@@ -28,14 +28,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       architecture: {
         en: 'A new villa in Marbella can start from a plot in an established neighbourhood or in a newer residential area; in both cases the design responds to orientation, privacy and the relationship with the street.',
         es: 'Una villa nueva en Marbella puede partir de una parcela en un barrio consolidado o en una zona residencial más reciente; en ambos casos el diseño responde a la orientación, la privacidad y la relación con la calle.'
-      },
-      interiors: {
-        en: 'Whether the villa is your permanent home or a place you return to through the year, the interior design starts from how and when the house is used.',
-        es: 'Tanto si la villa es tu residencia habitual como un lugar al que vuelves durante el año, el interiorismo parte de cómo y cuándo se utiliza la casa.'
-      },
-      landscape: {
-        en: 'Between the mountains and the sea, a garden in Marbella balances sun, shade and privacy; the design studies how each outdoor space is used through the day.',
-        es: 'Entre la montaña y el mar, un jardín en Marbella equilibra sol, sombra y privacidad; el diseño estudia cómo se usa cada espacio exterior a lo largo del día.'
       }
     }
   },
@@ -60,14 +52,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Renovating a villa in Benahavís can mean reconsidering how the house meets the slope, opening rooms towards the views or reorganising terraces and access.',
         es: 'Reformar una villa en Benahavís puede suponer repensar cómo se apoya la casa en la pendiente, abrir estancias hacia las vistas o reorganizar terrazas y accesos.'
-      },
-      interiors: {
-        en: 'In a hillside villa, the interiors respond to light that changes with height and orientation, and to the relationship between each room and the landscape outside.',
-        es: 'En una villa en ladera, el interiorismo responde a una luz que cambia con la altura y la orientación, y a la relación de cada estancia con el paisaje exterior.'
-      },
-      landscape: {
-        en: 'A garden in Benahavís may need to resolve terraces, retaining walls and changes of level; planting, paths and shade are designed to work with the land rather than against it.',
-        es: 'Un jardín en Benahavís puede tener que resolver terrazas, muros y desniveles; la vegetación, los recorridos y la sombra se diseñan a favor del terreno y no contra él.'
       }
     }
   },
@@ -92,14 +76,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'When a villa already has a garden and terraces worth keeping, a renovation can reorganise the house while strengthening that connection with the outside.',
         es: 'Cuando una villa ya tiene un jardín y unas terrazas que merece la pena conservar, la reforma puede reorganizar la casa reforzando esa relación con el exterior.'
-      },
-      interiors: {
-        en: 'Interiors in Los Monteros can draw on the closeness of the garden: rooms that open onto terraces and materials that bridge inside and outside.',
-        es: 'El interiorismo en Los Monteros puede apoyarse en la cercanía del jardín: estancias que se abren a las terrazas y materiales que unen interior y exterior.'
-      },
-      landscape: {
-        en: 'Near the coast, the garden is studied with privacy, sun and exposure in mind, together with the way you want to use it day to day.',
-        es: 'Cerca de la costa, el jardín se estudia teniendo en cuenta la privacidad, el sol y la exposición, junto con la forma en que quieres utilizarlo cada día.'
       }
     }
   },
@@ -124,14 +100,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Nueva Andalucía has villas from different periods; a renovation can update the layout, light and terraces while respecting what still works.',
         es: 'Nueva Andalucía tiene villas de distintas épocas; una reforma puede actualizar la distribución, la luz y las terrazas respetando lo que sigue funcionando.'
-      },
-      interiors: {
-        en: 'Interiors here can look outwards, to gardens, terraces and greens; the design works with that relationship and with the light through the day.',
-        es: 'Aquí los interiores pueden mirar hacia fuera, a jardines, terrazas y greens; el diseño trabaja esa relación y la luz a lo largo del día.'
-      },
-      landscape: {
-        en: 'A garden in Nueva Andalucía can extend the feeling of open green space while keeping the privacy each family needs.',
-        es: 'Un jardín en Nueva Andalucía puede prolongar la sensación de espacio verde abierto sin renunciar a la privacidad que necesita cada familia.'
       }
     }
   },
@@ -156,14 +124,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'A renovation in Estepona can open a villa to the outdoors, rethink its layout or update the way it responds to sun and views.',
         es: 'Una reforma en Estepona puede abrir una villa al exterior, repensar su distribución o actualizar su respuesta al sol y a las vistas.'
-      },
-      interiors: {
-        en: 'Interior design in Estepona responds to the character of each house and to the light it receives, whether near the sea or higher up.',
-        es: 'El interiorismo en Estepona responde al carácter de cada casa y a la luz que recibe, ya esté cerca del mar o más arriba.'
-      },
-      landscape: {
-        en: 'Between coast and hills, a garden in Estepona is designed around exposure, shade and the way the terraces and pool are used.',
-        es: 'Entre la costa y las colinas, un jardín en Estepona se diseña en torno a la exposición, la sombra y el uso de las terrazas y la piscina.'
       }
     }
   },
@@ -188,14 +148,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Renovating a villa in Guadalmina can mean opening it to the garden, reorganising its rooms or bringing light into spaces that feel closed.',
         es: 'Reformar una villa en Guadalmina puede suponer abrirla al jardín, reorganizar sus estancias o llevar luz a espacios que se sienten cerrados.'
-      },
-      interiors: {
-        en: 'Interiors in Guadalmina can carry the calm of the garden inside: proportion, natural light and materials chosen for everyday use.',
-        es: 'El interiorismo en Guadalmina puede llevar al interior la calma del jardín: proporción, luz natural y materiales elegidos para el uso cotidiano.'
-      },
-      landscape: {
-        en: 'In Guadalmina the garden can be central to life at home; the design organises lawn, shade, paths and pool around the way you use them.',
-        es: 'En Guadalmina el jardín puede ser el centro de la vida en casa; el diseño organiza el césped, la sombra, los recorridos y la piscina según cómo los utilizas.'
       }
     }
   },
@@ -220,14 +172,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Renovating a villa in La Zagaleta can involve rethinking large spaces, reorganising levels or refining the relationship with the landscape.',
         es: 'Reformar una villa en La Zagaleta puede implicar repensar espacios amplios, reorganizar niveles o afinar la relación con el paisaje.'
-      },
-      interiors: {
-        en: 'In a large home, the interiors need coherence across many rooms; the design gives each space a purpose while keeping a shared language.',
-        es: 'En una casa amplia, el interiorismo necesita coherencia entre muchas estancias; el diseño da sentido a cada espacio manteniendo un lenguaje común.'
-      },
-      landscape: {
-        en: 'Landscape design in La Zagaleta works at the scale of the plot and its hillside setting, linking terraces, paths and planting with the surrounding nature.',
-        es: 'El paisajismo en La Zagaleta trabaja a la escala de la parcela y de su ladera, uniendo terrazas, recorridos y vegetación con la naturaleza que la rodea.'
       }
     }
   },
@@ -252,14 +196,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Renovating a villa on the Golden Mile can mean updating an established home, reorganising its layout and connecting it more closely with its garden.',
         es: 'Reformar una villa en la Milla de Oro puede suponer actualizar una vivienda consolidada, reorganizar su distribución y conectarla mejor con su jardín.'
-      },
-      interiors: {
-        en: 'Interiors on the Golden Mile balance rooms for receiving guests with everyday spaces, with materials and light considered as one.',
-        es: 'El interiorismo en la Milla de Oro equilibra las estancias para recibir con los espacios del día a día, pensando materiales y luz en conjunto.'
-      },
-      landscape: {
-        en: 'A garden here can mediate between the house, the views and privacy from neighbours, with shade and planting designed for each plot.',
-        es: 'Aquí el jardín puede mediar entre la casa, las vistas y la privacidad respecto a los vecinos, con sombra y vegetación diseñadas para cada parcela.'
       }
     }
   },
@@ -284,14 +220,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'In Río Real, a renovation can bring an existing villa up to date, opening it to light and outdoor living while keeping what you value.',
         es: 'En Río Real, una reforma puede poner al día una villa existente, abriéndola a la luz y a la vida exterior sin perder lo que valoras.'
-      },
-      interiors: {
-        en: 'Interior design in Río Real can create a calm, coherent home, with rooms that connect naturally to the terraces and garden.',
-        es: 'El interiorismo en Río Real puede crear una casa serena y coherente, con estancias que se conectan de forma natural con las terrazas y el jardín.'
-      },
-      landscape: {
-        en: 'A garden in Río Real can frame green views and create sheltered places to sit, eat and swim.',
-        es: 'Un jardín en Río Real puede enmarcar vistas verdes y crear lugares resguardados para sentarse, comer y bañarse.'
       }
     }
   },
@@ -316,14 +244,6 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       renovation: {
         en: 'Renovating a villa in Elviria can reorganise its rooms around light and shade, and strengthen the connection with the garden.',
         es: 'Reformar una villa en Elviria puede reorganizar sus estancias en torno a la luz y la sombra, y reforzar la relación con el jardín.'
-      },
-      interiors: {
-        en: 'Interiors in Elviria can respond to filtered light and a green setting, with materials chosen for a relaxed, everyday home.',
-        es: 'El interiorismo en Elviria puede responder a una luz filtrada y a un entorno verde, con materiales elegidos para una casa relajada y cotidiana.'
-      },
-      landscape: {
-        en: 'Landscape design in Elviria treats existing trees and shade as conditions to study, creating a garden that feels part of its setting.',
-        es: 'El paisajismo en Elviria trata los árboles existentes y la sombra como condiciones a estudiar, creando un jardín que forma parte de su entorno.'
       }
     }
   }

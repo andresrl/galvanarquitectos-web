@@ -35,7 +35,7 @@ export const internationalCopy: Record<Locale, {
    ['One architect', 'The person who designs your villa is the person you talk to.'],
    ['English and Spanish', 'Meetings, drawings and follow-up in the language you prefer.'],
    ['Local presence', 'The studio is in Marbella: visits to the property and the site are part of everyday work.'],
-   ['Coordination', 'Architecture, interiors and landscape in one vision, with the companies coordinated according to the agreed scope.']
+   ['Coordination', 'One design vision, with the companies coordinated according to the agreed scope.']
   ],
   faqTitle: 'Questions from clients abroad',
   faqs: [
@@ -71,7 +71,7 @@ export const internationalCopy: Record<Locale, {
    ['Un solo arquitecto', 'La persona que diseña tu villa es la persona con la que hablas.'],
    ['Español e inglés', 'Reuniones, planos y seguimiento en el idioma que prefieras.'],
    ['Presencia local', 'El estudio está en Marbella: las visitas a la propiedad y a la obra forman parte del trabajo diario.'],
-   ['Coordinación', 'Arquitectura, interiores y paisaje en una misma visión, con las empresas coordinadas según el alcance acordado.']
+   ['Coordinación', 'Una misma visión de diseño, con las empresas coordinadas según el alcance acordado.']
   ],
   faqTitle: 'Preguntas de quienes viven fuera',
   faqs: [

@@ -59,14 +59,14 @@ export const projectCopy: Record<string, Entry> = {
    lead: 'Una villa de lenguaje mediterráneo donde las cubiertas inclinadas, las pérgolas y la vegetación construyen una relación pausada con el jardín.',
    body: [
     'Villa Pino encuentra su carácter en el diálogo entre la casa y los árboles. Los volúmenes claros se combinan con cubiertas de teja y huecos de trazo regular, mientras las pérgolas añaden profundidad a los frentes abiertos al exterior. La arquitectura presenta una escala doméstica reconocible y una composición de líneas limpias.',
-    'El diseño del jardín acompaña esa lectura. Los caminos, las masas vegetales y la lámina de agua alternan ámbitos abiertos con otros más recogidos. Frente a la vivienda, la piscina refleja las fachadas y el arbolado; junto a ella, las terrazas ofrecen una transición amplia entre los espacios cubiertos y el verde.',
+    'El jardín acompaña esa lectura. Los caminos, las masas vegetales y la lámina de agua alternan ámbitos abiertos con otros más recogidos. Frente a la vivienda, la piscina refleja las fachadas y el arbolado; junto a ella, las terrazas ofrecen una transición amplia entre los espacios cubiertos y el verde.',
     'Los tonos cálidos de los cerramientos y los pavimentos claros matizan la luminosidad del conjunto. El resultado es una imagen de serenidad con carácter, en la que las sombras de las pérgolas y la presencia de la vegetación tienen tanto peso como la propia forma de la casa.'],
    heroAlt: 'Villa Pino entre pinos, con la piscina y el jardín frente a la fachada' },
   en: { heading: 'Architecture among trees and shade',
    lead: 'A villa in a Mediterranean idiom where pitched roofs, pergolas and planting build an unhurried relationship with the garden.',
    body: [
     'Villa Pino finds its character in the dialogue between the house and the trees. Light volumes are combined with tiled roofs and regular openings, while pergolas add depth to the elevations facing outdoors. The architecture has a recognisable domestic scale and a composition of clean lines.',
-    'The garden design follows the same reading. Paths, planting and a sheet of water alternate open areas with more sheltered ones. In front of the house, the pool reflects the façades and the trees; beside it, the terraces offer a generous transition between the covered spaces and the green.',
+    'The garden follows the same reading. Paths, planting and a sheet of water alternate open areas with more sheltered ones. In front of the house, the pool reflects the façades and the trees; beside it, the terraces offer a generous transition between the covered spaces and the green.',
     'The warm tones of the joinery and the light paving soften the brightness of the whole. The result is an image of serenity with character, in which the shadows of the pergolas and the presence of the planting carry as much weight as the form of the house itself.'],
    heroAlt: 'Villa Pino among pine trees, with the pool and garden in front of the façade' } },
 

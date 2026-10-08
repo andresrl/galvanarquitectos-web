@@ -17,8 +17,8 @@ OUT = ROOT / 'public' / 'og'
 FONTS = Path(__file__).resolve().parent
 W, H, PHOTO = 1200, 630, 630
 PAPER, INK, BRASS, MUTED = (246, 244, 239), (28, 33, 30), (173, 141, 97), (98, 105, 97)
-HUBS = ['/villa-architecture', '/villa-renovation', '/interior-design', '/landscape-design',
-        '/es/arquitectura-villas', '/es/reformas-villas', '/es/interiorismo', '/es/paisajismo']
+HUBS = ['/villa-architecture', '/villa-renovation',
+        '/es/arquitectura-villas', '/es/reformas-villas']
 EXTRA = ['/', '/es', '/journal', '/es/guias', '/projects', '/es/proyectos', '/studio', '/es/estudio', '/contact', '/es/contacto']
 SUFFIX = ' | Martínez Galván'
 

@@ -34,7 +34,7 @@ The exact scope, the frequency of visits and the responsibilities are agreed for
 
 Many trades work on a villa, at the same time or one after another. Coordination helps their work fit together and with the project: each company has the information it needs, and one company's decisions do not compromise another's.
 
-When architecture, interiors and landscape are part of the same commission, coordination helps keep a shared vision from start to finish.
+When design and site supervision are part of the same commission, coordination helps keep a shared vision from start to finish.
 
 ## What to clarify at the start
 

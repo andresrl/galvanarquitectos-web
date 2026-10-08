@@ -40,9 +40,7 @@ const facts: Record<string, ProjectFacts> = {
 
 // Services shown by each project (text of proyecto.md + images). Pending Paco's confirmation; used for
 // «related by service» links, never as a claim about the commission's contract.
-const interiors = new Set(['villa-silver', 'bleu-royal', 'villas-in-the-landscape', 'alcala-solvilla'])
-const landscape = new Set(['cutar', 'villa-pareja', 'villa-paris', 'villa-pino', 'castilla', 'villa-relojero', 'villa-del-golf', 'the-villas', 'elviria', 'la-montua'])
-const servicesOf = (id: string): ServiceId[] => [id === 'atalaya' ? 'renovation' : 'architecture', ...(interiors.has(id) ? ['interiors' as const] : []), ...(landscape.has(id) ? ['landscape' as const] : [])]
+const servicesOf = (id: string): ServiceId[] => [id === 'atalaya' ? 'renovation' : 'architecture']
 
 export const projects: Project[] = curation.projects.map((c, order) => {
  const copy = projectCopy[c.id], media = projectMedia[c.id], fact = facts[c.id]

@@ -1,6 +1,6 @@
 ---
 title: "Renders and photographs: understanding a design proposal"
-description: "What a render shows, what it does not, and which questions to ask so you can read an interior or architectural proposal without mistaking an image for a final decision."
+description: "What a render shows, what it does not, and which questions to ask so you can read an architectural proposal without mistaking an image for a final decision."
 date: "2026-10-04"
 draft: true
 lang: "en"
@@ -9,8 +9,8 @@ order: 3
 author: "Francisco Martínez Galván"
 image: "villa-silver-03"
 keyword: "renders and photographs"
-service: "/interior-design"
-serviceAnchor: "interior design for villas"
+service: "/villa-architecture"
+serviceAnchor: "new-build villa architecture"
 ---
 
 A well-made image is immediately convincing. That is why it helps to know what you are looking at when you receive a proposal: a **photograph of a built space**, or a **render**, an image produced from a digital model of the design.
@@ -60,4 +60,4 @@ That information helps refine the design far more than a general yes or no.
 
 ## A design you can understand before it is built
 
-In [interior design for villas](/interior-design), images, drawings and samples are part of the same conversation. If you are thinking about your interiors, you can [contact the studio](/interior-design#enquiry) and share what you have in mind.
+In [new-build villa architecture](/villa-architecture), images, drawings and samples are part of the same conversation. If you are thinking about your project, you can [contact the studio](/villa-architecture#enquiry) and share what you have in mind.

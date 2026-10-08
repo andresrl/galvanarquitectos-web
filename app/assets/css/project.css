@@ -221,15 +221,12 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 .studio-services li a:hover{color:var(--brass);padding-left:10px}
 .studio-method{padding:0 var(--gutter) clamp(110px,12vw,190px);background:var(--paper)}
 .studio-method-list{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,40px);margin:clamp(60px,7vw,110px) 0 0;padding:0}
-.studio-method-list .project-photo{aspect-ratio:4/5;margin-bottom:24px;overflow:hidden}
-.studio-method-list .project-photo img{width:100%;height:100%;object-fit:cover}
-.studio-method-1,.studio-method-3{margin-top:clamp(40px,6vw,110px)}
+.studio-method-list li{padding-top:28px;border-top:1px solid var(--line)}
 .studio-intl{background:#141d18}
 .studio-projects{grid-template-columns:repeat(5,minmax(0,1fr))!important}
 @media(max-width:700px){.project-related .studio-projects{grid-template-columns:minmax(0,1fr)!important}}
 @media(max-width:700px){
  .studio-principles-list,.studio-method-list{grid-template-columns:1fr}
- .studio-method-1,.studio-method-3{margin-top:0}
  .studio-services{grid-template-columns:1fr}
  .studio-scene{height:60svh}
 }
@@ -300,9 +297,6 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 .area-near ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px 40px}
 .area-near a{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(20px,1.8vw,28px);letter-spacing:-.02em}.area-near a:hover{color:var(--brass)}
 
-/* Footer legal row */
-.site-footer-legal{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:18px;font-size:11px;color:#f6f4ef8c}
-.site-footer-legal a:hover{color:var(--brass)}
 @media(max-width:700px){.intl-intro,.intl-faq,.area-services ul{grid-template-columns:1fr}.intl-guide{grid-column:1}.area-services li:nth-child(even){margin-top:0}}
 
 /* Related by service (project pages) */

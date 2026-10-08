@@ -1,5 +1,5 @@
-/* Home chapters on full-bleed photography and video (7 Oct 2026): replaces the line-art backgrounds of
-   «servicios» and «estudio», keeps the eight chapters, their ids, pins and timings. Loaded after diseno.css. */
+/* Home on full-bleed photography and video. 8 Oct 2026 (Andrés): hero with the headline only, four project
+   scenes (cross-fading slideshows), studio and contact. Loaded after diseno.css. */
 /* Constant extra dimming above the video and its poster, independent of the scroll shade. */
 .hero-visual::after{content:'';position:absolute;inset:0;background:rgb(20 22 23 / 30%);pointer-events:none}
 .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 30px}
@@ -45,3 +45,31 @@
  .introduction .slide-inner{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
  .intro-scene-foot .photo-credit{font-size:8px}
 }
+/* Project scenes: four images stacked and cross-faded; the first is visible without JS. */
+.project-slide{color:#fff;background:#18221d}
+.project-visual{inset:0}
+.project-slides{position:absolute;inset:0}
+.project-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.8s cubic-bezier(.4,0,.2,1)}
+.project-slides img.is-active{opacity:1}
+.project-slide .image-shade{background:linear-gradient(180deg,#00000030,transparent 32%,transparent 55%,#101918c0 100%)}
+.project-slide .slide-inner{justify-content:flex-end;padding-bottom:15svh;max-width:1050px}
+.project-slide .display-title{max-width:900px;font-size:clamp(54px,7.5vw,124px)}
+.project-slide .text-link{align-self:flex-start}
+.project-progress{justify-content:flex-end;gap:8px;bottom:36px}
+.project-progress span{width:28px;height:1px;background:#ffffff59;transition:background .6s}
+.project-progress span.is-active{background:#fff}
+@media(prefers-reduced-motion:reduce){.project-slides img{transition:none}}
+@media(max-width:700px){
+ .project-slide .slide-inner{padding-bottom:17svh}
+ .project-slide .display-title{font-size:clamp(46px,12vw,72px)}
+ .project-progress{flex-direction:row;bottom:28px}
+ .project-progress span{width:20px}
+}
+/* Link to the full archive below the four project scenes: one line of text and a rule that runs to the arrow. */
+.home-more{position:relative;z-index:3;background:#18221d;color:var(--paper);padding:clamp(56px,9svh,110px) var(--gutter)}
+.home-more a{display:flex;align-items:center;gap:clamp(16px,2vw,32px);font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:clamp(28px,3.4vw,56px);letter-spacing:-.04em;line-height:1.1;transition:color .3s}
+.home-more i{flex:1;height:1px;background:#f6f4ef4d;transform-origin:left;transition:background .3s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.home-more svg{flex:none;width:clamp(20px,2vw,30px);height:auto}
+.home-more a:hover,.home-more a:focus-visible{color:var(--brass)}
+.home-more a:hover i,.home-more a:focus-visible i{background:var(--brass)}
+@media(max-width:700px){.home-more{padding-right:56px}.home-more a{font-size:clamp(24px,7vw,32px)}}

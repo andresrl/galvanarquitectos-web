@@ -14,7 +14,7 @@ onMounted(()=>{tone.value='dark'})
 <main class="service-demo" id="demostracion" tabindex="-1" :aria-label="locale==='en'?'Service page example':'Ejemplo de página interior'">
   <div class="section" v-if="content">
     <a class="case-back text-link" href="/" @click.prevent="requestScene('inicio')">{{t('backHome')}}</a>
-    <div class="demo-toolbar"><span class="eyebrow">{{t('interiorPreview')}}</span><nav class="demo-tabs" :aria-label="locale==='en'?'Illustrative case studies':'Casos demostrativos'"><NuxtLink v-for="(path,key) in casePaths" :key="key" :to="path" :aria-current="caseKey===key?'true':undefined">{{t(key==='reforma'?'renovationTab':key==='interiorismo'?'interiorName':'landscapeName')}}</NuxtLink></nav></div>
+    <div class="demo-toolbar"><span class="eyebrow">{{t('interiorPreview')}}</span><nav class="demo-tabs" :aria-label="locale==='en'?'Illustrative case studies':'Casos demostrativos'"><NuxtLink v-for="(path,key) in casePaths" :key="key" :to="path" :aria-current="caseKey===key?'true':undefined">{{t('renovationTab')}}</NuxtLink></nav></div>
     <article id="case-content">
       <div class="case-intro"><div><span class="demo-pill" data-borrador>{{t('demoLabel')}}</span><p class="eyebrow">{{content.label}}</p><h1 v-html="content.title"></h1></div><p class="case-lead">{{content.lead}}</p></div>
       <figure class="demo-figure"><img :src="'/photos/'+data.image" :alt="locale==='en'?'Reference image from the studio archive':'Imagen de referencia del archivo del estudio'" decoding="async"><figcaption>{{locale==='en'?'Illustrative case. Reference image from the studio archive; it does not document this commission.':'Caso demostrativo. Imagen de referencia del archivo del estudio; no documenta este encargo.'}}</figcaption></figure>

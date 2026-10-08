@@ -9,17 +9,17 @@ export const areaPath = (loc: LocationId, locale: Locale) => loc === 'marbella' 
 
 export const areaUi = {
  en: {
-  heading: (inPlace: string) => `Architect ${inPlace}`, italic: 'Villas, renovations, interiors and gardens.',
-  lead: (inPlace: string) => `New-build villas, complete renovations, interior and landscape design ${inPlace}, with personal attention from the architect.`,
-  description: (inPlace: string) => `Architect ${inPlace}: new-build villas, complete renovations, interior and landscape design by Francisco Martínez Galván, in English and Spanish.`,
+  heading: (inPlace: string) => `Architect ${inPlace}`, italic: 'New-build villas and renovations.',
+  lead: (inPlace: string) => `New-build villas and complete renovations ${inPlace}, with personal attention from the architect.`,
+  description: (inPlace: string) => `Architect ${inPlace}: new-build villas and complete villa renovations by Francisco Martínez Galván, in English and Spanish.`,
   introEyebrow: 'The area', servicesTitle: (inPlace: string) => `Our services ${inPlace}`, explore: 'Explore',
   projectsTitle: (inPlace: string) => `Projects ${inPlace}`, faqTitle: 'Questions about the area', nearTitle: 'Nearby areas',
   ctaTitle: 'Your project', ctaItalic: 'starts with a conversation.', cta: 'Tell us about your project', label: 'Areas'
  },
  es: {
-  heading: (inPlace: string) => `Arquitecto ${inPlace}`, italic: 'Villas, reformas, interiores y jardines.',
-  lead: (inPlace: string) => `Villas de nueva construcción, reformas integrales, interiorismo y paisajismo ${inPlace}, con trato directo con el arquitecto.`,
-  description: (inPlace: string) => `Arquitecto ${inPlace}: villas de nueva construcción, reformas integrales, interiorismo y paisajismo con Francisco Martínez Galván, en español e inglés.`,
+  heading: (inPlace: string) => `Arquitecto ${inPlace}`, italic: 'Villas nuevas y reformas.',
+  lead: (inPlace: string) => `Villas de nueva construcción y reformas integrales ${inPlace}, con trato directo con el arquitecto.`,
+  description: (inPlace: string) => `Arquitecto ${inPlace}: villas de nueva construcción y reformas integrales de villas con Francisco Martínez Galván, en español e inglés.`,
   introEyebrow: 'La zona', servicesTitle: (inPlace: string) => `Nuestros servicios ${inPlace}`, explore: 'Ver',
   projectsTitle: (inPlace: string) => `Proyectos ${inPlace}`, faqTitle: 'Preguntas sobre la zona', nearTitle: 'Zonas cercanas',
   ctaTitle: 'Tu proyecto', ctaItalic: 'empieza con una conversación.', cta: 'Cuéntanos tu proyecto', label: 'Zonas'
