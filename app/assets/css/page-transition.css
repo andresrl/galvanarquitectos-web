@@ -1,15 +1,26 @@
 /* Page transitions between the Home, the project archive and the project pages (utils/page-transition.ts).
-   The chosen photograph carries over and settles into place while the rest of the page dissolves. Fixed UI is captured
-   on its own and kept above the photograph, so the header stays put. Names exist only while html has .page-transition. */
+   The chosen photograph carries over and settles into place while the rest of the page dissolves. Layers stack as on
+   the page: photograph, shade, copy, then fixed UI, which stays put. Names exist only while html has .page-transition. */
 .page-transition .header{view-transition-name:vt-header}
 .page-transition .chapter-nav{view-transition-name:vt-chapters}
 .page-transition .scroll-progress{view-transition-name:vt-progress}
 .page-transition .mobile-contact{view-transition-name:vt-contact-bar}
 .page-transition .cookies{view-transition-name:vt-cookies}
+@keyframes vt-in{from{opacity:0}}
+@keyframes vt-out{to{opacity:0}}
 ::view-transition-group(*){animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
-::view-transition-group(vt-header),::view-transition-group(vt-chapters),::view-transition-group(vt-progress),::view-transition-group(vt-contact-bar),::view-transition-group(vt-cookies){z-index:1}
+::view-transition-group(project-shade){z-index:1}
+::view-transition-group(project-copy-out),::view-transition-group(project-copy-out-2),::view-transition-group(project-copy-out-3),::view-transition-group(project-copy-in),::view-transition-group(project-copy-in-2),::view-transition-group(project-copy-in-3){z-index:2}
+::view-transition-group(vt-header),::view-transition-group(vt-chapters),::view-transition-group(vt-progress),::view-transition-group(vt-contact-bar),::view-transition-group(vt-cookies){z-index:3}
 /* The photograph: its frame travels a little longer than the cross-fade, with a soft start and a long settle.
    Cover keeps both images undistorted while the frame changes proportion (card ↔ full screen). */
 ::view-transition-group(project-frame){animation-duration:.9s;animation-timing-function:cubic-bezier(.6,0,.15,1)}
 ::view-transition-old(project-frame),::view-transition-new(project-frame){height:100%;object-fit:cover;overflow:clip;animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+/* A shade with no counterpart arrives once the photograph covers the screen, and leaves before it shrinks. */
+::view-transition-new(project-shade):only-child{animation:vt-in .45s .4s both}
+::view-transition-old(project-shade):only-child{animation:vt-out .3s both}
+/* Copy never cross-fades with copy: the page left clears first, the destination's copy follows. */
+::view-transition-old(project-copy-out),::view-transition-old(project-copy-out-2),::view-transition-old(project-copy-out-3){animation:vt-out .3s both}
+::view-transition-new(project-copy-in),::view-transition-new(project-copy-in-2),::view-transition-new(project-copy-in-3){animation:vt-in .5s .35s both}
+.page-transition-project::view-transition-new(project-copy-in){animation:none}
 @media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}

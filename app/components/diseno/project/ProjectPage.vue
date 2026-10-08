@@ -101,14 +101,14 @@ function step(dir) {
 <template>
 <main ref="root" class="project-page">
  <section class="project-hero" id="project-top" data-header="light" :data-vt-frame="project.id" aria-labelledby="project-title">
-  <DisenoProjectImage class="project-hero-image" :image="media.hero" :alt="copy.heroAlt" sizes="100vw" eager />
-  <div class="project-hero-shade" aria-hidden="true"></div>
-  <div class="project-hero-copy">
+  <DisenoProjectImage class="project-hero-image" data-vt="media" :image="media.hero" :alt="copy.heroAlt" sizes="100vw" eager />
+  <div class="project-hero-shade" data-vt="shade" aria-hidden="true"></div>
+  <div class="project-hero-copy" data-vt="copy">
    <p class="eyebrow" data-reveal>{{ ui.project }}<template v-if="project.zone"> · {{ locations[project.zone].name[locale] }}</template></p>
    <h1 id="project-title" data-reveal>{{ name }}</h1>
   </div>
-  <a class="project-discover" href="#project-story"><span>{{ ui.discover }}</span><span class="project-discover-line" aria-hidden="true"></span></a>
-  <span class="project-hero-caption">{{ ui.imagery[project.imagery] }}</span>
+  <a class="project-discover" href="#project-story" data-vt="copy"><span>{{ ui.discover }}</span><span class="project-discover-line" aria-hidden="true"></span></a>
+  <span class="project-hero-caption" data-vt="copy">{{ ui.imagery[project.imagery] }}</span>
  </section>
 
  <section class="project-story" id="project-story" data-header="light" :aria-label="name">
