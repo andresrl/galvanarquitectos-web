@@ -568,10 +568,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--bleu-royal.jpg",
   "alt": "Bleu Royal"
  },
- "/projects/alcala-solvilla": {
-  "image": "/og/projects--alcala-solvilla.jpg",
-  "alt": "Alcalá Solvilla"
- },
  "/projects/elviria": {
   "image": "/og/projects--elviria.jpg",
   "alt": "Elviria"
@@ -675,10 +671,6 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/proyectos/bleu-royal": {
   "image": "/og/es--proyectos--bleu-royal.jpg",
   "alt": "Bleu Royal"
- },
- "/es/proyectos/alcala-solvilla": {
-  "image": "/og/es--proyectos--alcala-solvilla.jpg",
-  "alt": "Alcalá Solvilla"
  },
  "/es/proyectos/elviria": {
   "image": "/og/es--proyectos--elviria.jpg",
@@ -831,5 +823,13 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/clientes-internacionales": {
   "image": "/og/es--clientes-internacionales.jpg",
   "alt": "Arquitecto en Marbella para clientes que viven fuera"
+ },
+ "/projects/alcala": {
+  "image": "/og/projects--alcala.jpg",
+  "alt": "Alcalá"
+ },
+ "/es/proyectos/alcala": {
+  "image": "/og/es--proyectos--alcala.jpg",
+  "alt": "Alcalá"
  }
 }

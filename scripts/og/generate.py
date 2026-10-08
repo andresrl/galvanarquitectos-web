@@ -111,7 +111,7 @@ def cover(photo, w, h):
 
 def render_project(info, target):
     # Project pages: the hero photograph full-bleed, name and headline over a dark gradient, white logo.
-    img = cover(Image.open(ROOT / 'public' / info['image'].lstrip('/')).convert('RGB'), W, H)
+    img = cover(Image.open(ROOT / 'public' / info['image'].split('?', 1)[0].lstrip('/')).convert('RGB'), W, H)
     shade = Image.new('L', (W, H))
     sd = ImageDraw.Draw(shade)
     for y in range(H):
@@ -129,7 +129,7 @@ def render(info, target):
     if info.get('project'):
         return render_project(info, target)
     img = Image.new('RGB', (W, H), PAPER)
-    photo = Image.open(ROOT / 'public' / info['image'].lstrip('/')).convert('RGB')
+    photo = Image.open(ROOT / 'public' / info['image'].split('?', 1)[0].lstrip('/')).convert('RGB')
     side = min(photo.size)
     left, top = (photo.width - side) // 2, (photo.height - side) // 2
     img.paste(photo.crop((left, top, left + side, top + side)).resize((PHOTO, PHOTO), Image.LANCZOS), (W - PHOTO, 0))

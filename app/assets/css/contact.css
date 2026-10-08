@@ -56,8 +56,7 @@
  .mobile-contact.is-hidden,.footer-in-view .mobile-contact{transform:translateY(110%)}
  body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
  /* Keep Home photo links above the fixed contact bar. */
- .scene-foot,.hero-caption,.vertical-caption,.intro-caption,.scene-number{bottom:calc(78px + env(safe-area-inset-bottom))}
- .scroll-hint{bottom:calc(112px + env(safe-area-inset-bottom))}
+ .scene-foot,.vertical-caption,.intro-caption,.scene-number{bottom:calc(78px + env(safe-area-inset-bottom))}
 }
 /* Solid header once the archive hero has scrolled away */
 .header-solid .project-archive-page .header,.header-solid body.project-archive-page .header{background:#141d18f0!important;backdrop-filter:blur(12px);color:#fff}

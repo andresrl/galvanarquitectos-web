@@ -17,8 +17,8 @@ export const locationCopy: Record<LocationId, LocationCopy> = {
       es: 'Marbella reúne barrios consolidados y zonas residenciales más recientes entre Sierra Blanca y el mar. Cada parcela y cada villa existente tienen sus propias condiciones, desde la orientación hasta la relación con su entorno.'
     },
     setting: {
-      en: 'Paco works from Marbella, so visits to the property and to the site are a natural part of the work. The light, views and setting of each plot are studied on the ground.',
-      es: 'Paco trabaja desde Marbella, por lo que las visitas a la vivienda y a la obra forman parte natural del trabajo. La luz, las vistas y el entorno de cada parcela se estudian sobre el terreno.'
+      en: 'Francisco Martínez Galván works from Marbella, so visits to the property and to the site are a natural part of the work. The light, views and setting of each plot are studied on the ground.',
+      es: 'Francisco Martínez Galván trabaja desde Marbella, por lo que las visitas a la vivienda y a la obra forman parte natural del trabajo. La luz, las vistas y el entorno de cada parcela se estudian sobre el terreno.'
     },
     faq: {
       en: ['Is the studio based in Marbella?', 'Yes. Martínez Galván is based in Marbella, which makes visits to the property and follow-up during the works easier to organise.'],

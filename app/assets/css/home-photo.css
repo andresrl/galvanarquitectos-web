@@ -15,9 +15,12 @@
 .photo-slide .muted,.photo-slide .scene-number{color:#ffffffb3}
 .photo-slide .body-copy{color:#ffffffe0}
 .photo-slide .text-link{color:#fff;margin-top:26px;align-self:flex-start}
-.photo-credit{position:relative;z-index:3;color:inherit;opacity:.8;transition:opacity .25s,color .25s}
+.photo-credit{z-index:3;color:inherit;opacity:.8;transition:opacity .25s,color .25s}
 .photo-credit:hover{opacity:1;color:var(--brass)}
 .photo-slide .intro-caption{color:#ffffffb3;font-size:9px}
+.introduction .intro-scene-foot{align-items:center;flex-direction:row;flex-wrap:wrap;gap:10px 24px;color:#ffffffb3}
+.intro-scene-foot .scene-number{position:static;color:inherit;flex-shrink:0}
+.intro-scene-foot .photo-credit{display:inline-flex;align-items:center;gap:6px;font-size:9px}
 .intro-services{display:flex;flex-wrap:wrap;gap:12px 28px;list-style:none;margin:38px 0 0;padding:26px 0 0;border-top:1px solid #ffffff33;max-width:620px}
 .intro-services a{display:inline-flex;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:color .25s}
 .intro-services a span{transition:transform .25s}
@@ -30,7 +33,7 @@
 .interiors .vertical-caption,.scene-foot .photo-credit{font-size:8px;letter-spacing:.08em}
 @media(prefers-reduced-motion:reduce){.ambient-video{visibility:hidden;will-change:auto}}
 @media(max-width:700px){
- .hero-content{bottom:max(20svh,calc(166px + env(safe-area-inset-bottom)))}
+ .hero-content{bottom:max(6svh,calc(32px + env(safe-area-inset-bottom)))}
  .hero-actions{align-items:flex-start;flex-direction:column;gap:10px}
  .hero-actions .hero-cta-primary{min-width:180px}
  .photo-shade{background:linear-gradient(0deg,#0b1410f0 0%,#0b1410b3 45%,#0b141033 75%,#0b141059 100%)}
@@ -38,4 +41,7 @@
  .studio-visual video,.studio-visual{background-position:70% center;object-position:70% center}
  .intro-services{gap:10px 18px;margin-top:22px;padding-top:18px}
  .intro-services a{font-size:9px}
+ .introduction .intro-scene-foot{bottom:calc(72px + env(safe-area-inset-bottom));right:var(--gutter)}
+ .introduction .slide-inner{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+ .intro-scene-foot .photo-credit{font-size:8px}
 }

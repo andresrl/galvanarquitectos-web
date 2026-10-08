@@ -27,7 +27,7 @@ const facts: Record<string, ProjectFacts> = {
  'villa-feliz': { status: 'ongoing', imagery: 'visualisation', pending: ['Zone and type of intervention', pendingCommon] },
  'villa-ambar': { status: 'completed', imagery: 'photography', pending: ['Zone', pendingCommon] },
  castilla: { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone', pendingCommon] },
- 'alcala-solvilla': { status: null, imagery: 'visualisation', pending: ['Confirm public name (keep separate from Villa Alcalá)', 'Status, intervention and zone'] },
+ 'alcala-solvilla': { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone'] },
  cutar: { status: 'completed', imagery: 'visualisation', pending: ['Zone and intervention (the name is not a location)', pendingCommon] },
  orion: { status: 'completed', imagery: 'visualisation', pending: ['Zone and type of intervention', pendingCommon] },
  sirio: { status: 'completed', imagery: 'photography', pending: ['Zone and type of intervention', pendingCommon] },

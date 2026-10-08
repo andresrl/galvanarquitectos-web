@@ -40,7 +40,7 @@ export const renovation: Record<Locale, ServiceContent> = {
   archiveText: 'Two views from the studio archive: the relationship between architecture, light and outdoor living.',
   projects: [{name:'Villa Silver',image:'web-villa-silver-01.jpg',alt:'Villa Silver, glazed architecture and a pool at dusk',text:'Light, glazing and the transition to the terrace.'},{name:'Villa Carril',image:'web-villa-carril-01.jpg',alt:'Villa Carril, white architecture, pergola and swimming pool',text:'Shade, terraces and a connection to the garden.'}],
   localEyebrow: 'LOCAL EXPERIENCE · INTERNATIONAL CLIENTS', localTitle: 'Your villa in Marbella.', localItalic: 'Wherever you are.',
-  localText: 'Paco works in Marbella and across the Costa del Sol, including Benahavís and Los Monteros. Your property’s setting, orientation and relationship with its surroundings are part of the design conversation.',
+  localText: 'Francisco Martínez Galván works in Marbella and across the Costa del Sol, including Benahavís and Los Monteros. Your property’s setting, orientation and relationship with its surroundings are part of the design conversation.',
   remoteText: 'If you live abroad, video calls, visits and site follow-up help you stay involved. Communication is available in English and Spanish, with arrangements agreed for your project.',
   localPoints: ['Personal attention from the architect', 'Video calls, visits and site follow-up', 'Design with the surroundings in mind'],
   faqEyebrow: 'BEFORE WE BEGIN', faqTitle: 'A few useful questions.',
@@ -53,7 +53,7 @@ export const renovation: Record<Locale, ServiceContent> = {
    ['How do we establish the budget and timescale?', 'The initial conversation covers your priorities and constraints. A defined scope is needed before discussing the project’s fees, budget and programme; each villa is considered individually.']
   ],
   contactEyebrow: 'LET’S START WITH YOUR IDEA', contactTitle: 'What would you', contactItalic: 'like to change?',
-  contactText: 'Tell Paco a little about your villa, its location and what you have in mind.',
+  contactText: 'Tell us a little about your villa, its location and what you have in mind.',
   fields: {name:'Your name',email:'Email',phone:'Phone (optional)',location:'Project location',message:'Tell us about your project'},
   submit: 'Prepare an email enquiry', formNote: 'This preview prepares the enquiry in your email app. Nothing is sent from the form.', contactAlternative: 'Or contact the studio directly',
   footerLink: 'Back to the top', languageLabel: 'Español', reference: 'Studio archive', illustration: 'Concept illustration · not a project drawing'
@@ -95,7 +95,7 @@ export const renovation: Record<Locale, ServiceContent> = {
   archiveText: 'Dos miradas del archivo del estudio: la relación entre arquitectura, luz y vida exterior.',
   projects: [{name:'Villa Silver',image:'web-villa-silver-01.jpg',alt:'Villa Silver, arquitectura acristalada y piscina al anochecer',text:'Luz, vidrio y transición hacia la terraza.'},{name:'Villa Carril',image:'web-villa-carril-01.jpg',alt:'Villa Carril, arquitectura blanca, pérgola y piscina',text:'Sombra, terrazas y conexión con el jardín.'}],
   localEyebrow: 'EXPERIENCIA LOCAL · CLIENTES INTERNACIONALES', localTitle: 'Tu villa en Marbella.', localItalic: 'Estés donde estés.',
-  localText: 'Paco trabaja en Marbella y en la Costa del Sol, incluyendo Benahavís y Los Monteros. El emplazamiento, la orientación y la relación de tu vivienda con el entorno forman parte de la conversación de diseño.',
+  localText: 'Francisco Martínez Galván trabaja en Marbella y en la Costa del Sol, incluyendo Benahavís y Los Monteros. El emplazamiento, la orientación y la relación de tu vivienda con el entorno forman parte de la conversación de diseño.',
   remoteText: 'Si vives fuera de España, las videollamadas, las visitas y el seguimiento de obra te ayudan a participar. Atención en inglés y español, con una organización acordada para tu proyecto.',
   localPoints: ['Trato directo con el arquitecto', 'Videollamadas, visitas y seguimiento de obra', 'Diseño que considera el entorno'],
   faqEyebrow: 'ANTES DE EMPEZAR', faqTitle: 'Algunas preguntas útiles.',
@@ -108,7 +108,7 @@ export const renovation: Record<Locale, ServiceContent> = {
    ['¿Cómo se establece el presupuesto y el plazo?', 'La conversación inicial recoge tus prioridades y condicionantes. Es necesario definir el alcance antes de hablar de honorarios, presupuesto y planificación; cada villa se estudia individualmente.']
   ],
   contactEyebrow: 'EMPECEMOS POR TU IDEA', contactTitle: '¿Qué te gustaría', contactItalic: 'transformar?',
-  contactText: 'Cuéntale a Paco algo sobre tu villa, dónde está y qué tienes en mente.',
+  contactText: 'Cuéntanos algo sobre tu villa, dónde está y qué tienes en mente.',
   fields: {name:'Tu nombre',email:'Email',phone:'Teléfono (opcional)',location:'Zona del proyecto',message:'Cuéntanos tu proyecto'},
   submit: 'Preparar una consulta por email', formNote: 'Esta vista previa prepara la consulta en tu aplicación de correo. El formulario no envía datos.', contactAlternative: 'O contacta directamente con el estudio',
   footerLink: 'Volver arriba', languageLabel: 'English', reference: 'Archivo del estudio', illustration: 'Ilustración conceptual · no es un plano de proyecto'

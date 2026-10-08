@@ -294,21 +294,21 @@ export const projectCopy: Record<string, Entry> = {
     'The character of the design lies in its meetings: between a mineral texture and a transparent plane, between the shade of a pergola and the light of the water, between the house and the green edge of the garden. A proposal of restrained scale whose richness appears as you come closer.'],
    heroAlt: 'Castilla: porch opening onto the lawn beneath a timber-toned pergola' } },
 
- 'alcala-solvilla': { name: 'Alcalá Solvilla',
+ 'alcala-solvilla': { name: 'Alcalá',
   es: { heading: 'El agua como línea de horizonte',
    lead: 'Una propuesta de planos horizontales, terrazas profundas y texturas contrastadas que sitúa el agua en el centro de la relación con el exterior.',
    body: [
-    'Alcalá Solvilla desarrolla una composición de líneas largas y cuerpos de alturas distintas. Las cubiertas avanzan sobre los huecos acristalados y dan profundidad a las terrazas, mientras los paños de apariencia pétrea aportan peso a los niveles exteriores. Los tonos cálidos y los elementos de ritmo vertical matizan la geometría.',
+    'Alcalá desarrolla una composición de líneas largas y cuerpos de alturas distintas. Las cubiertas avanzan sobre los huecos acristalados y dan profundidad a las terrazas, mientras los paños de apariencia pétrea aportan peso a los niveles exteriores. Los tonos cálidos y los elementos de ritmo vertical matizan la geometría.',
     'La piscina acompaña el frente de la casa como una línea continua. Desde los espacios cubiertos, el agua enlaza visualmente las terrazas con el paisaje. Las escaleras y los muros articulan los cambios de nivel, introduciendo distintas perspectivas sobre el conjunto.',
     'La iluminación lineal recorre los vuelos y subraya la proporción de las cubiertas. Frente a esa precisión, la vegetación y las texturas aportan una lectura más cercana. El diseño propone una experiencia exterior de amplitud y recogimiento, con el agua como referencia constante.'],
-   heroAlt: 'Alcalá Solvilla a la hora azul: cubiertas voladas y piscina sobre un basamento de piedra' },
+   heroAlt: 'Alcalá a la hora azul: cubiertas voladas y piscina sobre un basamento de piedra' },
   en: { heading: 'Water as a horizon line',
    lead: 'A proposal of horizontal planes, deep terraces and contrasting textures that places the water at the centre of the relationship with the outdoors.',
    body: [
-    'Alcalá Solvilla develops a composition of long lines and volumes of different heights. The roofs reach out over the glazing and give the terraces depth, while stone-like panels add weight to the outdoor levels. Warm tones and vertical elements soften the geometry.',
+    'Alcalá develops a composition of long lines and volumes of different heights. The roofs reach out over the glazing and give the terraces depth, while stone-like panels add weight to the outdoor levels. Warm tones and vertical elements soften the geometry.',
     'The pool runs along the front of the house as a continuous line. From the covered spaces, the water visually links the terraces with the landscape. Steps and walls articulate the changes of level and open different views over the whole.',
     'Linear lighting runs along the overhangs and underlines the proportion of the roofs. Against that precision, the planting and the textures bring a closer reading. The design proposes an outdoor experience of both openness and retreat, with the water as a constant reference.'],
-   heroAlt: 'Alcalá Solvilla at blue hour: cantilevered roofs and pool above a stone base' } },
+   heroAlt: 'Alcalá at blue hour: cantilevered roofs and pool above a stone base' } },
 
  cutar: { name: 'Cútar',
   es: { heading: 'Una casa que se descubre desde el jardín',

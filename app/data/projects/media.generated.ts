@@ -208,17 +208,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "villa-paris": {
   "hero": {
    "file": "villa_paris_02.jpg",
-   "src": "/media/projects/villa-paris/villa-paris-02-36c08e008c1c-1600.avif",
-   "srcset": "/media/projects/villa-paris/villa-paris-02-36c08e008c1c-800.avif 800w, /media/projects/villa-paris/villa-paris-02-36c08e008c1c-1600.avif 1600w, /media/projects/villa-paris/villa-paris-02-36c08e008c1c-2560.avif 2560w",
+   "src": "/media/projects/villa-paris/villa-paris-02-9e2e03851e2e-1600.avif",
+   "srcset": "/media/projects/villa-paris/villa-paris-02-9e2e03851e2e-800.avif 800w, /media/projects/villa-paris/villa-paris-02-9e2e03851e2e-1600.avif 1600w, /media/projects/villa-paris/villa-paris-02-9e2e03851e2e-2560.avif 2560w",
    "width": 6144,
    "height": 4096,
    "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMYD8ANlWPHE+8AY3qwWBqAAP1RsTf6RhKtNpPvHsv0TEDH3qbb8VukctvjU4toDVFNaNIFh1mxzErkD/qEoX3uotiZsa7ipBlTF6AwZvRopMe1LvoQqL+lm/uJP8tuda/X7SsXCQQgxXi0bXfuNqhCk4bX1KII/RhF0nAh6UJzna3m8zIyvvuCYAA=",
-   "jpg": "/media/projects/villa-paris/villa-paris-02-36c08e008c1c-og.jpg"
+   "jpg": "/media/projects/villa-paris/villa-paris-02-9e2e03851e2e-og.jpg"
   },
   "pause": {
    "file": "villa_paris_03.jpg",
-   "src": "/media/projects/villa-paris/villa-paris-03-6ef44395e7bd-1600.avif",
-   "srcset": "/media/projects/villa-paris/villa-paris-03-6ef44395e7bd-800.avif 800w, /media/projects/villa-paris/villa-paris-03-6ef44395e7bd-1600.avif 1600w, /media/projects/villa-paris/villa-paris-03-6ef44395e7bd-2560.avif 2560w",
+   "src": "/media/projects/villa-paris/villa-paris-03-58f73b617453-1600.avif",
+   "srcset": "/media/projects/villa-paris/villa-paris-03-58f73b617453-800.avif 800w, /media/projects/villa-paris/villa-paris-03-58f73b617453-1600.avif 1600w, /media/projects/villa-paris/villa-paris-03-58f73b617453-2560.avif 2560w",
    "width": 4948,
    "height": 3006,
    "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAQBQCdASoYAA8APu1iqU2ppaOiMAgBMB2JZgCdMoGv/i2O2rZim84D9NkkYCW5Cz7QAP4efEbsjCg3uVwSL27srIuFfZUx6F0dpa8j5FQALKp9yhw3fWj0ZUqhx+WiRKE8QEx1mJyVafzE3DIG4yEfjPKjouptmfQ+s7T9Ygp9c4TiO0QBceSTkJ/ax8mq0KcIDtjKDJMn9gqGcHtw33fQguAjbHzMesqHlCrYwkv5GZvinQ9MaI8JFopogAAA"
@@ -226,32 +226,32 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "villa_paris_01.jpg",
-    "src": "/media/projects/villa-paris/villa-paris-01-55db943d7151-1600.avif",
-    "srcset": "/media/projects/villa-paris/villa-paris-01-55db943d7151-800.avif 800w, /media/projects/villa-paris/villa-paris-01-55db943d7151-1600.avif 1600w",
+    "src": "/media/projects/villa-paris/villa-paris-01-2a878ad32890-1600.avif",
+    "srcset": "/media/projects/villa-paris/villa-paris-01-2a878ad32890-800.avif 800w, /media/projects/villa-paris/villa-paris-01-2a878ad32890-1600.avif 1600w",
     "width": 6144,
     "height": 4096,
     "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBfnO4AfOoHMQ7Uq3XC6IWa8AAD+aikVqC12afCPRCZgg2mFoJf6mR3Sd/qPLBeXRXSav8Co9UMFwotNJD8pWC2tHE3CAGFGIeROZ4vpQskOo8QFQcB8NEf2L1tjSu833oKvTnomEnCWl4y7cXt4hP9JnXPdJD/sGuXZpmINZm/PTcoltOWjLJxCoLZwPIrHVM1l+NOyLa4UEWAKOAAA"
    },
    {
     "file": "villa_paris_04.jpg",
-    "src": "/media/projects/villa-paris/villa-paris-04-c8a9c6dbdf48-1600.avif",
-    "srcset": "/media/projects/villa-paris/villa-paris-04-c8a9c6dbdf48-800.avif 800w, /media/projects/villa-paris/villa-paris-04-c8a9c6dbdf48-1600.avif 1600w",
+    "src": "/media/projects/villa-paris/villa-paris-04-1f4ecc61143f-1600.avif",
+    "srcset": "/media/projects/villa-paris/villa-paris-04-1f4ecc61143f-800.avif 800w, /media/projects/villa-paris/villa-paris-04-1f4ecc61143f-1600.avif 1600w",
     "width": 4048,
     "height": 3032,
     "lqip": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAAAQBgCdASoYABIAPu1qrlCppaQiqAqpMB2JaAC24aaIYDahiVfZgUrKmtz3NCtguaq2mdxJr8kgE8AA/tmw3CJxI1sUh2rbfA7JCfe9tF3T0fySvYTZOP3SDBAw4C5YDx+61H/8EzaRv0Dvt+Edl8hgBxYtr/UlbhgSchE2XTnRm+gkTLH55psk/Yqjnxe1CETuPhLV1QNLnCXVIqeLxX3blZhFMYU8Me8iNqwExYGYY7Ez6ONu7Bxyw6KK/Xa5lZIgmik8LsnsNju0vM3NyVkr8Qi9gPpAuonKMQWfSqwAAA=="
    },
    {
     "file": "villa_paris_05.jpg",
-    "src": "/media/projects/villa-paris/villa-paris-05-da183bd76ed0-1600.avif",
-    "srcset": "/media/projects/villa-paris/villa-paris-05-da183bd76ed0-800.avif 800w, /media/projects/villa-paris/villa-paris-05-da183bd76ed0-1600.avif 1600w",
+    "src": "/media/projects/villa-paris/villa-paris-05-c32189ec87e9-1600.avif",
+    "srcset": "/media/projects/villa-paris/villa-paris-05-c32189ec87e9-800.avif 800w, /media/projects/villa-paris/villa-paris-05-c32189ec87e9-1600.avif 1600w",
     "width": 8688,
     "height": 5792,
     "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYgCdIJPgqRZQTHMV9N3e2zgmAP6Z7Tbmk5HulyflbyND4lBIdqII8g8LtqFmTddeMcwYnFyiKKKPLUFKvVqrtHWnMT7ZM3WYacberY9povcJhs3SZRX4rJIxLRKznvszoLo+Fq5PkTaBaPxlta6WmRws6TYu4tomRNllJh3Zv+qPv+LUSjNk6KPvB8eJeA9YBcYCqd9PzoJ7dZkUAAAA"
    },
    {
     "file": "villa_paris_06.jpg",
-    "src": "/media/projects/villa-paris/villa-paris-06-eed7f61d5754-1600.avif",
-    "srcset": "/media/projects/villa-paris/villa-paris-06-eed7f61d5754-800.avif 800w, /media/projects/villa-paris/villa-paris-06-eed7f61d5754-1600.avif 1600w",
+    "src": "/media/projects/villa-paris/villa-paris-06-eb282d8d789e-1600.avif",
+    "srcset": "/media/projects/villa-paris/villa-paris-06-eb282d8d789e-800.avif 800w, /media/projects/villa-paris/villa-paris-06-eb282d8d789e-1600.avif 1600w",
     "width": 4048,
     "height": 3032,
     "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACQBQCdASoYABIAPu1or1AppaSiqAqpMB2JZACxH2bUCi/wDhPjk8HHMsa3kInS9g09ofwIAAD9Iw2zDIRC3q2b3C16lVLUxcyf0lsN+OVZM29aeqTDSEieYSs95F9wE+1z7IjJpbE74dUnXZfZRImhF6sPCe16CxiWVenA/W6T2RbXnFHTiV+AycCvcUlpezWpyK/1SoKT/A+oRYayXZTRVpDDDECbgM3AmMwDDpTnFYYKwRanqV4qcSEXlAAA"
@@ -643,17 +643,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "altos-de-los-monteros": {
   "hero": {
    "file": "altos_de_los_monteros_04.jpg",
-   "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-b560e12b3025-1600.avif",
-   "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-b560e12b3025-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-04-b560e12b3025-1600.avif 1600w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-04-b560e12b3025-2560.avif 2560w",
+   "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-a53388764f62-1600.avif",
+   "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-a53388764f62-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-04-a53388764f62-1600.avif 1600w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-04-a53388764f62-2560.avif 2560w",
    "width": 3840,
    "height": 2160,
    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCdMoMYBsADEdpnAwi+e7x5dAgHAAD2tTCxK+/prOocUbT1l6NH59LthI0xDrb6cvPgrh+8oVLyD1lE/+6XoT9sfbebYfGOgRpwUDVUN1Y2/0NLjKhTi2BSoLgkdsYxagYCcKg5bGkE6JMaTr1ddkq/kR29c1S/Jxg92OoAAA==",
-   "jpg": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-b560e12b3025-og.jpg"
+   "jpg": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-04-a53388764f62-og.jpg"
   },
   "pause": {
    "file": "altos_de_los_monteros_02.jpg",
-   "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-02-fb08699e37eb-1600.avif",
-   "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-02-fb08699e37eb-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-02-fb08699e37eb-1600.avif 1600w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-02-fb08699e37eb-2560.avif 2560w",
+   "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-02-399703149232-1600.avif",
+   "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-02-399703149232-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-02-399703149232-1600.avif 1600w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-02-399703149232-2560.avif 2560w",
    "width": 5472,
    "height": 2918,
    "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JYwC06CHhQhsVJbFHx+IRkbQAAP6B80s39nPSzkLTTNnE0lRIv2DVW8sLkF6qsZcRooe7WaThA7wjUx9vGjXJwCBHuEVq9Xow9Wvm9lgdrmb3ubMZkW40GfPufj9ngIkYl7LcDdUIj7WywO0gI5XxQRJBzgAA"
@@ -661,16 +661,16 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "altos_de_los_monteros_01.jpg",
-    "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-01-0af835d01662-1600.avif",
-    "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-01-0af835d01662-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-01-0af835d01662-1600.avif 1600w",
+    "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-01-6fb1160e8e05-1600.avif",
+    "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-01-6fb1160e8e05-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-01-6fb1160e8e05-1600.avif 1600w",
     "width": 5083,
     "height": 2523,
     "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JYwCdAB7HfrC+1CK+W4Cg39AAy01y/kqn85c8n29KOC6iCNFvbav5Fwzx9r/a7MKsRT3cMv7nAPQHj/8UCRmyBfVzQ0SL7+pvDB2+NmuKhW/+8GGF/D/dby1j0ybEtcyyQRVnVJblOB8L+wAAAA=="
    },
    {
     "file": "altos_de_los_monteros_03.jpg",
-    "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-03-e9309348b946-1600.avif",
-    "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-03-e9309348b946-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-03-e9309348b946-1600.avif 1600w",
+    "src": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-03-31d998be0d05-1600.avif",
+    "srcset": "/media/projects/altos-de-los-monteros/altos-de-los-monteros-03-31d998be0d05-800.avif 800w, /media/projects/altos-de-los-monteros/altos-de-los-monteros-03-31d998be0d05-1600.avif 1600w",
     "width": 3840,
     "height": 2160,
     "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JaACdFkAbn+LX6aqO8zkxcD1pN/9s4AD+5/h4N82v+/Ect4SdAwfHssSSmfQwY0dFCCB5FvmAqlwBX6r2g4sqRdm7BaH+CVZ5FKx6rI8Jwqh2jMvTBJn1dv8khlVih5oWSk8d2apxjKtruycofQHUcwem5KpDLVlV4RVswQyYwDidkHVtGiUayUAAAA=="
@@ -680,17 +680,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "villa-feliz": {
   "hero": {
    "file": "villa_feliz_05.jpg",
-   "src": "/media/projects/villa-feliz/villa-feliz-05-228af1e392aa-1600.avif",
-   "srcset": "/media/projects/villa-feliz/villa-feliz-05-228af1e392aa-800.avif 800w, /media/projects/villa-feliz/villa-feliz-05-228af1e392aa-1600.avif 1600w, /media/projects/villa-feliz/villa-feliz-05-228af1e392aa-2560.avif 2560w",
+   "src": "/media/projects/villa-feliz/villa-feliz-05-cdd5692be632-1600.avif",
+   "srcset": "/media/projects/villa-feliz/villa-feliz-05-cdd5692be632-800.avif 800w, /media/projects/villa-feliz/villa-feliz-05-cdd5692be632-1600.avif 1600w, /media/projects/villa-feliz/villa-feliz-05-cdd5692be632-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQAwCdASoYAA0APu1iqk2ppaQiMAgBMB2JQBOiP/wEox2L90iH71AA/Pj64SaamHgUU+mgj6/crmxubWKYtIJLOi3HEi89fjp86uF7terckyAPk/NlcFom3AxNh2ppdWypuB7v37m0JDkFLXqZdR1L+bWc2L9VoLsFtG4jukNwasvQKO5C16ucKmSv42Ga0ERquZXEgAA=",
-   "jpg": "/media/projects/villa-feliz/villa-feliz-05-228af1e392aa-og.jpg"
+   "jpg": "/media/projects/villa-feliz/villa-feliz-05-cdd5692be632-og.jpg"
   },
   "pause": {
    "file": "villa_feliz_03.jpg",
-   "src": "/media/projects/villa-feliz/villa-feliz-03-4b6864d6c969-1600.avif",
-   "srcset": "/media/projects/villa-feliz/villa-feliz-03-4b6864d6c969-800.avif 800w, /media/projects/villa-feliz/villa-feliz-03-4b6864d6c969-1600.avif 1600w, /media/projects/villa-feliz/villa-feliz-03-4b6864d6c969-2560.avif 2560w",
+   "src": "/media/projects/villa-feliz/villa-feliz-03-0744b928816a-1600.avif",
+   "srcset": "/media/projects/villa-feliz/villa-feliz-03-0744b928816a-800.avif 800w, /media/projects/villa-feliz/villa-feliz-03-0744b928816a-1600.avif 1600w, /media/projects/villa-feliz/villa-feliz-03-0744b928816a-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdMoMljEwMIWYhdS3Oq+DzvPAA/l8rjEQCkW/Kb9PNpcUvDDOrMGA8E4F+XcEpAAmChBZn9wprOz1F0l7naS7hV2dDgJRh3MP67GQdbjv5pNo4VVULwM3xKCaZMzjs5Ui7ARqDqmvvxgEM6aey5SRjM7tuhvkof4E6ZNv4HPb43l75VXylhXmXIOl23tsoDTf045AAAA=="
@@ -698,40 +698,40 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "villa_feliz_01.jpg",
-    "src": "/media/projects/villa-feliz/villa-feliz-01-46e84858b604-1600.avif",
-    "srcset": "/media/projects/villa-feliz/villa-feliz-01-46e84858b604-800.avif 800w, /media/projects/villa-feliz/villa-feliz-01-46e84858b604-1600.avif 1600w",
+    "src": "/media/projects/villa-feliz/villa-feliz-01-eb25e20ffb54-1600.avif",
+    "srcset": "/media/projects/villa-feliz/villa-feliz-01-eb25e20ffb54-800.avif 800w, /media/projects/villa-feliz/villa-feliz-01-eb25e20ffb54-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABwBACdASoYAA0APu1iqU2ppaQiMAgBMB2JYgCdMoMljERXyO5+8pgn1dXnqAD+5RV46xkml0eRFEVYJFfQAissMln+0JONd76v6SL6Vf9sUdFYiLDmF6q2Pwt3T3bxaq9z3ixdfdpBNWb/I3v6Ny4C7VzAKxEfIyVusQqP60Pg3xbei4H/EHLaAxIu6qda0Qxz6wAA"
    },
    {
     "file": "villa_feliz_02.jpg",
-    "src": "/media/projects/villa-feliz/villa-feliz-02-ec0c3561e13b-1600.avif",
-    "srcset": "/media/projects/villa-feliz/villa-feliz-02-ec0c3561e13b-800.avif 800w, /media/projects/villa-feliz/villa-feliz-02-ec0c3561e13b-1600.avif 1600w",
+    "src": "/media/projects/villa-feliz/villa-feliz-02-107932ef6143-1600.avif",
+    "srcset": "/media/projects/villa-feliz/villa-feliz-02-107932ef6143-800.avif 800w, /media/projects/villa-feliz/villa-feliz-02-107932ef6143-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZAC7H8ACNjewxMXq4a2tgAD+wDmdJegLxd+EefKG7sN2z0xkyTBM0J7TtuOrYDkyquCKX0Ko+pV+k6ETWiDlp+co8H43cevGjfgEOGYiSkNHF5VJGnDc70filbjGRml+cJjq5aOmvmNhSDWlU2oqYmfo8dTRYPbFrWAA"
    },
    {
     "file": "villa_feliz_04.jpg",
-    "src": "/media/projects/villa-feliz/villa-feliz-04-dd08b1fa0e25-1600.avif",
-    "srcset": "/media/projects/villa-feliz/villa-feliz-04-dd08b1fa0e25-800.avif 800w, /media/projects/villa-feliz/villa-feliz-04-dd08b1fa0e25-1600.avif 1600w",
+    "src": "/media/projects/villa-feliz/villa-feliz-04-604a973c908f-1600.avif",
+    "srcset": "/media/projects/villa-feliz/villa-feliz-04-604a973c908f-800.avif 800w, /media/projects/villa-feliz/villa-feliz-04-604a973c908f-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACQAwCdASoYAA0APu1iqk2ppaQiMAgBMB2JZgC7AB4/FojSrXpAAP7pRL5N5BOpmDu/td+IplSW0bSqOkI3su2Eqg7ooRbvZEYoOsshVTOOMMa2RM8wZ8c1DulNOdtMD8PFc12kC9KjTy+dAPNPi7uelFQr+TRTpLXWQUeJom78q62v2XwYAAAA"
    },
    {
     "file": "villa_feliz_06.jpg",
-    "src": "/media/projects/villa-feliz/villa-feliz-06-a2942514f8a8-1600.avif",
-    "srcset": "/media/projects/villa-feliz/villa-feliz-06-a2942514f8a8-800.avif 800w, /media/projects/villa-feliz/villa-feliz-06-a2942514f8a8-1600.avif 1600w",
+    "src": "/media/projects/villa-feliz/villa-feliz-06-08dd33a86934-1600.avif",
+    "srcset": "/media/projects/villa-feliz/villa-feliz-06-08dd33a86934-800.avif 800w, /media/projects/villa-feliz/villa-feliz-06-08dd33a86934-1600.avif 1600w",
     "width": 6688,
     "height": 3760,
     "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOgBFZ0cwmFIaUKuwD13UQAAPuk9mHPw1zDTuriuxQp6pNHO/saZ/fbKcFEK+yBLHmhpuOr64mHagybT44EgTG3frUIbyUT/H7vwRqrz2e92AJI+61ppegw9bLbmXva2l0bWPfVlsM182fv7yhpJ64OIGM0lkBRHJ4dY65p9hjqJ3FAAA=="
    },
    {
     "file": "villa_feliz_07.jpg",
-    "src": "/media/projects/villa-feliz/villa-feliz-07-8d8ae012961e-1600.avif",
-    "srcset": "/media/projects/villa-feliz/villa-feliz-07-8d8ae012961e-800.avif 800w, /media/projects/villa-feliz/villa-feliz-07-8d8ae012961e-1600.avif 1600w",
+    "src": "/media/projects/villa-feliz/villa-feliz-07-f0e455adf010-1600.avif",
+    "srcset": "/media/projects/villa-feliz/villa-feliz-07-f0e455adf010-800.avif 800w, /media/projects/villa-feliz/villa-feliz-07-f0e455adf010-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOmUABp0cC+oWAms8Uf/6+AAP7l9TLVD97jc9evn7KbCC2q9+NmmCg7KkMa+Qy/KBh77+ZdhV6s/+aP+Londcs4gG5aOnp+ndQx6Z/cwWasgAv+zbAcA1+YbcUyjwYALLeYorMVI/wN/iwaYAGICwAUswwkgAeNkERMuy/gLuKAAAA="
@@ -794,17 +794,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "alcala-solvilla": {
   "hero": {
    "file": "alcala_solvilla_02.jpg",
-   "src": "/media/projects/alcala-solvilla/alcala-solvilla-02-0b61dcba483c-1600.avif",
-   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-02-0b61dcba483c-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-02-0b61dcba483c-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-02-0b61dcba483c-2560.avif 2560w",
+   "src": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif",
+   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOkERhmGXKqBm5+KrgA99mIG2WNqcqobIEr1r1Zj+7qIe/gDFhXvVHO23MPbVPUQfAQAbXj1jzRifmXi9kjBiyrNs1E3K27qK3bblyZaoOlDPeroOl9bBc7aQWcfWcIU0AYXq7wTZt8If5QvMAA",
-   "jpg": "/media/projects/alcala-solvilla/alcala-solvilla-02-0b61dcba483c-og.jpg"
+   "jpg": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-og.jpg"
   },
   "pause": {
    "file": "alcala_solvilla_06.jpg",
-   "src": "/media/projects/alcala-solvilla/alcala-solvilla-06-ccc8bd55282d-1600.avif",
-   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-06-ccc8bd55282d-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-06-ccc8bd55282d-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-06-ccc8bd55282d-2560.avif 2560w",
+   "src": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif",
+   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-2560.avif 2560w",
    "width": 3840,
    "height": 2160,
    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOmUGYW6Qw5U7U/mJBjnS+z0XPAAP3idn+GHdqW+H3TZ34yu8TyovgU11TP+tkpqxU+8IhC+1CS/AoXNuurtvMlokLVOZd+n1B1g2x3wEn8/lEvDVbgaxcKkBka245fQpxzJ10dfhS/aQnLsM3yCymfQ/9x6HDBcuuqAAA="
@@ -812,24 +812,24 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "alcala_solvilla_01.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-01-e91241238703-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-01-e91241238703-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-01-e91241238703-1600.avif 1600w",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JYwCdABVYGEaz42X0pIYYAPR3H1XGeKpYc+g27JisHSy+TGVZFCofLgRE2PWyETkDZOrdWEJCKoOmeGnfXxcwAVnWoBv7TcBnqJrOwKh9HHIMKyk+IJvQFOyj/+MmAL1PhDCrLGEKQwJWxw9FUZT4DUsf5IoFSmWC1+L0qsCNI0bXQAA="
    },
    {
     "file": "alcala_solvilla_03.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-03-7d7960bc583a-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-03-7d7960bc583a-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-03-7d7960bc583a-1600.avif 1600w",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOgAnh7xHoj1JGMeADeQ27itqmotOVRnyb90NkD8GHMsa7Z1SoYIr6hQA7OtMZKBVCK83MzZ28GmmsbV2mXSLYRI6VWzjxnduW9YJJNQk6o7Ynh37afba47Fy71TADpJOYoYas0AcxRgivxAAAA"
    },
    {
     "file": "alcala_solvilla_05.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-05-f4fca83dcd92-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-05-f4fca83dcd92-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-05-f4fca83dcd92-1600.avif 1600w",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif 1600w",
     "width": 3840,
     "height": 2160,
     "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOkBshDQfOqMDVKcToQfAAA+N6WDVykFzSAgzd9xZeTuxriRCgE4pJKnc7/oaEynpGoNEkVssBOGnXRSAq0VUksxuDMp0Q5xzWUGrXm8rViSJgWkVcx3dqL7mnipitkT+Gx1ok+6wabS6NzrGFKtA1MUIRQCf3xO8EZlE0AAA=="
@@ -839,17 +839,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "elviria": {
   "hero": {
    "file": "elviria_02.jpg",
-   "src": "/media/projects/elviria/elviria-02-39db524fab84-1600.avif",
-   "srcset": "/media/projects/elviria/elviria-02-39db524fab84-800.avif 800w, /media/projects/elviria/elviria-02-39db524fab84-1600.avif 1600w, /media/projects/elviria/elviria-02-39db524fab84-2560.avif 2560w",
+   "src": "/media/projects/elviria/elviria-02-4b79b1575977-1600.avif",
+   "srcset": "/media/projects/elviria/elviria-02-4b79b1575977-800.avif 800w, /media/projects/elviria/elviria-02-4b79b1575977-1600.avif 1600w, /media/projects/elviria/elviria-02-4b79b1575977-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOgApSdGF8DFqgeLoIAAP2uyUfwgw0C04i8CcsvsPPin3qn9RWVHmRC6jepgpt5PhPBpPnikYmr1gvVSbFJ8JUprjA8fMXNzw86Cb0eRTIA2OBt2fiyQ4ixZqxWZ+n0pM4bIX6+cZW5/AAwgjjIIWyFwAAA",
-   "jpg": "/media/projects/elviria/elviria-02-39db524fab84-og.jpg"
+   "jpg": "/media/projects/elviria/elviria-02-4b79b1575977-og.jpg"
   },
   "pause": {
    "file": "elviria_01.jpg",
-   "src": "/media/projects/elviria/elviria-01-2d9f59f25615-1600.avif",
-   "srcset": "/media/projects/elviria/elviria-01-2d9f59f25615-800.avif 800w, /media/projects/elviria/elviria-01-2d9f59f25615-1600.avif 1600w, /media/projects/elviria/elviria-01-2d9f59f25615-2560.avif 2560w",
+   "src": "/media/projects/elviria/elviria-01-848699a9fdd5-1600.avif",
+   "srcset": "/media/projects/elviria/elviria-01-848699a9fdd5-800.avif 800w, /media/projects/elviria/elviria-01-848699a9fdd5-1600.avif 1600w, /media/projects/elviria/elviria-01-848699a9fdd5-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JagCdABUOyuOPViK2tcHNgp0AAPyPlGS/CCKtxfCeRncfTzqbQLpeqyExg8yJCSdxlpZIhXG4tWo2q9h2KZOCamzNjvsDgqYaoXltvGpx/P3s9FrgXlC/25QCvEk2XoOV28Gb1PWaNVdp43wG8Wt/yEL7koecgJ3dyu7Lj3BogE3wxAkEawAA"
@@ -857,32 +857,32 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "elviria_03.jpg",
-    "src": "/media/projects/elviria/elviria-03-44e1d8dd2004-1600.avif",
-    "srcset": "/media/projects/elviria/elviria-03-44e1d8dd2004-800.avif 800w, /media/projects/elviria/elviria-03-44e1d8dd2004-1600.avif 1600w",
+    "src": "/media/projects/elviria/elviria-03-cd106a082fb2-1600.avif",
+    "srcset": "/media/projects/elviria/elviria-03-cd106a082fb2-800.avif 800w, /media/projects/elviria/elviria-03-cd106a082fb2-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JZACdMoBOAB1SjioPOCWgAAD+x20TOMGkCdCdufbhpNhc7Kew6n54qyL9ztTdCWf7DF3B/Y2uOmclxVreMRaEeT1hEOdaeBwK8xClajhQ3vAEe9eYz72GDdY9MzdvnciutcfHgE07YYZJfZdy5sjWK5VqoQl0NVlb9sLvsx0sTiFKy5duLEDGjZ8JUAAA"
    },
    {
     "file": "elviria_04.jpg",
-    "src": "/media/projects/elviria/elviria-04-40ac5e300ed2-1600.avif",
-    "srcset": "/media/projects/elviria/elviria-04-40ac5e300ed2-800.avif 800w, /media/projects/elviria/elviria-04-40ac5e300ed2-1600.avif 1600w",
+    "src": "/media/projects/elviria/elviria-04-51153408d4af-1600.avif",
+    "srcset": "/media/projects/elviria/elviria-04-51153408d4af-800.avif 800w, /media/projects/elviria/elviria-04-51153408d4af-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAwBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdMoACn5jnkflYknlsyQAA/jqOytwYDT1Q0KJYw7DSsPP+sgaxbgzDDIBXsKHqSw9fOXhPXcOIkKu8kKbUl4rNHXJExyAsiZqS+tY34Q3pVnQDrq7HUbjiHDIMW9dwxu03NYhV/avv/8O2lVm8GsKyfdnwk85tIEAz8bPJWOQGtWkoGVTm5AAAAA=="
    },
    {
     "file": "elviria_05.jpg",
-    "src": "/media/projects/elviria/elviria-05-831a464c9915-1600.avif",
-    "srcset": "/media/projects/elviria/elviria-05-831a464c9915-800.avif 800w, /media/projects/elviria/elviria-05-831a464c9915-1600.avif 1600w",
+    "src": "/media/projects/elviria/elviria-05-7065d3f68040-1600.avif",
+    "srcset": "/media/projects/elviria/elviria-05-7065d3f68040-800.avif 800w, /media/projects/elviria/elviria-05-7065d3f68040-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdACFZ07gewJ6mDAAA/gh//GEOJqsJhl7UWxOkGZBdEfluu0kHvlgEQu+wu1FYdO/HXXk5bAqqQR1XCpUAJTCho2mlntzgVLYoTz7ZCuJmW+7a0jDigWrrAq5KBnj/L1RhiIyJZ3XUe6/8HD6HXWjUDuh67eMPvqBqC/N06VSRCdrAAA=="
    },
    {
     "file": "elviria_06.jpg",
-    "src": "/media/projects/elviria/elviria-06-423dd64e2683-1600.avif",
-    "srcset": "/media/projects/elviria/elviria-06-423dd64e2683-800.avif 800w, /media/projects/elviria/elviria-06-423dd64e2683-1600.avif 1600w",
+    "src": "/media/projects/elviria/elviria-06-a1064251063c-1600.avif",
+    "srcset": "/media/projects/elviria/elviria-06-a1064251063c-800.avif 800w, /media/projects/elviria/elviria-06-a1064251063c-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOgMY2VQNrhC7d37OsAagAA/sdtb+91xMls6EwuKIxeLzwAyQa2gioqxk86rwkXO8AVFSN0JJxDLt5d+fBg3Yw7lwwz3F207Fn9+eybPHWULN6L/1FGIMQKdKugljdYuqGK6JX509zuxcRzf1cayrzBeLqPXRsVC4boAAA="
@@ -892,17 +892,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "cortijo-nagueles": {
   "hero": {
    "file": "cortijo_nagueles_44_04.jpg",
-   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-262e076c6e5d-1600.avif",
-   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-262e076c6e5d-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-262e076c6e5d-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-262e076c6e5d-2560.avif 2560w",
+   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif",
+   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOg7wARDw3ruP6JPQAA/iaT5A28T3ZA6zrSUkuJ0keOemDb++xioHo5uvR/587Gw6hKlNWBawAMegNyaGd5H0SXB7Y1/e3HSyA4LVRSmHgxdjAIRhuV3cZSMe2JTrsNxQScpaGcF5cB0WjoAA==",
-   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-262e076c6e5d-og.jpg"
+   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-og.jpg"
   },
   "pause": {
    "file": "cortijo_nagueles_44_03.jpg",
-   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-185925d11be7-1600.avif",
-   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-185925d11be7-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-185925d11be7-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-185925d11be7-2560.avif 2560w",
+   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif",
+   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JagCdMoMpACudHQfRjS9u6DawAP5V4+AKkk7IEQb9b4+PGZu+yOAZSBZABkvKtA03sV+p2CIas8/GtHEGiAfwiMjkpS3cMrAgOppZvx3AM0oq9TM1s1mTQNw0Xt1ZRcYFdIhtNZlHPnGx0OM52NwzBOKiuAAA"
@@ -910,16 +910,16 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "cortijo_nagueles_44_01.jpg",
-    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-af9224c517c5-1600.avif",
-    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-af9224c517c5-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-01-af9224c517c5-1600.avif 1600w",
+    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif",
+    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif 1600w",
     "width": 3840,
     "height": 2160,
     "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCdMoADQiU73aplj7IhG4AA/eHqxQEofSkM7QcQiUrc+EpWXShk5w63DV4AU/ElowUhbRgTEwqvlTZIMm0spy7cY45I3tW1YtojmJqGcoND9OrWkv1An0O2QE0l5MgZ2A4duP5G1/duFCBgS1h2NO32egzK5G9ww3vdZ6sSEzFSozGdiXsjHFo6gWIDT+ogTiACSAA="
    },
    {
     "file": "cortijo_nagueles_44_02.jpg",
-    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-05a8b5be1546-1600.avif",
-    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-05a8b5be1546-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-02-05a8b5be1546-1600.avif 1600w",
+    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif",
+    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBYhhLgpUyUUQJ3swBjgAOt33luY/Z9MrC8oGP70s+xZsE44Qciu376EZit9LuWsrUzxtuXmLgXI+WBSpiipJ4OXGKs2YQPgQL1qylpUcP1eti7XmFG+XJnMZUhXWZx3jjy5yfOY8hYB5Xc1KaUxgPUx6GtDNAYAAA=="
@@ -929,17 +929,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "villa-pareja": {
   "hero": {
    "file": "villa_pareja_01.jpg",
-   "src": "/media/projects/villa-pareja/villa-pareja-01-bb370635ee9a-1600.avif",
-   "srcset": "/media/projects/villa-pareja/villa-pareja-01-bb370635ee9a-800.avif 800w, /media/projects/villa-pareja/villa-pareja-01-bb370635ee9a-1600.avif 1600w, /media/projects/villa-pareja/villa-pareja-01-bb370635ee9a-2560.avif 2560w",
+   "src": "/media/projects/villa-pareja/villa-pareja-01-97bf555c76f5-1600.avif",
+   "srcset": "/media/projects/villa-pareja/villa-pareja-01-97bf555c76f5-800.avif 800w, /media/projects/villa-pareja/villa-pareja-01-97bf555c76f5-1600.avif 1600w, /media/projects/villa-pareja/villa-pareja-01-97bf555c76f5-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwAwCdASoYAA0APu1iqk4ppaQiMAgBMB2JQBOgAlaguX4uXP6jAAD+7ESlMiCXevpDdOe2lWG7NRTt+o3ERG7/xOl2KZu+XYeel/db16WVEwthAogHzGC1yGcNAuUZA078xjg+tLHtQQCjNPO3hThZvs3Jcj41s+RhJ9DwlAAAAA==",
-   "jpg": "/media/projects/villa-pareja/villa-pareja-01-bb370635ee9a-og.jpg"
+   "jpg": "/media/projects/villa-pareja/villa-pareja-01-97bf555c76f5-og.jpg"
   },
   "pause": {
    "file": "villa_pareja_04.jpg",
-   "src": "/media/projects/villa-pareja/villa-pareja-04-057074fe3bec-1600.avif",
-   "srcset": "/media/projects/villa-pareja/villa-pareja-04-057074fe3bec-800.avif 800w, /media/projects/villa-pareja/villa-pareja-04-057074fe3bec-1600.avif 1600w, /media/projects/villa-pareja/villa-pareja-04-057074fe3bec-2560.avif 2560w",
+   "src": "/media/projects/villa-pareja/villa-pareja-04-7c9072c671ad-1600.avif",
+   "srcset": "/media/projects/villa-pareja/villa-pareja-04-7c9072c671ad-800.avif 800w, /media/projects/villa-pareja/villa-pareja-04-7c9072c671ad-1600.avif 1600w, /media/projects/villa-pareja/villa-pareja-04-7c9072c671ad-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JagCdMoMh+n/AbPUyBaIfW0A0APjjRjBvrzJ4nh8DWT8uB1U6SnK4Apa7vyDKR1uS7tavPUxoc+HFO2NQPtZJSpIuHhHNjotZVvqcU0R1k1S7XsqssoFqk3MRofWlSeuch0c/cP72KlpcVoxbu07u7YqKPQ3Ox1B2YuoaMAAAAA=="
@@ -947,16 +947,16 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "villa_pareja_02.jpg",
-    "src": "/media/projects/villa-pareja/villa-pareja-02-0f0a7533af64-1600.avif",
-    "srcset": "/media/projects/villa-pareja/villa-pareja-02-0f0a7533af64-800.avif 800w, /media/projects/villa-pareja/villa-pareja-02-0f0a7533af64-1600.avif 1600w",
+    "src": "/media/projects/villa-pareja/villa-pareja-02-b59198cf7327-1600.avif",
+    "srcset": "/media/projects/villa-pareja/villa-pareja-02-b59198cf7327-800.avif 800w, /media/projects/villa-pareja/villa-pareja-02-b59198cf7327-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOmUABfG/FnzNfAmTrVAAD+VeVUT3ujLKCYE9bpzaEMho5F+XycsLThNkmvJpJGdlIJ30B6PPG6C+ZrpzlOZ+h0nTbZZwEp8nIb/jPmodPeRhHhF+oXdrjShjAuar37dEHNDtqGQBR2U75IzIUIwRpVpSjEpoAAAA=="
    },
    {
     "file": "villa_pareja_03.jpg",
-    "src": "/media/projects/villa-pareja/villa-pareja-03-890fe63450d0-1600.avif",
-    "srcset": "/media/projects/villa-pareja/villa-pareja-03-890fe63450d0-800.avif 800w, /media/projects/villa-pareja/villa-pareja-03-890fe63450d0-1600.avif 1600w",
+    "src": "/media/projects/villa-pareja/villa-pareja-03-84bc6985431b-1600.avif",
+    "srcset": "/media/projects/villa-pareja/villa-pareja-03-84bc6985431b-800.avif 800w, /media/projects/villa-pareja/villa-pareja-03-84bc6985431b-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoYAA0APu1iqk2ppaQiMAgBMB2JQBOmUABn9Ipf2i727maUJQrgAM4mHfxYnYnwnrKdyGP/u//yZeau1kIJ0c4/+Qh4v/MpduTN1g1UJnGiQqh/zjz78AYDxx6uZxhwA+tou5JXcf6qGQtSAKJfn8xi9sdqC4W6GZ4QjwRBI/kW5goeiZENpRrD55MEAA=="
@@ -1220,17 +1220,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "huerta-belon": {
   "hero": {
    "file": "huerta_belon_34_01.jpg",
-   "src": "/media/projects/huerta-belon/huerta-belon-34-01-86ba9767d5a9-1600.avif",
-   "srcset": "/media/projects/huerta-belon/huerta-belon-34-01-86ba9767d5a9-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-01-86ba9767d5a9-1600.avif 1600w, /media/projects/huerta-belon/huerta-belon-34-01-86ba9767d5a9-2560.avif 2560w",
+   "src": "/media/projects/huerta-belon/huerta-belon-34-01-698a2185d331-1600.avif",
+   "srcset": "/media/projects/huerta-belon/huerta-belon-34-01-698a2185d331-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-01-698a2185d331-1600.avif 1600w, /media/projects/huerta-belon/huerta-belon-34-01-698a2185d331-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JZgCdEf/gLtI7QSKSt7ol9V0AAP7F5SlXV6hTIiJFUa9/EAXtXWSczGriHi6Z3zvXJjfIBFz/a6socBptQHNjWRKwfAZ4IJflnu481CQZN/fjeMN9FFeB7v4nWx4AZOAyR6o+sS/vyM3hSrU9hx+AIsfrhD86fNuLWGVO1TRD7Id++ZRAAA==",
-   "jpg": "/media/projects/huerta-belon/huerta-belon-34-01-86ba9767d5a9-og.jpg"
+   "jpg": "/media/projects/huerta-belon/huerta-belon-34-01-698a2185d331-og.jpg"
   },
   "pause": {
    "file": "huerta_belon_34_03.jpg",
-   "src": "/media/projects/huerta-belon/huerta-belon-34-03-471b0ac0151b-1600.avif",
-   "srcset": "/media/projects/huerta-belon/huerta-belon-34-03-471b0ac0151b-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-03-471b0ac0151b-1600.avif 1600w, /media/projects/huerta-belon/huerta-belon-34-03-471b0ac0151b-2560.avif 2560w",
+   "src": "/media/projects/huerta-belon/huerta-belon-34-03-594dac38cfac-1600.avif",
+   "srcset": "/media/projects/huerta-belon/huerta-belon-34-03-594dac38cfac-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-03-594dac38cfac-1600.avif 1600w, /media/projects/huerta-belon/huerta-belon-34-03-594dac38cfac-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAwBACdASoYAA0APu1kqU4ppaOiMAgBMB2JbACdMoGv/i2RWq9s1HjEmlgA/t/T5G7TqZTNsHDE8tIgFE8ZMH2xui7GeFffiZ2xHZZAU9LroUfRYcdtUDv2t9U2qfU34UoPrajiGr7v8pXIt2kdrY6gLAIYDeaSIrTyhLMaYRUjxq3lff35S4fI0oopBGuMOJt9nHsO/ItdqbE6qkx1AAAA"
@@ -1238,16 +1238,16 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "huerta_belon_34_02.jpg",
-    "src": "/media/projects/huerta-belon/huerta-belon-34-02-60afcfa9019d-1600.avif",
-    "srcset": "/media/projects/huerta-belon/huerta-belon-34-02-60afcfa9019d-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-02-60afcfa9019d-1600.avif 1600w",
+    "src": "/media/projects/huerta-belon/huerta-belon-34-02-dd8f5f6ab603-1600.avif",
+    "srcset": "/media/projects/huerta-belon/huerta-belon-34-02-dd8f5f6ab603-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-02-dd8f5f6ab603-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdEf/gMmmY2AK2zufI4AD+lJ98qQox26XQZmlj+XHbJ7iiLw6KJO8KwZ3NelQcLsuRILI0YxM1E5jEWbiJbHypcTV2dzk900v3UGlnTsksWgM1Zyyn2djJKQwG4OsRnX3pN75hKQ0AbRN5/r+5gm454NaLrvq3kHP6VIXeoifvKskk1h/cZQqGH57oBpG65kZVgAA="
    },
    {
     "file": "huerta_belon_34_04.jpg",
-    "src": "/media/projects/huerta-belon/huerta-belon-34-04-abeffa544920-1600.avif",
-    "srcset": "/media/projects/huerta-belon/huerta-belon-34-04-abeffa544920-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-04-abeffa544920-1600.avif 1600w",
+    "src": "/media/projects/huerta-belon/huerta-belon-34-04-a8331071b7df-1600.avif",
+    "srcset": "/media/projects/huerta-belon/huerta-belon-34-04-a8331071b7df-800.avif 800w, /media/projects/huerta-belon/huerta-belon-34-04-a8331071b7df-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBACdASoYAA0APu1iqU2ppaQiMAgBMB2JQBZwZYJ0IWVU1v2pBOhcO9D0AAD9PTI2NVgOVeyeIwCG6aAE4806kCNTImZQkhsyq7UsnRK3ohROexYSeAP42f7X57cHA3jHMXBm8YU3q6Qxf0JDsaiwxCs9q0W0C/ag/aiI4plyJkK/YKNyDiu7RF9PMrC3GUU80wbuPVJ8GIdQAAA="
@@ -1294,17 +1294,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
  "villa-del-golf": {
   "hero": {
    "file": "parcelas_del_golf_02.jpg",
-   "src": "/media/projects/villa-del-golf/parcelas-del-golf-02-f8d5653c8335-1600.avif",
-   "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-02-f8d5653c8335-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-02-f8d5653c8335-1600.avif 1600w, /media/projects/villa-del-golf/parcelas-del-golf-02-f8d5653c8335-2560.avif 2560w",
+   "src": "/media/projects/villa-del-golf/parcelas-del-golf-02-33e8aa1ac433-1600.avif",
+   "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-02-33e8aa1ac433-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-02-33e8aa1ac433-1600.avif 1600w, /media/projects/villa-del-golf/parcelas-del-golf-02-33e8aa1ac433-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADwAwCdASoYAA0APu1kqU4ppaOiMAgBMB2JQBOgBH2O3M+sAOaOb+gAAP5bgqhtNk28zNtLs1hGAdBj7riRwdfV8oOVQZ7O7ucC6vTPtpTxdYLVamD6g0LQFtZEAnivO+QIW2CU4Pe9cBYfaCJ+biWv+6LwPdfF0WArGAffdGB2vxB3dAAAAA==",
-   "jpg": "/media/projects/villa-del-golf/parcelas-del-golf-02-f8d5653c8335-og.jpg"
+   "jpg": "/media/projects/villa-del-golf/parcelas-del-golf-02-33e8aa1ac433-og.jpg"
   },
   "pause": {
    "file": "parcelas_del_golf_01.jpg",
-   "src": "/media/projects/villa-del-golf/parcelas-del-golf-01-1c24a26c9241-1600.avif",
-   "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-01-1c24a26c9241-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-01-1c24a26c9241-1600.avif 1600w, /media/projects/villa-del-golf/parcelas-del-golf-01-1c24a26c9241-2560.avif 2560w",
+   "src": "/media/projects/villa-del-golf/parcelas-del-golf-01-37c7db1b073a-1600.avif",
+   "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-01-37c7db1b073a-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-01-37c7db1b073a-1600.avif 1600w, /media/projects/villa-del-golf/parcelas-del-golf-01-37c7db1b073a-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoYAA0APu1kqk4ppaQiMAgBMB2JaACdAB4mw7OPJuR6RGaAAP7WG5R3CqkpgNFH2dfizM/oA38DZORxo09odTtDefhjzDsfTzBNJPgRBQ2KoI2bSqNBVGX7AbLe+LwNwDgdVMJkl370Px0Hv2QZlJMwv10u6vnXyIVzv84maL7AA4gA"
@@ -1312,16 +1312,16 @@ export const projectMedia: Record<string, ProjectMedia> = {
   "gallery": [
    {
     "file": "parcelas_del_golf_03.jpg",
-    "src": "/media/projects/villa-del-golf/parcelas-del-golf-03-aeba1d3c6e00-1600.avif",
-    "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-03-aeba1d3c6e00-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-03-aeba1d3c6e00-1600.avif 1600w",
+    "src": "/media/projects/villa-del-golf/parcelas-del-golf-03-d0b3b06019b1-1600.avif",
+    "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-03-d0b3b06019b1-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-03-d0b3b06019b1-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JZACdIHAgvRBzrTkP5bId16BAAP7WDtfKpZ7GLDCwvodQaaLzyIs9M+e9hUPn8Sh8M5fvzCzsMbDlJZGHWkQSttKkjOzGnTWeYbVww4t0QowR7reNQSAVvAXrFtlg5ZRc0YoLvJ29K40RI4ZPxyOB4V4dOre3rUJwh4AA"
    },
    {
     "file": "parcelas_del_golf_04.jpg",
-    "src": "/media/projects/villa-del-golf/parcelas-del-golf-04-35e306535e91-1600.avif",
-    "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-04-35e306535e91-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-04-35e306535e91-1600.avif 1600w",
+    "src": "/media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-1600.avif",
+    "srcset": "/media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-800.avif 800w, /media/projects/villa-del-golf/parcelas-del-golf-04-ebd7d78ba3f3-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
     "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwAwCdASoYAA0APu1iqk2ppaQiMAgBMB2JZAC7ABK3BWfLOCiPLysAAP5m3E3zGur+WwGsOp118TshjAmJYO/4Tvs8mU0vto3YOmiVdg0/89ar5NrpkIsz61RGp53VC4QnLq+VkkZpGmeH32jVILM/RUCkqf/UjGOmZhR8VOwVa8GT2ZbN+aCJapzxbtuei5ETLfWAAAA="

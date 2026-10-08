@@ -5,7 +5,7 @@ manifest app/data/projects/media.generated.ts.
 
 Originals stay outside public/. Never upscales. Incremental: existing outputs are kept
 (pass --force to rebuild). --projects ID [ID ...] rebuilds only those projects.
-Content hashes in filenames invalidate cached images when originals change.
+Content hashes in filenames invalidate cached images when originals or the conversion recipe change.
 Requires the vips CLI with HEIF/AVIF support.
 """
 import argparse, base64, hashlib, json, os, re, subprocess, unicodedata
@@ -27,6 +27,8 @@ ENV = {**os.environ, 'VIPS_WARNING': '0', 'VIPS_CONCURRENCY': '2'}
 IMAGE = re.compile(r'\.(jpe?g|png)$', re.I)
 WIDTHS = [800, 1600]          # gallery
 WIDTHS_WIDE = [800, 1600, 2560]  # hero and pause are shown full-bleed
+# Include the conversion recipe so regenerated derivatives also get fresh cache URLs.
+RECIPE = b'v1:avif-Q52-effort4-strip:srgb:jpeg-Q82:webp-Q40'
 
 
 def run(*args: str) -> str:
@@ -51,7 +53,7 @@ def derive(src: Path, dest: Path, width: int, opts: str, *extra: str) -> None:
 def process(project: dict, file: str, role: str) -> dict:
     src = SRC / project['folder'] / file
     w, h = size(src)
-    digest = hashlib.sha256(src.read_bytes()).hexdigest()[:12]
+    digest = hashlib.sha256(src.read_bytes() + RECIPE).hexdigest()[:12]
     name = f'{slugify(Path(file).stem)}-{digest}'
     folder = OUT / project['id']
     folder.mkdir(parents=True, exist_ok=True)

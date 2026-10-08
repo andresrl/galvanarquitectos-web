@@ -51,9 +51,9 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       hubDescription: 'New-build villas on the Costa del Sol: architecture, interiors and landscape considered together, with planning permissions, site supervision and coordination.',
       enquire: 'Let’s talk about your future home', navigation: ['Overview', 'The design', 'The process', 'Questions'],
       introEyebrow: 'A HOME THAT STARTS WITH YOU', introTitle: 'A home that', introItalic: 'starts with you.',
-      introText: 'Paco brings architecture, interiors and landscape into a shared vision. Design, planning permissions, architectural site supervision and contractor coordination are defined according to the scope of your commission.',
+      introText: 'Francisco Martínez Galván brings architecture, interiors and landscape into a shared vision. Design, planning permissions, architectural site supervision and contractor coordination are defined according to the scope of your commission.',
       hubIntroLead: 'A new villa begins with a conversation about daily life: the spaces you need, how you welcome guests and how you want to spend time outdoors. The site, its orientation and its surroundings become part of the same design study.',
-      hubIntroText: 'Paco brings architecture, interiors and landscape into a shared vision. Design, planning permissions, architectural site supervision and contractor coordination are defined according to the scope of your commission.',
+      hubIntroText: 'Francisco Martínez Galván brings architecture, interiors and landscape into a shared vision. Design, planning permissions, architectural site supervision and contractor coordination are defined according to the scope of your commission.',
       transformationEyebrow: 'THE PLOT, THE PROGRAMME, THE LIGHT', transformationTitle: 'Space, light', transformationItalic: 'and proportion.',
       scope: [
         { title: 'The site and its possibilities', text: 'Orientation, the relationship with the landscape, privacy and access are studied before the design takes shape. Feasibility is checked, never assumed.' },
@@ -77,7 +77,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['How are fees and the programme established?', 'They depend on the scope and the project. A defined brief and scope are needed before discussing fees and planning; each villa is considered individually.']
       ],
       contactEyebrow: 'LET’S START WITH YOUR IDEA', contactTitle: 'Let’s talk about', contactItalic: 'your future home.',
-      contactText: place => `Tell Paco about your plot ${place}, what you have in mind and how you want to live.`, hubContactText: 'Tell Paco about your plot, what you have in mind and how you want to live.',
+      contactText: place => `Tell us about your plot ${place}, what you have in mind and how you want to live.`, hubContactText: 'Tell us about your plot, what you have in mind and how you want to live.',
       zonesEyebrow: 'WHERE WE WORK', zonesTitle: 'New-build villas', zonesItalic: 'by area.', zonesText: 'Each area raises its own questions about plot, views and privacy.'
     },
     es: {
@@ -87,9 +87,9 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       hubDescription: 'Villas de nueva construcción en la Costa del Sol: arquitectura, interiorismo y paisajismo en conjunto, con licencias, dirección de obra y coordinación.',
       enquire: 'Hablemos de tu futura casa', navigation: ['El enfoque', 'El diseño', 'El proceso', 'Preguntas'],
       introEyebrow: 'UNA CASA QUE EMPIEZA POR TI', introTitle: 'Una casa que', introItalic: 'empieza por ti.',
-      introText: 'Paco reúne arquitectura, interiores y paisaje en una visión común. El diseño, las licencias, la dirección de obra y la coordinación de empresas se definen según el alcance del encargo.',
+      introText: 'Francisco Martínez Galván reúne arquitectura, interiores y paisaje en una visión común. El diseño, las licencias, la dirección de obra y la coordinación de empresas se definen según el alcance del encargo.',
       hubIntroLead: 'Una nueva villa comienza con una conversación sobre la vida cotidiana: los espacios que necesitas, cómo recibes a tus invitados y cómo quieres disfrutar del exterior. La parcela, su orientación y el entorno forman parte de un mismo estudio de diseño.',
-      hubIntroText: 'Paco reúne arquitectura, interiores y paisaje en una visión común. El diseño, las licencias, la dirección de obra y la coordinación de empresas se definen según el alcance del encargo.',
+      hubIntroText: 'Francisco Martínez Galván reúne arquitectura, interiores y paisaje en una visión común. El diseño, las licencias, la dirección de obra y la coordinación de empresas se definen según el alcance del encargo.',
       transformationEyebrow: 'LA PARCELA, EL PROGRAMA, LA LUZ', transformationTitle: 'Espacio, luz', transformationItalic: 'y proporción.',
       scope: [
         { title: 'La parcela y sus posibilidades', text: 'La orientación, la relación con el paisaje, la privacidad y los accesos se estudian antes de dar forma al diseño. La viabilidad se comprueba, no se presupone.' },
@@ -113,7 +113,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['¿Cómo se definen honorarios y planificación?', 'Dependen del alcance y del proyecto. Es necesario definir el programa y el alcance antes de hablar de honorarios y planificación; cada villa se estudia individualmente.']
       ],
       contactEyebrow: 'EMPECEMOS POR TU IDEA', contactTitle: 'Hablemos de', contactItalic: 'tu futura casa.',
-      contactText: place => `Cuéntale a Paco cómo es tu parcela ${place}, qué tienes en mente y cómo quieres vivir.`, hubContactText: 'Cuéntale a Paco cómo es tu parcela, qué tienes en mente y cómo quieres vivir.',
+      contactText: place => `Cuéntanos cómo es tu parcela ${place}, qué tienes en mente y cómo quieres vivir.`, hubContactText: 'Cuéntanos cómo es tu parcela, qué tienes en mente y cómo quieres vivir.',
       zonesEyebrow: 'DÓNDE TRABAJAMOS', zonesTitle: 'Villas nuevas', zonesItalic: 'por zonas.', zonesText: 'Cada zona plantea sus propias preguntas sobre la parcela, las vistas y la privacidad.'
     }
   },
@@ -150,7 +150,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['How do we establish the budget and timescale?', 'The initial conversation covers your priorities and constraints. A defined scope is needed before discussing the project’s fees, budget and programme; each villa is considered individually.']
       ],
       contactEyebrow: 'LET’S START WITH YOUR IDEA', contactTitle: 'What would you', contactItalic: 'like to change?',
-      contactText: place => `Tell Paco a little about your villa ${place} and what you have in mind.`, hubContactText: 'Tell Paco a little about your villa, its location and what you have in mind.',
+      contactText: place => `Tell us a little about your villa ${place} and what you have in mind.`, hubContactText: 'Tell us a little about your villa, its location and what you have in mind.',
       zonesEyebrow: 'WHERE WE WORK', zonesTitle: 'Villa renovations', zonesItalic: 'by area.', zonesText: 'Each area brings different houses, plots and questions to the renovation.'
     },
     es: {
@@ -185,7 +185,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['¿Cómo se establece el presupuesto y el plazo?', 'La conversación inicial recoge tus prioridades y condicionantes. Es necesario definir el alcance antes de hablar de honorarios, presupuesto y planificación; cada villa se estudia individualmente.']
       ],
       contactEyebrow: 'EMPECEMOS POR TU IDEA', contactTitle: '¿Qué te gustaría', contactItalic: 'transformar?',
-      contactText: place => `Cuéntale a Paco algo sobre tu villa ${place} y qué tienes en mente.`, hubContactText: 'Cuéntale a Paco algo sobre tu villa, dónde está y qué tienes en mente.',
+      contactText: place => `Cuéntanos algo sobre tu villa ${place} y qué tienes en mente.`, hubContactText: 'Cuéntanos algo sobre tu villa, dónde está y qué tienes en mente.',
       zonesEyebrow: 'DÓNDE TRABAJAMOS', zonesTitle: 'Reformas de villas', zonesItalic: 'por zonas.', zonesText: 'Cada zona aporta casas, parcelas y preguntas distintas a la reforma.'
     }
   },
@@ -197,9 +197,9 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       hubDescription: 'Interior design for villas on the Costa del Sol: rooms, light and materials shaped around everyday life, on its own or with a renovation or new build.',
       enquire: 'Tell us how you want to live', navigation: ['Overview', 'The rooms', 'The process', 'Questions'],
       introEyebrow: 'INTERIORS SHAPED AROUND EVERYDAY LIFE', introTitle: 'Interiors shaped', introItalic: 'around everyday life.',
-      introText: 'Paco develops the design around the needs of your commission. Interior design can be commissioned independently or considered alongside a villa renovation or new-build project.',
+      introText: 'Francisco Martínez Galván develops the design around the needs of your commission. Interior design can be commissioned independently or considered alongside a villa renovation or new-build project.',
       hubIntroLead: 'Interior design starts with the way you use your home. The relationship between rooms, natural light and the choice of materials helps define an atmosphere that feels coherent and personal.',
-      hubIntroText: 'Paco develops the design around the needs of your commission. Interior design can be commissioned independently or considered alongside a villa renovation or new-build project.',
+      hubIntroText: 'Francisco Martínez Galván develops the design around the needs of your commission. Interior design can be commissioned independently or considered alongside a villa renovation or new-build project.',
       transformationEyebrow: 'ROOMS, LIGHT, MATERIALS', transformationTitle: 'Each room', transformationItalic: 'with a purpose.',
       scope: [
         { title: 'The relationship between rooms', text: 'Use, circulation, proportion and privacy: how the rooms work together, and how each one supports the way you live.' },
@@ -222,7 +222,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['How can we review the design if I live abroad?', 'Video calls and visits make it possible to review the design from abroad. The format and frequency of reviews are agreed for each project.']
       ],
       contactEyebrow: 'LET’S START WITH YOUR IDEA', contactTitle: 'Tell us how', contactItalic: 'you want to live.',
-      contactText: place => `Tell Paco about your home ${place}, the rooms you have in mind and how you use them.`, hubContactText: 'Tell Paco about your home, the rooms you have in mind and how you use them.',
+      contactText: place => `Tell us about your home ${place}, the rooms you have in mind and how you use them.`, hubContactText: 'Tell us about your home, the rooms you have in mind and how you use them.',
       zonesEyebrow: 'WHERE WE WORK', zonesTitle: 'Interior design', zonesItalic: 'by area.', zonesText: 'Each setting brings its own light, views and way of living to the interiors.'
     },
     es: {
@@ -232,9 +232,9 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       hubDescription: 'Interiorismo para villas en la Costa del Sol: estancias, luz y materiales pensados para el día a día, de forma independiente o junto a una reforma u obra nueva.',
       enquire: 'Cuéntanos cómo quieres vivir', navigation: ['El enfoque', 'Las estancias', 'El proceso', 'Preguntas'],
       introEyebrow: 'INTERIORES PENSADOS PARA EL DÍA A DÍA', introTitle: 'Interiores pensados', introItalic: 'para el día a día.',
-      introText: 'Paco desarrolla el diseño según las necesidades del encargo. El interiorismo puede contratarse de forma independiente o plantearse junto con una reforma de villa o un proyecto de nueva construcción.',
+      introText: 'Francisco Martínez Galván desarrolla el diseño según las necesidades del encargo. El interiorismo puede contratarse de forma independiente o plantearse junto con una reforma de villa o un proyecto de nueva construcción.',
       hubIntroLead: 'El interiorismo empieza por la forma de utilizar tu casa. La relación entre las estancias, la luz natural y la elección de materiales ayudan a definir una atmósfera coherente y personal.',
-      hubIntroText: 'Paco desarrolla el diseño según las necesidades del encargo. El interiorismo puede contratarse de forma independiente o plantearse junto con una reforma de villa o un proyecto de nueva construcción.',
+      hubIntroText: 'Francisco Martínez Galván desarrolla el diseño según las necesidades del encargo. El interiorismo puede contratarse de forma independiente o plantearse junto con una reforma de villa o un proyecto de nueva construcción.',
       transformationEyebrow: 'ESTANCIAS, LUZ, MATERIALES', transformationTitle: 'Dar sentido', transformationItalic: 'a cada estancia.',
       scope: [
         { title: 'La relación entre estancias', text: 'Uso, recorridos, proporción y privacidad: cómo funcionan las estancias en conjunto y cómo cada una acompaña tu forma de vivir.' },
@@ -257,7 +257,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         ['¿Cómo revisamos el diseño si vivo fuera?', 'Las videollamadas y las visitas permiten revisar el diseño desde fuera. El formato y la frecuencia de las revisiones se acuerdan en cada proyecto.']
       ],
       contactEyebrow: 'EMPECEMOS POR TU IDEA', contactTitle: 'Cuéntanos cómo', contactItalic: 'quieres vivir.',
-      contactText: place => `Cuéntale a Paco cómo es tu casa ${place}, qué estancias tienes en mente y cómo las utilizas.`, hubContactText: 'Cuéntale a Paco cómo es tu casa, qué estancias tienes en mente y cómo las utilizas.',
+      contactText: place => `Cuéntanos cómo es tu casa ${place}, qué estancias tienes en mente y cómo las utilizas.`, hubContactText: 'Cuéntanos cómo es tu casa, qué estancias tienes en mente y cómo las utilizas.',
       zonesEyebrow: 'DÓNDE TRABAJAMOS', zonesTitle: 'Interiorismo', zonesItalic: 'por zonas.', zonesText: 'Cada entorno aporta su propia luz, sus vistas y su forma de vivir a los interiores.'
     }
   },
@@ -294,7 +294,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         abroad.en
       ],
       contactEyebrow: 'LET’S START WITH YOUR IDEA', contactTitle: 'Let’s imagine', contactItalic: 'your outdoor spaces.',
-      contactText: place => `Tell Paco about your garden ${place} and how you would like to use it.`, hubContactText: 'Tell Paco about your garden and how you would like to use it.',
+      contactText: place => `Tell us about your garden ${place} and how you would like to use it.`, hubContactText: 'Tell us about your garden and how you would like to use it.',
       zonesEyebrow: 'WHERE WE WORK', zonesTitle: 'Landscape design', zonesItalic: 'by area.', zonesText: 'Each setting brings its own terrain, exposure and outdoor life to the garden.'
     },
     es: {
@@ -329,7 +329,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
         abroad.es
       ],
       contactEyebrow: 'EMPECEMOS POR TU IDEA', contactTitle: 'Imaginemos', contactItalic: 'tus espacios exteriores.',
-      contactText: place => `Cuéntale a Paco cómo es tu jardín ${place} y cómo te gustaría utilizarlo.`, hubContactText: 'Cuéntale a Paco cómo es tu jardín y cómo te gustaría utilizarlo.',
+      contactText: place => `Cuéntanos cómo es tu jardín ${place} y cómo te gustaría utilizarlo.`, hubContactText: 'Cuéntanos cómo es tu jardín y cómo te gustaría utilizarlo.',
       zonesEyebrow: 'DÓNDE TRABAJAMOS', zonesTitle: 'Paisajismo', zonesItalic: 'por zonas.', zonesText: 'Cada entorno aporta su propio terreno, su exposición y su vida exterior al jardín.'
     }
   }
@@ -340,7 +340,7 @@ export const commonCopy = {
   en: {
     discover: 'Discover the approach', home: 'Home', localEyebrow: 'LOCAL EXPERIENCE · INTERNATIONAL CLIENTS',
     remoteText: 'If you live abroad, video calls, visits and site follow-up help you stay involved. Communication is available in English and Spanish, with arrangements agreed for your project.',
-    hubLocalText: 'Paco works from Marbella across the Costa del Sol, including Benahavís, Estepona and the residential areas of Marbella. The setting, orientation and surroundings of each property are part of the design conversation.',
+    hubLocalText: 'Francisco Martínez Galván works from Marbella across the Costa del Sol, including Benahavís, Estepona and the residential areas of Marbella. The setting, orientation and surroundings of each property are part of the design conversation.',
     localPoints: ['Personal attention from the architect', 'Video calls, visits and site follow-up', 'Design with the surroundings in mind'],
     faqEyebrow: 'BEFORE WE BEGIN', faqTitle: 'A few useful questions.',
     fields: { name: 'Your name', email: 'Email', phone: 'Phone (optional)', location: 'Project location', message: 'Tell us about your project' },
@@ -351,7 +351,7 @@ export const commonCopy = {
   es: {
     discover: 'Descubre el enfoque', home: 'Inicio', localEyebrow: 'EXPERIENCIA LOCAL · CLIENTES INTERNACIONALES',
     remoteText: 'Si vives fuera de España, las videollamadas, las visitas y el seguimiento de obra te ayudan a participar. Atención en inglés y español, con una organización acordada para tu proyecto.',
-    hubLocalText: 'Paco trabaja desde Marbella en toda la Costa del Sol, incluidos Benahavís, Estepona y las zonas residenciales de Marbella. El emplazamiento, la orientación y el entorno de cada propiedad forman parte de la conversación de diseño.',
+    hubLocalText: 'Francisco Martínez Galván trabaja desde Marbella en toda la Costa del Sol, incluidos Benahavís, Estepona y las zonas residenciales de Marbella. El emplazamiento, la orientación y el entorno de cada propiedad forman parte de la conversación de diseño.',
     localPoints: ['Trato directo con el arquitecto', 'Videollamadas, visitas y seguimiento de obra', 'Diseño que considera el entorno'],
     faqEyebrow: 'ANTES DE EMPEZAR', faqTitle: 'Algunas preguntas útiles.',
     fields: { name: 'Tu nombre', email: 'Email', phone: 'Teléfono (opcional)', location: 'Zona del proyecto', message: 'Cuéntanos tu proyecto' },

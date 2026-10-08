@@ -38,7 +38,7 @@ export function studioNode(site: string, locale: Locale) {
 export function personNode(site: string, locale: Locale) {
  const i = ids(site), a = negocio.arquitecto
  return {
-  '@type': 'Person', '@id': i.paco, name: a.nombre, alternateName: a.alternateName,
+  '@type': 'Person', '@id': i.paco, name: a.nombre,
   jobTitle: a.cargo[locale], description: a.descripcion[locale],
   image: { '@type': 'ImageObject', url: abs(site, a.retrato.src), width: a.retrato.width, height: a.retrato.height },
   worksFor: { '@id': i.studio }, alumniOf: { '@type': 'EducationalOrganization', name: a.formacion },

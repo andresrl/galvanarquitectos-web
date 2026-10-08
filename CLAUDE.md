@@ -2,6 +2,8 @@
 
 Última actualización: 4 de octubre de 2026. Este documento transmite las decisiones de Andrés, lo construido y el trabajo pendiente. Lee este archivo antes de cambiar la aplicación. **Continúa el proyecto aprobado; no reinicies su diseño.**
 
+**Corrección de tono y nombre (8 de octubre de 2026, Andrés):** la web debe presentar al arquitecto como **Francisco Martínez Galván** (marca: **Martínez Galván**). «Paco» es un apodo de uso privado; no usarlo en textos públicos, llamadas a la acción, textos alternativos, metadatos ni como nombre alternativo en JSON-LD o llms.txt. Retirar «Paco para los amigos», «Paco, para sus clientes» y sus versiones inglesas. Mantener un tono profesional acorde con su trayectoria. Las referencias a «Paco» en notas anteriores son internas y no autorizan su uso público.
+
 ## 1. Objetivo y prioridades
 
 Web de Francisco Martínez Galván, «Paco», arquitecto en Marbella. Estudio: Galván Arquitectos. Arquitectura, villas de nueva construcción, reformas integrales de villas, interiorismo y paisajismo en la Costa del Sol. Captación principalmente internacional y web completa en inglés y español.

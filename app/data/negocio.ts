@@ -20,7 +20,7 @@ export const negocio={
  },
  // The architect (biography reviewed in LanzaderaWeb: trained in Madrid, Marbella since 1998, studio consolidated in 2003).
  arquitecto:{
-  nombre:'Francisco Martínez Galván',alternateName:'Paco Martínez Galván',
+  nombre:'Francisco Martínez Galván',
   cargo:{en:'Architect and founder',es:'Arquitecto y fundador'},
   formacion:'Escuela Politécnica de Madrid',
   retrato:{src:'/media/studio/francisco-martinez-galvan.jpg',width:740,height:980},

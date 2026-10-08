@@ -26,8 +26,8 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
   return [
     { title: t.services, links: serviceLinks },
     { title: t.explore, links: [
-      { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.home, path: home },
+      { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.studio, path: studioPaths[locale] },
       { label: t.international, path: internationalPaths[locale] },
       { label: t.guides, path: guideIndex[locale] },

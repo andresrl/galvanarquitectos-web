@@ -2,7 +2,7 @@ import {copy} from '~/data/demo'
 import {routeLocale,alternatePath,homePath} from '~/data/pages'
 export type GalvanLocale='en'|'es'
 export function useGalvan(){
-  // English always starts a new request. No storage or browser-language detection.
+  // The URL fixes the displayed language after HTTP/browser negotiation; manual choices are remembered.
   const route=useRoute()
   const locale=useState<GalvanLocale>('galvan:language',()=>routeLocale(route.path)??'en')
   const chapter=useState('galvan:chapter',()=>0)
@@ -32,7 +32,7 @@ export function useGalvan(){
     if(import.meta.client)document.cookie=`galvan-lang=${next};path=/;max-age=31536000;samesite=lax`
     const current=router.currentRoute.value.path.replace(/\/$/,'')||'/'
     const equivalent=alternatePath(current,next)??alternates.value[current]?.[next]
-    if(equivalent)return router.push(equivalent)
+    if(equivalent)return router.push({path:equivalent,query:router.currentRoute.value.query,hash:router.currentRoute.value.hash})
     locale.value=next
   }
   return {locale,t,chapter,tone,scenes,requestedScene,requestScene,toggleLanguage}

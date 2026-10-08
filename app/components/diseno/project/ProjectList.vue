@@ -4,6 +4,7 @@ import { projectUi } from '~/data/projects/ui'
 import { projects, projectPath } from '~/data/projects/projects'
 import { locations } from '~/data/taxonomy'
 import { createProjectMotion } from '../motion/project-motion'
+import { homeReel } from '~/data/home-reel'
 const props = defineProps({ page: { type: Object, required: true } })
 const { tone } = useGalvan()
 const contact = useContact()
@@ -43,10 +44,10 @@ onBeforeUnmount(stop)
 <template>
 <main ref="root" class="projects-page">
  <section class="projects-hero" id="projects-top" data-header="light" aria-labelledby="projects-title">
-  <video v-if="!reduced" ref="video" class="projects-hero-media" muted loop playsinline preload="metadata" poster="/video/projects-reel-poster.avif" aria-hidden="true">
-   <source src="/video/projects-reel-720.mp4" type="video/mp4" media="(max-width: 700px)"><source src="/video/projects-reel.mp4" type="video/mp4">
+  <video v-if="!reduced" ref="video" class="projects-hero-media" muted loop playsinline preload="metadata" :poster="homeReel.poster" aria-hidden="true">
+   <source :src="homeReel.mobile" type="video/mp4" media="(max-width: 700px)"><source :src="homeReel.desktop" type="video/mp4">
   </video>
-  <img v-else class="projects-hero-media" src="/video/projects-reel-poster.avif" alt="" width="1920" height="1080">
+  <img v-else class="projects-hero-media" :src="homeReel.poster" alt="" width="1920" height="1080">
   <div class="project-hero-shade" aria-hidden="true"></div>
   <div class="projects-hero-copy">
    <p class="eyebrow" data-reveal>{{ t.eyebrow }} · {{ t.count(items.length) }}</p>

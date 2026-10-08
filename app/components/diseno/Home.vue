@@ -104,8 +104,6 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
             <NuxtLink class="text-link light hero-cta-secondary" :to="studioPaths[locale]"><span>{{t('heroStudio')}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
           </div>
         </div>
-        <span class="hero-caption">Martínez Galván · Costa del Sol</span>
-        <a class="scroll-hint" :href="home+'#servicios'" @click.prevent="requestScene('servicios')" :aria-label="locale==='en'?'View services':'Ver servicios'"><span v-html="t('scroll')"></span><span aria-hidden="true"><DisenoIcon name="arrow-down" /></span></a>
         <div class="hero-frame" aria-hidden="true"></div>
       </section>
       <section class="slide introduction photo-slide" id="servicios" data-tone="light" data-chapter="Services">
@@ -116,8 +114,10 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
           <div class="intro-bottom"><p v-html="t('introText')"></p><p class="muted" v-html="t('introLocation')"></p></div>
           <ul class="intro-services"><li v-for="link in serviceLinks" :key="link.path"><NuxtLink :to="link.path">{{link.label}}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul>
         </div>
-        <span class="scene-number" aria-hidden="true">02 — 08</span>
-        <NuxtLink class="intro-caption photo-credit" :to="credit('the-house').path">{{credit('the-house').name}} · {{credit('the-house').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
+        <div class="scene-foot intro-scene-foot">
+          <span class="scene-number" aria-hidden="true">02 — 08</span>
+          <NuxtLink class="photo-credit" :to="credit('the-house').path">{{credit('the-house').name}} · {{credit('the-house').label}} <DisenoIcon name="arrow-up-right" /></NuxtLink>
+        </div>
       </section>
       <section class="slide service-slide renovation" id="villas" data-tone="light" data-chapter="Villa renovation">
         <div class="visual service-visual"><img :src="photo('villas').src" :srcset="photo('villas').srcset" sizes="100vw" :width="photo('villas').width" :height="photo('villas').height" :alt="projectById('villa-paris').copy[locale].heroAlt" loading="lazy" decoding="async"></div><div class="image-shade"></div>

@@ -1,5 +1,5 @@
 // International clients page (InternationalPage.vue). Only confirmed ways of working (CLAUDE.md §5): video calls, visits,
-// follow-up of the works, English and Spanish, Paco as the single point of contact. No report frequency, client portal,
+// follow-up of the works, English and Spanish, Francisco Martínez Galván as the single point of contact. No report frequency, client portal,
 // property sourcing or real-estate advice.
 import type { Faq, Locale } from './pages/types'
 
@@ -26,7 +26,7 @@ export const internationalCopy: Record<Locale, {
   stepsEyebrow: 'How it works', stepsTitle: 'From your first call', stepsItalic: 'to the finished villa.',
   steps: [
    ['A first conversation', 'By video call or in Marbella: what you want to build or change, how you will use the house and when you plan to be here.'],
-   ['On site, for you', 'Paco visits the plot or the villa and shares what he sees: orientation, views, surroundings and the questions to study. You can join on your next trip.'],
+   ['On site, for you', 'Francisco Martínez Galván visits the plot or the villa and shares what he sees: orientation, views, surroundings and the questions to study. You can join on your next trip.'],
    ['Design reviewed together', 'Drawings and visualisations are shared and discussed on video calls, so every decision is clear before it is taken, wherever you are.'],
    ['Permissions and works, followed', 'The studio prepares the documentation for the permissions agreed for the project and follows the works on site, keeping you informed with the follow-up agreed at the start.']
   ],
@@ -62,7 +62,7 @@ export const internationalCopy: Record<Locale, {
   stepsEyebrow: 'Cómo funciona', stepsTitle: 'De la primera llamada', stepsItalic: 'a la villa terminada.',
   steps: [
    ['Una primera conversación', 'Por videollamada o en Marbella: qué quieres construir o cambiar, cómo usarás la casa y cuándo piensas estar aquí.'],
-   ['Sobre el terreno, por ti', 'Paco visita la parcela o la villa y comparte lo que ve: orientación, vistas, entorno y las cuestiones a estudiar. Puedes sumarte en tu próximo viaje.'],
+   ['Sobre el terreno, por ti', 'Francisco Martínez Galván visita la parcela o la villa y comparte lo que ve: orientación, vistas, entorno y las cuestiones a estudiar. Puedes sumarte en tu próximo viaje.'],
    ['El diseño, revisado juntos', 'Planos y visualizaciones se comparten y se comentan por videollamada, para que cada decisión esté clara antes de tomarla, estés donde estés.'],
    ['Licencias y obra, seguidas', 'El estudio prepara la documentación de las licencias acordadas para el proyecto y sigue la obra sobre el terreno, manteniéndote informado con el seguimiento acordado al inicio.']
   ],

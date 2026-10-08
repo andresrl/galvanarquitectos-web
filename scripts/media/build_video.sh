@@ -11,14 +11,11 @@ encode() { # source, name, width, crf-h264, crf-vp9 ("-" = no WebM), poster time
   [ -f "$OUT/$name-poster.avif" ] || { ffmpeg -v error -y -ss "$at" -i "$in" -frames:v 1 -vf "scale=$w:-2" /tmp/poster-$$.png && vips copy /tmp/poster-$$.png "$OUT/$name-poster.avif[Q=55,strip]" && rm /tmp/poster-$$.png; }
   echo "  $name: $(du -h "$OUT/$name.mp4" | cut -f1) mp4"
 }
-# Home hero (replaces viseni.mp4, 7 Oct 2026) and project listing hero
+# Shared Home and project listing hero
 # Reels: MP4 only (VP9 came out larger than H.264 for this footage)
-if [ ! -f app/data/home-reel.ts ] || [ ! -f "$OUT/home-reel.mp4" ] || [ ! -f "$OUT/home-reel-720.mp4" ] || [ ! -f "$OUT/home-reel-poster.avif" ] || [ ! -f "$OUT/home-reel-720-poster.avif" ] || [ "$SRC/galvan-arquitectos_video_reel_40s_hero.mp4" -nt "$OUT/home-reel.mp4" ]; then
+if [ ! -f app/data/home-reel.ts ] || [ ! -f "$OUT/home-reel.mp4" ] || [ ! -f "$OUT/home-reel-720.mp4" ] || [ ! -f "$OUT/home-reel-poster.avif" ] || [ ! -f "$OUT/home-reel-720-poster.avif" ] || [ "$SRC/REEL Galvan Arquitectos Octubre 2026 - 40seg.mp4" -nt "$OUT/home-reel.mp4" ]; then
   bash scripts/media/replace_home_reel.sh
 fi
-encode galvan-arquitectos_video_reel_full.mp4 projects-reel 1280 27 - 30 45
-# Mobile versions (served with <source media="(max-width: 700px)">): 720 px wide, lighter.
-encode galvan-arquitectos_video_reel_full.mp4 projects-reel-720 720 30 - 30 45
 encode "Arquitecto dibujando en su estudio.mp4" studio-drawing 1264 23 34
 encode "Arquitecto revisando planos en obra.mp4" studio-site 1264 23 34
 encode "Conversación creativa en el estudio.mp4" studio-conversation 1264 23 34
