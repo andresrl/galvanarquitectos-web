@@ -6,6 +6,8 @@
 .page-transition .scroll-progress{view-transition-name:vt-progress}
 .page-transition .mobile-contact{view-transition-name:vt-contact-bar}
 .page-transition .cookies{view-transition-name:vt-cookies}
+/* Around a growing photograph the page stays paper (the hero's dark ground would show as a veil). */
+.page-transition .project-hero{background:transparent}
 @keyframes vt-in{from{opacity:0}}
 @keyframes vt-out{to{opacity:0}}
 ::view-transition-group(*){animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
@@ -23,4 +25,7 @@
 ::view-transition-old(project-copy-out),::view-transition-old(project-copy-out-2),::view-transition-old(project-copy-out-3){animation:vt-out .3s both}
 ::view-transition-new(project-copy-in),::view-transition-new(project-copy-in-2),::view-transition-new(project-copy-in-3){animation:vt-in .5s .35s both}
 .page-transition-project::view-transition-new(project-copy-in){animation:none}
+/* The header changes tone once the photograph reaches it, not while it still sits on paper. */
+::view-transition-old(vt-header){animation:vt-out .3s .35s both}
+::view-transition-new(vt-header){animation:vt-in .3s .35s both}
 @media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
