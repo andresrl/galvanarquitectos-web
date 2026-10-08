@@ -3,10 +3,10 @@
 @media(min-width:701px){
 .display-title,.contact .display-title,.studio .display-title,.international .display-title,
 .service-hero h1,.service-heading,.service-scope .service-heading,
-.project-hero h1,.projects-hero h1,.project-cta h2,.projects-selected h2,.project-architect h2,
-.studio-principles-head h2,.studio-services h2,.studio-method-head h2,.studio-press h2,.studio-where-title,
+.project-hero h1,.projects-hero h1,.project-cta h2,.projects-selected h2,.project-architect h1,.project-architect h2,
+.studio-principles-head h2,.studio-method-head h2,.studio-press h2,.studio-where-title,
 .project-setting-head h2,.project-byservice h2,.project-related h2,.area-services>h2,
 .intl-intro h2,.intl-faq h2,.legal-body h1,
 .guide-head h1,.blog-page h1,.error-hero h1,
-.contact-panel-title,.site-menu .site-menu-explore a,.home-more a{font-weight:200;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.contact-panel-title,.site-menu .site-menu-explore a,.home-more a,.studio-map-card h2{font-weight:200;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 }

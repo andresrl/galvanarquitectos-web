@@ -915,21 +915,21 @@ export const projectMedia: Record<string, ProjectMedia> = {
  },
  "cortijo-nagueles": {
   "hero": {
-   "file": "cortijo_nagueles_44_04.jpg",
-   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif",
-   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-2560.avif 2560w",
-   "width": 6688,
-   "height": 3764,
-   "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOg7wARDw3ruP6JPQAA/iaT5A28T3ZA6zrSUkuJ0keOemDb++xioHo5uvR/587Gw6hKlNWBawAMegNyaGd5H0SXB7Y1/e3HSyA4LVRSmHgxdjAIRhuV3cZSMe2JTrsNxQScpaGcF5cB0WjoAA==",
-   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-og.jpg"
-  },
-  "pause": {
    "file": "cortijo_nagueles_44_03.jpg",
    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif",
    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
-   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JagCdMoMpACudHQfRjS9u6DawAP5V4+AKkk7IEQb9b4+PGZu+yOAZSBZABkvKtA03sV+p2CIas8/GtHEGiAfwiMjkpS3cMrAgOppZvx3AM0oq9TM1s1mTQNw0Xt1ZRcYFdIhtNZlHPnGx0OM52NwzBOKiuAAA"
+   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JagCdMoMpACudHQfRjS9u6DawAP5V4+AKkk7IEQb9b4+PGZu+yOAZSBZABkvKtA03sV+p2CIas8/GtHEGiAfwiMjkpS3cMrAgOppZvx3AM0oq9TM1s1mTQNw0Xt1ZRcYFdIhtNZlHPnGx0OM52NwzBOKiuAAA",
+   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-og.jpg"
+  },
+  "pause": {
+   "file": "cortijo_nagueles_44_04.jpg",
+   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif",
+   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-2560.avif 2560w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOg7wARDw3ruP6JPQAA/iaT5A28T3ZA6zrSUkuJ0keOemDb++xioHo5uvR/587Gw6hKlNWBawAMegNyaGd5H0SXB7Y1/e3HSyA4LVRSmHgxdjAIRhuV3cZSMe2JTrsNxQScpaGcF5cB0WjoAA=="
   },
   "gallery": [
    {

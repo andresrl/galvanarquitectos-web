@@ -37,8 +37,8 @@ const id = s => `${props.idPrefix}-${s}`
  <div class="contact-panel-intro">
   <component :is="headingTag" :id="id('title')" class="contact-panel-title">{{ c.heading }}</component>
   <div class="contact-panel-media">
-   <video v-if="!reduced" ref="video" muted loop playsinline preload="none" poster="/media/studio/studio-conversation-1280.avif" aria-hidden="true"><source src="/video/studio-conversation.webm" type="video/webm"><source src="/video/studio-conversation.mp4" type="video/mp4"></video>
-   <img v-else src="/media/studio/studio-conversation-1280.avif" :alt="c.videoAlt" width="1280" height="720">
+   <video v-if="!reduced" ref="video" muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white.webm" type="video/webm"><source src="/video/studio-conversation_white.mp4" type="video/mp4"></video>
+   <img v-else src="/video/studio-conversation_white-poster.avif" :alt="c.videoAlt" width="1264" height="720">
   </div>
   <p class="contact-panel-tagline">{{ c.tagline }} <em>{{ c.taglineItalic }}</em></p>
  </div>
@@ -56,7 +56,7 @@ const id = s => `${props.idPrefix}-${s}`
    <button type="submit" class="contact-panel-button">{{ c.send }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button>
    <a :href="tel" class="contact-panel-button">{{ c.call }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
   </div>
-  <p class="contact-panel-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="tel">{{ negocio.contacto.telefono }}</a><span>Marbella · Costa del Sol</span></p>
+  <p class="contact-panel-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="tel">{{ negocio.contacto.telefono }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p>
  </form>
 </div>
 </template>

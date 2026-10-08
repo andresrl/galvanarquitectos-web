@@ -22,7 +22,7 @@ const facts: Record<string, ProjectFacts> = {
  'the-house': { status: 'completed', imagery: 'photography', pending: ['Zone and type of intervention', pendingCommon] },
  'villa-soal': { status: 'ongoing', imagery: 'visualisation', pending: ['Zone', pendingCommon] },
  'the-villas': { status: 'ongoing', imagery: 'visualisation', pending: ['Zone', pendingCommon] },
- 'villas-in-the-landscape': { status: 'ongoing', imagery: 'visualisation', pending: ['Provisional public name (internal reference P8)', 'Which images belong to each villa', 'Zone'] },
+ 'villas-in-the-landscape': { status: 'ongoing', imagery: 'visualisation', pending: ['Which images belong to each villa', 'Zone'] },
  'bleu-royal': { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone', 'No structural vaults, age or restoration may be stated'] },
  'villa-feliz': { status: 'ongoing', imagery: 'visualisation', pending: ['Zone and type of intervention', pendingCommon] },
  'villa-ambar': { status: 'completed', imagery: 'photography', pending: ['Zone', pendingCommon] },
@@ -34,7 +34,7 @@ const facts: Record<string, ProjectFacts> = {
  'villa-relojero': { status: 'completed', imagery: 'photography', pending: ['Zone', 'Higher-resolution photographs (source is 1920 px)'] },
  elviria: { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone (the name is not a confirmed location)'] },
  'la-montua': { status: null, imagery: 'visualisation', pending: ['Status, intervention and location'] },
- 'villa-del-golf': { status: null, imagery: 'visualisation', pending: ['Provisional public name', 'Status, intervention and zone'] },
+ 'villa-del-golf': { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone'] },
  'villa-silver': { status: 'completed', imagery: 'photography', pending: ['Project text: only a short visual reading is published', 'Zone'] }
 }
 
@@ -53,7 +53,7 @@ export const projects: Project[] = curation.projects.map((c, order) => {
 export const projectById = (id: string) => projects.find(p => p.id === id)
 export const projectPath = (project: Project, locale: Locale) => locale === 'en' ? `/projects/${project.slug.en}` : `/es/proyectos/${project.slug.es}`
 // Thumbnail for listings and related-project cards: media.card when curated, otherwise the hero.
-export const projectCard = (p: Project, locale: Locale) => ({ id: p.id, name: p.name[locale], heading: p.copy[locale].heading,
+export const projectCard = (p: Project, locale: Locale) => ({ id: p.id, name: p.name[locale],
  alt: p.media.card ? p.copy[locale].cardAlt! : p.copy[locale].heroAlt, image: p.media.card ?? p.media.hero, path: projectPath(p, locale) })
 export const projectsIndexPath: Record<Locale, string> = { en: '/projects', es: '/es/proyectos' }
 

@@ -55,7 +55,7 @@
 /* Home ending: the footer continues the dark contact chapter instead of stacking a second green. */
 .site-footer--home{background:#18221d;border-top:1px solid #f6f4ef1a}
 .footer-in-view .chapter-nav{opacity:0;pointer-events:none;transition:opacity .3s}
-.footer-in-view .header[data-tone=light]{background:#18221df2;backdrop-filter:blur(10px);transition:background .3s}
+.footer-in-view .header[data-tone=light]{background:#18221d;transition:background .3s}
 
 /* Martínez Galván logo: symbol + wordmark as masks in the current text colour (Marca.vue) */
 .brand .brand-logo{display:flex;align-items:center;gap:14px;margin:0;font-size:0;letter-spacing:0}
@@ -64,6 +64,9 @@
 .brand .brand-logo .brand-word{width:168px;height:32px;-webkit-mask-image:url(/brand/wordmark.png);mask-image:url(/brand/wordmark.png)}
 @media(max-width:700px){.brand .brand-logo{gap:10px}.brand .brand-logo .brand-mark{width:26px;height:24px}.brand .brand-logo .brand-word{width:132px;height:25px}}
 @media(min-width:701px){.header .brand .brand-logo{gap:18px}.header .brand .brand-logo .brand-mark{width:46px;height:42px}.header .brand .brand-logo .brand-word{width:228px;height:44px}}
+@media(min-width:1024px){.header .brand .brand-logo{gap:21px}.header .brand .brand-logo .brand-mark{width:53px;height:48px}.header .brand .brand-logo .brand-word{width:262px;height:51px}}
+/* Tablet: not enough room for three header links next to the logo; the studio stays in the menu. */
+@media(min-width:701px) and (max-width:859px){.header nav .header-studio{display:none}}
 
 /* Simple menu: six main destinations, one typeface; colour marks the current page. */
 .site-menu .site-menu-body{grid-template-columns:minmax(0,1fr);align-content:center;gap:0}

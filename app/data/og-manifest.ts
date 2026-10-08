@@ -332,9 +332,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--la-resina.jpg",
   "alt": "La Resina"
  },
- "/projects/cutar": {
-  "image": "/og/projects--cutar.jpg",
-  "alt": "Cútar"
+ "/projects/villa-las-fuentes": {
+  "image": "/og/projects--villa-las-fuentes.jpg",
+  "alt": "Villa Las Fuentes"
  },
  "/projects/villa-paris": {
   "image": "/og/projects--villa-paris.jpg",
@@ -356,9 +356,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--villa-alcala.jpg",
   "alt": "Villa Alcalá"
  },
- "/projects/villas-in-the-landscape": {
-  "image": "/og/projects--villas-in-the-landscape.jpg",
-  "alt": "Villas in the landscape"
+ "/projects/villas-p8": {
+  "image": "/og/projects--villas-p8.jpg",
+  "alt": "Villas P8"
  },
  "/projects/the-villas": {
   "image": "/og/projects--the-villas.jpg",
@@ -376,6 +376,10 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--bleu-royal.jpg",
   "alt": "Bleu Royal"
  },
+ "/projects/alcala": {
+  "image": "/og/projects--alcala.jpg",
+  "alt": "Alcalá"
+ },
  "/projects/elviria": {
   "image": "/og/projects--elviria.jpg",
   "alt": "Elviria"
@@ -392,9 +396,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--sirio.jpg",
   "alt": "Sirio"
  },
- "/projects/villa-relojero": {
-  "image": "/og/projects--villa-relojero.jpg",
-  "alt": "Villa Relojero"
+ "/projects/carril-del-relojero": {
+  "image": "/og/projects--carril-del-relojero.jpg",
+  "alt": "Carril del Relojero"
  },
  "/projects/villa-ambar": {
   "image": "/og/projects--villa-ambar.jpg",
@@ -420,9 +424,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--castilla.jpg",
   "alt": "Castilla"
  },
- "/projects/villa-del-golf": {
-  "image": "/og/projects--villa-del-golf.jpg",
-  "alt": "Villa del Golf"
+ "/projects/parcelas-del-golf": {
+  "image": "/og/projects--parcelas-del-golf.jpg",
+  "alt": "Parcelas del Golf"
  },
  "/es/proyectos/the-house": {
   "image": "/og/es--proyectos--the-house.jpg",
@@ -436,9 +440,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--la-resina.jpg",
   "alt": "La Resina"
  },
- "/es/proyectos/cutar": {
-  "image": "/og/es--proyectos--cutar.jpg",
-  "alt": "Cútar"
+ "/es/proyectos/villa-las-fuentes": {
+  "image": "/og/es--proyectos--villa-las-fuentes.jpg",
+  "alt": "Villa Las Fuentes"
  },
  "/es/proyectos/villa-paris": {
   "image": "/og/es--proyectos--villa-paris.jpg",
@@ -460,9 +464,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--villa-alcala.jpg",
   "alt": "Villa Alcalá"
  },
- "/es/proyectos/villas-en-el-paisaje": {
-  "image": "/og/es--proyectos--villas-en-el-paisaje.jpg",
-  "alt": "Villas en el paisaje"
+ "/es/proyectos/villas-p8": {
+  "image": "/og/es--proyectos--villas-p8.jpg",
+  "alt": "Villas P8"
  },
  "/es/proyectos/the-villas": {
   "image": "/og/es--proyectos--the-villas.jpg",
@@ -480,6 +484,10 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--bleu-royal.jpg",
   "alt": "Bleu Royal"
  },
+ "/es/proyectos/alcala": {
+  "image": "/og/es--proyectos--alcala.jpg",
+  "alt": "Alcalá"
+ },
  "/es/proyectos/elviria": {
   "image": "/og/es--proyectos--elviria.jpg",
   "alt": "Elviria"
@@ -496,9 +504,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--sirio.jpg",
   "alt": "Sirio"
  },
- "/es/proyectos/villa-relojero": {
-  "image": "/og/es--proyectos--villa-relojero.jpg",
-  "alt": "Villa Relojero"
+ "/es/proyectos/carril-del-relojero": {
+  "image": "/og/es--proyectos--carril-del-relojero.jpg",
+  "alt": "Carril del Relojero"
  },
  "/es/proyectos/villa-ambar": {
   "image": "/og/es--proyectos--villa-ambar.jpg",
@@ -524,9 +532,9 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--castilla.jpg",
   "alt": "Castilla"
  },
- "/es/proyectos/villa-del-golf": {
-  "image": "/og/es--proyectos--villa-del-golf.jpg",
-  "alt": "Villa del Golf"
+ "/es/proyectos/parcelas-del-golf": {
+  "image": "/og/es--proyectos--parcelas-del-golf.jpg",
+  "alt": "Parcelas del Golf"
  },
  "/areas/benahavis": {
   "image": "/og/areas--benahavis.jpg",
@@ -631,13 +639,5 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/clientes-internacionales": {
   "image": "/og/es--clientes-internacionales.jpg",
   "alt": "Arquitecto en Marbella para clientes que viven fuera"
- },
- "/projects/alcala": {
-  "image": "/og/projects--alcala.jpg",
-  "alt": "Alcalá"
- },
- "/es/proyectos/alcala": {
-  "image": "/og/es--proyectos--alcala.jpg",
-  "alt": "Alcalá"
  }
 }

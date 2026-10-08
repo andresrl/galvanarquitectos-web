@@ -28,7 +28,7 @@
 .intro-services a:hover span{transform:translate(2px,-2px)}
 .studio.photo-slide .slide-inner{width:56%}
 .studio-visual video{object-position:62% center}
-.studio-visual{background:#14201b url(/media/studio/studio-drawing-2560.avif) 62% center/cover no-repeat}
+.studio-visual{background:#14201b url(/video/studio-conversation_white-poster.avif) 62% center/cover no-repeat}
 .ambient-video{pointer-events:none}
 .interiors .vertical-caption,.scene-foot .photo-credit{font-size:8px;letter-spacing:.08em}
 @media(prefers-reduced-motion:reduce){.ambient-video{visibility:hidden;will-change:auto}}
@@ -53,8 +53,9 @@
 .project-slides img.is-active{opacity:1}
 .project-slide .image-shade{background:linear-gradient(180deg,#00000030,transparent 32%,transparent 55%,#101918c0 100%)}
 .project-slide .slide-inner{justify-content:flex-end;padding-bottom:15svh;max-width:1050px}
-.project-slide .display-title{max-width:900px;font-size:clamp(54px,7.5vw,124px)}
-.project-slide .text-link{align-self:flex-start}
+.project-slide .display-title{max-width:900px;margin-bottom:10px;font-size:clamp(54px,7.5vw,124px);user-select:none;-webkit-user-select:none}
+.project-slide .display-link{cursor:pointer;-webkit-touch-callout:none;-webkit-user-drag:none}
+.project-slide .text-link{align-self:flex-start;font-size:14px}
 .project-progress{justify-content:flex-end;gap:8px;bottom:36px}
 .project-progress span{width:28px;height:1px;background:#ffffff59;transition:background .6s}
 .project-progress span.is-active{background:#fff}
@@ -67,9 +68,15 @@
 }
 /* Link to the full archive below the four project scenes: one line of text and a rule that runs to the arrow. */
 .home-more{position:relative;z-index:3;background:#18221d;color:var(--paper);padding:clamp(56px,9svh,110px) var(--gutter)}
+.home-more-note{display:flex;align-items:baseline;gap:clamp(18px,2.4vw,40px);max-width:860px;margin:0 0 clamp(22px,3.6svh,42px);font-size:14px;line-height:1.6;color:#f6f4efa6}
+.home-more-count{flex:none;font-size:10px;font-weight:500;letter-spacing:.24em;color:var(--brass);font-variant-numeric:tabular-nums}
+.home-more-text em{margin-right:.2em;font-family:var(--serif);font-size:clamp(18px,1.5vw,23px);letter-spacing:-.01em;color:var(--paper)}
 .home-more a{display:flex;align-items:center;gap:clamp(16px,2vw,32px);font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:clamp(28px,3.4vw,56px);letter-spacing:-.04em;line-height:1.1;transition:color .3s}
 .home-more i{flex:1;height:1px;background:#f6f4ef4d;transform-origin:left;transition:background .3s,transform .6s cubic-bezier(.2,.7,.2,1)}
 .home-more svg{flex:none;width:clamp(20px,2vw,30px);height:auto}
 .home-more a:hover,.home-more a:focus-visible{color:var(--brass)}
 .home-more a:hover i,.home-more a:focus-visible i{background:var(--brass)}
-@media(max-width:700px){.home-more{padding-right:56px}.home-more a{font-size:clamp(24px,7vw,32px)}}
+/* Service process after the studio scene: same module as the service pages, on paper and above the pinned scenes. */
+.home-process{position:relative;z-index:3;background:var(--paper)}
+.home-process p{line-height:1.85}
+@media(max-width:700px){.home-more{padding-right:56px}.home-more-note{flex-direction:column;gap:10px;font-size:13px}.home-more a{font-size:clamp(24px,7vw,32px)}}

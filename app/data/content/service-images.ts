@@ -68,5 +68,5 @@ export function serviceProjects(service: ServiceId, loc: LocationId | undefined,
  const pool = ids.map(id => projectById(id)!).filter(p => !local.includes(p))
  const chosen = [...local, ...pool.slice(offset % pool.length), ...pool].filter((p, i, a) => a.indexOf(p) === i).slice(0, 2)
  return chosen.map(p => { const img = p.media.hero.src === heroSrc ? (p.media.gallery[0] ?? p.media.pause) : p.media.hero; return { name: p.name[locale], image: '', src: img.src, srcset: img.srcset, width: img.width, height: img.height,
-  alt: altFor(p, img, locale), text: p.copy[locale].heading + '.', path: projectPath(p, locale), local: local.includes(p) } })
+  alt: altFor(p, img, locale), text: '', path: projectPath(p, locale), local: local.includes(p) } })
 }

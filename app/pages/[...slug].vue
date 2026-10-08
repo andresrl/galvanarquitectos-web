@@ -21,8 +21,8 @@ function archiveSchema(site: string, url: string, businessId: string) {
  const locale = page.locale as 'en' | 'es', abs = (p: string) => new URL(p, site).href, paco = site + '/#paco'
  if (project) {
   const m = project.media, images = [m.hero, ...m.gallery, m.pause]
-  return [{ '@type': 'CreativeWork', '@id': url + '#project', name: project.name[locale], headline: project.copy[locale].heading, description: project.copy[locale].lead,
-   abstract: project.copy[locale].body[0], genre: locale === 'en' ? 'Residential architecture' : 'Arquitectura residencial',
+  return [{ '@type': 'CreativeWork', '@id': url + '#project', name: project.name[locale], description: project.copy[locale].lead,
+   genre: locale === 'en' ? 'Residential architecture' : 'Arquitectura residencial',
    image: images.map(i => ({ '@type': 'ImageObject', url: abs(i.src.replace(/-1600\.avif$/, '-1600.avif')), width: i.width, height: i.height })),
    thumbnailUrl: abs(m.hero.jpg!), creator: [{ '@id': paco }, { '@id': businessId }], copyrightHolder: { '@id': businessId },
    inLanguage: locale, isPartOf: { '@id': abs(projectsIndexPath[locale]) + '#webpage' }, mainEntityOfPage: { '@id': url + '#webpage' },

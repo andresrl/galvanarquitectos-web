@@ -2,6 +2,12 @@
 export const redirecciones=[
  // Public project name: Alcalá (8 Oct 2026). Keep former links working.
  {origen:'/projects/alcala-solvilla',destino:'/projects/alcala'},{origen:'/es/proyectos/alcala-solvilla',destino:'/es/proyectos/alcala'},
+ // Public names confirmed by Andrés (8 Oct 2026): Cútar → Villa Las Fuentes, Villas en el paisaje → Villas P8, Villa del Golf → Parcelas del Golf.
+ {origen:'/projects/cutar',destino:'/projects/villa-las-fuentes'},{origen:'/es/proyectos/cutar',destino:'/es/proyectos/villa-las-fuentes'},
+ {origen:'/projects/villas-in-the-landscape',destino:'/projects/villas-p8'},{origen:'/es/proyectos/villas-en-el-paisaje',destino:'/es/proyectos/villas-p8'},
+ {origen:'/projects/villa-del-golf',destino:'/projects/parcelas-del-golf'},{origen:'/es/proyectos/villa-del-golf',destino:'/es/proyectos/parcelas-del-golf'},
+ // Villa Relojero → Carril del Relojero (Andrés, 8 Oct 2026).
+ {origen:'/projects/villa-relojero',destino:'/projects/carril-del-relojero'},{origen:'/es/proyectos/villa-relojero',destino:'/es/proyectos/carril-del-relojero'},
  {origen:'/app/demo',destino:'/'},{origen:'/demo',destino:'/'},
  {origen:'/blog',destino:'/es/guias'},
  // Illustrative examples withdrawn (7 Oct 2026): each one goes to its real service hub. Copy kept in data/demo.ts.

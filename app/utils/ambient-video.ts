@@ -2,6 +2,7 @@
 // Browsers pause media when the tab is hidden or the computer sleeps, and an IntersectionObserver does
 // not fire again on return, so every video is checked again on visibilitychange, focus, pageshow
 // (back/forward cache) and online. A pause the page did not ask for is retried once the page is shown.
+// An optional data-rate attribute sets the playback speed (e.g. data-rate=".75").
 export function createAmbientVideos(allowed: () => boolean = () => true) {
  const inView = new Map<HTMLVideoElement, boolean>()
  const targets = new Map<Element, HTMLVideoElement>()
@@ -10,6 +11,8 @@ export function createAmbientVideos(allowed: () => boolean = () => true) {
   if (!shouldPlay(v)) { v.pause(); return }
   if (!v.paused) return
   v.muted = true
+  const rate = Number(v.dataset.rate) || 1
+  if (v.playbackRate !== rate) { v.defaultPlaybackRate = rate; v.playbackRate = rate }
   // After a long sleep the connection may have dropped and left the element in error: reload it.
   if (v.error || v.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) v.load()
   v.play().catch(() => {})

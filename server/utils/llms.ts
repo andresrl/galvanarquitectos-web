@@ -52,8 +52,8 @@ export async function buildLlms(event: H3Event, full: boolean) {
  line(`Archive: ${u(projectsIndexPath.en)} · Spanish: ${u(projectsIndexPath.es)}`)
  for (const p of projects) {
   const facts = [p.zone ? locations[p.zone].name.en : null, p.status === 'completed' ? 'completed' : p.status === 'ongoing' ? 'in progress' : null, p.kind === 'renovation' ? 'complete renovation' : p.kind === 'hospitality' ? 'boutique hotel' : p.kind === 'tender' ? 'tender proposal' : null, p.imagery === 'visualisation' ? 'shown with architectural visualisations' : 'photographed'].filter(Boolean).join(', ')
-  line(`- [${p.name.en}](${u(projectPath(p, 'en'))}): ${p.copy.en.heading}. ${p.copy.en.lead} (${facts})`)
-  if (full) for (const para of p.copy.en.body) line(`  ${para}`)
+  line(`- [${p.name.en}](${u(projectPath(p, 'en'))}): ${p.copy.en.lead} (${facts})`)
+  if (full && p.copy.en.body[2]) line(`  ${p.copy.en.body[2]}`)
  }
  line()
 

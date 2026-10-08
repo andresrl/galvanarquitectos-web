@@ -2,7 +2,6 @@
 // Project archive listing: reel hero, real filters (status), asymmetric editorial grid, selected villas, closing.
 import { projectUi } from '~/data/projects/ui'
 import { projects, projectCard } from '~/data/projects/projects'
-import { locations } from '~/data/taxonomy'
 import { createProjectMotion } from '../motion/project-motion'
 import { homeReel } from '~/data/home-reel'
 const props = defineProps({ page: { type: Object, required: true } })
@@ -13,13 +12,12 @@ const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const ui = computed(() => projectUi[locale.value])
 const t = computed(() => ui.value.list)
 const filter = useState('galvan:project-filter:' + props.page.locale, () => 'all')
-const items = computed(() => projects.map(p => ({ ...projectCard(p, locale.value), status: p.status, featured: p.featured,
- meta: [p.status ? ui.value.status[p.status] : '', p.zone ? locations[p.zone].name[locale.value] : ''].filter(Boolean).join(' · ') })))
+const items = computed(() => projects.map(p => ({ ...projectCard(p, locale.value), status: p.status, featured: p.featured })))
 const visible = computed(() => filter.value === 'all' ? items.value : items.value.filter(i => i.status === filter.value))
 const featured = computed(() => items.value.filter(i => i.featured))
 const filters = computed(() => (['all', 'completed', 'ongoing']).map(id => ({ id, label: t.value.filters[id], count: id === 'all' ? items.value.length : items.value.filter(i => i.status === id).length })))
 const root = ref(null), video = ref(null)
-const pageScroll = usePageScroll()
+const pageScroll = usePageScroll({ early: true })
 const reduced = ref(false)
 let motion = null, alive = false, videos = null
 useHead({ bodyAttrs: { class: 'project-archive-page' } })
@@ -33,12 +31,12 @@ onMounted(async () => {
  }
  await document.fonts.ready
  const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
- if (alive && root.value) motion = createProjectMotion({ root: root.value, gsap, ScrollTrigger, onTone: v => { tone.value = v } })
+ if (alive && root.value) motion = createProjectMotion({ root: root.value, gsap, ScrollTrigger, onTone: v => { tone.value = v }, restoreTop: pageScroll.savedTop(), after: pageTransitionReady() })
  pageScroll.ready()
 })
 watch(filter, async () => { await nextTick(); motion?.refresh() })
 function stop() { alive = false; videos?.destroy(); videos = null; motion?.destroy(); motion = null }
-onBeforeRouteLeave(stop)
+onBeforeRouteLeave(async (to, from) => { await awaitPageCapture(to, from); stop() })
 onBeforeUnmount(stop)
 </script>
 <template>
@@ -66,8 +64,8 @@ onBeforeUnmount(stop)
    <li v-for="(item, i) in visible" :key="item.id" :class="['projects-card', 'projects-card--' + (i % 5)]">
     <NuxtLink :to="item.path">
      <div class="projects-card-heading"><span class="projects-card-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span><h2 class="projects-card-name">{{ item.name }}</h2></div>
-     <DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" :eager="i < 2" :sizes="i % 5 === 4 ? '(max-width:700px) 100vw, 70vw' : '(max-width:700px) 100vw, 50vw'" />
-     <div class="projects-card-text"><em>{{ item.heading }}</em><small v-if="item.meta">{{ item.meta }}</small></div>
+     <DisenoProjectImage class="project-photo" :data-vt-frame="item.id" :image="item.image" :alt="item.alt" :eager="i < 2" :sizes="i % 5 === 4 ? '(max-width:700px) 100vw, 70vw' : '(max-width:700px) 100vw, 50vw'" />
+     <span v-if="item.status" :class="['projects-status', 'projects-status--' + item.status]">{{ ui.status[item.status] }}</span>
     </NuxtLink>
    </li>
   </ol>
@@ -76,7 +74,7 @@ onBeforeUnmount(stop)
  <section class="projects-selected" data-header="light" aria-labelledby="selected-title">
   <h2 id="selected-title" data-reveal>{{ t.selected }} <em>{{ t.selectedItalic }}</em></h2>
   <ul>
-   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span>{{ item.name }}</span></NuxtLink></li>
+   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :data-vt-frame="item.id" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span>{{ item.name }}</span><span v-if="item.status" :class="['projects-status', 'projects-status--' + item.status]">{{ ui.status[item.status] }}</span></NuxtLink></li>
   </ul>
  </section>
 

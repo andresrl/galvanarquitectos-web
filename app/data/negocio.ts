@@ -6,10 +6,13 @@ export const negocio={
  actividad:'architecture',ciudad:'Marbella',zonaServicio:'Costa del Sol',
  contacto:{telefono:'+34 679 97 94 87',email:'info@galvanarquitectos.com',
   // Address confirmed in the briefing (CLAUDE.md §5).
-  direccion:{'@type':'PostalAddress',streetAddress:'Calle Estébanez Calderón, 1',postalCode:'29602',addressLocality:'Marbella',addressRegion:'Málaga',addressCountry:'ES'}},
- // Street-level coordinates (OpenStreetMap, Calle Estébanez Calderón, 29602), three decimals: about 100 m.
- geo:{latitude:36.508,longitude:-4.899},
- mapa:'https://www.openstreetmap.org/?mlat=36.508&mlon=-4.899#map=17/36.508/-4.899',
+  direccion:{'@type':'PostalAddress',streetAddress:'Calle Estébanez Calderón, 1',postalCode:'29602',addressLocality:'Marbella',addressRegion:'Málaga',addressCountry:'ES'},
+  // As shown next to the phone in every contact block (Andrés, 8 Oct 2026).
+  direccionLineas:['C. Estébanez Calderón, 1','29602 Marbella, Málaga'],
+  direccionTexto:'C. Estébanez Calderón, 1, 29602 Marbella, Málaga'},
+ // The studio's Google Maps place, shared by Andrés (8 Oct 2026).
+ geo:{latitude:36.50981,longitude:-4.89992},
+ mapa:'https://maps.app.goo.gl/Fe88myAgR3KbD9n59',
  sameAs:['https://www.instagram.com/martinezgalvanarquitecto/'],
  logo:{src:'/brand/logo.png',width:1400,height:537},
  imagen:{src:'/media/studio/studio-og.jpg',width:1200,height:630},

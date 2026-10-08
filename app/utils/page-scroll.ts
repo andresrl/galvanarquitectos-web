@@ -8,8 +8,10 @@ export function rememberPageScroll(entry: number, path: string) {
   if (positions.size > 100) positions.delete(positions.keys().next().value!)
 }
 
+// A new push can reuse the number of an entry dropped by going back; vue-router leaves its `scroll` empty until it is left.
 export function savedPageScroll(path: string): Position | undefined {
-  const saved = positions.get(window.history.state?.position)
+  if (!window.history.state?.scroll) return
+  const saved = positions.get(window.history.state.position)
   return saved?.path === path ? saved.position : undefined
 }
 

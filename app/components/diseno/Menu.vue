@@ -2,6 +2,7 @@
 // Full-screen site menu. Links come from app/data/navigation.ts (page registry + Home chapters).
 import { siteNavigation } from '~/data/navigation'
 import { homePath } from '~/data/pages'
+import { negocio } from '~/data/negocio'
 const { locale, requestScene, toggleLanguage } = useGalvan()
 const open = useState('galvan:menu', () => false)
 const route = useRoute()
@@ -51,7 +52,7 @@ onBeforeUnmount(() => { if (import.meta.client) { window.removeEventListener('ke
   <div class="site-menu-foot">
    <a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com</a>
    <a href="tel:+34679979487">+34 679 97 94 87</a>
-   <span>Marbella · Costa del Sol</span>
+   <a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a>
    <button type="button" class="site-menu-language" @click="toggleLanguage">{{locale==='en'?'Español':'English'}}</button>
   </div>
  </div>

@@ -1,0 +1,15 @@
+/* Page transitions between the Home, the project archive and the project pages (utils/page-transition.ts).
+   The chosen photograph carries over and settles into place while the rest of the page dissolves. Fixed UI is captured
+   on its own and kept above the photograph, so the header stays put. Names exist only while html has .page-transition. */
+.page-transition .header{view-transition-name:vt-header}
+.page-transition .chapter-nav{view-transition-name:vt-chapters}
+.page-transition .scroll-progress{view-transition-name:vt-progress}
+.page-transition .mobile-contact{view-transition-name:vt-contact-bar}
+.page-transition .cookies{view-transition-name:vt-cookies}
+::view-transition-group(*){animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+::view-transition-group(vt-header),::view-transition-group(vt-chapters),::view-transition-group(vt-progress),::view-transition-group(vt-contact-bar),::view-transition-group(vt-cookies){z-index:1}
+/* The photograph: its frame travels a little longer than the cross-fade, with a soft start and a long settle.
+   Cover keeps both images undistorted while the frame changes proportion (card ↔ full screen). */
+::view-transition-group(project-frame){animation-duration:.9s;animation-timing-function:cubic-bezier(.6,0,.15,1)}
+::view-transition-old(project-frame),::view-transition-new(project-frame){height:100%;object-fit:cover;overflow:clip;animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+@media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
