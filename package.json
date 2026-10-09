@@ -13,7 +13,7 @@
     "verify:guides": "node scripts/verify-guides.mjs",
     "og": "python3 scripts/og/generate.py && python3 scripts/og/icons.py",
     "verify:seo": "node scripts/verify-seo.mjs",
-    "deploy:dist": "bash scripts/deploy-dist.sh"
+    "deploy:dist": "node scripts/deploy-dist.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.16.1",
