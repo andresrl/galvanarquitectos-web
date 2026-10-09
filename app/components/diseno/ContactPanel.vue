@@ -37,7 +37,7 @@ const id = s => `${props.idPrefix}-${s}`
  <div class="contact-panel-intro">
   <component :is="headingTag" :id="id('title')" class="contact-panel-title">{{ c.heading }}</component>
   <div class="contact-panel-media">
-   <video v-if="!reduced" ref="video" muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white.webm" type="video/webm"><source src="/video/studio-conversation_white.mp4" type="video/mp4"></video>
+   <video v-if="!reduced" ref="video" muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white-pingpong.webm" type="video/webm"><source src="/video/studio-conversation_white-pingpong.mp4" type="video/mp4"></video>
    <img v-else src="/video/studio-conversation_white-poster.avif" :alt="c.videoAlt" width="1264" height="720">
   </div>
   <p class="contact-panel-tagline">{{ c.tagline }} <em>{{ c.taglineItalic }}</em></p>

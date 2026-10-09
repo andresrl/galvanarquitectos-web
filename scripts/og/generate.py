@@ -50,7 +50,7 @@ def describe(path, page):
     hero = re.search(r'class="(?:service-hero-image|guide-figure|project-image project-hero-image)"[^>]*>[\s\S]*?<img[^>]*src="([^"]+)"', page)
     poster = re.search(r'class="projects-hero-media"[^>]*poster="([^"]+)"', page)
     eyebrow = re.search(r'<p class="eyebrow"[^>]*>([\s\S]*?)</p>', page)
-    fixed = {'/': 'Spaces for living well.', '/es': 'Espacios para vivir mejor.', '/journal': 'Questions before your project.', '/es/guias': 'Preguntas antes de tu proyecto.',
+    fixed = {'/': 'Galván Arquitectos. Architecture studio.', '/es': 'Galván Arquitectos. Estudio de arquitectura.', '/journal': 'Questions before your project.', '/es/guias': 'Preguntas antes de tu proyecto.',
              '/projects': 'Architecture, spaces and ways of living.', '/es/proyectos': 'Arquitectura, espacios y formas de vivir.',
              '/studio': 'Design and personal attention. From the idea to the site.', '/es/estudio': 'Diseño y trato directo. De la idea a la obra.',
              '/contact': 'Tell us about your project.', '/es/contacto': 'Cuéntanos tu proyecto.'}

@@ -19,6 +19,16 @@ fi
 encode "Arquitecto dibujando en su estudio.mp4" studio-drawing 1264 23 34
 encode "Arquitecto revisando planos en obra.mp4" studio-site 1264 23 34
 encode "Conversación creativa en el estudio.mp4" studio-conversation 1264 23 34
+# Ping-pong loop (forward + reverse, end frames not repeated) so `loop` never jumps: Home studio scene and contact panel
+pingpong() { # name: reads $OUT/$name.mp4, writes $OUT/$name-pingpong.{mp4,webm}
+  local in="$OUT/$1.mp4" n; [ -f "$OUT/$1-pingpong.mp4" ] && [ -f "$OUT/$1-pingpong.webm" ] && return
+  n=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$in")
+  local f="[0:v]split[f][r];[r]reverse,trim=start_frame=1:end_frame=$((n-1)),setpts=PTS-STARTPTS[b];[f][b]concat=n=2:v=1:a=0,format=yuv420p[v]"
+  ffmpeg -v error -y -i "$in" -filter_complex "$f" -map "[v]" -an -c:v libx264 -preset slow -crf 22 -movflags +faststart "$OUT/$1-pingpong.mp4"
+  ffmpeg -v error -y -i "$in" -filter_complex "$f" -map "[v]" -an -c:v libvpx-vp9 -b:v 0 -crf 34 -row-mt 1 "$OUT/$1-pingpong.webm"
+  echo "  $1-pingpong: $(du -h "$OUT/$1-pingpong.mp4" | cut -f1) mp4"
+}
+pingpong studio-conversation_white
 # Large stills of the studio scenes (posters at full width for the Home and studio page)
 for pair in "Arquitecto dibujando en su estudio:studio-drawing" "Arquitecto revisando planos en obra:studio-site" "Conversación creativa en el estudio:studio-conversation" "Arquitecto inspeccionando la obra:studio-inspection"; do
   src="${pair%%:*}"; name="${pair##*:}"

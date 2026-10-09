@@ -61,7 +61,8 @@ function setupProcessTone(){
 }
 function stopProcessTone(){processObserver?.disconnect();processObserver=null;processUnderHeader=false}
 let motion=null,alive=false,mountReady=false,savedScroll=0,motionGeneration=0
-const heroHeading=computed(()=>'<span>'+t('heroTitle')+'</span><em>'+t('heroItalic')+'</em>')
+// Brand and what it is, both in the H1 (two lines); the space keeps the words apart in the extracted text.
+const heroHeading=computed(()=>'<span class="hero-name">'+t('heroTitle')+'</span> <em class="hero-kind">'+t('heroItalic')+'</em>')
 function stop(){motionGeneration++;motion?.destroy();motion=null}
 async function start(){
  if(!alive||!root.value)return
@@ -119,7 +120,7 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
       </section>
       <div class="home-more"><p class="home-more-note"><span class="home-more-count" aria-hidden="true">{{String(homeProjects.length).padStart(2,'0')}} / {{projects.length}}</span><span class="home-more-text"><em>{{locale==='en'?'This is only a brief selection.':'Esto es solo una breve selección.'}}</em> {{locale==='en'?`The full archive brings together ${projects.length} projects.`:`El archivo completo reúne ${projects.length} proyectos.`}}</span></p><NuxtLink :to="projectsIndexPath[locale]"><span>{{locale==='en'?'See more projects':'Ver más proyectos'}}</span><i aria-hidden="true"></i><DisenoIcon name="arrow-up-right" /></NuxtLink></div>
       <section class="slide studio photo-slide" id="estudio" data-tone="light" data-chapter="Studio">
-        <div class="visual photo-bg studio-visual"><!-- The encoded file names are swapped: studio-conversation_white.* shows Francisco drawing on a plan. --><video class="ambient-video" data-ambient muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white.webm" type="video/webm"><source src="/video/studio-conversation_white.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
+        <div class="visual photo-bg studio-visual"><!-- The encoded file names are swapped: studio-conversation_white.* shows Francisco drawing on a plan. --><video class="ambient-video" data-ambient muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white-pingpong.webm" type="video/webm"><source src="/video/studio-conversation_white-pingpong.mp4" type="video/mp4"></video></div><div class="photo-shade" aria-hidden="true"></div>
         <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('studioEyebrow')"></p><h2 class="display-title" v-html="t('studioTitle')"></h2><p class="body-copy" v-html="t('studioText')"></p><NuxtLink class="text-link" :to="studioPaths[locale]"><span>{{locale==='en'?'Discover the studio':'Conoce el estudio'}}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></div>
       </section>
       <section class="home-process" aria-labelledby="home-process-title"><div class="service-process service-container">

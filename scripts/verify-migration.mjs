@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 const base=process.argv[2]??'http://127.0.0.1:3048'
-const pages=[['/','Spaces for']]
+const pages=[['/','Galván Arquitectos']]
 for(const [path,title] of pages){
  const res=await fetch(new URL(path,base));assert.equal(res.status,200,path)
  assert.match(res.headers.get('x-robots-tag')??'',/noindex/)

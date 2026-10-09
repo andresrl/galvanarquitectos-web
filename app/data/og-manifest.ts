@@ -2,11 +2,11 @@
 export const ogImages: Record<string, { image: string; alt: string }> = {
  "/": {
   "image": "/og/home.jpg",
-  "alt": "Spaces for living well."
+  "alt": "Galván Arquitectos. Architecture studio."
  },
  "/es": {
   "image": "/og/es.jpg",
-  "alt": "Espacios para vivir mejor."
+  "alt": "Galván Arquitectos. Estudio de arquitectura."
  },
  "/journal": {
   "image": "/og/journal.jpg",
@@ -376,17 +376,17 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--bleu-royal.jpg",
   "alt": "Bleu Royal"
  },
- "/projects/alcala": {
-  "image": "/og/projects--alcala.jpg",
-  "alt": "Alcalá"
+ "/projects/cortijo-nagueles": {
+  "image": "/og/projects--cortijo-nagueles.jpg",
+  "alt": "Cortijo Nagüeles"
  },
  "/projects/elviria": {
   "image": "/og/projects--elviria.jpg",
   "alt": "Elviria"
  },
- "/projects/cortijo-nagueles": {
-  "image": "/og/projects--cortijo-nagueles.jpg",
-  "alt": "Cortijo Nagüeles"
+ "/projects/alcala": {
+  "image": "/og/projects--alcala.jpg",
+  "alt": "Alcalá"
  },
  "/projects/villa-pareja": {
   "image": "/og/projects--villa-pareja.jpg",
@@ -484,17 +484,17 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--proyectos--bleu-royal.jpg",
   "alt": "Bleu Royal"
  },
- "/es/proyectos/alcala": {
-  "image": "/og/es--proyectos--alcala.jpg",
-  "alt": "Alcalá"
+ "/es/proyectos/cortijo-nagueles": {
+  "image": "/og/es--proyectos--cortijo-nagueles.jpg",
+  "alt": "Cortijo Nagüeles"
  },
  "/es/proyectos/elviria": {
   "image": "/og/es--proyectos--elviria.jpg",
   "alt": "Elviria"
  },
- "/es/proyectos/cortijo-nagueles": {
-  "image": "/og/es--proyectos--cortijo-nagueles.jpg",
-  "alt": "Cortijo Nagüeles"
+ "/es/proyectos/alcala": {
+  "image": "/og/es--proyectos--alcala.jpg",
+  "alt": "Alcalá"
  },
  "/es/proyectos/villa-pareja": {
   "image": "/og/es--proyectos--villa-pareja.jpg",
