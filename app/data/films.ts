@@ -2,6 +2,7 @@
 // Media: scripts/media/build_films.sh → app/data/films.generated.ts (originals in public/videos-reel, ignored by git).
 // Honest labels: The House, Villa París and The Resina 6ix are built villas filmed on site; Villa Soal and Villa Pareja
 // are architectural visualisations, and Villa Pareja is a tender proposal (never presented as built or awarded).
+// `credit`: who filmed the video, shown on its programme entry, in the player and as the VideoObject creator.
 import type { Locale } from './pages/types'
 import { filmMedia, type FilmMedia } from './films.generated'
 import { projectById, projectPath } from './projects/projects'
@@ -11,7 +12,8 @@ export const filmsPaths: Record<Locale, string> = { en: '/videos', es: '/es/vide
 export const filmsPublished = '2026-10-09'
 
 export type FilmKind = 'reel' | 'built' | 'visualisation' | 'tender'
-type FilmDefinition = { id: string; projectId?: string; kind: FilmKind; title?: Record<Locale, string>; text: Record<Locale, string> }
+export type FilmCredit = { name: string; role: Record<Locale, string>; label: Record<Locale, string> }
+type FilmDefinition = { id: string; projectId?: string; kind: FilmKind; title?: Record<Locale, string>; text: Record<Locale, string>; credit?: FilmCredit }
 export type Film = FilmDefinition & { title: Record<Locale, string>; media: FilmMedia }
 
 const definitions: FilmDefinition[] = [
@@ -25,7 +27,9 @@ const definitions: FilmDefinition[] = [
     id: 'the-house', projectId: 'the-house', kind: 'built', text: {
       en: 'From the air over the hillside to the rooms inside: long white planes, timber-toned walls and the pool at sunset.',
       es: 'Del vuelo sobre la ladera a las estancias interiores: largos planos blancos, frentes de tono madera y la piscina al atardecer.'
-    }
+    },
+    // Andrés, 9 Oct 2026: filmed by the photographer Gonzalo Botet.
+    credit: { name: 'Gonzalo Botet', role: { en: 'Photographer', es: 'Fotógrafo' }, label: { en: 'Filmed by photographer', es: 'Vídeo del fotógrafo' } }
   },
   {
     id: 'villa-paris', projectId: 'villa-paris', kind: 'built', text: {

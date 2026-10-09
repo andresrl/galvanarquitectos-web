@@ -6,7 +6,7 @@ import { relatedProjects, projectCard, projectsIndexPath, projectsByService } fr
 import { services as serviceNames } from '~/data/taxonomy'
 import { pageById } from '~/data/pages'
 import { locations } from '~/data/taxonomy'
-import { negocio } from '~/data/negocio'
+import { negocio, telefonos } from '~/data/negocio'
 import { studioPaths } from '~/data/studio'
 import { filmByProject, filmsPaths, filmsCopy, clock } from '~/data/films'
 import { projectSetting } from '~/data/projects/setting'
@@ -190,7 +190,7 @@ function step(dir) {
  <section class="project-cta" data-header="light" aria-labelledby="project-cta-title">
   <div data-reveal><p class="eyebrow">{{ ui.ctaEyebrow }}</p><h2 id="project-cta-title">{{ ui.ctaTitle }} <em>{{ ui.ctaItalic }}</em></h2></div>
   <div data-reveal><p>{{ ui.ctaText }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ ui.ctaLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
-   <p class="project-direct"><span>{{ ui.direct }}</span><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')">{{ negocio.contacto.telefono }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p></div>
+   <p class="project-direct"><span>{{ ui.direct }}</span><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a v-for="p in telefonos" :key="p.href" :href="p.href">{{ p.label[locale] }} {{ p.numero }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p></div>
  </section>
  <div class="project-end" data-header="light"><span>{{ name.toUpperCase() }} · {{ negocio.marca.toUpperCase() }}</span><a href="#project-top">{{ ui.top }} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
  <DisenoProjectLightbox v-model="open" :items="viewer" :ui="ui" />

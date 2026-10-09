@@ -1,7 +1,8 @@
 <script setup>
 // Approved service template. Receives a page resolved by app/data/pages; holds no copy of its own.
 import { createServiceMotion } from './motion/service-motion'
-import { negocio } from '~/data/negocio'
+import { negocio, telefonos } from '~/data/negocio'
+import { contactCopy } from '~/data/contact'
 const props = defineProps({ page: { type: Object, required: true } })
 const NuxtLink = resolveComponent('NuxtLink')
 const { tone } = useGalvan()
@@ -9,7 +10,10 @@ const content = computed(() => props.page.content)
 const locale = computed(() => props.page.locale)
 const otherLocale = computed(() => locale.value==='en'?'es':'en')
 const root = ref(null)
-const form = reactive({name:'',email:'',phone:'',location:props.page.locationName??'',message:''})
+const form = reactive({name:'',email:'',phone:'',location:props.page.locationName??'',message:'',website:''})
+const {status,submit} = useEnquiry()
+const formCopy = computed(()=>contactCopy[locale.value])
+const route = useRoute()
 const navTargets = ['overview','transformation','process','questions']
 let motion = null, alive = false
 useHead({bodyAttrs:{class:'luxury-service-page'}})
@@ -22,10 +26,15 @@ onMounted(async()=>{alive=true;await document.fonts.ready;if(alive)await startMo
 function stop(){alive=false;motion?.destroy();motion=null}
 onBeforeRouteLeave(stop)
 onBeforeUnmount(stop)
-function prepareEnquiry(){
+// Sent by /api/contact; if that fails, the same enquiry prepared for the visitor's email app.
+const mailto=computed(()=>{
  const c=content.value
  const body=[`${c.fields.name}: ${form.name}`,`${c.fields.email}: ${form.email}`,form.phone?`${c.fields.phone}: ${form.phone}`:'',`${c.fields.location}: ${form.location}`,'',form.message].filter(Boolean).join('\n')
- window.location.href=`mailto:info@galvanarquitectos.com?subject=${encodeURIComponent(c.label)}&body=${encodeURIComponent(body)}`
+ return `mailto:${negocio.contacto.email}?subject=${encodeURIComponent(c.label)}&body=${encodeURIComponent(body)}`
+})
+async function sendEnquiry(){
+ const sent=await submit({...form,regarding:content.value.label,page:route.path,locale:locale.value})
+ if(sent)Object.assign(form,{name:'',email:'',phone:'',message:''})
 }
 </script>
 <template>
@@ -81,8 +90,8 @@ function prepareEnquiry(){
   <div class="service-related-groups"><div v-for="group in page.related" :key="group.title"><h2>{{group.title}}</h2><ul><li v-for="link in group.links" :key="link.path"><NuxtLink :to="link.path">{{link.label}}<span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul></div></div>
  </nav>
  <section class="service-questions service-container" id="questions" aria-labelledby="questions-title"><div data-reveal><p class="eyebrow">{{content.faqEyebrow}}</p><h2 class="service-heading" id="questions-title">{{content.faqTitle}}</h2></div><div class="service-faq" data-reveal><details v-for="([question,answer],i) in content.faqs" :key="i"><summary>{{question}}<span aria-hidden="true">+</span></summary><p>{{answer}}</p></details></div></section>
- <section class="service-enquiry service-container" id="enquiry" aria-labelledby="enquiry-title"><div data-reveal><p class="eyebrow">{{content.contactEyebrow}}</p><h2 class="service-heading" id="enquiry-title">{{content.contactTitle}}{{' '}}<em>{{content.contactItalic}}</em></h2><p>{{content.contactText}}</p><div class="service-direct-contact"><span>{{content.contactAlternative}}</span><a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com <DisenoIcon name="arrow-up-right" /></a><a href="tel:+34679979487">+34 679 97 94 87</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></div></div>
-  <form class="service-form" @submit.prevent="prepareEnquiry" data-reveal><div class="service-form-row"><label for="enquiry-name">{{content.fields.name}}<input v-model="form.name" id="enquiry-name" name="name" autocomplete="name" required maxlength="150"></label><label for="enquiry-email">{{content.fields.email}}<input v-model="form.email" id="enquiry-email" name="email" type="email" autocomplete="email" required maxlength="254"></label></div><div class="service-form-row"><label for="enquiry-phone">{{content.fields.phone}}<input v-model="form.phone" id="enquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="50"></label><label for="enquiry-location">{{content.fields.location}}<input v-model="form.location" id="enquiry-location" name="location" required maxlength="200"></label></div><label for="enquiry-message">{{content.fields.message}}<textarea v-model="form.message" id="enquiry-message" name="message" rows="4" required maxlength="5000"></textarea></label><button type="submit" class="service-submit">{{content.submit}} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button><p class="service-form-note">{{content.formNote}}</p></form>
+ <section class="service-enquiry service-container" id="enquiry" aria-labelledby="enquiry-title"><div data-reveal><p class="eyebrow">{{content.contactEyebrow}}</p><h2 class="service-heading" id="enquiry-title">{{content.contactTitle}}{{' '}}<em>{{content.contactItalic}}</em></h2><p>{{content.contactText}}</p><div class="service-direct-contact"><span>{{content.contactAlternative}}</span><a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com <DisenoIcon name="arrow-up-right" /></a><a v-for="p in telefonos" :key="p.href" :href="p.href">{{ p.label[locale] }} {{ p.numero }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></div></div>
+  <form class="service-form" @submit.prevent="sendEnquiry" data-reveal><div class="service-form-row"><label for="enquiry-name">{{content.fields.name}}<input v-model="form.name" id="enquiry-name" name="name" autocomplete="name" required maxlength="150"></label><label for="enquiry-email">{{content.fields.email}}<input v-model="form.email" id="enquiry-email" name="email" type="email" autocomplete="email" required maxlength="254"></label></div><div class="service-form-row"><label for="enquiry-phone">{{content.fields.phone}}<input v-model="form.phone" id="enquiry-phone" name="phone" type="tel" autocomplete="tel" maxlength="50"></label><label for="enquiry-location">{{content.fields.location}}<input v-model="form.location" id="enquiry-location" name="location" required maxlength="200"></label></div><label for="enquiry-message">{{content.fields.message}}<textarea v-model="form.message" id="enquiry-message" name="message" rows="4" required maxlength="5000"></textarea></label><div class="visually-hidden" aria-hidden="true"><label for="enquiry-website">Website<input v-model="form.website" id="enquiry-website" name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit" class="service-submit" :disabled="status==='sending'">{{status==='sending'?formCopy.sending:content.submit}} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button><p class="service-form-status" role="status"><template v-if="status==='sent'">{{formCopy.sent}}</template><template v-else-if="status==='error'">{{formCopy.error}} <a :href="mailto">{{formCopy.fallback}}</a></template></p><p class="service-form-note">{{content.formNote}}</p></form>
  </section>
  <div class="service-end service-container"><span>MARTÍNEZ GALVÁN{{page.locationName?' · '+page.locationName.toUpperCase():''}}</span><a href="#service-top">{{content.footerLink}} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[otherLocale]" :hreflang="otherLocale">{{content.languageLabel}}</NuxtLink></div>
 </main>

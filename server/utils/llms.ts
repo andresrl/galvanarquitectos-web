@@ -29,7 +29,7 @@ export async function buildLlms(event: H3Event, full: boolean) {
  line('## Key facts')
  line(`- Architect: ${a.nombre}. Trained at the ${a.formacion}; in Marbella since 1998; studio consolidated in 2003.`)
  line(`- Address: ${d.streetAddress}, ${d.postalCode} ${d.addressLocality} (${d.addressRegion}), Spain`)
- line(`- Contact: ${negocio.contacto.email} · ${negocio.contacto.telefono} · ${u(contactPaths.en)}`)
+ line(`- Contact: ${negocio.contacto.email} · ${negocio.contacto.telefono} (mobile) · ${negocio.contacto.telefonoEstudio} (studio) · ${u(contactPaths.en)}`)
  line('- Languages: English and Spanish (website in both: English at /, Spanish at /es)')
  line(`- Areas: Costa del Sol — ${locationIds.map(l => locations[l].name.en).join(', ')}`)
  line(`- Services: ${serviceIds.map(id => services[id].name.en).join(', ')}.`)

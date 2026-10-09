@@ -77,6 +77,10 @@
 .films-kind--visualisation::before,.films-kind--tender::before{background:var(--brass)}
 .films-title{margin:0 0 22px;font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:clamp(36px,3.6vw,64px);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}
 .films-text{max-width:38ch;margin:0 0 30px;font-size:14px;line-height:1.85;color:#f6f4efb3}
+/* Video credit: a hairline, the role in small capitals and the name in brass italics. */
+.films-credit{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;max-width:38ch;margin:-6px 0 32px;padding-top:18px;border-top:1px solid #f6f4ef24}
+.films-credit span{font-size:10px;font-weight:500;letter-spacing:.19em;line-height:1.6;text-transform:uppercase;color:#f6f4ef8c}
+.films-credit strong{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(19px,1.5vw,23px);line-height:1.2;letter-spacing:-.01em;color:var(--brass)}
 .films-actions{display:flex;flex-wrap:wrap;gap:14px 34px}
 .films-actions .text-link{gap:22px;color:var(--paper)}
 .films-actions .text-link>span:last-child{font-size:16px}
@@ -115,11 +119,15 @@
 .film-player-count span{font-size:11px;color:#f6f4ef80}
 .film-player-meta strong{overflow:hidden;text-overflow:ellipsis;font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(16px,1.4vw,21px);letter-spacing:-.02em}
 .film-player-meta em{font-style:normal;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#f6f4ef99}
+.film-player-credit{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#f6f4ef99}
+.film-player-credit i{margin-left:4px;font-family:var(--serif);font-size:15px;letter-spacing:0;text-transform:none;color:var(--brass)}
+@media(max-width:1000px){.film-player-credit{display:none}}
 .film-player-actions{display:flex;flex:none;align-items:center;gap:clamp(18px,2.4vw,40px)}
 .film-player-project,.film-player-close{display:flex;align-items:center;gap:10px;padding:8px 0;border:0;background:none;color:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:color .25s}
 .film-player-project .site-icon,.film-player-close .site-icon{width:18px;height:18px}
 .film-player-project:hover,.film-player-close:hover{color:var(--brass)}
-.film-player-stage{position:absolute;inset:var(--bar) var(--gutter);display:grid;place-items:center}
+/* Fixed tracks: with an auto track Safari sizes it to the frame's max-height × ratio and the film overflows a phone */
+.film-player-stage{position:absolute;inset:var(--bar) var(--gutter);display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center}
 .film-player-frame{position:relative;width:min(100%,calc((100dvh - var(--bar)*2)*16/9));max-height:100%;background:#000;transform-origin:0 0}
 .film-player video{display:block;width:100%;height:100%;object-fit:contain;background:#000;cursor:pointer}
 .film-player.is-idle,.film-player.is-idle video{cursor:none}
@@ -163,7 +171,7 @@
  .film-player-top{padding:0 18px}
  .film-player-bar{left:10px;right:10px;gap:4px}
  .film-player-meta{gap:12px}
- .film-player-meta em,.film-player-project span,.film-player-close span,.film-player-step{display:none}
+ .film-player-meta em,.film-player-credit,.film-player-project span,.film-player-close span,.film-player-step{display:none}
  .film-player-time{min-width:0;font-size:11px}
  .film-player-end{flex-direction:column;gap:28px}
  .film-player-next{grid-template-columns:120px auto}
@@ -177,7 +185,7 @@
  .film-player-top{padding:0 max(20px,env(safe-area-inset-right)) 0 max(20px,env(safe-area-inset-left));background:linear-gradient(180deg,#070b09b3,transparent)}
  .film-player-bar{left:0;right:0;gap:6px;padding:0 max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));background:linear-gradient(0deg,#070b09b3,transparent)}
  .film-player-meta strong{font-size:16px}
- .film-player-meta em,.film-player-project span,.film-player-close span{display:none}
+ .film-player-meta em,.film-player-credit,.film-player-project span,.film-player-close span{display:none}
  .film-player-time{min-width:0;font-size:11px}
  .film-player-end{gap:32px}
  .film-player-next{grid-template-columns:150px auto}

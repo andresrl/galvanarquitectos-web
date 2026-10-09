@@ -25,7 +25,7 @@ export function studioNode(site: string, locale: Locale) {
   description: studioDescription[locale],
   logo: { '@type': 'ImageObject', url: abs(site, negocio.logo.src), width: negocio.logo.width, height: negocio.logo.height },
   image: abs(site, negocio.imagen.src),
-  telephone: negocio.contacto.telefono, email: negocio.contacto.email,
+  telephone: negocio.contacto.telefonoEstudio, email: negocio.contacto.email,
   address: negocio.contacto.direccion,
   geo: { '@type': 'GeoCoordinates', ...negocio.geo }, hasMap: negocio.mapa,
   areaServed: [{ '@type': 'Place', name: 'Costa del Sol' }, ...allAreas(locale)],
@@ -41,7 +41,7 @@ export function personNode(site: string, locale: Locale) {
   '@type': 'Person', '@id': i.paco, name: a.nombre,
   jobTitle: a.cargo[locale], description: a.descripcion[locale],
   image: { '@type': 'ImageObject', url: abs(site, a.retrato.src), width: a.retrato.width, height: a.retrato.height },
-  worksFor: { '@id': i.studio }, alumniOf: { '@type': 'EducationalOrganization', name: a.formacion },
+  telephone: negocio.contacto.telefono, worksFor: { '@id': i.studio }, alumniOf: { '@type': 'EducationalOrganization', name: a.formacion },
   workLocation: { '@type': 'Place', name: 'Marbella', address: negocio.contacto.direccion },
   knowsLanguage: negocio.idiomas, knowsAbout: negocio.knowsAbout[locale], sameAs: negocio.sameAs
  }

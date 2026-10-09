@@ -6,7 +6,7 @@ import { isHome, homePath } from '~/data/pages'
 import { areaIds, areaPath } from '~/data/areas'
 import { legalCopy, legalPaths } from '~/data/legal'
 import { locations } from '~/data/taxonomy'
-import { negocio } from '~/data/negocio'
+import { negocio, telefonos } from '~/data/negocio'
 const route=useRoute()
 const {locale,requestScene,toggleLanguage}=useGalvan()
 const {openPreferences}=useCookieConsent()
@@ -37,7 +37,7 @@ function top(){if(isHome(route.path))requestScene('inicio');else scrollPage(0,!m
   </nav>
   <div class="footer-col">
    <p class="footer-label">{{locale==='en'?'Contact':'Contacto'}}</p>
-   <ul><li><a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com</a></li><li><a href="tel:+34679979487">+34 679 97 94 87</a></li><li><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></li></ul>
+   <ul><li><a href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com</a></li><li v-for="p in telefonos" :key="p.href"><a :href="p.href">{{ p.label[locale] }} {{ p.numero }}</a></li><li><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></li></ul>
   </div>
  </div>
  <div class="footer-base">

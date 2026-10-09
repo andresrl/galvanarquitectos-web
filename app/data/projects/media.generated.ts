@@ -162,46 +162,94 @@ export const projectMedia: Record<string, ProjectMedia> = {
  },
  "cutar": {
   "hero": {
-   "file": "cutar_01_retoq.png",
-   "src": "/media/projects/cutar/cutar-01-retoq-1600.avif",
-   "srcset": "/media/projects/cutar/cutar-01-retoq-800.avif 800w, /media/projects/cutar/cutar-01-retoq-1600.avif 1600w, /media/projects/cutar/cutar-01-retoq-1920.avif 1920w",
+   "file": "villa_las_fuentes_54.webp",
+   "src": "/media/projects/cutar/villa-las-fuentes-54-8e6ee9350b5b-1600.avif",
+   "srcset": "/media/projects/cutar/villa-las-fuentes-54-8e6ee9350b5b-800.avif 800w, /media/projects/cutar/villa-las-fuentes-54-8e6ee9350b5b-1600.avif 1600w, /media/projects/cutar/villa-las-fuentes-54-8e6ee9350b5b-1920.avif 1920w",
    "width": 1920,
-   "height": 1072,
-   "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOmUAS2onNOkJ5QVI4wIr5Q6AAAzJdfw+ARoTvZs2SHc6LQLSlsjVz/Izw+YYrJmpEmgL1kSzYje2PvFPQCHrHyhHzsJSN+kNTOdumdF+yn5MEqK4TJQ8KBkpFICfdjC5MozM+TB/PryjaB8JSnEGuyP67+xQIBOp7LKYXZosAA",
-   "jpg": "/media/projects/cutar/cutar-01-retoq-og.jpg"
+   "height": 1280,
+   "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADwAwCdASoYABAAPu1iqk4ppaQiMAgBMB2JQBdmUABbZ8jn+jxJxfhAAP3SRLO/swMpx1CBQvuna+fONEFrWasaQavIdrERsgcX4s6HnLZ13Y7CckUqErqK2gqwJNV/2YIM7W8xpc1Wty6L4HuoM94nzqt7skdvthA9AfIq2AdVx8zCPDEZS8dNy5Ulq4UCDhOhH/iejSt0qoxPfGAAAA==",
+   "jpg": "/media/projects/cutar/villa-las-fuentes-54-8e6ee9350b5b-og.jpg"
   },
   "pause": {
-   "file": "cutar_05.jpg",
-   "src": "/media/projects/cutar/cutar-05-1600.avif",
-   "srcset": "/media/projects/cutar/cutar-05-800.avif 800w, /media/projects/cutar/cutar-05-1600.avif 1600w, /media/projects/cutar/cutar-05-2560.avif 2560w",
-   "width": 3840,
-   "height": 2160,
-   "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOgBEDLIonNkxcBP4AA/pqjgFMhbWGfJ9uHlYI58q5kWZdYiywVUSTrGlaXZPF5NyuzQcy8xQSL8vZ/WyeZamMxjv2ocJQldyxc8f7Vyf9FF8u9PF5701mNu5P6lfOEBYGUe1HpnmRMnWhZV3y+8Tb3/i3JMrJBjJ2+AAA="
+   "file": "villa_las_fuentes_55.webp",
+   "src": "/media/projects/cutar/villa-las-fuentes-55-0a048124e5ee-1600.avif",
+   "srcset": "/media/projects/cutar/villa-las-fuentes-55-0a048124e5ee-800.avif 800w, /media/projects/cutar/villa-las-fuentes-55-0a048124e5ee-1600.avif 1600w, /media/projects/cutar/villa-las-fuentes-55-0a048124e5ee-1920.avif 1920w",
+   "width": 1920,
+   "height": 1280,
+   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBWGUABNbIKCCT4eySemlSQA/gWgCyQgvAMN8G09MMiKBz1Kua53MWI010qxU+cWbfidnwhIj758wLNa2T8O4XLz17oy1NFHgEQUrBbUhq4OxkmnfnC1Bs54X2Ug7OrbQhgCYbR4q7jQ2Ax/ZARMWiWXy4AA"
   },
   "gallery": [
    {
-    "file": "cutar_02.jpg",
-    "src": "/media/projects/cutar/cutar-02-1600.avif",
-    "srcset": "/media/projects/cutar/cutar-02-800.avif 800w, /media/projects/cutar/cutar-02-1600.avif 1600w",
-    "width": 3840,
-    "height": 2160,
-    "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoYAA4APu1kqU2ppaQiMAgBMB2JYwCsACKKby2rjcML24F8a0dIAPKW3jBS+f4S7jeAWQwNrrxKq6BNE0Aptb0WDAnw8HDL/VS2+bJ3uJ4XoswYpiEODIXoQc8oVxzkfT6Wwbm5QyOs2kIm7rjHvMhIOLHGCsiiuDhy+p4nTi5rY9sORsz4YEciYiYwCgAA"
+    "file": "villa_las_fuentes_56.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-56-2d610b10f8b7-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-56-2d610b10f8b7-800.avif 800w, /media/projects/cutar/villa-las-fuentes-56-2d610b10f8b7-1600.avif 1600w",
+    "width": 1920,
+    "height": 1280,
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoACh2E7RNI+JK4R6jVHAADMoYZxuY48JN5alZOXaZQTr1rvjZU8mTJ6y7uGvrHRVDk2aeygUVNcKYoRsv5kaTRfcQvF4qvsPeZsmDC7d2+dujcLBhDYpv1JEObXw0qFjKaL8DLcIzWpBMZgCRN37/DNDOw4wPIAAAA="
    },
    {
-    "file": "cutar_03.jpg",
-    "src": "/media/projects/cutar/cutar-03-1600.avif",
-    "srcset": "/media/projects/cutar/cutar-03-800.avif 800w, /media/projects/cutar/cutar-03-1600.avif 1600w",
-    "width": 3840,
-    "height": 2160,
-    "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JYwCdMoApCfu8IIa/uUr1KuJ0Vvks4AD81bKfJm3fT0zjA/e87w18UAQKFzNhEp/ElQqUKU9zDQnwfdbEi4sIEEbfAEa9HriSPf2yaLdKTlrSrxNcI1rNuD1Jn7+ms088tttnqdgypSzF/DLZWNHjGkI9bvbdw0nsHInAu+dflNmWmyUqLRnmH8vkfwAA"
+    "file": "villa_las_fuentes_57.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-57-6142c637a6ca-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-57-6142c637a6ca-800.avif 800w, /media/projects/cutar/villa-las-fuentes-57-6142c637a6ca-1600.avif 1600w",
+    "width": 1920,
+    "height": 1280,
+    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdmUAS2Yy+1RltmdlbkihvHWXAA/OqPUvNfGPWw7cfmMZRacwQTvc1pxtQTMmPCM4ZZPhhU84f29ECQ6xBitslaDzhCRnyOZFzd8ft2mDLO9fwRIIdhOHmNxVrWCsbkY9jPxvpSGzduXSjzXgTrhsfFyiwdO0dSy4M+WJr730INq39gAAAA"
    },
    {
-    "file": "cutar_04.jpg",
-    "src": "/media/projects/cutar/cutar-04-1600.avif",
-    "srcset": "/media/projects/cutar/cutar-04-800.avif 800w, /media/projects/cutar/cutar-04-1600.avif 1600w",
-    "width": 3840,
-    "height": 2160,
-    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOgA8840bjcCUmZRREAAP7U0vrQlic5jyMVPNVlyq3ZSjChCzcLj/JVhSIzj5af/PQQI+RJT3zYKQNzk3iVOYMWGSMxRZQiF/OV+x/Jqd3wvPcTXt4mwdd/LabCDwbPV+iqsdlnpVdvI5UoAOFwuSUXmhWLD8L7pMjQgAA="
+    "file": "villa_las_fuentes_59.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-59-8471e125f982-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-59-8471e125f982-800.avif 800w, /media/projects/cutar/villa-las-fuentes-59-8471e125f982-1600.avif 1600w",
+    "width": 1920,
+    "height": 1280,
+    "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JaACsMlUQwAVB4SFfNriqnYJ6AAD+iQlTUxPp1Rh61MtcGWNEVqoiHCQXCnsHmNvRBEW1f2jsftkd1dybXGAcN1LkeQgN4QchhpNLCi6zdL3ojaW7bkotDe9xXWgamsls7kGPEYoVSHghQyayzkLqYHnahwaz7QozR2nKnUvJKKqz38mwWcVYVy7N4AAA"
+   },
+   {
+    "file": "villa_las_fuentes_60.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-60-f428543f5cce-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-60-f428543f5cce-800.avif 800w, /media/projects/cutar/villa-las-fuentes-60-f428543f5cce-1600.avif 1600w",
+    "width": 1920,
+    "height": 1280,
+    "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoR4PoABg513qrfybrxwAPUO9gG4temZ8T5EZVS2VkSvBHcT0AM3K4k36RPHWqEQ2z4Lie4MkC33AopivdU9V/rO4+h2LwyZLvsZIo9awiNt8efJIe7WGfzywWYjBVgeXPNhwmfqhxqJ1nff5DzwGqMHcXBG+w8QOE4DslcjwDRoQIIAAAA="
+   },
+   {
+    "file": "villa_las_fuentes_61.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-61-b0996f64e541-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-61-b0996f64e541-800.avif 800w, /media/projects/cutar/villa-las-fuentes-61-b0996f64e541-1600.avif 1600w",
+    "width": 1920,
+    "height": 1440,
+    "lqip": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAACQBQCdASoYABIAPu1sq1EppaOiqAqpMB2JYgDE+SAgwQwCpTFafpHRIE8rKJv/NOnIu9BAIAD+2cmCxRA8ivx1tdCINuV4xh9ngZjP7zkts8KyO6XcPVorrjhns80lmtsL/evFOnY0l4xYTGrm615n9/WT29CIPYrL3OSJW+bV4Y17JzO8JN9yVw2+HUiSizGBug/zfosLp84+Zlvjx+IuF53oqakR2CONkEGMUyJOTUUjwzpZIC4sFA6GQRgDIMkp9/K8+5sF+MZ3/QpaosAA"
+   },
+   {
+    "file": "villa_las_fuentes_63.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-63-de7566eb70a1-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-63-de7566eb70a1-800.avif 800w, /media/projects/cutar/villa-las-fuentes-63-de7566eb70a1-1600.avif 1600w",
+    "width": 1920,
+    "height": 1440,
+    "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAAAQBQCdASoYABIAPu1qrVCppaQiqAqpMB2JQBAAAFwL75bUT+lEn8kHhj8tDaYt044AAP2UUbi7j0cPD39KgSccPObsqQEX8jTLbkSDHcrJADp1tiqHc4UHW4WuF/MFXX/Sv963kqhymdNpPywb40WVOFvZ+GiBeFje4V+qFakte8eeT4AOQFnbahhhzd0JtrzW8FW7FRpp2IORGSRHmRpAAAA="
+   },
+   {
+    "file": "villa_las_fuentes_64.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-64-da086dc5f26a-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-64-da086dc5f26a-800.avif 800w, /media/projects/cutar/villa-las-fuentes-64-da086dc5f26a-1600.avif 1600w",
+    "width": 1920,
+    "height": 1440,
+    "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAwBQCdASoYABIAPu1qrVEppaQiqAqpMB2JQBYdgiOXZ19U9FGNpJvcpJt2vNWMDRhLAAD+zdTFBfYrTU9asv/d5QhM2Z+9rtEVocxb2JroRpDL9dxh8khXipRU/7b0j/Es3FZcm2pprTvedFPS3ALnXfYffkTuoN+MJxoUZONCQrVUMP9uygfHhahJAjV+eZlDgSjRLx/gQkcIAAA="
+   },
+   {
+    "file": "villa_las_fuentes_66.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-66-01d12d7d2ab0-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-66-01d12d7d2ab0-800.avif 800w, /media/projects/cutar/villa-las-fuentes-66-01d12d7d2ab0-1600.avif 1600w",
+    "width": 1920,
+    "height": 1440,
+    "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAACwBQCdASoYABIAPu1sqlEppaOiqAqpMB2JYgC7MxyA/8WBnSNCu8h+4xRmIDNw3IpQIuQFXIAA/ozb4LhWUjlGP436G62kImtfgdzq+ulUg9mKTMK/5TiPHhvPMI5P5cEPu2r3WL0qzhMPQw6AKnFNVul4TXYtmhzp2fQRBUT1iU0t9k5PcK7/p/4pzecpPXxYFI4fVr214kYToPojCMRuucJm9FQgtitamK95NXvG3a8vTJPW+hW8t3hd2ZUdbJMv/pwMHMAAAA=="
+   },
+   {
+    "file": "villa_las_fuentes_67.webp",
+    "src": "/media/projects/cutar/villa-las-fuentes-67-0b92e452f6ef-1600.avif",
+    "srcset": "/media/projects/cutar/villa-las-fuentes-67-0b92e452f6ef-800.avif 800w, /media/projects/cutar/villa-las-fuentes-67-0b92e452f6ef-1600.avif 1600w",
+    "width": 1920,
+    "height": 1440,
+    "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAADwBACdASoYABIAPu1qrVCppaQiqAqpMB2JZACdABCn9JVyP8j9oHQy2u+svguWPjAA/pAi2s+DWNKmDWYyDVjBjYVf9v68Kh46gsl00g3rghWv/7UekjrugWwAh/6mwpxXj1TPQogawH0q6+UVpcPyWwmjk61n/jUYqQ+WmL/kR98ZilVhPbvRlLnM03WRtJtMjf4PHagjuEQUG3a0R5GOFMG6WQzLw4hS3f6Lv4CcqdEWwqGb27y00mXfAFMgtIEb49Td1MSmxAAA"
    }
   ]
  },
@@ -255,6 +303,181 @@ export const projectMedia: Record<string, ProjectMedia> = {
     "width": 4048,
     "height": 3032,
     "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACQBQCdASoYABIAPu1or1AppaSiqAqpMB2JZACxH2bUCi/wDhPjk8HHMsa3kInS9g09ofwIAAD9Iw2zDIRC3q2b3C16lVLUxcyf0lsN+OVZM29aeqTDSEieYSs95F9wE+1z7IjJpbE74dUnXZfZRImhF6sPCe16CxiWVenA/W6T2RbXnFHTiV+AycCvcUlpezWpyK/1SoKT/A+oRYayXZTRVpDDDECbgM3AmMwDDpTnFYYKwRanqV4qcSEXlAAA"
+   }
+  ]
+ },
+ "guadalmina": {
+  "hero": {
+   "file": "guadalmina_01.jpg",
+   "src": "/media/projects/guadalmina/guadalmina-01-8857614688e6-1600.avif",
+   "srcset": "/media/projects/guadalmina/guadalmina-01-8857614688e6-800.avif 800w, /media/projects/guadalmina/guadalmina-01-8857614688e6-1600.avif 1600w, /media/projects/guadalmina/guadalmina-01-8857614688e6-2560.avif 2560w",
+   "width": 6000,
+   "height": 4025,
+   "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACxC8ACvZ0HDk3jZSoTO2IAAP5BGnbbai/TcyPa9k4ea+t8vF9B2HI3kO2EtqI5TLRfFSWnTJzWvubcIyia8u6gASbWwo8l3CWN63F5eqMLyGANF75jgjdLf1cmCJdVaLe+iMK9EPxKf1gPDa9uCUjowS5lJ1g/J73d/uZLCzQwmG1t+OIS9jaoo5dXyn0Y+dCiiT7EmmkuMJxlU0Y0PqeGkAAA",
+   "jpg": "/media/projects/guadalmina/guadalmina-01-8857614688e6-og.jpg"
+  },
+  "pause": {
+   "file": "guadalmina_05.jpg",
+   "src": "/media/projects/guadalmina/guadalmina-05-63de4ab3429c-1600.avif",
+   "srcset": "/media/projects/guadalmina/guadalmina-05-63de4ab3429c-800.avif 800w, /media/projects/guadalmina/guadalmina-05-63de4ab3429c-1600.avif 1600w, /media/projects/guadalmina/guadalmina-05-63de4ab3429c-2560.avif 2560w",
+   "width": 6000,
+   "height": 4025,
+   "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JaACdEf/2RuRFYrLakeWIb/VgAPugmDLe0d89cTFAj6dtwbW6Su5bZjaznJw1OZ9BICrWfCaOoMj/6n/xWucKxAYkzDH4GxfuYa0kvicDjwKeSRNmGQX2LzevHaJJzO0xOIekd75N17c1QfWITUFXmf9toMJlJACnrJ+Lclza3qcyn307MT9hdwwDnLti85Sp8AAA"
+  },
+  "gallery": [
+   {
+    "file": "guadalmina_02.jpg",
+    "src": "/media/projects/guadalmina/guadalmina-02-52c9440629e7-1600.avif",
+    "srcset": "/media/projects/guadalmina/guadalmina-02-52c9440629e7-800.avif 800w, /media/projects/guadalmina/guadalmina-02-52c9440629e7-1600.avif 1600w",
+    "width": 6000,
+    "height": 4005,
+    "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYgC2yYu42rr9HjlHLWdwkoUAAP4iNHIEWc0iAG/t/COAceUUIZXyBqLmW17mDEr0Flm/eRLHL5S8v9egzFOen30SaFaYolxgnUYddx+Sw6QWUMvIBj3KmyjdoShQrVnXQ59tCq4BAnbMuL17biYmDETeQFUerEVxObl9jb0Ipoob6+pEv7YAAAA="
+   },
+   {
+    "file": "guadalmina_03.jpg",
+    "src": "/media/projects/guadalmina/guadalmina-03-f011d7f81083-1600.avif",
+    "srcset": "/media/projects/guadalmina/guadalmina-03-f011d7f81083-800.avif 800w, /media/projects/guadalmina/guadalmina-03-f011d7f81083-1600.avif 1600w",
+    "width": 6000,
+    "height": 4005,
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZwAAXBjGWEPjE0DvDNtuwAD+8dmRXjqVGLlex3lG+GqomxtbzM0EWXUhv4PkXizEsYB7jqJa7LdElysaNdNLG7bbhuq/V7xObjots7SY1yCsy7USO4iJl2v/l8sDKeTze07mcG3++Zol+r2xS0sf9bOdFsQCAblRSCn3AAA="
+   },
+   {
+    "file": "guadalmina_04.jpg",
+    "src": "/media/projects/guadalmina/guadalmina-04-2ac99238a474-1600.avif",
+    "srcset": "/media/projects/guadalmina/guadalmina-04-2ac99238a474-800.avif 800w, /media/projects/guadalmina/guadalmina-04-2ac99238a474-1600.avif 1600w",
+    "width": 6000,
+    "height": 4055,
+    "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBOgBA8eJq9GueBcM7jOAAD+X0Dv9xobf1brW/PH9+fi7Yl4GwdzAgKOWrPKHoacnxcrE9PEhk3DG/SPy+LFZkx0inJnrvU32XIrv16Fx5sw/7s2iwIaLTNO0s5MI+NKROrcewP/QQS4t3OKRIoJxbGxb2ub1X+qCRiIJon8KS0i+UtAAA=="
+   }
+  ]
+ },
+ "paraiba": {
+  "hero": {
+   "file": "paraiba_01.webp",
+   "src": "/media/projects/paraiba/paraiba-01-a3473ae1dbae-1600.avif",
+   "srcset": "/media/projects/paraiba/paraiba-01-a3473ae1dbae-800.avif 800w, /media/projects/paraiba/paraiba-01-a3473ae1dbae-1600.avif 1600w, /media/projects/paraiba/paraiba-01-a3473ae1dbae-2560.avif 2560w",
+   "width": 5000,
+   "height": 3327,
+   "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JYgCdAYxYd7MnnjVrqiVhz6cAAP7NfE1El+R789uMH9TeWzv/nw7iavRLJ/y26KagKRF+U39m62Bcz2zWGdGErjJWrdXVUo1/FYu6MvA0gebk0ZhrbhCEHCE3JWwsm71Sg4845SBXfh49+Kp5z7JOFKXjwwrFTjA4yeOC8VggAA==",
+   "jpg": "/media/projects/paraiba/paraiba-01-a3473ae1dbae-og.jpg"
+  },
+  "pause": {
+   "file": "paraiba_05.webp",
+   "src": "/media/projects/paraiba/paraiba-05-771893b0a273-1600.avif",
+   "srcset": "/media/projects/paraiba/paraiba-05-771893b0a273-800.avif 800w, /media/projects/paraiba/paraiba-05-771893b0a273-1600.avif 1600w, /media/projects/paraiba/paraiba-05-771893b0a273-2560.avif 2560w",
+   "width": 9939,
+   "height": 3896,
+   "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwBACdASoYAAkAPu1iqU2ppaQiMAgBMB2JbACdMoR1sCxnHutiLbbuIedGAAD+2iVeko8Jr4rLqlz1GmxcfCMcNKI/Am/gaRTcv+9Em6trXsusqQuYvJbppcCcdbr7Jzl4iShbsbRAnxyQ8PftOJIelRuNfKe8IAAAAA=="
+  },
+  "gallery": [
+   {
+    "file": "paraiba_02.webp",
+    "src": "/media/projects/paraiba/paraiba-02-9d1d9af47ad1-1600.avif",
+    "srcset": "/media/projects/paraiba/paraiba-02-9d1d9af47ad1-800.avif 800w, /media/projects/paraiba/paraiba-02-9d1d9af47ad1-1600.avif 1600w",
+    "width": 5000,
+    "height": 3327,
+    "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAAAwBQCdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdMoMxpn/FrruWOgZejFQH5k++DfER4AD9O1PuQfauSCELauQ39j+qY4VDk0OKHDgbGX5XAYwuCFycqIzkoowapPFMnTpS0rvv+04yKZDG08cyn5pvTUU76+7bfbgZ5po1uAFbFVEQB3rAD0PP0NPxbXpmojIL0ziCDtzXdU0EL6FMXnzVD+iw7+c30z3P9Ijlh6hzLaVECQGQHmNzqSWaxhkWhRdgAA=="
+   },
+   {
+    "file": "paraiba_03.webp",
+    "src": "/media/projects/paraiba/paraiba-03-c679b9243630-1600.avif",
+    "srcset": "/media/projects/paraiba/paraiba-03-c679b9243630-800.avif 800w, /media/projects/paraiba/paraiba-03-c679b9243630-1600.avif 1600w",
+    "width": 5000,
+    "height": 3327,
+    "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdAywTo4qwm9Gut+pLJBjjDcVwAP52EhOFWuZet4c/HDcI/ZM/VYk9r9YvCBtatdOrbysBPo4i4NLrLIHrxcaIZvGp4Hao5kF1vpynscRBOHU75YXdHK1v38oCiFKgb8t5n/2Bed3c/+9/0B6STslzbfdEXZ7izb1mx7OfOo3MQ9l6zWngqoxyIYmUAUPEQAAA"
+   },
+   {
+    "file": "paraiba_04.webp",
+    "src": "/media/projects/paraiba/paraiba-04-db1fa43208d5-1600.avif",
+    "srcset": "/media/projects/paraiba/paraiba-04-db1fa43208d5-800.avif 800w, /media/projects/paraiba/paraiba-04-db1fa43208d5-1600.avif 1600w",
+    "width": 4200,
+    "height": 2795,
+    "lqip": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZgCdAYvqhp0VLDFCvBrOYnAAyrOd+5fqaNkI7ubZJrPGLOhDqF7rs48UnrMLNWAGhDW1yGFBSjsS9dj72oxQxtazclaoT920S0zWmZC+pHrreROGI+fQ9a2L1YhzgMvsY/1rHe92DaFi19gk5ePsZjSnvOY7ly86jH+Mqr1tStyaPJChvth+BYm+w4sb7rp7UccDnx8gcr1VPjo6YjmMDwAAAA=="
+   }
+  ]
+ },
+ "flamingos": {
+  "hero": {
+   "file": "flamingos_01.webp",
+   "src": "/media/projects/flamingos/flamingos-01-cc6660bcf1bb-1000.avif",
+   "srcset": "/media/projects/flamingos/flamingos-01-cc6660bcf1bb-800.avif 800w, /media/projects/flamingos/flamingos-01-cc6660bcf1bb-1000.avif 1000w",
+   "width": 1000,
+   "height": 667,
+   "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JaAC06YxiyYAdpFQb4HmFnl+AAP7MYImo5EgYwi6f24vQDg6L4lQL6iUV1zI9yqAyPPOv9aCcAV3v8Ezo8NKHIxsmzzQX854ayfE1aU7VoXKNplLKiMSBBSYtU/ErkRaNGTTfeUyM41REkKXt9zX6ZqPXcjJPggRMXX5zfqUXfK5/yaqPDguSBR08Hz/3jf4mzIXtlz/Zya90rd7erYuKWrPmQpA2EwAAAA==",
+   "jpg": "/media/projects/flamingos/flamingos-01-cc6660bcf1bb-og.jpg"
+  },
+  "pause": {
+   "file": "flamingos_10.webp",
+   "src": "/media/projects/flamingos/flamingos-10-9342777cd53f-1000.avif",
+   "srcset": "/media/projects/flamingos/flamingos-10-9342777cd53f-800.avif 800w, /media/projects/flamingos/flamingos-10-9342777cd53f-1000.avif 1000w",
+   "width": 1000,
+   "height": 646,
+   "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoR3JoACbUGrYyhI+OIAANlmmGDBendFQdYWpV6psd+DiGxT6BZKvR3ht+12PT+AkWrhPiPsm6xgMhsOoAAOMaW8tmt1mHviNDgi+3Tzo8StUvZx2SmD1bNOqGhGdPq9yR0+eQHoBOr6WmVXo5B3cdnOuz2uAEDVOKWWgDD+BBwc/xGWEvffInnQ6gAAAA=="
+  },
+  "gallery": [
+   {
+    "file": "flamingos_02.webp",
+    "src": "/media/projects/flamingos/flamingos-02-83f96e3a8102-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-02-83f96e3a8102-800.avif 800w, /media/projects/flamingos/flamingos-02-83f96e3a8102-1000.avif 1000w",
+    "width": 1000,
+    "height": 667,
+    "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZQAFEB7pTUFdM8LCtosb/oAA/uUlpIXJ2HaYdZiZalIroJz0UtAsdKgHpQm6HTds2H6zIg0GxkfBw2eGh7fU3feSCZBqRZ6ohvs3JsCjrf2PrGQgqAsxgbm6Tt4/V++n1TJ9fykTiLohAc86V77IuTT6Rx5NXbdDcMnQbDKcMm2WegWoPokAoxrM5AAA"
+   },
+   {
+    "file": "flamingos_03.webp",
+    "src": "/media/projects/flamingos/flamingos-03-8443ee8fc929-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-03-8443ee8fc929-800.avif 800w, /media/projects/flamingos/flamingos-03-8443ee8fc929-1000.avif 1000w",
+    "width": 1000,
+    "height": 886,
+    "lqip": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAADQBQCdASoYABUAPu1mqk+ppaOiMBgIATAdiWIAnTLT9V51S1AU7PvbIMcyydvB/wBK0cdbi+4AAP7QqFunEMd8ZQ6WV8vB9BxPy/NFbSfSyi3eN+jpyXJYKTCFc6A4vSRE8Yn99xl6vrTYMl4aiXTjjUqIq6dlX4yy1XXx/A7uR8J/o8ppXnR85ILu6DXQqpCOYs8TBEq0emchAl1+v+EqH+zMw9JECWeVXiI+xM4TNZjge/nXhb3GoSLb1AEfKPowHEr6H3zZSFXsaaCnZkCOlQynBLD/ECMpEfOPW3Sg9nPccmfk9GLgAAA="
+   },
+   {
+    "file": "flamingos_04.webp",
+    "src": "/media/projects/flamingos/flamingos-04-f2a5c8d9a82d-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-04-f2a5c8d9a82d-800.avif 800w, /media/projects/flamingos/flamingos-04-f2a5c8d9a82d-1000.avif 1000w",
+    "width": 1000,
+    "height": 768,
+    "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAAAwBQCdASoYABIAPu1srFEppaQiqAqpMB2JQBOmYTy4wORsS3dSbfHUaRj+tdWbMYxuoAD+t7JEHjXV9b8DakxbilxkVZceklLsripOUO438++2qGGyvVIlWkCSGZ4peTcFWOxvxyiJZPoVuLiJ0mDlP/0YxZJTherSUKyC0+9GbzBJ/wrEODRC9cT7i9UsO86cQvGrrv+rREFQNF2pQEkAAwl7Jo5YwENVK6Idoc/eyEbVMfKGXanEhcMt6aaQ8ScAAA=="
+   },
+   {
+    "file": "flamingos_05.webp",
+    "src": "/media/projects/flamingos/flamingos-05-1f8b46596aa9-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-05-1f8b46596aa9-800.avif 800w, /media/projects/flamingos/flamingos-05-1f8b46596aa9-1000.avif 1000w",
+    "width": 1000,
+    "height": 493,
+    "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JaACdBagR8ohLccXMfq05M+SJp4AA/tqlMhNojUtjba/Y1Zrqx6NEDaYPFk1QkLdXZw7asD+F3THb3oF0cqvkr6T0l3ZfmzEE/T2ODvifB0AnzTAcCIZnXyE/+db8FioVhqU6fgBthOCoGvTGbJ0jOIz70Dd6u4A07kViLK9xqs0AAAA="
+   },
+   {
+    "file": "flamingos_06.webp",
+    "src": "/media/projects/flamingos/flamingos-06-50d82bde90af-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-06-50d82bde90af-800.avif 800w, /media/projects/flamingos/flamingos-06-50d82bde90af-1000.avif 1000w",
+    "width": 1000,
+    "height": 667,
+    "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAADQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JZgAIEC5tHLgpE0ahZxq55yBy7GhcAAD+fpcl+xzkUENCxMxpTHdcaEgIAHTs5aa+moxHaU22yYrL6RyVyN0bFKYBuKv/62/K07Cq9E9crNpbhFF74A6bxCTGeSlWKXAHfP4yilYeYQMxWuK7aQATwouTkTf09yXZSTK/vQpntGTeIkPeN16Sn1Nz2uV29c3tuWY+DBbkF3/nwD0PX6D/P5LjlAx8uZ8bBPvuNgAAAA=="
+   },
+   {
+    "file": "flamingos_07.webp",
+    "src": "/media/projects/flamingos/flamingos-07-b44f96b7b1f5-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-07-b44f96b7b1f5-800.avif 800w, /media/projects/flamingos/flamingos-07-b44f96b7b1f5-1000.avif 1000w",
+    "width": 1000,
+    "height": 667,
+    "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAAAQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JaACdMoACn0Rj1ZrSCoI0wAD8YoILsJ29nd5M4bhqd4AN7ZJPqniAFNl7rpi1N9myN/1b3gAjIYPr0y2dDO+pjqVUshRaxSJPIV8Wt2EIKBpE8mvvUEfaNtc7+phA8h0NsM0iAl2VV92SZc+Ob2AS1nRp8nQnV+y80DB4sMRE64YqfEjvVEREZnjCJ4sYYYg5rQlHZTBd95OnigA="
+   },
+   {
+    "file": "flamingos_08.webp",
+    "src": "/media/projects/flamingos/flamingos-08-6e8eb561d057-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-08-6e8eb561d057-800.avif 800w, /media/projects/flamingos/flamingos-08-6e8eb561d057-1000.avif 1000w",
+    "width": 1000,
+    "height": 667,
+    "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAABwBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMjbElr05QqrC+fsn5ZgAD+7D2/g0j0yguP+3Vb5NBYLazKzM0wfx5JFn2pRFHoigykvpfdq7xRQxrsemW4qnfG/Ls878GmaQ7X/Usn0DBAS//ANMWf3uPmCpalD/EY7rrNd+KOZBvDTGDhz3hoUK/g25Z2uU6gDvBUKN4eUgvIPI0aq03M5xGoaTfeyZ62Mm1Ekmi4IAA="
+   },
+   {
+    "file": "flamingos_09.webp",
+    "src": "/media/projects/flamingos/flamingos-09-5931b8ec45fa-1000.avif",
+    "srcset": "/media/projects/flamingos/flamingos-09-5931b8ec45fa-800.avif 800w, /media/projects/flamingos/flamingos-09-5931b8ec45fa-1000.avif 1000w",
+    "width": 1000,
+    "height": 667,
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMljEGZUvotZVgAAP6msm1xSKPm5znctOnQRfBc6Zu0quN+81AFnPbstQSYiG6HkD40T7NeiikRGxiUZ3m4AsnbLBE8m6SJZFHyGF+H1uEaPaeEIh4m0lhnepGvekqjH18JeoXMBbs3uv2dXegz8ukNQAA="
    }
   ]
  },
@@ -807,48 +1030,40 @@ export const projectMedia: Record<string, ProjectMedia> = {
    }
   ]
  },
- "alcala-solvilla": {
+ "cortijo-nagueles": {
   "hero": {
-   "file": "alcala_solvilla_02.jpg",
-   "src": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif",
-   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-2560.avif 2560w",
+   "file": "cortijo_nagueles_44_03.jpg",
+   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif",
+   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
-   "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOkERhmGXKqBm5+KrgA99mIG2WNqcqobIEr1r1Zj+7qIe/gDFhXvVHO23MPbVPUQfAQAbXj1jzRifmXi9kjBiyrNs1E3K27qK3bblyZaoOlDPeroOl9bBc7aQWcfWcIU0AYXq7wTZt8If5QvMAA",
-   "jpg": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-og.jpg"
+   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JagCdMoMpACudHQfRjS9u6DawAP5V4+AKkk7IEQb9b4+PGZu+yOAZSBZABkvKtA03sV+p2CIas8/GtHEGiAfwiMjkpS3cMrAgOppZvx3AM0oq9TM1s1mTQNw0Xt1ZRcYFdIhtNZlHPnGx0OM52NwzBOKiuAAA",
+   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-og.jpg"
   },
   "pause": {
-   "file": "alcala_solvilla_06.jpg",
-   "src": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif",
-   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-2560.avif 2560w",
-   "width": 3840,
-   "height": 2160,
-   "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOmUGYW6Qw5U7U/mJBjnS+z0XPAAP3idn+GHdqW+H3TZ34yu8TyovgU11TP+tkpqxU+8IhC+1CS/AoXNuurtvMlokLVOZd+n1B1g2x3wEn8/lEvDVbgaxcKkBka245fQpxzJ10dfhS/aQnLsM3yCymfQ/9x6HDBcuuqAAA="
+   "file": "cortijo_nagueles_44_04.jpg",
+   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif",
+   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-2560.avif 2560w",
+   "width": 6688,
+   "height": 3764,
+   "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOg7wARDw3ruP6JPQAA/iaT5A28T3ZA6zrSUkuJ0keOemDb++xioHo5uvR/587Gw6hKlNWBawAMegNyaGd5H0SXB7Y1/e3HSyA4LVRSmHgxdjAIRhuV3cZSMe2JTrsNxQScpaGcF5cB0WjoAA=="
   },
   "gallery": [
    {
-    "file": "alcala_solvilla_01.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif 1600w",
-    "width": 6688,
-    "height": 3764,
-    "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JYwCdABVYGEaz42X0pIYYAPR3H1XGeKpYc+g27JisHSy+TGVZFCofLgRE2PWyETkDZOrdWEJCKoOmeGnfXxcwAVnWoBv7TcBnqJrOwKh9HHIMKyk+IJvQFOyj/+MmAL1PhDCrLGEKQwJWxw9FUZT4DUsf5IoFSmWC1+L0qsCNI0bXQAA="
-   },
-   {
-    "file": "alcala_solvilla_03.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif 1600w",
-    "width": 6688,
-    "height": 3764,
-    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOgAnh7xHoj1JGMeADeQ27itqmotOVRnyb90NkD8GHMsa7Z1SoYIr6hQA7OtMZKBVCK83MzZ28GmmsbV2mXSLYRI6VWzjxnduW9YJJNQk6o7Ynh37afba47Fy71TADpJOYoYas0AcxRgivxAAAA"
-   },
-   {
-    "file": "alcala_solvilla_05.jpg",
-    "src": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif",
-    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif 1600w",
+    "file": "cortijo_nagueles_44_01.jpg",
+    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif",
+    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif 1600w",
     "width": 3840,
     "height": 2160,
-    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOkBshDQfOqMDVKcToQfAAA+N6WDVykFzSAgzd9xZeTuxriRCgE4pJKnc7/oaEynpGoNEkVssBOGnXRSAq0VUksxuDMp0Q5xzWUGrXm8rViSJgWkVcx3dqL7mnipitkT+Gx1ok+6wabS6NzrGFKtA1MUIRQCf3xO8EZlE0AAA=="
+    "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCdMoADQiU73aplj7IhG4AA/eHqxQEofSkM7QcQiUrc+EpWXShk5w63DV4AU/ElowUhbRgTEwqvlTZIMm0spy7cY45I3tW1YtojmJqGcoND9OrWkv1An0O2QE0l5MgZ2A4duP5G1/duFCBgS1h2NO32egzK5G9ww3vdZ6sSEzFSozGdiXsjHFo6gWIDT+ogTiACSAA="
+   },
+   {
+    "file": "cortijo_nagueles_44_02.jpg",
+    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif",
+    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif 1600w",
+    "width": 6688,
+    "height": 3764,
+    "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBYhhLgpUyUUQJ3swBjgAOt33luY/Z9MrC8oGP70s+xZsE44Qciu376EZit9LuWsrUzxtuXmLgXI+WBSpiipJ4OXGKs2YQPgQL1qylpUcP1eti7XmFG+XJnMZUhXWZx3jjy5yfOY8hYB5Xc1KaUxgPUx6GtDNAYAAA=="
    }
   ]
  },
@@ -913,40 +1128,48 @@ export const projectMedia: Record<string, ProjectMedia> = {
    "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdACFZ07gewJ6mDAAA/gh//GEOJqsJhl7UWxOkGZBdEfluu0kHvlgEQu+wu1FYdO/HXXk5bAqqQR1XCpUAJTCho2mlntzgVLYoTz7ZCuJmW+7a0jDigWrrAq5KBnj/L1RhiIyJZ3XUe6/8HD6HXWjUDuh67eMPvqBqC/N06VSRCdrAAA=="
   }
  },
- "cortijo-nagueles": {
+ "alcala-solvilla": {
   "hero": {
-   "file": "cortijo_nagueles_44_03.jpg",
-   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif",
-   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-2560.avif 2560w",
+   "file": "alcala_solvilla_02.jpg",
+   "src": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif",
+   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-2560.avif 2560w",
    "width": 6688,
    "height": 3764,
-   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA0APu1iqU2ppaQiMAgBMB2JagCdMoMpACudHQfRjS9u6DawAP5V4+AKkk7IEQb9b4+PGZu+yOAZSBZABkvKtA03sV+p2CIas8/GtHEGiAfwiMjkpS3cMrAgOppZvx3AM0oq9TM1s1mTQNw0Xt1ZRcYFdIhtNZlHPnGx0OM52NwzBOKiuAAA",
-   "jpg": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-03-4cd06be0f606-og.jpg"
+   "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOkERhmGXKqBm5+KrgA99mIG2WNqcqobIEr1r1Zj+7qIe/gDFhXvVHO23MPbVPUQfAQAbXj1jzRifmXi9kjBiyrNs1E3K27qK3bblyZaoOlDPeroOl9bBc7aQWcfWcIU0AYXq7wTZt8If5QvMAA",
+   "jpg": "/media/projects/alcala-solvilla/alcala-solvilla-02-c6bea87d883d-og.jpg"
   },
   "pause": {
-   "file": "cortijo_nagueles_44_04.jpg",
-   "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif",
-   "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-1600.avif 1600w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-04-ec8c3d4cc166-2560.avif 2560w",
-   "width": 6688,
-   "height": 3764,
-   "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JQBOg7wARDw3ruP6JPQAA/iaT5A28T3ZA6zrSUkuJ0keOemDb++xioHo5uvR/587Gw6hKlNWBawAMegNyaGd5H0SXB7Y1/e3HSyA4LVRSmHgxdjAIRhuV3cZSMe2JTrsNxQScpaGcF5cB0WjoAA=="
+   "file": "alcala_solvilla_06.jpg",
+   "src": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif",
+   "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-1600.avif 1600w, /media/projects/alcala-solvilla/alcala-solvilla-06-ea7917776ebb-2560.avif 2560w",
+   "width": 3840,
+   "height": 2160,
+   "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOmUGYW6Qw5U7U/mJBjnS+z0XPAAP3idn+GHdqW+H3TZ34yu8TyovgU11TP+tkpqxU+8IhC+1CS/AoXNuurtvMlokLVOZd+n1B1g2x3wEn8/lEvDVbgaxcKkBka245fQpxzJ10dfhS/aQnLsM3yCymfQ/9x6HDBcuuqAAA="
   },
   "gallery": [
    {
-    "file": "cortijo_nagueles_44_01.jpg",
-    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif",
-    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-01-546b148a2dd2-1600.avif 1600w",
-    "width": 3840,
-    "height": 2160,
-    "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCdMoADQiU73aplj7IhG4AA/eHqxQEofSkM7QcQiUrc+EpWXShk5w63DV4AU/ElowUhbRgTEwqvlTZIMm0spy7cY45I3tW1YtojmJqGcoND9OrWkv1An0O2QE0l5MgZ2A4duP5G1/duFCBgS1h2NO32egzK5G9ww3vdZ6sSEzFSozGdiXsjHFo6gWIDT+ogTiACSAA="
-   },
-   {
-    "file": "cortijo_nagueles_44_02.jpg",
-    "src": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif",
-    "srcset": "/media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-800.avif 800w, /media/projects/cortijo-nagueles/cortijo-nagueles-44-02-4740bbbde129-1600.avif 1600w",
+    "file": "alcala_solvilla_01.jpg",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-01-d045cd4cb294-1600.avif 1600w",
     "width": 6688,
     "height": 3764,
-    "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBYhhLgpUyUUQJ3swBjgAOt33luY/Z9MrC8oGP70s+xZsE44Qciu376EZit9LuWsrUzxtuXmLgXI+WBSpiipJ4OXGKs2YQPgQL1qylpUcP1eti7XmFG+XJnMZUhXWZx3jjy5yfOY8hYB5Xc1KaUxgPUx6GtDNAYAAA=="
+    "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAADwAwCdASoYAA0APu1iqU2ppaOiMAgBMB2JYwCdABVYGEaz42X0pIYYAPR3H1XGeKpYc+g27JisHSy+TGVZFCofLgRE2PWyETkDZOrdWEJCKoOmeGnfXxcwAVnWoBv7TcBnqJrOwKh9HHIMKyk+IJvQFOyj/+MmAL1PhDCrLGEKQwJWxw9FUZT4DUsf5IoFSmWC1+L0qsCNI0bXQAA="
+   },
+   {
+    "file": "alcala_solvilla_03.jpg",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-03-a4458dd00190-1600.avif 1600w",
+    "width": 6688,
+    "height": 3764,
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACwAwCdASoYAA0APu1kqU2ppaQiMAgBMB2JQBOgAnh7xHoj1JGMeADeQ27itqmotOVRnyb90NkD8GHMsa7Z1SoYIr6hQA7OtMZKBVCK83MzZ28GmmsbV2mXSLYRI6VWzjxnduW9YJJNQk6o7Ynh37afba47Fy71TADpJOYoYas0AcxRgivxAAAA"
+   },
+   {
+    "file": "alcala_solvilla_05.jpg",
+    "src": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif",
+    "srcset": "/media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-800.avif 800w, /media/projects/alcala-solvilla/alcala-solvilla-05-f6edc40d2e26-1600.avif 1600w",
+    "width": 3840,
+    "height": 2160,
+    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOkBshDQfOqMDVKcToQfAAA+N6WDVykFzSAgzd9xZeTuxriRCgE4pJKnc7/oaEynpGoNEkVssBOGnXRSAq0VUksxuDMp0Q5xzWUGrXm8rViSJgWkVcx3dqL7mnipitkT+Gx1ok+6wabS6NzrGFKtA1MUIRQCf3xO8EZlE0AAA=="
    }
   ]
  },

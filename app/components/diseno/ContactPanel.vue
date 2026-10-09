@@ -2,7 +2,7 @@
 // Contact content (ARK-style): title, studio video and tagline on the left; the agreed form on the right.
 // Used inside ContactDrawer.vue (every page) and on the /contact page.
 import { contactCopy } from '~/data/contact'
-import { negocio } from '~/data/negocio'
+import { negocio, telefonos } from '~/data/negocio'
 import { resolvePage } from '~/data/pages'
 const props = defineProps({ active: { type: Boolean, default: true }, headingTag: { type: String, default: 'h2' }, idPrefix: { type: String, default: 'contact' } })
 const { locale } = useGalvan()
@@ -14,7 +14,8 @@ const context = computed(() => {
  if (!page || page.definition.template === 'contact') return null
  return { label: page.content.label }
 })
-const form = reactive({ name: '', email: '', phone: '', message: '' })
+const form = reactive({ name: '', email: '', phone: '', message: '', website: '' })
+const { status, submit } = useEnquiry()
 const video = ref(null), reduced = ref(false)
 // Plays while the panel is open; resumes after a hidden tab or sleep (utils/ambient-video.ts).
 let videos = null
@@ -22,14 +23,18 @@ onMounted(async () => { reduced.value = matchMedia('(prefers-reduced-motion: red
 function sync() { if (video.value) videos?.set(video.value, props.active) }
 watch(() => props.active, sync)
 onBeforeUnmount(() => { videos?.destroy(); videos = null })
-function send() {
+// Sent by /api/contact; if that fails, the same enquiry prepared for the visitor's email app.
+const mailto = computed(() => {
  const t = c.value, f = t.fields
  const details = [context.value ? `${t.regarding}: ${context.value.label}` : '', `${f.name}: ${form.name}`, `${f.email}: ${form.email}`, form.phone ? `${f.phone}: ${form.phone}` : ''].filter(Boolean)
  const body = [...details, '', form.message].join('\n')
  const subject = context.value ? `${t.subject} · ${context.value.label}` : t.subject
- window.location.href = `mailto:${negocio.contacto.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+ return `mailto:${negocio.contacto.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+})
+async function send() {
+ const sent = await submit({ ...form, regarding: context.value?.label ?? '', page: route.path, locale: locale.value })
+ if (sent) Object.assign(form, { name: '', email: '', phone: '', message: '' })
 }
-const tel = computed(() => 'tel:' + negocio.contacto.telefono.replaceAll(' ', ''))
 const id = s => `${props.idPrefix}-${s}`
 </script>
 <template>
@@ -51,12 +56,14 @@ const id = s => `${props.idPrefix}-${s}`
   </div>
   <label :for="id('phone')">{{ c.fields.phone }}<input :id="id('phone')" v-model="form.phone" name="phone" type="tel" autocomplete="tel" maxlength="50"></label>
   <label :for="id('message')">{{ c.fields.message }}<textarea :id="id('message')" v-model="form.message" name="message" rows="4" required maxlength="5000"></textarea></label>
+  <div class="visually-hidden" aria-hidden="true"><label :for="id('website')">Website<input :id="id('website')" v-model="form.website" name="website" tabindex="-1" autocomplete="off"></label></div>
   <p class="contact-panel-note">{{ c.note }}</p>
   <div class="contact-panel-actions">
-   <button type="submit" class="contact-panel-button">{{ c.send }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button>
-   <a :href="tel" class="contact-panel-button">{{ c.call }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
+   <button type="submit" class="contact-panel-button" :disabled="status === 'sending'">{{ status === 'sending' ? c.sending : c.send }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></button>
+   <a :href="telefonos[0].href" class="contact-panel-button">{{ c.call }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
   </div>
-  <p class="contact-panel-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="tel">{{ negocio.contacto.telefono }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p>
+  <p class="contact-panel-status" role="status"><template v-if="status === 'sent'">{{ c.sent }}</template><template v-else-if="status === 'error'">{{ c.error }} <a :href="mailto">{{ c.fallback }}</a></template></p>
+  <p class="contact-panel-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a v-for="p in telefonos" :key="p.href" :href="p.href">{{ p.label[locale] }} {{ p.numero }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p>
  </form>
 </div>
 </template>

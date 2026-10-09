@@ -49,7 +49,7 @@ export const contactPage: PageDefinition<ProjectPageContent> = {
   en: page('en', { label: contactCopy.en.label, title: contactCopy.en.title, description: contactCopy.en.description, image: { src: '/media/studio/studio-og.jpg', alt: contactCopy.en.videoAlt } }),
   es: page('es', { label: contactCopy.es.label, title: contactCopy.es.title, description: contactCopy.es.description, image: { src: '/media/studio/studio-og.jpg', alt: contactCopy.es.videoAlt } })
  },
- sources: ['CLAUDE.md §5 and §9.7 (agreed form fields, contact details)'], pending: ['Form has no backend: it prepares an email in the visitor’s app']
+ sources: ['CLAUDE.md §5 and §9.7 (agreed form fields, contact details)'], pending: []
 }
 
 // Videos: the 2026 reel and the project videos (FilmsPage.vue). Open Graph falls back to the reel poster.
@@ -60,7 +60,7 @@ export const filmsPage: PageDefinition<ProjectPageContent> = {
   es: page('es', { label: filmsCopy.es.label, title: filmsCopy.es.title, description: filmsCopy.es.description, image: { src: reel.media.poster.jpg, alt: filmsCopy.es.lead } })
  },
  sources: ['__Material__/videos-reel (reel and project videos with their posters, 9 Oct 2026)', 'app/data/projects (names, status and imagery of each project)'],
- pending: ['Review the video descriptions with Paco', 'Authorship of the videos (filming and visualisation credits) if it should be shown', 'uploadDate of the VideoObjects: set it to the publication date']
+ pending: ['Review the video descriptions with Paco', 'Authorship of the other videos (filming and visualisation credits) if it should be shown; The House is credited to Gonzalo Botet', 'uploadDate of the VideoObjects: set it to the publication date']
 }
 
 // Legal pages: drafts until the identification data pending below is confirmed (never published with placeholders).

@@ -198,7 +198,7 @@ export const commonCopy = {
     localPoints: ['Personal attention from the architect', 'Video calls, visits and site follow-up', 'Design with the surroundings in mind'],
     faqEyebrow: 'BEFORE WE BEGIN', faqTitle: 'A few useful questions.',
     fields: { name: 'Your name', email: 'Email', phone: 'Phone (optional)', location: 'Project location', message: 'Tell us about your project' },
-    submit: 'Prepare an email enquiry', formNote: 'This preview prepares the enquiry in your email app. Nothing is sent from the form.', contactAlternative: 'Or contact the studio directly',
+    submit: 'Send enquiry', formNote: 'Your message goes straight to the studio and your details are used only to answer it. We reply in English or Spanish.', contactAlternative: 'Or contact the studio directly',
     footerLink: 'Back to the top', languageLabel: 'Español', reference: 'Studio archive', illustration: 'Concept illustration · not a project drawing',
     archiveCaption: 'Studio archive', hubEyebrow: 'MARBELLA · COSTA DEL SOL'
   },
@@ -209,7 +209,7 @@ export const commonCopy = {
     localPoints: ['Trato directo con el arquitecto', 'Videollamadas, visitas y seguimiento de obra', 'Diseño que considera el entorno'],
     faqEyebrow: 'ANTES DE EMPEZAR', faqTitle: 'Algunas preguntas útiles.',
     fields: { name: 'Tu nombre', email: 'Email', phone: 'Teléfono (opcional)', location: 'Zona del proyecto', message: 'Cuéntanos tu proyecto' },
-    submit: 'Preparar una consulta por email', formNote: 'Esta vista previa prepara la consulta en tu aplicación de correo. El formulario no envía datos.', contactAlternative: 'O contacta directamente con el estudio',
+    submit: 'Enviar consulta', formNote: 'Tu mensaje llega directamente al estudio y tus datos solo se usan para responderte. Respondemos en español o inglés.', contactAlternative: 'O contacta directamente con el estudio',
     footerLink: 'Volver arriba', languageLabel: 'English', reference: 'Archivo del estudio', illustration: 'Ilustración conceptual · no es un plano de proyecto',
     archiveCaption: 'Archivo del estudio', hubEyebrow: 'MARBELLA · COSTA DEL SOL'
   }

@@ -436,6 +436,18 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/projects--parcelas-del-golf.jpg",
   "alt": "Parcelas del Golf"
  },
+ "/projects/villa-flamingos": {
+  "image": "/og/projects--villa-flamingos.jpg",
+  "alt": "Villa Flamingos"
+ },
+ "/projects/paraiba-residencial": {
+  "image": "/og/projects--paraiba-residencial.jpg",
+  "alt": "Paraiba Residencial"
+ },
+ "/projects/villa-guadalmina": {
+  "image": "/og/projects--villa-guadalmina.jpg",
+  "alt": "Villa Guadalmina"
+ },
  "/es/proyectos/the-house": {
   "image": "/og/es--proyectos--the-house.jpg",
   "alt": "The House"
@@ -543,6 +555,18 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  "/es/proyectos/parcelas-del-golf": {
   "image": "/og/es--proyectos--parcelas-del-golf.jpg",
   "alt": "Parcelas del Golf"
+ },
+ "/es/proyectos/villa-flamingos": {
+  "image": "/og/es--proyectos--villa-flamingos.jpg",
+  "alt": "Villa Flamingos"
+ },
+ "/es/proyectos/paraiba-residencial": {
+  "image": "/og/es--proyectos--paraiba-residencial.jpg",
+  "alt": "Paraiba Residencial"
+ },
+ "/es/proyectos/villa-guadalmina": {
+  "image": "/og/es--proyectos--villa-guadalmina.jpg",
+  "alt": "Villa Guadalmina"
  },
  "/areas/benahavis": {
   "image": "/og/areas--benahavis.jpg",

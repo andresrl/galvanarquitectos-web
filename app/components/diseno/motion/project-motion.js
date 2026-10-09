@@ -1,5 +1,5 @@
 // Project archive motion (project pages and listing): soft reveals, slow photographic zoom and parallax.
-// No pins, no snapping. Header tone follows the band under it: data-header="light" (dark band) or "dark" (paper).
+// Hairlines draw (data-draw) and stacked lines rise from a mask (data-rise > data-rise-line). A frame unveils upwards (data-unveil) while its photographs settle from a zoom (data-zoom, scrubbed). No pins, no snapping. Header tone follows the band under it: data-header="light" (dark band) or "dark" (paper).
 // restoreTop: offset that history back/forward returns to; what was on screen or above shows at once, without revealing again.
 // after: promise of a running page transition (utils/page-transition.ts); the hero copy waits for it, then rises.
 export function createProjectMotion({ root, gsap, ScrollTrigger, onTone, restoreTop, after }) {
@@ -33,6 +33,21 @@ export function createProjectMotion({ root, gsap, ScrollTrigger, onTone, restore
   root.querySelectorAll('[data-reveal]').forEach(el => {
    if (hero?.contains(el) || seen(el)) return
    gsap.from(el, { y: mobile ? 22 : 44, opacity: 0, duration: 1.15, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' } })
+  })
+  root.querySelectorAll('[data-draw]').forEach(el => {
+   if (seen(el)) return
+   gsap.from(el, { scaleX: 0, transformOrigin: '0 50%', duration: 1.6, ease: 'expo.inOut', scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' } })
+  })
+  root.querySelectorAll('[data-rise]').forEach(group => {
+   if (seen(group)) return
+   gsap.from(group.querySelectorAll('[data-rise-line]'), { yPercent: 110, duration: 1.25, stagger: .09, delay: .12, ease: 'power3.out', scrollTrigger: { trigger: group, start: 'top 90%', toggleActions: 'play none none none' } })
+  })
+  root.querySelectorAll('[data-unveil]').forEach(el => {
+   if (seen(el)) return
+   gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1, ease: 'expo.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 94%', toggleActions: 'play none none none' } })
+  })
+  root.querySelectorAll('[data-zoom]').forEach(el => {
+   gsap.fromTo(el, { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: .7 } })
   })
   root.querySelectorAll('.project-photo img').forEach(img => {
    gsap.fromTo(img, { scale: 1.1 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: img.closest('.project-photo'), start: 'top bottom', end: 'bottom top', scrub: .7 } })

@@ -5,10 +5,11 @@ manifest app/data/projects/media.generated.ts.
 
 Originals stay outside public/. Never upscales. Incremental: existing outputs are kept
 (pass --force to rebuild). --projects ID [ID ...] rebuilds only those projects.
+--src DIR reads the originals from another folder (on the Windows machine: ../__Selección__).
 Content hashes in filenames invalidate cached images when originals or the conversion recipe change.
-Requires the vips CLI with HEIF/AVIF support.
+Uses the vips CLI with HEIF/AVIF support; without it, falls back to Pillow 11.2+ (built-in AVIF).
 """
-import argparse, base64, hashlib, json, os, re, subprocess, unicodedata
+import argparse, base64, hashlib, io, json, os, re, shutil, subprocess, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -17,18 +18,26 @@ SRC = APP.parent / 'Graphics' / 'VISENI' / '01 - Selección Proyectos'
 OUT = APP / 'public' / 'media' / 'projects'
 CACHE = APP / '.cache' / 'lqip'
 MANIFEST = APP / 'app' / 'data' / 'projects' / 'media.generated.ts'
-CURATION = json.loads((APP / 'scripts' / 'media' / 'projects.json').read_text())['projects']
+CURATION = json.loads((APP / 'scripts' / 'media' / 'projects.json').read_text(encoding='utf-8'))['projects']
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--force', action='store_true')
 parser.add_argument('--projects', nargs='+', metavar='ID')
+parser.add_argument('--src', type=Path, default=SRC)
 ARGS = parser.parse_args()
+SRC = ARGS.src
 FORCE = ARGS.force
 ENV = {**os.environ, 'VIPS_WARNING': '0', 'VIPS_CONCURRENCY': '2'}
-IMAGE = re.compile(r'\.(jpe?g|png)$', re.I)
+ENGINE = 'vips' if shutil.which('vips') else 'pillow'
+IMAGE = re.compile(r'\.(jpe?g|png|webp)$', re.I)
 WIDTHS = [800, 1600]          # gallery
 WIDTHS_WIDE = [800, 1600, 2560]  # hero and pause are shown full-bleed
 # Include the conversion recipe so regenerated derivatives also get fresh cache URLs.
-RECIPE = b'v1:avif-Q52-effort4-strip:srgb:jpeg-Q82:webp-Q40'
+RECIPE = b'v1:avif-Q52-effort4-strip:srgb:jpeg-Q82:webp-Q40' + (b':pillow' if ENGINE == 'pillow' else b'')
+SAVE = {  # vips save options and their Pillow equivalents
+    'avif': ('Q=52,effort=4,strip', {'quality': 52, 'speed': 5}),
+    'og': ('Q=82,strip,optimize-coding,interlace', {'quality': 82, 'optimize': True, 'progressive': True}),
+    'lqip': ('Q=40,strip', {'quality': 40}),
+}
 
 
 def run(*args: str) -> str:
@@ -40,14 +49,34 @@ def slugify(stem: str) -> str:
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
 
 
+def pillow(path: Path):
+    from PIL import Image, ImageCms, ImageOps
+    im = ImageOps.exif_transpose(Image.open(path))
+    if icc := im.info.get('icc_profile'):  # as --export-profile srgb
+        im = ImageCms.profileToProfile(im, ImageCms.ImageCmsProfile(io.BytesIO(icc)), ImageCms.createProfile('sRGB'), outputMode='RGB')
+    im = im.convert('RGB')
+    im.info.clear()  # strip: no EXIF or ICC in the derivatives
+    return im
+
+
 def size(path: Path) -> tuple[int, int]:
+    if ENGINE == 'pillow':
+        return pillow(path).size
     return int(run('vipsheader', '-f', 'width', str(path))), int(run('vipsheader', '-f', 'height', str(path)))
 
 
-def derive(src: Path, dest: Path, width: int, opts: str, *extra: str) -> None:
+def derive(src: Path, dest: Path, width: int, kind: str, height: int = 0) -> None:
     if dest.exists() and not FORCE:
         return
-    run('vips', 'thumbnail', str(src), f'{dest}[{opts}]', str(width), '--export-profile', 'srgb', *extra)
+    opts, save = SAVE[kind]
+    if ENGINE == 'vips':
+        crop = ('--height', str(height), '--crop', 'centre') if height else ()
+        run('vips', 'thumbnail', str(src), f'{dest}[{opts}]', str(width), '--export-profile', 'srgb', *crop)
+        return
+    from PIL import Image, ImageOps
+    im = pillow(src)
+    im = ImageOps.fit(im, (width, height), Image.LANCZOS) if height else im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+    im.save(dest, **save)
 
 
 def process(project: dict, file: str, role: str) -> dict:
@@ -61,13 +90,13 @@ def process(project: dict, file: str, role: str) -> dict:
     variants = []
     for width in widths:
         dest = folder / f'{name}-{width}.avif'
-        derive(src, dest, width, 'Q=52,effort=4,strip')
+        derive(src, dest, width, 'avif')
         variants.append((width, f'/media/projects/{project["id"]}/{dest.name}'))
     if role == 'hero':  # Open Graph: exact 1200x630 crop, JPEG
-        derive(src, folder / f'{name}-og.jpg', 1200, 'Q=82,strip,optimize-coding,interlace', '--height', '630', '--crop', 'centre')
+        derive(src, folder / f'{name}-og.jpg', 1200, 'og', 630)
     CACHE.mkdir(parents=True, exist_ok=True)
     lqip = CACHE / f'{project["id"]}-{name}.webp'
-    derive(src, lqip, 24, 'Q=40,strip')
+    derive(src, lqip, 24, 'lqip')
     default = next((p for wd, p in variants if wd >= 1600), variants[-1][1])
     return {
         'file': file, 'src': default, 'srcset': ', '.join(f'{p} {wd}w' for wd, p in variants),
@@ -106,7 +135,7 @@ def main() -> None:
             parser.error(f'Unknown project IDs: {", ".join(sorted(unknown))}')
         if not MANIFEST.exists():
             parser.error('A full build is required before rebuilding selected projects')
-        media = json.loads(MANIFEST.read_text().split(' = ', 1)[1])
+        media = json.loads(MANIFEST.read_text(encoding='utf-8').split(' = ', 1)[1])
         selected = [p for p in CURATION if p['id'] in ARGS.projects]
     print(f'Projects: {len(selected)} from {SRC}')
     with ThreadPoolExecutor(max_workers=min(os.cpu_count() or 4, 4)) as pool:
@@ -116,7 +145,7 @@ def main() -> None:
     MANIFEST.write_text(
         '// Generated by scripts/media/build_projects.py from scripts/media/projects.json. Do not edit.\n'
         "import type { ProjectMedia } from './types'\n"
-        f'export const projectMedia: Record<string, ProjectMedia> = {body}\n'
+        f'export const projectMedia: Record<string, ProjectMedia> = {body}\n', encoding='utf-8'
     )
     total = sum(f.stat().st_size for f in OUT.rglob('*') if f.is_file())
     print(f'Wrote {MANIFEST.relative_to(APP)} · public/media/projects {total / 1e6:.1f} MB')

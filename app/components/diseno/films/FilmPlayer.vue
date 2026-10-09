@@ -195,7 +195,7 @@ defineExpose({ show, close, dismiss: () => { if (dialog.value?.open) dialog.valu
  <div class="film-player-top" data-chrome>
   <p v-if="film" class="film-player-meta">
    <span class="film-player-count">{{ String(index + 1).padStart(2, '0') }} <span>{{ ui.of }} {{ String(films.length).padStart(2, '0') }}</span></span>
-   <strong>{{ film.title }}</strong><em>{{ film.kind }}</em>
+   <strong>{{ film.title }}</strong><em>{{ film.kind }}</em><span v-if="film.credit" class="film-player-credit">{{ film.credit.label }} <i>{{ film.credit.name }}</i></span>
   </p>
   <div class="film-player-actions">
    <NuxtLink v-if="film?.path" class="film-player-project" :to="film.path" @click="dialog.close()"><span>{{ ui.viewProject }}</span><DisenoIcon name="arrow-up-right" /></NuxtLink>

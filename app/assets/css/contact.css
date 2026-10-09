@@ -26,12 +26,18 @@
 .contact-panel-form textarea{resize:vertical;min-height:96px}
 .contact-panel-form input::placeholder{color:#f6f4ef4d}
 .contact-panel-form input:focus,.contact-panel-form textarea:focus{outline:none;border-bottom-color:var(--brass)}
+/* Browser autofill paints its own light background: cover it with the panel colour and keep paper-coloured text. */
+.contact-panel-form input:-webkit-autofill,.contact-panel-form input:-webkit-autofill:hover,.contact-panel-form input:-webkit-autofill:focus,.contact-panel-form textarea:-webkit-autofill{-webkit-text-fill-color:var(--paper);caret-color:var(--paper);-webkit-box-shadow:0 0 0 1000px #141d18 inset;box-shadow:0 0 0 1000px #141d18 inset;transition:background-color 600000s,border-color .25s}
+.contact-panel-form input:autofill,.contact-panel-form textarea:autofill{filter:none;color:var(--paper);box-shadow:0 0 0 1000px #141d18 inset}
 .contact-panel-note{max-width:60ch;margin:0 0 28px;font-size:11px;line-height:1.7;color:#f6f4ef8c}
 .contact-panel-actions{display:flex;flex-wrap:wrap;gap:16px}
 .contact-panel-button{display:inline-flex;align-items:center;gap:18px;padding:13px 20px;border:1px solid var(--paper);background:transparent;color:var(--paper);font:inherit;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
 .contact-panel-button span{font-size:18px;transition:transform .3s}
 .contact-panel-button:hover{background:var(--paper);color:#141d18}
 .contact-panel-button:hover span{transform:translate(2px,-2px)}
+.contact-panel-button:disabled{opacity:.6;cursor:progress}.contact-panel-button:disabled:hover{background:transparent;color:var(--paper)}
+.contact-panel-status{max-width:60ch;margin:0;font-size:13px;line-height:1.7;color:var(--paper)}.contact-panel-status:not(:empty){margin-top:22px}
+.contact-panel-status a{text-decoration:underline;text-underline-offset:3px}.contact-panel-status a:hover{color:var(--brass)}
 .contact-panel-direct{display:flex;flex-wrap:wrap;gap:8px 26px;margin:40px 0 0;padding-top:24px;border-top:1px solid #f6f4ef1f;font-size:12px;color:#f6f4efa6}
 .contact-panel-direct a:hover{color:var(--brass)}
 

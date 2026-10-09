@@ -1,0 +1,9 @@
+{
+  "_doc": "Physical models on the studio page (/studio · /es/estudio), in display order. id = project id in projects.json (the model links to that project). files: photographs in public/media/studio/maquetas (originals, git-ignored, never served); the first one is shown first. Alt texts in app/data/studio.ts (models), same order. Build: python scripts/media/build_models.py",
+  "models": [
+    { "id": "altos-de-los-monteros", "files": ["altos_monteros (2).webp", "altos_monteros (1).webp", "altos_monteros (3).webp", "altos_monteros (4).webp", "altos_monteros (5).webp", "altos_monteros (6).webp"] },
+    { "id": "la-montua", "files": ["montua (2).webp", "montua (3).webp", "montua (1).webp", "montua (4).webp", "montua (5).webp", "montua (6).webp"] },
+    { "id": "villa-pareja", "files": ["pareja (1).webp", "pareja (5).webp", "pareja (2).webp", "pareja (3).webp", "pareja (4).webp", "pareja (6).webp"] },
+    { "id": "la-resina", "files": ["resina (2).webp", "resina (1).webp", "resina (3).webp", "resina (4).webp", "resina (5).webp", "resina (6).webp"] }
+  ]
+}

@@ -28,14 +28,19 @@ const facts: Record<string, ProjectFacts> = {
  'villa-ambar': { status: 'completed', imagery: 'photography', pending: ['Zone', pendingCommon] },
  castilla: { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone', pendingCommon] },
  'alcala-solvilla': { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone'] },
- cutar: { status: 'completed', imagery: 'visualisation', pending: ['Zone and intervention (the name is not a location)', pendingCommon] },
+ cutar: { status: 'completed', imagery: 'photography', pending: ['Zone and intervention (the name is not a location)', pendingCommon] },
  orion: { status: 'completed', imagery: 'visualisation', pending: ['Zone and type of intervention', pendingCommon] },
  sirio: { status: 'completed', imagery: 'photography', pending: ['Zone and type of intervention', pendingCommon] },
  'villa-relojero': { status: 'completed', imagery: 'photography', pending: ['Zone', 'Higher-resolution photographs (source is 1920 px)'] },
  elviria: { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone (the name is not a confirmed location)'] },
  'la-montua': { status: null, imagery: 'visualisation', pending: ['Status, intervention and location'] },
  'villa-del-golf': { status: null, imagery: 'visualisation', pending: ['Status, intervention and zone'] },
- 'villa-silver': { status: 'completed', imagery: 'photography', pending: ['Project text: only a short visual reading is published', 'Zone'] }
+ 'villa-silver': { status: 'completed', imagery: 'photography', pending: ['Project text: only a short visual reading is published', 'Zone'] },
+ // Added 9 Oct 2026 with photographs of the built works and no proyecto.md: the copy is a visual reading of the images.
+ guadalmina: { status: 'completed', imagery: 'photography', pending: ['Project text (no proyecto.md): validate the visual reading', 'Zone and type of intervention (the name is not a confirmed location)'] },
+ // Programme, zone and materials confirmed by Andrés (9 Oct 2026): five homes in Marbella, four semi-detached and a villa.
+ paraiba: { status: 'completed', zone: 'marbella', imagery: 'photography', pending: [pendingCommon] },
+ flamingos: { status: 'completed', imagery: 'photography', pending: ['Project text (no proyecto.md): validate the visual reading', 'Zone and type of intervention (the name is not a confirmed location)', 'Higher-resolution photographs (source is 1000 px)'] }
 }
 
 // Services shown by each project (text of proyecto.md + images). Pending Paco's confirmation; used for

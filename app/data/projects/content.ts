@@ -435,7 +435,7 @@ export const projectCopy: Record<string, Entry> = {
         'Situada en Nagüeles, ofrece un entorno sereno con vistas al mar y a la montaña, cerca del centro de Marbella, la Milla de Oro y Puerto Banús. Desde la entrada, junto a la fuente de la villa, hasta los amplios interiores, cada detalle está cuidado.',
         'La vivienda se desarrolla en dos plantas, con una circulación continua entre las zonas de estar, una cocina Danespan y una terraza panorámica con piscina y espacios exteriores.',
         'Desde la entrada, junto a la fuente de la villa, hasta los amplios interiores, cada detalle está cuidado. La vivienda se desarrolla en dos plantas, con una circulación continua entre las zonas de estar, una cocina Danespan pensada para recibir y una terraza panorámica con piscina y espacios exteriores. Acabados de calidad y ventanales de suelo a techo completan la casa.'],
-      heroAlt: 'Villa Las Fuentes al atardecer: fachada blanca con pérgola y escalinata, con la montaña al fondo'
+      heroAlt: 'Villa Las Fuentes al atardecer: la piscina frente a la casa blanca y su pérgola de madera iluminada, bajo un cielo rosado'
     },
     en: {
       heading: 'A house discovered from the garden',
@@ -444,7 +444,7 @@ export const projectCopy: Record<string, Entry> = {
         'Set in Nagüeles, it offers calm surroundings with views of the sea and the mountains, yet remains close to Marbella town, the Golden Mile and Puerto Banús. From the entrance, past the villa’s fountain, to the spacious interiors, every detail has been carefully considered.',
         'The house is arranged over two levels, with a seamless flow between the living spaces, a Danespan kitchen and a panoramic terrace with a pool and outdoor amenities.',
         'From the entrance, past the villa’s fountain, to the spacious interiors, every detail has been carefully considered. The house is arranged over two levels, with a seamless flow between the living spaces, a Danespan kitchen designed for entertaining and a panoramic terrace with a pool and outdoor amenities. High-quality finishes and floor-to-ceiling windows complete the house.'],
-      heroAlt: 'Villa Las Fuentes at sunset: white façade with pergola and wide steps, the mountain beyond'
+      heroAlt: 'Villa Las Fuentes at dusk: the pool in front of the white house and its lit timber pergola, under a pink sky'
     }
   },
 
@@ -600,6 +600,74 @@ export const projectCopy: Record<string, Entry> = {
       lead: 'A unique modern design with clear volumes and a terrace open to the horizon. A house best understood through light: crisp at midday, warm at dusk.',
       body: [],
       heroAlt: 'Villa Silver at dusk: lit overhangs above the pool, with La Concha beyond'
+    }
+  },
+
+  // Photographs of the built works and no proyecto.md (9 Oct 2026): a reading of what the images show.
+  // Guadalmina and Flamingos state no location, areas or programme; Paraiba's data was given by Andrés. Pending validation (projects.ts).
+  guadalmina: {
+    name: 'Villa Guadalmina',
+    es: {
+      heading: 'La casa reflejada en el agua',
+      lead: 'Una villa de volúmenes blancos y cubiertas de perfil ligero que se abre a un jardín de palmeras a través de un gran porche y una piscina alargada.',
+      body: [
+        'Villa Guadalmina combina volúmenes de trazo rectilíneo con cubiertas a cuatro aguas de perfil fino. Los huecos se enmarcan con recercados que avanzan sobre la fachada y dan profundidad a los grandes paños de vidrio. La puerta de madera del acceso y un paño de piedra oscura aportan textura y calidez a la composición blanca.',
+        'Hacia el jardín, la casa se prolonga en un gran porche de techo alto: una estancia exterior entre pilares, amueblada como un salón junto al agua. La piscina, de tono verde azulado, recorre el frente de la vivienda y duplica sus volúmenes en reflejo; el césped, los bordes de piedra clara y las palmeras completan un jardín de escala amplia.',
+        'La luz da continuidad a la casa. Tras el gran ventanal del acceso se adivina la escalera, y los techos con iluminación indirecta mantienen la claridad de las estancias; en uno de los baños, un nicho con forma de casa enmarca el lavabo doble y sus espejos retroiluminados. Al anochecer, los apliques de fachada y el resplandor de los interiores dibujan el volumen sobre el agua.'],
+      heroAlt: 'Villa Guadalmina al atardecer: la fachada al jardín y el gran porche iluminados, reflejados en la piscina entre palmeras'
+    },
+    en: {
+      heading: 'The house reflected in the water',
+      lead: 'A villa of white volumes and slender roofs that opens onto a garden of palm trees through a large covered porch and a long pool.',
+      body: [
+        'Villa Guadalmina combines rectilinear volumes with finely profiled hipped roofs. Its openings are framed by surrounds that project from the façade and give depth to the large panes of glass. The timber entrance door and a panel of dark stone bring texture and warmth to the white composition.',
+        'Towards the garden, the house extends into a large, high-ceilinged porch: an outdoor room between pillars, furnished like a living room beside the water. The blue-green pool runs along the front of the house and doubles its volumes in reflection; the lawn, the pale stone edges and the palm trees complete a generously scaled garden.',
+        'Light gives the house its continuity. The staircase can be glimpsed behind the tall entrance window, and ceilings with indirect lighting keep the rooms bright; in one of the bathrooms, a house-shaped niche frames the double basin and its backlit mirrors. At dusk, the wall lights and the glow of the interiors draw the volume over the water.'],
+      heroAlt: 'Villa Guadalmina at dusk: the garden front and the large porch lit up and reflected in the pool among palm trees'
+    }
+  },
+
+  paraiba: {
+    name: 'Paraiba Residencial',
+    es: {
+      heading: 'Casas escalonadas entre pinos',
+      lead: 'Cinco viviendas en el corazón de Marbella: cuatro pareadas y una villa, cada una con piscina privada, en una urbanización cerrada entre pinos.',
+      body: [
+        'Paraiba Residencial reúne cuatro viviendas pareadas y una villa, dispuestas en terrazas que siguen la pendiente. Cada casa se desarrolla en tres plantas, con tres dormitorios, y se lee como una pieza propia: volúmenes claros, cubiertas de teja y aleros de madera cuya repetición da unidad al conjunto. Las barandillas de celosía oscura marcan un ritmo común en balcones y terrazas.',
+        'El jardín concentra la vida exterior. Cada vivienda tiene su piscina privada, y la villa suma un jacuzzi; junto al agua, los cenadores de cubierta vegetal ofrecen sombra y un lugar de estancia abierto, con cortinas que tamizan la luz. Muros blancos, tarimas y vegetación ordenan esos espacios y preservan la intimidad de cada casa.',
+        'En el interior, materiales de primera calidad —solería y baños de mármol travertino— y suelo radiante en toda la vivienda responden al mismo cuidado por el diseño y el detalle. Desde la calle, un frente sobrio marca el acceso a la urbanización; al anochecer, la luz cálida de interiores y terrazas hace visible el escalonamiento de las casas entre los pinos.'],
+      heroAlt: 'Paraiba Residencial al anochecer: viviendas escalonadas iluminadas, cenadores junto a las piscinas y el acceso del conjunto con su rótulo'
+    },
+    en: {
+      heading: 'Stepped homes among the pines',
+      lead: 'Five homes in the heart of Marbella: four semi-detached houses and a villa, each with a private pool, in a gated community among pine trees.',
+      body: [
+        'Paraiba Residencial brings together four semi-detached houses and a villa, arranged on terraces that follow the slope. Each home is laid out over three floors with three bedrooms and reads as a piece of its own: light volumes, tiled roofs and timber eaves whose repetition gives the ensemble its unity. Dark lattice balustrades set a shared rhythm along the balconies and terraces.',
+        'The garden is where outdoor life gathers. Every home has its own private pool, and the villa adds a hot tub; beside the water, thatched pavilions offer shade and an open place to sit, with curtains that filter the light. White walls, decking and planting give order to these spaces and preserve the privacy of each house.',
+        'Inside, first-class materials — travertine marble floors and bathrooms — and underfloor heating throughout reflect the same care for design and detail. From the street, a restrained front marks the entrance to the gated community; at dusk, the warm light of interiors and terraces reveals the houses stepping up among the pines.'],
+      heroAlt: 'Paraiba Residencial at dusk: lit, stepped homes, pavilions beside the pools and the entrance to the ensemble with its sign'
+    }
+  },
+
+  flamingos: {
+    name: 'Villa Flamingos',
+    es: {
+      heading: 'Sombra, agua y horizonte',
+      lead: 'Una villa de cubiertas de teja y volúmenes blancos que se recorre desde un acceso entre palmeras hasta un gran porche abierto a la piscina y al paisaje.',
+      body: [
+        'Villa Flamingos se ordena a partir de un eje. Un camino pavimentado, flanqueado por palmeras, conduce a una portada simétrica coronada por una cubierta de teja, donde las celosías de madera oscura y la escalinata anuncian la entrada. Las cubiertas inclinadas y los volúmenes blancos dan a la casa una silueta mediterránea reconocible.',
+        'Hacia el jardín, un amplio porche de pilares blancos y techo de lamas oscuras prolonga las estancias hacia el exterior. Bajo su sombra, las zonas de estar miran a la piscina, que se extiende sobre un pavimento de tono pétreo y se asoma al paisaje lejano. Un jacuzzi circular junto a la terraza completa un exterior pensado para reunirse.',
+        'En el interior, la madera vista de los techos mantiene el mismo carácter: inclinados en el dormitorio, con vigas y luz indirecta perimetral en el salón, donde los grandes ventanales enmarcan el exterior. Al anochecer, la iluminación del agua, del porche y de la portada transforma la casa y subraya su eje.'],
+      heroAlt: 'Villa Flamingos al anochecer: la portada iluminada entre palmeras, al final del camino de acceso'
+    },
+    en: {
+      heading: 'Shade, water and horizon',
+      lead: 'A villa of tiled roofs and white volumes, experienced from an entrance between palm trees to a large covered terrace open to the pool and the landscape.',
+      body: [
+        'Villa Flamingos is ordered along an axis. A paved path lined with palm trees leads to a symmetrical entrance crowned by a tiled roof, where dark timber lattices and a flight of steps announce the way in. Pitched roofs and white volumes give the house a recognisable Mediterranean silhouette.',
+        'Towards the garden, a large covered terrace of white pillars and a dark slatted roof extends the rooms outdoors. In its shade, the seating areas look out over the pool, which stretches across stone-toned paving towards the distant landscape. A circular hot tub beside the terrace completes an outdoor space made for gathering.',
+        'Inside, exposed timber ceilings keep the same character: pitched in the bedroom, beamed with perimeter indirect lighting in the living room, where large windows frame the outdoors. At dusk, the lighting of the water, the terrace and the entrance transforms the house and underlines its axis.'],
+      heroAlt: 'Villa Flamingos at dusk: the lit entrance between palm trees at the end of the approach path'
     }
   }
 }

@@ -6,7 +6,7 @@
 import { films, reel, filmsCopy, filmProjectPath, clock, totalRuntime } from '~/data/films'
 import { projectUi } from '~/data/projects/ui'
 import { projectsIndexPath } from '~/data/projects/projects'
-import { negocio } from '~/data/negocio'
+import { negocio, telefonos } from '~/data/negocio'
 import { createFilmMotion } from '../motion/film-motion'
 import FilmPlayer from './FilmPlayer.vue'
 const props = defineProps({ page: { type: Object, required: true } })
@@ -17,7 +17,7 @@ const other = computed(() => locale.value === 'en' ? 'es' : 'en')
 const c = computed(() => filmsCopy[locale.value])
 const ui = computed(() => projectUi[locale.value])
 const items = computed(() => films.map((f, index) => ({ id: f.id, index, title: f.title[locale.value], kind: c.value.kind[f.kind], kindId: f.kind, text: f.text[locale.value],
- media: f.media, path: filmProjectPath(f, locale.value), time: clock(f.media.duration) })))
+ media: f.media, path: filmProjectPath(f, locale.value), time: clock(f.media.duration), credit: f.credit ? { name: f.credit.name, label: f.credit.label[locale.value] } : null })))
 const first = computed(() => items.value[0])
 const programme = computed(() => items.value.slice(1))
 const hero = reel.media.hero
@@ -101,6 +101,7 @@ onBeforeUnmount(stop)
      <p :class="['films-kind', 'films-kind--' + item.kindId]">{{ item.kind }}</p>
      <h3 class="films-title">{{ item.title }}</h3>
      <p class="films-text">{{ item.text }}</p>
+     <p v-if="item.credit" class="films-credit"><span>{{ item.credit.label }}</span> <strong>{{ item.credit.name }}</strong></p>
      <div class="films-actions">
       <button type="button" class="text-link films-watch" :aria-label="c.playLabel(item.title, item.time)" @click="playFromItem(item.index, $event)"><span>{{ c.watch }} · {{ item.time }}</span><span aria-hidden="true"><DisenoIcon name="play" /></span></button>
       <NuxtLink v-if="item.path" class="text-link" :to="item.path"><span>{{ c.viewProject }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
@@ -116,7 +117,7 @@ onBeforeUnmount(stop)
   <div data-reveal><p>{{ c.ctaText }}</p>
    <a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ c.ctaLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
    <NuxtLink class="text-link films-cta-projects" :to="projectsIndexPath[locale]"><span>{{ c.projectsLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink>
-   <p class="project-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a :href="'tel:' + negocio.contacto.telefono.replaceAll(' ', '')">{{ negocio.contacto.telefono }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p></div>
+   <p class="project-direct"><a :href="'mailto:' + negocio.contacto.email">{{ negocio.contacto.email }}</a><a v-for="p in telefonos" :key="p.href" :href="p.href">{{ p.label[locale] }} {{ p.numero }}</a><a :href="negocio.mapa" target="_blank" rel="noopener">{{ negocio.contacto.direccionTexto }}</a></p></div>
  </section>
  <div class="project-end" data-header="light"><span>{{ c.count(items.length).toUpperCase() }} · {{ clock(totalRuntime) }}</span><a href="#films-top">{{ ui.top }} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
 

@@ -38,6 +38,7 @@ function archiveSchema(site: string, url: string, businessId: string) {
    return { '@type': 'VideoObject', '@id': url + '#video-' + f.id, name: f.title[locale], description: f.text[locale],
     thumbnailUrl: [abs(m.poster.jpg)], uploadDate: filmsPublished, duration: isoDuration(m.duration), contentUrl: abs(m.sources[1080].mp4),
     encodingFormat: 'video/mp4', width: m.width, height: m.height, publisher: { '@id': businessId }, isPartOf: { '@id': url + '#webpage' },
+    ...(f.credit ? { creator: { '@type': 'Person', name: f.credit.name, jobTitle: f.credit.role[locale] } } : {}),
     ...(project ? { about: { '@id': abs(project) + '#project' } } : {}) }
   })
   return [...videos, { '@type': 'ItemList', '@id': url + '#videos', numberOfItems: videos.length, itemListElement: videos.map((v, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@id': v['@id'] } })) }]

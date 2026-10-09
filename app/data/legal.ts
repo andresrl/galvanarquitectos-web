@@ -1,6 +1,6 @@
 // Legal pages (LegalPage.vue): legal notice (LSSI), privacy (GDPR / LOPDGDD) and cookies, EN and ES.
-// Written for how the site actually works: the contact form only opens the visitor's email app (nothing is stored on
-// the server), analytics is disabled, one language cookie and the cookie preference in local storage, self-hosted
+// Written for how the site actually works: the contact form sends the enquiry by email to the architect's inbox
+// through Gmail (server/api/contact.post.ts; nothing is stored on the server), analytics is disabled, one language cookie and the cookie preference in local storage, self-hosted
 // fonts and video. Unconfirmed identification data (tax ID, professional registration) is NOT published: the pages
 // stay drafts until it is completed (`pending` in app/data/pages/projects.ts → legalPages).
 import type { Locale } from './pages/types'
@@ -11,7 +11,7 @@ type Section = { heading: string; paragraphs: string[]; list?: string[] }
 type Doc = { label: string; title: string; description: string; heading: string; updated: string; sections: Section[] }
 
 const d = negocio.contacto.direccion, address = `${d.streetAddress}, ${d.postalCode} ${d.addressLocality} (${d.addressRegion})`
-const email = negocio.contacto.email, phone = negocio.contacto.telefono, holder = negocio.arquitecto.nombre
+const email = negocio.contacto.email, mobile = negocio.contacto.telefono, studioPhone = negocio.contacto.telefonoEstudio, holder = negocio.arquitecto.nombre
 
 export const legalPaths: Record<LegalId, Record<Locale, string>> = {
  'legal-notice': { en: '/legal-notice', es: '/es/aviso-legal' },
@@ -24,7 +24,7 @@ export const legalCopy: Record<LegalId, Record<Locale, Doc>> = {
   en: { label: 'Legal notice', title: 'Legal notice', heading: 'Legal notice', updated: 'Last updated: 7 October 2026',
    description: 'Legal notice of the Martínez Galván Arquitecto website: website owner, contact details, conditions of use, intellectual property and applicable law.',
    sections: [
-    { heading: 'Website owner', paragraphs: [`In compliance with Spanish Law 34/2002 on information society services (LSSI-CE), the owner of this website is ${holder}, architect, trading as ${negocio.nombre}.`], list: [`Address: ${address}, Spain`, `Email: ${email}`, `Telephone: ${phone}`] },
+    { heading: 'Website owner', paragraphs: [`In compliance with Spanish Law 34/2002 on information society services (LSSI-CE), the owner of this website is ${holder}, architect, trading as ${negocio.nombre}.`], list: [`Address: ${address}, Spain`, `Email: ${email}`, `Telephone: ${mobile} (mobile) · ${studioPhone} (studio)`] },
     { heading: 'Purpose of the website', paragraphs: ['This website presents the architecture services of the studio and a selection of its projects, and provides ways to contact the architect.'] },
     { heading: 'Conditions of use', paragraphs: ['Access to the website is free and implies acceptance of these conditions. Users undertake to use the website and its contents lawfully and not to damage it or prevent its normal use.'] },
     { heading: 'Intellectual and industrial property', paragraphs: ['The texts, photographs, architectural visualisations, drawings, logos and design of this website belong to the studio or to their respective owners and are protected by intellectual and industrial property law. Their reproduction, distribution or transformation without written permission is not allowed, except for personal, non-commercial use.', 'Some projects are shown with architectural visualisations (renders); they illustrate a proposal and are identified as such on each project page.'] },
@@ -34,7 +34,7 @@ export const legalCopy: Record<LegalId, Record<Locale, Doc>> = {
   es: { label: 'Aviso legal', title: 'Aviso legal', heading: 'Aviso legal', updated: 'Última actualización: 7 de octubre de 2026',
    description: 'Aviso legal de la web de Martínez Galván Arquitecto: titular, datos de contacto, condiciones de uso, propiedad intelectual y legislación aplicable.',
    sections: [
-    { heading: 'Titular del sitio web', paragraphs: [`En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), el titular de este sitio web es ${holder}, arquitecto, que desarrolla su actividad como ${negocio.nombre}.`], list: [`Domicilio: ${address}, España`, `Email: ${email}`, `Teléfono: ${phone}`] },
+    { heading: 'Titular del sitio web', paragraphs: [`En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), el titular de este sitio web es ${holder}, arquitecto, que desarrolla su actividad como ${negocio.nombre}.`], list: [`Domicilio: ${address}, España`, `Email: ${email}`, `Teléfono: ${mobile} (móvil) · ${studioPhone} (estudio)`] },
     { heading: 'Objeto', paragraphs: ['Esta web presenta los servicios de arquitectura del estudio y una selección de sus proyectos, y ofrece medios para contactar con el arquitecto.'] },
     { heading: 'Condiciones de uso', paragraphs: ['El acceso a la web es libre e implica la aceptación de estas condiciones. Quien la utiliza se compromete a hacer un uso lícito de la web y de sus contenidos y a no dañarla ni impedir su funcionamiento normal.'] },
     { heading: 'Propiedad intelectual e industrial', paragraphs: ['Los textos, fotografías, visualizaciones arquitectónicas, planos, logotipos y diseño de esta web pertenecen al estudio o a sus respectivos titulares y están protegidos por la normativa de propiedad intelectual e industrial. No se permite su reproducción, distribución o transformación sin autorización escrita, salvo para uso personal y no comercial.', 'Algunos proyectos se muestran con visualizaciones arquitectónicas (renders); ilustran una propuesta y se identifican como tales en cada ficha.'] },
@@ -43,24 +43,24 @@ export const legalCopy: Record<LegalId, Record<Locale, Doc>> = {
    ] }
  },
  privacy: {
-  en: { label: 'Privacy policy', title: 'Privacy policy', heading: 'Privacy policy', updated: 'Last updated: 7 October 2026',
+  en: { label: 'Privacy policy', title: 'Privacy policy', heading: 'Privacy policy', updated: 'Last updated: 9 October 2026',
    description: 'How Martínez Galván Arquitecto handles the personal data you send when you contact the studio: purpose, legal basis, retention and your rights under the GDPR.',
    sections: [
-    { heading: 'Data controller', paragraphs: [`${holder}, architect (${negocio.nombre}).`], list: [`Address: ${address}, Spain`, `Email: ${email}`, `Telephone: ${phone}`] },
-    { heading: 'What data we receive', paragraphs: ['The contact form on this website does not send or store anything on our servers: it prepares a message in your own email application, and you decide whether to send it. We therefore only receive the data you choose to send us by email or telephone: usually your name, email address, telephone number, the area of your project and the content of your message.'] },
+    { heading: 'Data controller', paragraphs: [`${holder}, architect (${negocio.nombre}).`], list: [`Address: ${address}, Spain`, `Email: ${email}`, `Telephone: ${mobile} (mobile) · ${studioPhone} (studio)`] },
+    { heading: 'What data we receive', paragraphs: ['When you use the contact form, the data you enter are sent to us by email: your name, email address, telephone number if you give it, the area of your project where asked, the page you were viewing and the content of your message. The website does not keep them in a database. We also receive the data you choose to send us directly by email or telephone.'] },
     { heading: 'Purpose and legal basis', paragraphs: ['We use these data to answer your enquiry and, if you wish, to prepare and carry out a professional commission. The legal basis is your consent when you contact us and, where applicable, the steps taken at your request before entering into a contract and the performance of that contract (Article 6.1(a) and (b) of the GDPR).'] },
     { heading: 'Retention', paragraphs: ['Data are kept for as long as needed to answer your enquiry or manage the professional relationship and, afterwards, for the periods required by law.'] },
-    { heading: 'Recipients', paragraphs: ['Data are not sold or passed on to third parties, except where required by law. Technical service providers (such as email or hosting) may process them on our behalf, under the corresponding agreements.'] },
+    { heading: 'Recipients', paragraphs: ['Data are not sold or passed on to third parties, except where required by law. Technical service providers (such as email or hosting) may process them on our behalf, under the corresponding agreements. Messages sent through the contact form are delivered through Google’s email service (Gmail).'] },
     { heading: 'Your rights', paragraphs: [`You can request access to your data, their rectification or erasure, the restriction of processing, object to it or ask for portability, and withdraw your consent at any time, by writing to ${email}. You also have the right to lodge a complaint with the Spanish Data Protection Agency (www.aepd.es).`] }
    ] },
-  es: { label: 'Política de privacidad', title: 'Política de privacidad', heading: 'Política de privacidad', updated: 'Última actualización: 7 de octubre de 2026',
+  es: { label: 'Política de privacidad', title: 'Política de privacidad', heading: 'Política de privacidad', updated: 'Última actualización: 9 de octubre de 2026',
    description: 'Cómo trata Martínez Galván Arquitecto los datos personales que envías al contactar con el estudio: finalidad, base legal, conservación y tus derechos según el RGPD.',
    sections: [
-    { heading: 'Responsable del tratamiento', paragraphs: [`${holder}, arquitecto (${negocio.nombre}).`], list: [`Domicilio: ${address}, España`, `Email: ${email}`, `Teléfono: ${phone}`] },
-    { heading: 'Qué datos recibimos', paragraphs: ['El formulario de contacto de esta web no envía ni guarda nada en nuestros servidores: prepara un mensaje en tu propia aplicación de correo y tú decides si enviarlo. Por eso solo recibimos los datos que decides enviarnos por email o por teléfono: normalmente tu nombre, email, teléfono, la zona de tu proyecto y el contenido de tu mensaje.'] },
+    { heading: 'Responsable del tratamiento', paragraphs: [`${holder}, arquitecto (${negocio.nombre}).`], list: [`Domicilio: ${address}, España`, `Email: ${email}`, `Teléfono: ${mobile} (móvil) · ${studioPhone} (estudio)`] },
+    { heading: 'Qué datos recibimos', paragraphs: ['Cuando usas el formulario de contacto, los datos que escribes nos llegan por email: tu nombre, tu email, tu teléfono si lo indicas, la zona del proyecto cuando se pide, la página que estabas viendo y el contenido de tu mensaje. La web no los guarda en ninguna base de datos. También recibimos los datos que decides enviarnos directamente por email o por teléfono.'] },
     { heading: 'Finalidad y base legal', paragraphs: ['Usamos estos datos para responder a tu consulta y, si lo deseas, para preparar y desarrollar un encargo profesional. La base legal es tu consentimiento al contactarnos y, en su caso, la aplicación de medidas precontractuales a petición tuya y la ejecución del contrato (artículo 6.1.a y b del RGPD).'] },
     { heading: 'Conservación', paragraphs: ['Los datos se conservan mientras sean necesarios para responder a tu consulta o gestionar la relación profesional y, después, durante los plazos que exija la ley.'] },
-    { heading: 'Destinatarios', paragraphs: ['Los datos no se venden ni se ceden a terceros, salvo obligación legal. Proveedores de servicios técnicos (como el correo electrónico o el alojamiento) pueden tratarlos por cuenta nuestra, con los contratos correspondientes.'] },
+    { heading: 'Destinatarios', paragraphs: ['Los datos no se venden ni se ceden a terceros, salvo obligación legal. Proveedores de servicios técnicos (como el correo electrónico o el alojamiento) pueden tratarlos por cuenta nuestra, con los contratos correspondientes. Los mensajes del formulario de contacto se entregan mediante el servicio de correo de Google (Gmail).'] },
     { heading: 'Tus derechos', paragraphs: [`Puedes solicitar el acceso a tus datos, su rectificación o supresión, la limitación del tratamiento, oponerte a él o pedir la portabilidad, y retirar tu consentimiento en cualquier momento, escribiendo a ${email}. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).`] }
    ] }
  },

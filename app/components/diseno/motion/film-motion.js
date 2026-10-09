@@ -52,10 +52,10 @@ export function createFilmMotion({ root, gsap, ScrollTrigger, onTone }) {
   // Programme: letterbox opening, the preview settles, copy and number rise.
   root.querySelectorAll('.films-item').forEach(item => {
    const frame = item.querySelector('.films-media'), preview = frame?.querySelector('.films-preview'), copy = item.querySelectorAll('.films-copy > :not(.films-number)')
-   const tl = gsap.timeline({ scrollTrigger: { trigger: item, start: 'top 82%', toggleActions: 'play none none none' } })
-   tl.fromTo(frame, { clipPath: 'inset(48% 0% 48% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'expo.inOut', clearProps: 'clipPath' })
-    .fromTo(preview, { scale: 1.3 }, { scale: 1, duration: 2, ease: 'power3.out' }, 0)
-    .from(copy, { y: mobile ? 22 : 40, opacity: 0, duration: 1.1, stagger: .09, ease: 'power3.out' }, .45)
+   const tl = gsap.timeline({ scrollTrigger: { trigger: item, start: 'top 92%', toggleActions: 'play none none none' } })
+   tl.fromTo(frame, { clipPath: 'inset(48% 0% 48% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1, ease: 'expo.out', clearProps: 'clipPath' })
+    .fromTo(preview, { scale: 1.2 }, { scale: 1, duration: 1.3, ease: 'power3.out' }, 0)
+    .from(copy, { y: mobile ? 22 : 40, opacity: 0, duration: .85, stagger: .07, ease: 'power3.out' }, .2)
    const number = item.querySelector('.films-number')
    if (number && !mobile) gsap.fromTo(number, { yPercent: 40 }, { yPercent: -30, ease: 'none', scrollTrigger: { trigger: item, start: 'top bottom', end: 'bottom top', scrub: .7 } })
   })

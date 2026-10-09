@@ -1,5 +1,5 @@
 // Contact panel (ContactPanel.vue): side drawer on every page and the /contact · /es/contacto page.
-// Form fields: name, email, optional phone, message. No backend: it prepares an email.
+// Form fields: name, email, optional phone, message. Sent to the studio inbox by /api/contact (server/api/contact.post.ts).
 import type { Locale } from './pages/types'
 
 export const contactPaths: Record<Locale, string> = { en: '/contact', es: '/es/contacto' }
@@ -12,7 +12,9 @@ export const contactCopy = {
   lead: 'A new villa or a renovation. Let’s start with what you have in mind.',
   fields: { name: 'Name', email: 'Email', phone: 'Phone (optional)', message: 'Message' },
   send: 'Send', call: 'Call us', close: 'Close', write: 'Write to us',
-  note: 'Send opens your email app with the message ready; nothing is sent until you confirm it there. We reply in English or Spanish.',
+  note: 'Your message goes straight to the studio and your details are used only to answer it. We reply in English or Spanish.',
+  sending: 'Sending…', sent: 'Thank you. Your message has reached the studio; we will reply to the email address you gave us.',
+  error: 'The message could not be sent.', fallback: 'Send it from your email app',
   regarding: 'Regarding', subject: 'Project enquiry', videoAlt: 'A design conversation in the studio'
  },
  es: {
@@ -22,7 +24,9 @@ export const contactCopy = {
   lead: 'Una nueva villa o una reforma. Empecemos por lo que tienes en mente.',
   fields: { name: 'Nombre', email: 'Email', phone: 'Teléfono (opcional)', message: 'Mensaje' },
   send: 'Enviar', call: 'Llámanos', close: 'Cerrar', write: 'Escríbenos',
-  note: 'Enviar abre tu aplicación de correo con el mensaje preparado; no se envía nada hasta que lo confirmes allí. Respondemos en español o inglés.',
+  note: 'Tu mensaje llega directamente al estudio y tus datos solo se usan para responderte. Respondemos en español o inglés.',
+  sending: 'Enviando…', sent: 'Gracias. Tu mensaje ha llegado al estudio; te responderemos al email que nos has indicado.',
+  error: 'No se ha podido enviar el mensaje.', fallback: 'Envíalo desde tu aplicación de correo',
   regarding: 'Sobre', subject: 'Consulta de proyecto', videoAlt: 'Una conversación de diseño en el estudio'
  }
 }

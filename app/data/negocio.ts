@@ -4,7 +4,8 @@ export const negocio={
  nombre:'Martínez Galván Arquitecto',marca:'Martínez Galván',
  alternateNames:['Martínez Galván Arquitectos','Galván Arquitectos','Francisco Martínez Galván Arquitecto'],
  actividad:'architecture',ciudad:'Marbella',zonaServicio:'Costa del Sol',
- contacto:{telefono:'+34 679 97 94 87',email:'info@galvanarquitectos.com',
+ // telefono: Francisco's mobile; telefonoEstudio: the studio landline (added by Francisco, 9 Oct 2026).
+ contacto:{telefono:'+34 679 97 94 87',telefonoEstudio:'+34 952 85 98 70',email:'info@galvanarquitectos.com',
   // Address confirmed in the briefing (CLAUDE.md §5).
   direccion:{'@type':'PostalAddress',streetAddress:'Calle Estébanez Calderón, 1',postalCode:'29602',addressLocality:'Marbella',addressRegion:'Málaga',addressCountry:'ES'},
   // As shown next to the phone in every contact block (Andrés, 8 Oct 2026).
@@ -34,3 +35,10 @@ export const negocio={
  },
  cta:{url:'/contact',label:'Let’s talk about your project'},pruebaSocial:{resenas:[]}
 }
+
+// Both numbers, labelled, in every contact block (mobile first, then the studio landline).
+const tel=(n:string)=>'tel:'+n.replaceAll(' ','')
+export const telefonos=[
+ {numero:negocio.contacto.telefono,href:tel(negocio.contacto.telefono),label:{en:'Mobile',es:'Móvil'}},
+ {numero:negocio.contacto.telefonoEstudio,href:tel(negocio.contacto.telefonoEstudio),label:{en:'Studio',es:'Estudio'}}
+] as const

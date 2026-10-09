@@ -6,7 +6,7 @@ import {createHomeMotion} from './motion/home-motion'
 import {projects,projectPath,projectsIndexPath} from '~/data/projects/projects'
 import {projectUi} from '~/data/projects/ui'
 import {studioPaths} from '~/data/studio'
-import {negocio} from '~/data/negocio'
+import {negocio,telefonos} from '~/data/negocio'
 import {homeProcess} from '~/data/home-process'
 defineProps({pagina:Object,contenido:Object})
 const {locale,t,chapter,tone,scenes,requestedScene,requestScene}=useGalvan()
@@ -130,7 +130,7 @@ useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Mar
       </div></section>
       <section class="slide contact" id="contacto" data-tone="light" data-chapter="Contact">
         <div class="contact-ring" aria-hidden="true"></div>
-        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('contactEyebrow')"></p><h2 class="display-title" v-html="t('contactTitle')"></h2><a class="contact-email" href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com <DisenoIcon name="arrow-up-right" /></a><a class="contact-phone" href="tel:+34679979487">+34 679 97 94 87</a><a class="contact-address" :href="negocio.mapa" target="_blank" rel="noopener">{{negocio.contacto.direccionTexto}}</a></div>
+        <div class="slide-inner scene-copy"><p class="eyebrow" v-html="t('contactEyebrow')"></p><h2 class="display-title" v-html="t('contactTitle')"></h2><a class="contact-email" href="mailto:info@galvanarquitectos.com">info@galvanarquitectos.com <DisenoIcon name="arrow-up-right" /></a><a v-for="p in telefonos" :key="p.href" class="contact-phone" :href="p.href">{{p.label[locale]}} {{p.numero}}</a><a class="contact-address" :href="negocio.mapa" target="_blank" rel="noopener">{{negocio.contacto.direccionTexto}}</a></div>
       </section>
     </div>
 </main></template>
