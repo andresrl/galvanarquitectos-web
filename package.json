@@ -12,7 +12,8 @@
     "verify:pseo": "node scripts/verify-pseo.mjs",
     "verify:guides": "node scripts/verify-guides.mjs",
     "og": "python3 scripts/og/generate.py && python3 scripts/og/icons.py",
-    "verify:seo": "node scripts/verify-seo.mjs"
+    "verify:seo": "node scripts/verify-seo.mjs",
+    "deploy:dist": "bash scripts/deploy-dist.sh"
   },
   "dependencies": {
     "@nuxt/content": "^3.16.1",
