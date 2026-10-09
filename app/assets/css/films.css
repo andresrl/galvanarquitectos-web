@@ -36,10 +36,13 @@
 .films-hero-lead{max-width:44ch;margin:0;font-size:15px;line-height:1.8;color:#ffffffd9}
 .films-play{position:absolute;z-index:3;right:var(--gutter);bottom:clamp(96px,15svh,160px);display:flex;align-items:center;gap:22px;padding:0;border:0;background:none;color:#fff;text-align:left;cursor:pointer;
  transform:translate(calc(var(--p,0)*var(--bx,0px)),calc(var(--p,0)*var(--by,0px)))}
-.films-play-disc{display:grid;place-items:center;flex:none;width:clamp(84px,7vw,112px);aspect-ratio:1;border:1px solid #ffffff80;border-radius:50%;font-size:26px;
- scale:calc(1 + var(--p,0)*.18);transition:background .45s,border-color .45s,color .45s,transform .6s cubic-bezier(.22,.8,.2,1)}
-.films-play-disc .site-icon{width:1em;height:1em;margin-left:.14em}
-.films-play:hover .films-play-disc,.films-play:focus-visible .films-play-disc{background:var(--paper);border-color:var(--paper);color:var(--ink);transform:scale(1.06)}
+/* Play disc (hero and programme): a white circle with a dark grey triangle at its centre */
+.films-play-disc,.films-disc{display:grid;place-items:center;flex:none;aspect-ratio:1;border-radius:50%;background:#fff;color:#333836;transition:transform .6s cubic-bezier(.22,.8,.2,1)}
+.films-play-disc .site-icon,.films-disc .site-icon{width:1em;height:1em;margin-left:.12em}
+.films-play-disc .site-icon *,.films-disc .site-icon *{fill:currentColor}
+.films-play-disc{width:clamp(84px,7vw,112px);font-size:28px;scale:calc(1 + var(--p,0)*.18)}
+.films-play:hover .films-play-disc,.films-play:focus-visible .films-play-disc,.films-media:hover .films-disc{transform:scale(1.08)}
+.films-disc{position:absolute;z-index:2;left:50%;top:50%;width:clamp(64px,6vw,96px);margin:calc(clamp(64px,6vw,96px)/-2) 0 0 calc(clamp(64px,6vw,96px)/-2);font-size:clamp(20px,1.9vw,30px);pointer-events:none}
 .films-play-text{display:flex;flex-direction:column;gap:6px;opacity:calc(1 - var(--p,0)*1.8)}
 .films-play-text strong{font-weight:400;font-size:15px;letter-spacing:.01em}
 .films-play-text span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#ffffffb3}
@@ -67,7 +70,6 @@
 .films-media:hover .films-preview{filter:none}
 .films-media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#0b141099,transparent 38%)}
 .films-media-time{position:absolute;z-index:1;left:clamp(16px,1.6vw,26px);bottom:clamp(14px,1.4vw,22px);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.14em;color:#fff;font-variant-numeric:tabular-nums}
-.films-media-time .site-icon{width:12px;height:12px}
 .films-copy{position:relative}
 .films-number{display:block;margin-bottom:clamp(26px,3vw,52px);font-family:var(--serif);font-style:italic;font-size:clamp(44px,4.4vw,80px);line-height:1;letter-spacing:-.03em;color:var(--brass)}
 .films-kind{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-size:10px;font-weight:500;letter-spacing:.19em;line-height:1.6;text-transform:uppercase;color:#f6f4efb3}
@@ -82,16 +84,13 @@
 
 .films-cta-projects{margin-left:32px}
 
-/* Cursor disc over playable frames (fine pointers, film-motion.js) */
-.films-cursor{position:fixed;left:0;top:0;z-index:40;display:grid;place-items:center;width:108px;height:108px;border-radius:50%;background:var(--paper);color:var(--ink);pointer-events:none;visibility:hidden;font-size:10px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
-.has-film-cursor [data-cursor]{cursor:none}
 
 @media(max-width:700px){
  .films-hero-copy{right:var(--gutter);bottom:190px}
  .films-hero h1{margin-bottom:22px}
  .films-hero-lead{font-size:13px}
  .films-play{left:var(--gutter);right:auto;bottom:72px;gap:18px}
- .films-play-disc{width:68px;font-size:20px}
+ .films-play-disc{width:68px;font-size:22px}
  .films-discover{display:none}
  .films-screen-caption{flex-direction:column;gap:12px;font-size:9px}
  .films-screen-caption span:first-child{font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:40px;line-height:1;letter-spacing:-.04em;text-transform:none;color:var(--paper)}
@@ -170,4 +169,20 @@
  .film-player-next{grid-template-columns:120px auto}
  .film-player-next>.site-icon{display:none}
 }
+/* Phone on its side: the film takes the whole height and the controls float over it (they fade while it plays). */
+@media(orientation:landscape) and (max-height:500px){
+ .film-player{--bar:54px}
+ .film-player-stage{inset:0}
+ .film-player-frame{width:min(100%,calc(100dvh*16/9))}
+ .film-player-top{padding:0 max(20px,env(safe-area-inset-right)) 0 max(20px,env(safe-area-inset-left));background:linear-gradient(180deg,#070b09b3,transparent)}
+ .film-player-bar{left:0;right:0;gap:6px;padding:0 max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));background:linear-gradient(0deg,#070b09b3,transparent)}
+ .film-player-meta strong{font-size:16px}
+ .film-player-meta em,.film-player-project span,.film-player-close span{display:none}
+ .film-player-time{min-width:0;font-size:11px}
+ .film-player-end{gap:32px}
+ .film-player-next{grid-template-columns:150px auto}
+ .film-player-next>.site-icon{display:none}
+}
+/* On touch screens the autofocused play button must not open with a keyboard focus ring */
+@media(pointer:coarse){.film-player-button:focus-visible{outline:none}}
 @media(prefers-reduced-motion:reduce){.film-player-top,.film-player-bar{transition:none}}

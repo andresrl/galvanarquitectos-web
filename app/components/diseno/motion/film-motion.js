@@ -3,7 +3,6 @@
 // (--win-*, --k, --dx, --dy, --bx, --by) is measured on every refresh and films.css composes clip-path and transforms
 // from it, so the frame shows the whole picture once settled and the play button lands on its centre.
 // Programme: each frame opens like a letterbox, the preview eases in, the copy rises. Header tone as in project-motion.
-// Cursor: on fine pointers a «Play · 2:27» disc follows the pointer over anything marked data-cursor.
 export function createFilmMotion({ root, gsap, ScrollTrigger, onTone }) {
  gsap.registerPlugin(ScrollTrigger)
  const bands = [...root.querySelectorAll('[data-header]')]
@@ -66,29 +65,6 @@ export function createFilmMotion({ root, gsap, ScrollTrigger, onTone }) {
   })
   return () => { ScrollTrigger.removeEventListener('refreshInit', measure); settle.kill(); ['--p', '--win-t', '--win-r', '--win-b', '--win-l', '--k', '--dx', '--dy', '--bx', '--by'].forEach(n => stage.style.removeProperty(n)) }
  }, root)
-
- // Cursor disc (fine pointers only).
- media.add('(pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
-  const cursor = root.querySelector('.films-cursor'), label = cursor?.querySelector('span')
-  if (!cursor || !label) return
-  root.classList.add('has-film-cursor')
-  gsap.set(cursor, { xPercent: -50, yPercent: -50, scale: .2, autoAlpha: 0 })
-  const x = gsap.quickTo(cursor, 'x', { duration: .45, ease: 'power3' }), y = gsap.quickTo(cursor, 'y', { duration: .45, ease: 'power3' })
-  let active = null, last = null
-  const target = el => el?.closest?.('[data-cursor]') ?? null
-  function update(next) {
-   if (next === active) return
-   active = next
-   if (next) { label.textContent = next.dataset.cursor; gsap.to(cursor, { scale: 1, autoAlpha: 1, duration: .5, ease: 'power3.out', overwrite: 'auto' }) }
-   else gsap.to(cursor, { scale: .2, autoAlpha: 0, duration: .35, ease: 'power2.in', overwrite: 'auto' })
-  }
-  const move = e => { if (e.pointerType !== 'mouse') return; last = e; x(e.clientX); y(e.clientY); update(target(e.target)) }
-  // The page scrolls under a still pointer: check what is under it again.
-  const scroll = () => { if (last) update(target(document.elementFromPoint(last.clientX, last.clientY))) }
-  const leave = () => update(null)
-  addEventListener('pointermove', move, { passive: true }); addEventListener('scroll', scroll, { passive: true }); document.addEventListener('pointerleave', leave)
-  return () => { removeEventListener('pointermove', move); removeEventListener('scroll', scroll); document.removeEventListener('pointerleave', leave); root.classList.remove('has-film-cursor'); gsap.set(cursor, { clearProps: 'all' }) }
- })
 
  return { destroy: () => { triggers.forEach(t => t.kill()); removeEventListener('scroll', solidAt); document.documentElement.classList.remove('header-solid'); media.revert() }, refresh: () => { ScrollTrigger.refresh(); toneAt() } }
 }

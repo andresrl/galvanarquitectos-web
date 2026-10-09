@@ -54,7 +54,7 @@ onBeforeUnmount(stop)
 <main ref="root" class="films-page">
  <section class="films-hero" id="films-top" data-header="light" aria-labelledby="films-title">
   <div class="films-stage">
-   <div class="films-screen" :data-cursor="`${c.cursor} · ${first.time}`" @click="play(0, heroMedia)">
+   <div class="films-screen" @click="play(0, heroMedia)">
     <video v-if="!reduced" ref="heroMedia" class="films-screen-media" muted loop playsinline preload="metadata" :poster="reel.media.poster.src" aria-hidden="true">
      <source :src="hero.mobileWebm" type="video/webm" media="(max-width: 700px)"><source :src="hero.mobileMp4" type="video/mp4" media="(max-width: 700px)">
      <source :src="hero.webm" type="video/webm"><source :src="hero.mp4" type="video/mp4">
@@ -89,11 +89,12 @@ onBeforeUnmount(stop)
   </header>
   <ol class="films-list">
    <li v-for="(item, i) in programme" :id="item.id" :key="item.id" :class="['films-item', i % 2 ? 'films-item--right' : 'films-item--left']">
-    <div class="films-media" :data-cursor="`${c.cursor} · ${item.time}`" @click="play(item.index, $event.currentTarget)">
+    <div class="films-media" @click="play(item.index, $event.currentTarget)">
      <video class="films-preview" muted loop playsinline preload="none" :poster="item.media.poster.small" aria-hidden="true">
       <source :src="item.media.preview.webm" type="video/webm"><source :src="item.media.preview.mp4" type="video/mp4">
      </video>
-     <span class="films-media-time" aria-hidden="true"><DisenoIcon name="play" />{{ item.time }}</span>
+     <span class="films-disc" aria-hidden="true"><DisenoIcon name="play" /></span>
+     <span class="films-media-time" aria-hidden="true">{{ item.time }}</span>
     </div>
     <div class="films-copy">
      <span class="films-number" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
@@ -119,7 +120,6 @@ onBeforeUnmount(stop)
  </section>
  <div class="project-end" data-header="light"><span>{{ c.count(items.length).toUpperCase() }} · {{ clock(totalRuntime) }}</span><a href="#films-top">{{ ui.top }} <DisenoIcon name="arrow-up" /></a><NuxtLink :to="page.alternates[other]" :hreflang="other">{{ ui.language }}</NuxtLink></div>
 
- <div class="films-cursor" aria-hidden="true"><span></span></div>
  <FilmPlayer ref="player" :films="items" :ui="c.player" @change="onPlayer" />
 </main>
 </template>
