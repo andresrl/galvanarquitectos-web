@@ -57,17 +57,18 @@ export function usePageSeo(o:{title:string;description:string;path:string;draft?
   const isHomePage=o.path==='/'||o.path==='/es'
   const template=o.page?.definition.template
   // Page type: registry templates and explicit overrides; FAQPage only when the FAQ is visible on the page.
-  const baseType=o.pageType??(template==='projects'?'CollectionPage':template==='studio'?'ProfilePage':template==='contact'?'ContactPage':'WebPage')
+  const baseType=o.pageType??(template==='projects'||template==='films'?'CollectionPage':template==='studio'?'ProfilePage':template==='contact'?'ContactPage':'WebPage')
   const pageNode:any={'@type':faqs.value.length?[baseType,'FAQPage']:baseType,'@id':url+'#webpage',url,name:title.value,description:description.value,inLanguage:lang,isPartOf:{'@id':id.website},
    primaryImageOfPage:{'@type':'ImageObject',url:image.url,width:image.width,height:image.height},
    ...(!isHomePage?{breadcrumb:{'@id':url+'#breadcrumb'}}:{}),
    ...(faqs.value.length?{mainEntity:faqs.value.map(f=>({'@type':'Question',name:f.pregunta,acceptedAnswer:{'@type':'Answer',text:f.respuesta}}))}:{})}
   if(isHomePage||template==='contact'){pageNode.about={'@id':businessId};if(!faqs.value.length)pageNode.mainEntity={'@id':businessId}}
   if(template==='studio'){pageNode.about={'@id':id.paco};pageNode.mainEntity={'@id':id.paco}}
+  if(template==='films')pageNode.mainEntity={'@id':url+'#videos'}
   if(o.about)pageNode.about=o.about(site)
   const graph:any[]=[studioNode(site,lang),personNode(site,lang),websiteNode(site),pageNode]
   // Project archive pages carry their own trail (Home / Projects / name); the rest keep the starter's route tree.
-  const trail=o.page&&['project','projects','studio','contact','legal','international','area'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
+  const trail=o.page&&['project','projects','studio','films','contact','legal','international','area'].includes(o.page.definition.template)?o.page.breadcrumb.map((c:any)=>({path:c.path??o.path,label:c.label})):null
   if(trail)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:trail.map((m:any,i:number)=>({'@type':'ListItem',position:i+1,name:m.label,item:new URL(m.path,site).href}))})
   else if(o.page?.breadcrumb)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:o.page.breadcrumb.map((c:any,i:number)=>({'@type':'ListItem',position:i+1,name:c.label,item:new URL(c.path??o.path,site).href}))})
   else if(!isHomePage)graph.push({'@type':'BreadcrumbList','@id':url+'#breadcrumb',itemListElement:migasDe(o.path).map((m,i)=>({'@type':'ListItem',position:i+1,name:m.path==='/'?(lang==='en'?'Home':'Inicio'):serviceCopy.value?.label??translatedCase.value?.label??m.label,item:new URL(m.path,site).href}))})

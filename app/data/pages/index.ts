@@ -5,13 +5,13 @@ import { linkCopy } from '../content/services'
 import { renovationMarbella } from './renovation-marbella'
 import { hubPages, locationPages } from './generated'
 import { guideLocale } from '../guides'
-import { projectsIndexPage, projectPages, studioPage, contactPage, legalPages, internationalPage, areaPages } from './projects'
+import { projectsIndexPage, projectPages, studioPage, filmsPage, contactPage, legalPages, internationalPage, areaPages } from './projects'
 import { publishedIds } from '../publish'
 import { projectsIndexPath } from '../projects/projects'
 
 export const pages: PageDefinition[] = [...hubPages, renovationMarbella, ...locationPages]
 // Project archive: listing + one page per project (ProjectList.vue / ProjectPage.vue).
-export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, contactPage, internationalPage, ...areaPages, ...legalPages]
+export const archivePages: PageDefinition<ProjectPageContent>[] = [projectsIndexPage, ...projectPages, studioPage, filmsPage, contactPage, internationalPage, ...areaPages, ...legalPages]
 // Every registered page, whatever its template: paths, languages, alternates, sitemap.
 export const allPages: PageDefinition<any>[] = [...pages, ...archivePages]
 // Publication switch (app/data/publish.ts) applied once, so every consumer (SEO, sitemap, headers) agrees.
@@ -78,7 +78,7 @@ export function resolvePage(path: string): ResolvedPage<any> | undefined {
   if (serviceId) breadcrumb.push({ label: services[serviceId].name[locale], path: hubOf(serviceId)?.paths[locale] })
   if (location) breadcrumb.push({ label: location.name[locale] })
   if (definition.template === 'project') breadcrumb.push({ label: content.projects, path: projectsIndexPath[locale] }, { label: content.label })
-  if (['projects', 'studio', 'contact', 'legal', 'international'].includes(definition.template)) breadcrumb.push({ label: content.label })
+  if (['projects', 'studio', 'films', 'contact', 'legal', 'international'].includes(definition.template)) breadcrumb.push({ label: content.label })
   return {
     definition, locale, path: definition.paths[locale], content, alternates: definition.paths, breadcrumb,
     locationName: location?.name[locale],

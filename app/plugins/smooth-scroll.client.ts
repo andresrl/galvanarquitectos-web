@@ -7,14 +7,15 @@ import { setSmoothScroll } from '~/utils/smooth-scroll'
 
 export default defineNuxtPlugin(() => {
  const reduce = matchMedia('(prefers-reduced-motion: reduce)')
- // The menu and the contact drawer hold the page still underneath them; their own content scrolls natively.
+ // The menu, the contact drawer and the video player hold the page still underneath them; their own content scrolls natively.
  const menuOpen = useState('galvan:menu', () => false)
  const contactOpen = useState('galvan:contact', () => false)
+ const filmOpen = useState('galvan:film', () => false)
  let lenis: Lenis | null = null
  let detach: (() => void) | null = null
  let pending = false
 
- const sync = () => { if (lenis) menuOpen.value || contactOpen.value ? lenis.stop() : lenis.start() }
+ const sync = () => { if (lenis) menuOpen.value || contactOpen.value || filmOpen.value ? lenis.stop() : lenis.start() }
 
  async function enable() {
   if (lenis || pending || reduce.matches) return
@@ -26,7 +27,7 @@ export default defineNuxtPlugin(() => {
   const instance = new Lenis({
    lerp: .15,
    stopInertiaOnNavigate: true,
-   prevent: node => node.classList.contains('site-menu') || node.classList.contains('contact-drawer'),
+   prevent: node => node.classList.contains('site-menu') || node.classList.contains('contact-drawer') || node.classList.contains('film-player'),
   })
   const tick = (time: number) => instance.raf(time * 1000)
   instance.on('scroll', ScrollTrigger.update)
@@ -46,7 +47,7 @@ export default defineNuxtPlugin(() => {
  }
  function disable() { detach?.(); detach = null }
 
- watch([menuOpen, contactOpen], sync)
+ watch([menuOpen, contactOpen, filmOpen], sync)
  reduce.addEventListener('change', () => reduce.matches ? disable() : enable())
  enable()
 })

@@ -6,6 +6,7 @@ import { services, serviceIds } from './taxonomy'
 import { guideIndex } from './guides'
 import { projectsIndexPath } from './projects/projects'
 import { studioPaths } from './studio'
+import { filmsPaths } from './films'
 import { contactPaths } from './contact'
 import { internationalPaths } from './international'
 
@@ -13,8 +14,8 @@ export type NavLink = { label: string; path: string; scene?: string; contact?: b
 export type NavGroup = { title: string; links: NavLink[] }
 
 const text = {
-  en: { projects: 'Projects', home: 'Home', services: 'Services', explore: 'Explore', studio: 'The studio', guides: 'Journal', contact: 'Contact', international: 'International clients' },
-  es: { projects: 'Proyectos', home: 'Inicio', services: 'Servicios', explore: 'Explorar', studio: 'El estudio', guides: 'Guías', contact: 'Contacto', international: 'Clientes internacionales' }
+  en: { projects: 'Projects', home: 'Home', services: 'Services', explore: 'Explore', studio: 'The studio', videos: 'Videos', guides: 'Journal', contact: 'Contact', international: 'International clients' },
+  es: { projects: 'Proyectos', home: 'Inicio', services: 'Servicios', explore: 'Explorar', studio: 'El estudio', videos: 'Vídeos', guides: 'Guías', contact: 'Contacto', international: 'Clientes internacionales' }
 }
 
 export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavGroup[] {
@@ -29,6 +30,7 @@ export function siteNavigation(locale: Locale, { withAreas = false } = {}): NavG
       { label: t.home, path: home },
       { label: t.projects, path: projectsIndexPath[locale] },
       { label: t.studio, path: studioPaths[locale] },
+      { label: t.videos, path: filmsPaths[locale] },
       { label: t.international, path: internationalPaths[locale] },
       { label: t.guides, path: guideIndex[locale] },
       { label: t.contact, path: contactPaths[locale], contact: true }

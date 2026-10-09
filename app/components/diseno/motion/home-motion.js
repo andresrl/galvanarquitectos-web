@@ -57,14 +57,13 @@ function initMotion(){
     gsap.set(path,{strokeDasharray:length,strokeDashoffset:length});
     hold.to(path,{strokeDashoffset:0,duration:1,ease:'power1.inOut'},0);
    });
-   graphic.attachScroll(slide,hold,reveal);
+   graphic.attachScroll(slide,hold);
    if(slide.classList.contains('contact'))hold.fromTo(slide.querySelector('.contact-ring'),{scale:.75},{scale:1.2,ease:'none'},0);
   });
   if(process){
    process.querySelectorAll('[data-reveal]').forEach(element=>gsap.from(element,{y:mobile ? 20:40,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:element,start:'top 92%',toggleActions:'play none none none'}}));
-   const reveal=gsap.timeline({scrollTrigger:{trigger:process,start:'top 80%',toggleActions:'play none none none'}});
    const hold=gsap.timeline({scrollTrigger:{trigger:process,start:'top bottom',end:'bottom top',scrub:.65}});
-   graphic.attachScroll(process,hold,reveal);
+   graphic.attachScroll(process,hold);
   }
   gsap.to(root.querySelector('.scroll-progress span'),{scaleX:1,ease:'none',scrollTrigger:{trigger:root.querySelector('#home-slides'),start:'top top',end:'bottom bottom',scrub:.2}});
   syncChapter();

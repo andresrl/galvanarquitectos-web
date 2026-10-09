@@ -7,6 +7,7 @@ import { negocio } from '../../app/data/negocio'
 import { projects, projectPath, projectsIndexPath } from '../../app/data/projects/projects'
 import { locations, locationIds, services, serviceIds } from '../../app/data/taxonomy'
 import { studioPaths } from '../../app/data/studio'
+import { films, filmsPaths, clock } from '../../app/data/films'
 import { contactPaths } from '../../app/data/contact'
 import { guideIndex, guidePath, guideSlug } from '../../app/data/guides'
 import { internationalPaths } from '../../app/data/international'
@@ -59,6 +60,7 @@ export async function buildLlms(event: H3Event, full: boolean) {
 
  line('## Studio and contact')
  line(`- [The studio and the architect](${u(studioPaths.en)}): ${a.descripcion.en}`)
+ line(`- [Videos](${u(filmsPaths.en)}): ${films.map(f => `${f.title.en} (${clock(f.media.duration)}${f.kind === 'built' ? ', built villa filmed on site' : f.kind === 'visualisation' ? ', architectural visualisation' : f.kind === 'tender' ? ', visualisation of a tender proposal' : ', studio reel'})`).join('; ')}. Spanish: ${u(filmsPaths.es)}`)
  line(`- [International clients](${u(internationalPaths.en)}): how projects are followed from abroad — video calls, site visits, follow-up of the works, English and Spanish.`)
  line(`- [Contact](${u(contactPaths.en)}): form, email and phone; replies in English or Spanish.`)
  line()

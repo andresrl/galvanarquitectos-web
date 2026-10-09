@@ -1,6 +1,7 @@
 <script setup>
 import {projectsIndexPath} from '~/data/projects/projects'
 import {studioPaths} from '~/data/studio'
+import {filmsPaths} from '~/data/films'
 const {locale,t,tone,requestScene,toggleLanguage}=useGalvan()
 const route=useRoute()
 const contact=useContact()
@@ -9,7 +10,7 @@ useHead({htmlAttrs:{lang:()=>locale.value}})
 </script>
 <template><header class="header" :data-tone="tone">
     <a class="brand" :href="(locale==='es'?'/es':'/')+'#inicio'" @click.prevent="requestScene('inicio')" :aria-label="locale==='en'?'Martínez Galván Arquitecto, home':'Martínez Galván Arquitecto, inicio'"><DisenoMarca /></a>
-    <nav :aria-label="locale==='en'?'Main navigation':'Principal'"><NuxtLink :to="projectsIndexPath[locale]">{{locale==='en'?'Projects':'Proyectos'}}</NuxtLink><NuxtLink class="header-studio" :to="studioPaths[locale]">{{locale==='en'?'Studio':'Estudio'}}</NuxtLink><a :href="contact.path.value" @click="contact.show($event)"><span v-html="t('contact')"></span></a></nav>
+    <nav :aria-label="locale==='en'?'Main navigation':'Principal'"><NuxtLink :to="projectsIndexPath[locale]">{{locale==='en'?'Projects':'Proyectos'}}</NuxtLink><NuxtLink class="header-studio" :to="studioPaths[locale]">{{locale==='en'?'Studio':'Estudio'}}</NuxtLink><NuxtLink class="header-videos" :to="filmsPaths[locale]">{{locale==='en'?'Videos':'Vídeos'}}</NuxtLink><a :href="contact.path.value" @click="contact.show($event)"><span v-html="t('contact')"></span></a></nav>
     <button type="button" class="menu-toggle" aria-controls="site-menu" :aria-expanded="menuOpen" @click="menuOpen=true"><span>{{locale==='en'?'Menu':'Menú'}}</span><DisenoIcon name="menu" class="menu-lines" /></button>
     <button id="language" type="button" :aria-label="locale==='en'?'Cambiar a español':'Switch to English'" @click="toggleLanguage">{{locale==='en'?'ES':'EN'}}</button>
   </header></template>

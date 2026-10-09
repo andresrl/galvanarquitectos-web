@@ -65,18 +65,19 @@
 @media(max-width:700px){.brand .brand-logo{gap:10px}.brand .brand-logo .brand-mark{width:26px;height:24px}.brand .brand-logo .brand-word{width:132px;height:25px}}
 @media(min-width:701px){.header .brand .brand-logo{gap:18px}.header .brand .brand-logo .brand-mark{width:46px;height:42px}.header .brand .brand-logo .brand-word{width:228px;height:44px}}
 @media(min-width:1024px){.header .brand .brand-logo{gap:21px}.header .brand .brand-logo .brand-mark{width:53px;height:48px}.header .brand .brand-logo .brand-word{width:262px;height:51px}}
-/* Tablet: not enough room for three header links next to the logo; the studio stays in the menu. */
+/* Tablet: not enough room for every header link next to the logo; the studio and the videos stay in the menu. */
 @media(min-width:701px) and (max-width:859px){.header nav .header-studio{display:none}}
+@media(min-width:701px) and (max-width:1099px){.header nav .header-videos{display:none}}
 
 /* Simple menu: six main destinations, one typeface; colour marks the current page. */
 .site-menu .site-menu-body{grid-template-columns:minmax(0,1fr);align-content:center;gap:0}
 .site-menu .site-menu-explore{max-width:960px}
 .site-menu .site-menu-explore li+li{margin-top:clamp(6px,1svh,12px)}
-.site-menu .site-menu-explore a{font-size:clamp(40px,4.6vw,84px);line-height:1.08;letter-spacing:-.045em;font-weight:250}
+.site-menu .site-menu-explore a{font-size:clamp(36px,4vw,72px);line-height:1.08;letter-spacing:-.045em;font-weight:250}
 .site-menu .site-menu-explore a[aria-current=page] span{font-family:inherit;font-style:normal}
 @media(max-width:700px){
  .site-menu .site-menu-body{align-content:start;padding:44px 0}
- .site-menu .site-menu-explore a{font-size:clamp(32px,9.5vw,52px)}
+ .site-menu .site-menu-explore a{font-size:clamp(30px,8.5vw,46px)}
 }
 
 /* Footer: minimal — brand, three short text columns, one quiet line (8 Oct 2026). */

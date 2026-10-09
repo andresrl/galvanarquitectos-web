@@ -8,6 +8,7 @@ import { pageById } from '~/data/pages'
 import { locations } from '~/data/taxonomy'
 import { negocio } from '~/data/negocio'
 import { studioPaths } from '~/data/studio'
+import { filmByProject, filmsPaths, filmsCopy, clock } from '~/data/films'
 import { projectSetting } from '~/data/projects/setting'
 import { createProjectMotion } from '../motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true }, project: { type: Object, required: true } })
@@ -18,6 +19,8 @@ const ui = computed(() => projectUi[locale.value])
 const copy = computed(() => props.project.copy[locale.value])
 const name = computed(() => props.project.name[locale.value])
 const media = computed(() => props.project.media)
+// Projects with a video on the videos page link to it (/videos#<film id>).
+const film = computed(() => { const f = filmByProject(props.project.id); return f ? { path: `${filmsPaths[locale.value]}#${f.id}`, label: `${filmsCopy[locale.value].watch} · ${clock(f.media.duration)}` } : null })
 const gallery = computed(() => media.value.gallery)
 // Layout follows the material: never repeat or pad images.
 const crossing = computed(() => gallery.value[0])
@@ -117,6 +120,7 @@ function step(dir) {
    <span class="project-rule" aria-hidden="true"></span>
    <p class="project-lead" data-reveal>{{ copy.lead }}</p>
    <dl class="project-facts" data-reveal><div v-for="[term, value] in facts" :key="term"><dt>{{ term }}</dt><dd>{{ value }}</dd></div></dl>
+   <NuxtLink v-if="film" class="text-link project-film" :to="film.path" data-reveal><span>{{ film.label }}</span><span aria-hidden="true"><DisenoIcon name="play" /></span></NuxtLink>
   </div>
  </section>
 

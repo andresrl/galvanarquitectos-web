@@ -32,6 +32,14 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
   "image": "/og/es--estudio.jpg",
   "alt": "Diseño y trato directo. De la idea a la obra."
  },
+ "/videos": {
+  "image": "/og/videos.jpg",
+  "alt": "Architecture in motion."
+ },
+ "/es/videos": {
+  "image": "/og/es--videos.jpg",
+  "alt": "Arquitectura en movimiento."
+ },
  "/contact": {
   "image": "/og/contact.jpg",
   "alt": "Tell us about your project."

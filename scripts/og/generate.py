@@ -19,7 +19,8 @@ W, H, PHOTO = 1200, 630, 630
 PAPER, INK, BRASS, MUTED = (246, 244, 239), (28, 33, 30), (173, 141, 97), (98, 105, 97)
 HUBS = ['/villa-architecture', '/villa-renovation',
         '/es/arquitectura-villas', '/es/reformas-villas']
-EXTRA = ['/', '/es', '/journal', '/es/guias', '/projects', '/es/proyectos', '/studio', '/es/estudio', '/contact', '/es/contacto']
+EXTRA = ['/', '/es', '/journal', '/es/guias', '/projects', '/es/proyectos', '/studio', '/es/estudio', '/videos', '/es/videos', '/contact', '/es/contacto']
+FILMS = ('/videos', '/es/videos')  # full-bleed reel still, like the project pages, cropped clear of the reel's own watermark
 SUFFIX = ' | Martínez Galván'
 
 
@@ -53,14 +54,17 @@ def describe(path, page):
     fixed = {'/': 'Galván Arquitectos. Architecture studio.', '/es': 'Galván Arquitectos. Estudio de arquitectura.', '/journal': 'Questions before your project.', '/es/guias': 'Preguntas antes de tu proyecto.',
              '/projects': 'Architecture, spaces and ways of living.', '/es/proyectos': 'Arquitectura, espacios y formas de vivir.',
              '/studio': 'Design and personal attention. From the idea to the site.', '/es/estudio': 'Diseño y trato directo. De la idea a la obra.',
+             '/videos': 'Architecture in motion.', '/es/videos': 'Arquitectura en movimiento.',
              '/contact': 'Tell us about your project.', '/es/contacto': 'Cuéntanos tu proyecto.'}
     title = fixed.get(path, title)
     studio = path in ('/studio', '/es/estudio', '/contact', '/es/contacto')
     image = '/media/studio/studio-drawing-2560.avif' if studio else hero.group(1) if hero else poster.group(1) if poster else '/media/projects/the-house/the-house-06-1600.avif'
     if path in ('/', '/es'):
         image = '/media/projects/the-house/the-house-06-1600.avif'
-    project = 'class="project-hero"' in page
-    if project:
+    if path in FILMS:
+        image = re.search(r'class="films-screen-media"[^>]*poster="([^"]+)"', page).group(1)
+    project = 'class="project-hero"' in page or path in FILMS
+    if project and path not in FILMS:
         title = html.unescape(re.search(r'<h1[^>]*>([^<]*)<', page).group(1)).strip()
     return {
         'title': title,
@@ -68,6 +72,7 @@ def describe(path, page):
         'image': image,
         'lang': lang,
         'project': project,
+        **({'crop': (0, 0, .8, .8), 'fit': True} if path in FILMS else {}),
     }
 
 
@@ -110,7 +115,11 @@ def cover(photo, w, h):
 
 def render_project(info, target):
     # Project pages: the hero photograph full-bleed, name over a dark gradient, white logo.
-    img = cover(Image.open(ROOT / 'public' / info['image'].split('?', 1)[0].lstrip('/')).convert('RGB'), W, H)
+    photo = Image.open(ROOT / 'public' / info['image'].split('?', 1)[0].lstrip('/')).convert('RGB')
+    if info.get('crop'):  # fractions of the photo to keep (left, top, right, bottom)
+        l, t, r, b = info['crop']
+        photo = photo.crop((round(l * photo.width), round(t * photo.height), round(r * photo.width), round(b * photo.height)))
+    img = cover(photo, W, H)
     shade = Image.new('L', (W, H))
     sd = ImageDraw.Draw(shade)
     for y in range(H):
@@ -118,7 +127,10 @@ def render_project(info, target):
     img.paste(Image.new('RGB', (W, H), (11, 20, 16)), (0, 0), shade)
     d = ImageDraw.Draw(img)
     spaced(d, (64, H - 186), info['eyebrow'][:46], font('inter', 15, 600), BRASS, 2.2)
-    d.text((62, H - 163), info['title'], font=font('manrope', 78, 300), fill=(255, 255, 255))
+    size = 78
+    while info.get('fit') and size > 52 and d.textlength(info['title'], font=font('manrope', size, 300)) > W - 64 - 62 - 190:
+        size -= 2  # keep the title clear of the logo
+    d.text((62, H - 163 + (78 - size)), info['title'], font=font('manrope', size, 300), fill=(255, 255, 255))
     logo(img, (W - 64 - 150, H - 86), 52, 'logo-invert.png')
     img.save(target, 'JPEG', quality=84, optimize=True, progressive=True)
 

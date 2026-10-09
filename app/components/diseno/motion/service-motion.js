@@ -22,9 +22,8 @@ export function createServiceMotion({ root, gsap, ScrollTrigger, onTone }) {
     gsap.fromTo(img, { scale: 1.08 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: .75 } })
    })
    const section = root.querySelector('.service-process')
-   const reveal = gsap.timeline({ scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' } })
    const hold = gsap.timeline({ scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom top', scrub: .65 } })
-   graphics.attachScroll(section, hold, reveal)
+   graphics.attachScroll(section, hold)
   }
   return () => { toneObserver.disconnect(); graphics.destroy() }
  }, root)

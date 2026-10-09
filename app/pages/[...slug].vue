@@ -10,6 +10,8 @@ import ContactPage from '~/components/diseno/ContactPage.vue'
 import LegalPage from '~/components/diseno/LegalPage.vue'
 import InternationalPage from '~/components/diseno/InternationalPage.vue'
 import AreaPage from '~/components/diseno/AreaPage.vue'
+import FilmsPage from '~/components/diseno/films/FilmsPage.vue'
+import { films, filmsPublished, filmProjectPath, isoDuration } from '~/data/films'
 definePageMeta({ key: (route) => route.path })
 const route = useRoute(), cfg = useRuntimeConfig().public, path = route.path.replace(/\/$/, '') || '/'
 const page = resolvePage(path)
@@ -28,6 +30,17 @@ function archiveSchema(site: string, url: string, businessId: string) {
    inLanguage: locale, isPartOf: { '@id': abs(projectsIndexPath[locale]) + '#webpage' }, mainEntityOfPage: { '@id': url + '#webpage' },
    ...(project.status ? { creativeWorkStatus: project.status === 'completed' ? 'Completed' : 'In progress' } : {}),
    ...(project.zone ? { contentLocation: place(project.zone, locale), locationCreated: place(project.zone, locale) } : {}) }]
+ }
+ // Videos: one VideoObject per video (the project video is about the project's CreativeWork) and the list of them.
+ if (page.definition.template === 'films') {
+  const videos = films.map(f => {
+   const project = filmProjectPath(f, locale), m = f.media
+   return { '@type': 'VideoObject', '@id': url + '#video-' + f.id, name: f.title[locale], description: f.text[locale],
+    thumbnailUrl: [abs(m.poster.jpg)], uploadDate: filmsPublished, duration: isoDuration(m.duration), contentUrl: abs(m.sources[1080].mp4),
+    encodingFormat: 'video/mp4', width: m.width, height: m.height, publisher: { '@id': businessId }, isPartOf: { '@id': url + '#webpage' },
+    ...(project ? { about: { '@id': abs(project) + '#project' } } : {}) }
+  })
+  return [...videos, { '@type': 'ItemList', '@id': url + '#videos', numberOfItems: videos.length, itemListElement: videos.map((v, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@id': v['@id'] } })) }]
  }
  if (page.definition.template === 'projects') return [{ '@type': 'ItemList', '@id': url + '#projects', numberOfItems: projects.length,
   itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(projectPath(p, locale)), name: p.name[locale], image: abs(p.media.hero.jpg!) })) }]
@@ -49,6 +62,7 @@ if (!page) {
  <DisenoProjectPage v-else-if="project" :page="page" :project="project" />
  <DisenoProjectList v-else-if="page?.definition.template === 'projects'" :page="page" />
  <StudioPage v-else-if="page?.definition.template === 'studio'" :page="page" />
+ <FilmsPage v-else-if="page?.definition.template === 'films'" :page="page" />
  <ContactPage v-else-if="page?.definition.template === 'contact'" :page="page" />
  <LegalPage v-else-if="page?.definition.template === 'legal'" :page="page" />
  <InternationalPage v-else-if="page?.definition.template === 'international'" :page="page" />
