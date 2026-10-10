@@ -28,6 +28,7 @@ run('git reset -q --hard origin/main', dist)
 for (const name of readdirSync(dist)) if (name !== '.git') rmSync(join(dist, name), { recursive: true, force: true })
 cpSync(join(root, '.output'), dist, {
   recursive: true,
+  dereference: true, // enlaces de server/node_modules como archivos reales (si no, apuntan a este equipo)
   filter: src => !src.endsWith('.map') && !/[\\/](videos-reel|maquetas)([\\/]|$)/.test(src)
 })
 writeFileSync(join(dist, 'app.cjs'), "import('./server/index.mjs')\n") // arranque para Plesk
