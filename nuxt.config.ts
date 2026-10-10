@@ -85,11 +85,12 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'en' },
+      htmlAttrs: { lang: 'en', translate: 'no' },
       title: site.nombre,
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#1c2a22' },
+        { name: 'google', content: 'notranslate' },
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
