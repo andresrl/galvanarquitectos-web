@@ -57,6 +57,7 @@ No modificar la antigua aplicación de LanzaderaWeb en 3040. El proyecto actual 
 - Renderizado SSR; contenido legible antes de ejecutar JavaScript.
 - Desarrollo en 127.0.0.1:3048. No exponer un servidor de desarrollo a Internet.
 - `runtimeConfig.public.indexable = false`: propuesta en **noindex**.
+- **Publicada (10 oct 2026, Andrés):** producción (`https://www.galvanarquitectos.com`, con www; el dominio sin www redirige 301) arranca con indexación activa. `publish.ts` publica todo salvo las tres legales (noindex hasta NIF/colegiación; en borrador nunca dan 404) y las 26 guías tienen `draft: false`: 160 URLs en el sitemap. Página nueva = añadir su id a `publish.ts` o se queda en noindex. `verify:pseo` supone vista previa: ejecutarlo sin `NUXT_PUBLIC_INDEXABLE`.
 - Analítica (10 oct 2026): Umami activado por defecto en `nuxt.config.ts` (`umami.rocio.com`, sin cookies; GA4 sin configurar). `NUXT_PUBLIC_ANALYTICS_ENABLED=false` en el `.env` local lo apaga en desarrollo. `/ignorar-analytics` (`app/pages/ignorar-analytics.vue`, sin enlaces, fuera de robots.txt y sitemap, noindex) excluye el navegador propio con localStorage (`umami.disabled`).
 - `showDrafts = false`; mientras `indexable` sea falso las páginas de borrador actuales se pueden revisar.
 - Build de producción y verificaciones HTTP completados correctamente tras el piloto.
