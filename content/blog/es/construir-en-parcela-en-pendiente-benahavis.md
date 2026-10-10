@@ -3,7 +3,7 @@ title: "Construir en una parcela en pendiente en Benahavís: qué estudiar"
 seoTitle: "Construir en parcela en pendiente en Benahavís"
 description: "Accesos, niveles, muros, estudio del terreno, drenaje y vistas: qué estudiar antes de diseñar una villa en una parcela en pendiente en Benahavís y las colinas de la costa."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "es"
 translation: "building-on-a-sloping-plot-in-benahavis"
 order: 14

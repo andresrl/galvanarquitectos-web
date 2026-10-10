@@ -2,7 +2,7 @@
 title: "Renovate your villa or build new? How to approach the decision"
 description: "The questions that help you choose between a complete renovation and a new build: what works in the current house, what the plot allows and what you expect from your home."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "reformar-o-construir-de-nuevo"
 seoTitle: "Renovate your villa or build new? How to decide"

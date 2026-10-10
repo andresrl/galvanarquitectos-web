@@ -3,7 +3,7 @@ title: "Buying a villa to renovate on the Costa del Sol: what to check first"
 seoTitle: "Buying a villa to renovate: what to check"
 description: "Before buying a villa to renovate on the Costa del Sol: structure, installations, layout potential, what was authorised and what the plot allows. An architect's checklist."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "en"
 translation: "comprar-villa-para-reformar"
 order: 12

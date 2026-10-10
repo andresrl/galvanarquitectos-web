@@ -2,7 +2,7 @@
 title: "Presupuesto y honorarios: por qué conviene definir antes el alcance"
 description: "Por qué es difícil dar una cifra fiable sin saber qué se va a hacer, y cómo preparar la conversación sobre presupuesto y honorarios de tu villa con información útil."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "budget-and-fees-defining-the-scope-first"
 seoTitle: "Presupuesto y honorarios: definir antes el alcance"

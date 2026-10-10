@@ -3,7 +3,7 @@ title: "Building licence in Marbella: how the process works"
 seoTitle: "Building licence in Marbella: the process"
 description: "How planning permission works for a new villa or a major renovation in Marbella: the Andalusian framework (LISTA), the municipal licence and the role of the architect."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "en"
 translation: "licencia-de-obra-en-marbella"
 order: 13

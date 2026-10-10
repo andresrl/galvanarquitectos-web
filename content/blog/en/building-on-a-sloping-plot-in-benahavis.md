@@ -3,7 +3,7 @@ title: "Building on a sloping plot in Benahavís: what to study"
 seoTitle: "Building on a sloping plot in Benahavís"
 description: "Access, levels, retaining walls, ground study, drainage and views: what to study before designing a villa on a sloping plot in Benahavís and the hills of the Costa del Sol."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "en"
 translation: "construir-en-parcela-en-pendiente-benahavis"
 order: 14

@@ -3,7 +3,7 @@ title: "How to choose an architect in Marbella for your villa"
 seoTitle: "How to choose an architect in Marbella"
 description: "What to look for when choosing an architect for a new villa or a renovation in Marbella: qualifications, similar work, who you will talk to, scope and languages."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "en"
 translation: "como-elegir-arquitecto-en-marbella"
 order: 11

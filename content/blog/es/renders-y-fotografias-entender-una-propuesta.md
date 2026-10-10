@@ -2,7 +2,7 @@
 title: "Renders y fotografías: cómo entender una propuesta de diseño"
 description: "Qué muestra un render, qué no muestra y qué preguntas hacer para leer una propuesta de arquitectura sin confundir una imagen con una decisión cerrada."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "renders-and-photographs-understanding-a-design-proposal"
 order: 3

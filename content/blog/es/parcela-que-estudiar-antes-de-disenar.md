@@ -2,7 +2,7 @@
 title: "Qué estudiar en una parcela antes de diseñar tu villa"
 description: "Orientación, accesos, topografía, vistas, privacidad y normativa: los aspectos de la parcela que conviene entender antes de empezar el diseño de una villa nueva."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "what-to-study-on-a-plot-before-designing"
 order: 6

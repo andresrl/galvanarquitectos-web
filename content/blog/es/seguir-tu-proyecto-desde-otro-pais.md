@@ -2,7 +2,7 @@
 title: "Cómo seguir el proyecto de tu villa desde otro país"
 description: "Qué organizar desde el principio para participar en el diseño y la obra de tu villa en la Costa del Sol si vives fuera de España: comunicación, decisiones, visitas y documentación."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "following-your-villa-project-from-abroad"
 order: 4

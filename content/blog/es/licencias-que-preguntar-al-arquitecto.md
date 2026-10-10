@@ -2,7 +2,7 @@
 title: "Licencias de obra: qué preguntar a tu arquitecto"
 description: "Una guía para entender el papel de las licencias en el proyecto de tu villa y preparar las preguntas adecuadas, sin dar por hechos plazos ni requisitos que dependen de cada caso."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "planning-permissions-what-to-ask-your-architect"
 order: 7

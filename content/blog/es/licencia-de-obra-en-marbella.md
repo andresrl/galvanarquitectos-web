@@ -3,7 +3,7 @@ title: "Licencia de obra en Marbella: cómo funciona el proceso"
 seoTitle: "Licencia de obra en Marbella: el proceso"
 description: "Cómo funciona la licencia para una villa nueva o una reforma importante en Marbella: el marco andaluz (LISTA), la licencia municipal y el papel del arquitecto."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "es"
 translation: "building-licence-in-marbella"
 order: 13

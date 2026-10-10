@@ -2,7 +2,7 @@
 title: "Planning permissions: what to ask your architect"
 description: "A guide to understanding the role of permits in your villa project and preparing the right questions, without assuming timescales or requirements that depend on each case."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "licencias-que-preguntar-al-arquitecto"
 order: 7

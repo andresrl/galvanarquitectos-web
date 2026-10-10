@@ -2,7 +2,7 @@
 title: "What to study on a plot before designing your villa"
 description: "Orientation, access, topography, views, privacy and planning rules: the aspects of a plot worth understanding before the design of a new villa begins."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "parcela-que-estudiar-antes-de-disenar"
 order: 6

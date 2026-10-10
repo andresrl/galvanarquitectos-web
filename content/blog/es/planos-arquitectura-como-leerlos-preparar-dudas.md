@@ -2,7 +2,7 @@
 title: "Planos de arquitectura: cómo leerlos y preparar tus dudas"
 description: "Una guía para revisar planos de arquitectura: identificar las vistas, consultar las medidas y ordenar tus preguntas sobre la distribución y el uso de los espacios."
 date: "2026-10-03"
-draft: true
+draft: false
 lang: "es"
 translation: "reading-architectural-drawings-and-preparing-your-questions"
 order: 2

@@ -2,7 +2,7 @@
 title: "Following your villa project from abroad"
 description: "What to organise from the start so you can take part in the design and building of your villa on the Costa del Sol while living outside Spain: communication, decisions, visits and documentation."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "seguir-tu-proyecto-desde-otro-pais"
 order: 4

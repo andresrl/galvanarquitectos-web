@@ -2,7 +2,7 @@
 title: "Budget and fees: why it pays to define the scope first"
 description: "Why a reliable figure is hard to give without knowing what will be done, and how to prepare the conversation about your villa's budget and fees with useful information."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "presupuesto-y-honorarios-definir-el-alcance"
 order: 8

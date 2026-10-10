@@ -2,7 +2,7 @@
 title: "¿Reformar tu villa o construir de nuevo? Cómo plantear la decisión"
 description: "Las preguntas que ayudan a decidir entre una reforma integral y una nueva construcción: qué funciona en la casa actual, qué permite la parcela y qué esperas de tu vivienda."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "renovate-or-rebuild-your-villa"
 seoTitle: "¿Reformar tu villa o construir de nuevo?"

@@ -2,7 +2,7 @@
 title: "Reading architectural drawings and preparing your questions"
 description: "A guide to reviewing architectural drawings: identifying each view, checking dimensions and organising your questions about layout and the use of each space."
 date: "2026-10-03"
-draft: true
+draft: false
 lang: "en"
 translation: "planos-arquitectura-como-leerlos-preparar-dudas"
 order: 2

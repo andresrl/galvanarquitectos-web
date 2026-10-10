@@ -3,7 +3,7 @@ title: "Comprar una villa para reformar en la Costa del Sol: qué revisar antes"
 seoTitle: "Comprar una villa para reformar: qué revisar"
 description: "Antes de comprar una villa para reformar en la Costa del Sol: estructura, instalaciones, posibilidades de distribución, qué estaba autorizado y qué permite la parcela."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "es"
 translation: "buying-a-villa-to-renovate"
 order: 12

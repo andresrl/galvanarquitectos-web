@@ -3,7 +3,7 @@ title: "Working with a Spanish architect from the UK or Northern Europe"
 seoTitle: "Working with a Spanish architect from abroad"
 description: "How villa projects work in Spain if you live in the UK or Northern Europe: the architect's role, site management, contractors, languages, visits and decisions at a distance."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "en"
 translation: "arquitecto-espanol-desde-el-extranjero"
 order: 15

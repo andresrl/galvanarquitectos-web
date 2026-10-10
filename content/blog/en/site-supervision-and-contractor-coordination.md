@@ -2,7 +2,7 @@
 title: "Site supervision and contractor coordination: what they mean, and what they do not"
 description: "The architect's role during the building of your villa, how it differs from the contractor's, and what to clarify so no one assumes something that has not been agreed."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "en"
 translation: "direccion-de-obra-y-coordinacion"
 seoTitle: "Site supervision and contractor coordination"

@@ -9,7 +9,7 @@ import { projectById, projectPath } from './projects/projects'
 
 export const filmsPaths: Record<Locale, string> = { en: '/videos', es: '/es/videos' }
 // uploadDate of every VideoObject: the day the web versions were made for this site. Update it when the page is published.
-export const filmsPublished = '2026-10-09'
+export const filmsPublished = '2026-10-10'
 
 export type FilmKind = 'reel' | 'built' | 'visualisation' | 'tender'
 export type FilmCredit = { name: string; role: Record<Locale, string>; label: Record<Locale, string> }

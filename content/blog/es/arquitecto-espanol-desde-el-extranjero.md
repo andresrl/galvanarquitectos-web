@@ -3,7 +3,7 @@ title: "Trabajar con un arquitecto en España si vives en el extranjero"
 seoTitle: "Trabajar con un arquitecto en España desde fuera"
 description: "Cómo funciona un proyecto de villa en España si vives fuera: el papel del arquitecto, la dirección de obra, la constructora, los idiomas, las visitas y las decisiones a distancia."
 date: "2026-10-07"
-draft: true
+draft: false
 lang: "es"
 translation: "working-with-a-spanish-architect-from-abroad"
 order: 15

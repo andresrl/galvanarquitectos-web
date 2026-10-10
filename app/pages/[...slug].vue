@@ -49,7 +49,8 @@ function archiveSchema(site: string, url: string, businessId: string) {
 }
 if (page) {
  const draft = page.definition.status !== 'published'
- if (hidden(draft)) throw createError({ statusCode: 404, statusMessage: 'Página no encontrada' })
+ // Legal pages always answer (the footer links them); while they are drafts they stay noindex via usePageSeo and X-Robots-Tag.
+ if (hidden(draft) && page.definition.template !== 'legal') throw createError({ statusCode: 404, statusMessage: 'Página no encontrada' })
  usePageSeo({ title: page.content.title, description: page.content.description, path, draft, page, legal: page.definition.template === 'legal', extraSchema: archiveSchema, about: project ? (site: string) => ({ '@id': new URL(path, site).href + '#project' }) : undefined, servicio: page.definition.serviceId ? page.content.label : undefined })
 }
 const pagina = page ? undefined : routes.find((r: any) => r.path === path), contenido = page ? undefined : contenidos[path]

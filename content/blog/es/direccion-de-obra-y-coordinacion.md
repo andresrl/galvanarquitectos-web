@@ -2,7 +2,7 @@
 title: "Dirección de obra y coordinación de empresas: qué significa y qué no"
 description: "Qué papel tiene el arquitecto durante la obra de tu villa, en qué se diferencia de la constructora y qué conviene aclarar para que nadie dé por hecho lo que no está acordado."
 date: "2026-10-04"
-draft: true
+draft: false
 lang: "es"
 translation: "site-supervision-and-contractor-coordination"
 seoTitle: "Dirección de obra y coordinación de empresas"
