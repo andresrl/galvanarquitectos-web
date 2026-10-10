@@ -6,10 +6,12 @@ import { join, resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
 const dist = resolve(root, '..', 'dist')
-const remote = 'git@github.com:andresrl/galvanarquitectos-web-dist.git'
 const run = (cmd, cwd = root) => execSync(cmd, { cwd, stdio: 'inherit' })
 const out = (cmd, cwd = root) => execSync(cmd, { cwd, encoding: 'utf8' }).trim()
 const stop = msg => { console.error(`\n✖ ${msg}\n`); process.exit(1) }
+// Mismo protocolo que origin: SSH en el Mac, HTTPS (Git Credential Manager) en Windows sin clave SSH
+const remote = out('git remote get-url origin').replace(/galvanarquitectos-web(\.git)?$/, 'galvanarquitectos-web-dist.git')
+if (!remote.endsWith('galvanarquitectos-web-dist.git')) stop(`No se reconoce el remoto origin: ${remote}`)
 
 // 1. El código tiene que estar al día con GitHub, para no desplegar sin los cambios del otro
 run('git fetch -q origin main')
