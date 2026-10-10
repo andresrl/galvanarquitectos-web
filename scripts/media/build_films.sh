@@ -48,9 +48,19 @@ logo() { [ -z "$1" ] || printf '%s\n' -loop 1 -framerate 25 -i "$LOGO"; } # the 
 h264() { # in, out, width, crf, maxrate (k), audio bitrate (k), logo
  todo "$2" || return 0
  local l; mapfile -t l < <(logo "$7")
- ffmpeg -v error -y -i "$1" "${l[@]}" -filter_complex "$(graph "$3" "$7")" -map '[v]' -map 0:a:0? \
-  -c:v libx264 -preset slow -profile:v high -crf "$4" -maxrate "$5k" -bufsize "$(( $5 * 2 ))k" -force_key_frames 'expr:gte(t,n_forced*2)' \
-  -color_primaries bt709 -color_trc bt709 -colorspace bt709 -c:a aac -b:a "$6k" -ac 2 -movflags +faststart "$2.part.mp4" && commit "$2.part.mp4" "$2"
+ local v=(-filter_complex "$(graph "$3" "$7")" -map '[v]' -c:v libx264 -preset slow -profile:v high -maxrate "$5k" -bufsize "$(( $5 * 2 ))k"
+  -force_key_frames 'expr:gte(t,n_forced*2)' -color_primaries bt709 -color_trc bt709 -colorspace bt709)
+ local a=(-map 0:a:0? -c:a aac -b:a "$6k" -ac 2 -movflags +faststart)
+ ffmpeg -v error -y -i "$1" "${l[@]}" "${v[@]}" -crf "$4" "${a[@]}" "$2.part.mp4" || return 1
+ # GitHub warns about files over 50 MiB: a film that comes out over 48 MiB is encoded again in two passes, with the
+ # video bitrate that fills 47 MiB (1.5 % for the MP4 container), the best quality that fits.
+ if [ "$(stat -c %s "$2.part.mp4")" -gt $(( 48 * 1048576 )) ]; then
+  local log="$logs/$(basename "$2")" kbps
+  kbps=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$1" | awk -v a="$6" '{ printf "%d", 47 * 1048576 * 8 / $1 / 1000 * 0.985 - a }')
+  ffmpeg -v error -y -i "$1" "${l[@]}" "${v[@]}" -b:v "${kbps}k" -pass 1 -passlogfile "$log" -an -f null - &&
+  ffmpeg -v error -y -i "$1" "${l[@]}" "${v[@]}" -b:v "${kbps}k" -pass 2 -passlogfile "$log" "${a[@]}" "$2.part.mp4" || return 1
+ fi
+ commit "$2.part.mp4" "$2"
 }
 vp9() { # in, out, width, crf, bitrate cap (k), audio bitrate (k), logo; two passes
  todo "$2" || return 0
