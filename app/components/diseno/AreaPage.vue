@@ -54,7 +54,7 @@ onBeforeRouteLeave(stop); onBeforeUnmount(stop)
  </section>
  <nav v-if="projectCards.length" class="project-setting-projects area-projects" data-header="dark" :aria-label="t.projectsTitle(inPlace)">
   <h3>{{ t.projectsTitle(inPlace) }}</h3>
-  <ul><li v-for="item in projectCards" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 30vw" /><span class="project-related-name">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
+  <ul><li v-for="item in projectCards" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 30vw" /><span class="project-related-name" translate="no">{{ item.name }}</span><em>{{ item.heading }}</em></NuxtLink></li></ul>
  </nav>
  <nav class="area-near" data-header="dark" :aria-label="t.nearTitle"><h3>{{ t.nearTitle }}</h3><ul><li v-for="n in near" :key="n.path"><NuxtLink :to="n.path">{{ n.label }} <span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></NuxtLink></li></ul></nav>
  <section class="project-cta" data-header="light"><div data-reveal><h2>{{ t.ctaTitle }} <em>{{ t.ctaItalic }}</em></h2></div><div data-reveal><p>{{ t.lead(inPlace) }}</p><a class="text-link" :href="contact.path.value" @click="contact.show($event)"><span>{{ t.cta }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a></div></section>

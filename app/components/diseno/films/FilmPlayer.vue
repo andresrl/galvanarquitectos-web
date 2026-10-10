@@ -195,7 +195,7 @@ defineExpose({ show, close, dismiss: () => { if (dialog.value?.open) dialog.valu
  <div class="film-player-top" data-chrome>
   <p v-if="film" class="film-player-meta">
    <span class="film-player-count">{{ String(index + 1).padStart(2, '0') }} <span>{{ ui.of }} {{ String(films.length).padStart(2, '0') }}</span></span>
-   <strong>{{ film.title }}</strong><em>{{ film.kind }}</em><span v-if="film.credit" class="film-player-credit">{{ film.credit.label }} <i>{{ film.credit.name }}</i></span>
+   <strong translate="no">{{ film.title }}</strong><em>{{ film.kind }}</em><span v-if="film.credit" class="film-player-credit">{{ film.credit.label }} <i>{{ film.credit.name }}</i></span>
   </p>
   <div class="film-player-actions">
    <NuxtLink v-if="film?.path" class="film-player-project" :to="film.path" @click="dialog.close()"><span>{{ ui.viewProject }}</span><DisenoIcon name="arrow-up-right" /></NuxtLink>
@@ -213,7 +213,7 @@ defineExpose({ show, close, dismiss: () => { if (dialog.value?.open) dialog.valu
     <button type="button" class="film-player-replay" @click="toggle"><DisenoIcon name="replay" /><span>{{ ui.replay }}</span></button>
     <button v-if="next" type="button" class="film-player-next" @click="go(1)">
      <img :src="next.media.poster.small" alt="" width="960" height="540">
-     <span><small>{{ ui.upNext }}</small><strong>{{ next.title }}</strong><em>{{ next.kind }} · {{ next.time }}</em></span>
+     <span><small>{{ ui.upNext }}</small><strong translate="no">{{ next.title }}</strong><em>{{ next.kind }} · {{ next.time }}</em></span>
      <DisenoIcon name="play" />
     </button>
    </div>

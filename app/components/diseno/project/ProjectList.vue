@@ -63,7 +63,7 @@ onBeforeUnmount(stop)
   <ol class="projects-grid">
    <li v-for="(item, i) in visible" :key="item.id" :class="['projects-card', 'projects-card--' + (i % 5)]">
     <NuxtLink :to="item.path">
-     <div class="projects-card-heading"><span class="projects-card-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span><h2 class="projects-card-name">{{ item.name }}</h2></div>
+     <div class="projects-card-heading"><span class="projects-card-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span><h2 class="projects-card-name" translate="no">{{ item.name }}</h2></div>
      <DisenoProjectImage class="project-photo" :data-vt-frame="item.id" :image="item.image" :alt="item.alt" :eager="i < 2" :sizes="i % 5 === 4 ? '(max-width:700px) 100vw, 70vw' : '(max-width:700px) 100vw, 50vw'" />
      <span v-if="item.status" :class="['projects-status', 'projects-status--' + item.status]">{{ ui.status[item.status] }}</span>
     </NuxtLink>
@@ -74,7 +74,7 @@ onBeforeUnmount(stop)
  <section class="projects-selected" data-header="light" aria-labelledby="selected-title">
   <h2 id="selected-title" data-reveal>{{ t.selected }} <em>{{ t.selectedItalic }}</em></h2>
   <ul>
-   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :data-vt-frame="item.id" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span>{{ item.name }}</span><span v-if="item.status" :class="['projects-status', 'projects-status--' + item.status]">{{ ui.status[item.status] }}</span></NuxtLink></li>
+   <li v-for="item in featured" :key="item.id"><NuxtLink :to="item.path"><DisenoProjectImage class="project-photo" :data-vt-frame="item.id" :image="item.image" :alt="item.alt" sizes="(max-width:700px) calc(100vw - 52px), 20vw" /><span translate="no">{{ item.name }}</span><span v-if="item.status" :class="['projects-status', 'projects-status--' + item.status]">{{ ui.status[item.status] }}</span></NuxtLink></li>
   </ul>
  </section>
 

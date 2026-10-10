@@ -68,7 +68,7 @@ watch(viewer, v => { if (v >= 0) select(v) })
  </div>
  <div class="studio-model-copy">
   <p class="studio-model-index" data-reveal><span>{{ pad(index + 1) }}</span><i aria-hidden="true"></i>{{ ui.label }}</p>
-  <h3 data-reveal>{{ model.name }}</h3>
+  <h3 data-reveal translate="no">{{ model.name }}</h3>
   <p class="studio-model-note" data-reveal>{{ model.note }}</p>
   <NuxtLink class="studio-model-link" :to="model.path" data-reveal>
    <span class="studio-model-link-text">{{ ui.view }}<span class="visually-hidden">: {{ model.name }}</span></span>

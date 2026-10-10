@@ -99,7 +99,7 @@ onBeforeUnmount(stop)
     <div class="films-copy">
      <span class="films-number" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
      <p :class="['films-kind', 'films-kind--' + item.kindId]">{{ item.kind }}</p>
-     <h3 class="films-title">{{ item.title }}</h3>
+     <h3 class="films-title" translate="no">{{ item.title }}</h3>
      <p class="films-text">{{ item.text }}</p>
      <p v-if="item.credit" class="films-credit"><span>{{ item.credit.label }}</span> <strong>{{ item.credit.name }}</strong></p>
      <div class="films-actions">
