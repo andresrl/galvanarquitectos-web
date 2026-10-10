@@ -60,20 +60,32 @@ function setupProcessTone(){
  processObserver.observe(section)
 }
 function stopProcessTone(){processObserver?.disconnect();processObserver=null;processUnderHeader=false}
-// Mobile scenes (home-photo.css) take the height fixed elements really get, where the contact bar sits: iOS Safari 26
-// sizes 100svh taller than that and the bar covered the copy. Measured on mount and on rotation only, never when the
-// toolbars collapse, so the pins keep their length; it runs before the debounced ScrollTrigger refresh.
-let stageWidth=0
+// Mobile scenes (home-photo.css): --stage-h is the screen with Safari's toolbars retracted, so no strip shows under a
+// pinned scene; --stage-cut is the part the toolbars hide while they are out, and lifts the copy above the contact bar.
+// The probe measures the area fixed elements get (iOS Safari 26 sizes 100svh like 100lvh). The height changes only on
+// mount and rotation, before the debounced ScrollTrigger refresh, so the pins keep their length; the cut follows resizes.
+let stageProbe=null,stageWidth=0,stageHeight=0
 function measureStage(){
- if(innerWidth===stageWidth)return
- stageWidth=innerWidth
- const probe=document.createElement('div')
- probe.style.cssText='position:fixed;top:0;bottom:0;width:0;visibility:hidden;pointer-events:none'
- document.body.append(probe)
- document.documentElement.style.setProperty('--stage-h',probe.offsetHeight+'px')
- probe.remove()
+ const style=document.documentElement.style
+ if(innerWidth!==stageWidth){
+  stageWidth=innerWidth
+  stageProbe.style.height='100lvh'
+  const large=stageProbe.offsetHeight
+  stageProbe.style.height=''
+  stageHeight=Math.max(large,stageProbe.offsetHeight)
+  style.setProperty('--stage-h',stageHeight+'px')
+ }
+ style.setProperty('--stage-cut',Math.max(0,stageHeight-stageProbe.offsetHeight)+'px')
 }
-function stopStage(){window.removeEventListener('resize',measureStage);stageWidth=0}
+function setupStage(){
+ stageProbe=document.createElement('div')
+ stageProbe.style.cssText='position:fixed;top:0;bottom:0;width:0;visibility:hidden;pointer-events:none'
+ document.body.append(stageProbe)
+ stageWidth=0
+ measureStage()
+ window.addEventListener('resize',measureStage)
+}
+function stopStage(){window.removeEventListener('resize',measureStage);stageProbe?.remove();stageProbe=null}
 let motion=null,alive=false,mountReady=false,savedScroll=0,motionGeneration=0
 // Brand and what it is, both in the H1 (two lines); the space keeps the words apart in the extracted text.
 const heroHeading=computed(()=>'<span class="hero-name">'+t('heroTitle')+'</span> <em class="hero-kind">'+t('heroItalic')+'</em>')
@@ -95,8 +107,7 @@ watch(()=>route.hash,async(hash)=>{if(mountReady){await nextTick();go(hash.slice
 watch(requestedScene,()=>{if(mountReady)go(requestedScene.value.id)})
 onMounted(async()=>{
  alive=true
- measureStage()
- window.addEventListener('resize',measureStage)
+ setupStage()
  setupHeroVideo()
  setupSlideshows()
  setupProcessTone()

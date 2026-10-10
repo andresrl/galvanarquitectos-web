@@ -88,7 +88,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       title: site.nombre,
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#1c2a22' },
       ],
       link: [
