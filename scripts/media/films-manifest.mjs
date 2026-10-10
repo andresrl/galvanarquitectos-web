@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 
 const dir = 'public/video/films', url = name => `/video/films/${name}`
-const ids = ['reel-2026', 'the-house', 'villa-paris', 'la-resina-six', 'villa-soal', 'villa-pareja']
+const ids = ['reel-2026', 'the-house', 'villa-paris', 'la-resina-six', 'villa-las-fuentes', 'villa-soal', 'villa-pareja']
 const probe = file => JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type,width,height', '-of', 'json', file]))
 const media = {}
 for (const id of ids) {

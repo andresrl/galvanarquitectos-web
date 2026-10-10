@@ -1,6 +1,6 @@
 // Videos page (/videos · /es/videos): the 2026 studio reel and one video per project, played with sound in FilmPlayer.vue.
 // Media: scripts/media/build_films.sh → app/data/films.generated.ts (originals in public/videos-reel, ignored by git).
-// Honest labels: The House, Villa París and The Resina 6ix are built villas filmed on site; Villa Soal and Villa Pareja
+// Honest labels: The House, Villa París, The Resina 6ix and Villa Las Fuentes are built villas filmed on site; Villa Soal and Villa Pareja
 // are architectural visualisations, and Villa Pareja is a tender proposal (never presented as built or awarded).
 // `credit`: who filmed the video, shown on its programme entry, in the player and as the VideoObject creator.
 import type { Locale } from './pages/types'
@@ -41,6 +41,12 @@ const definitions: FilmDefinition[] = [
     id: 'la-resina-six', projectId: 'la-resina', kind: 'built', title: { en: 'The Resina 6ix', es: 'The Resina 6ix' }, text: {
       en: 'Terraces, an infinity pool and rooms open to the views, from the morning sun to dusk.',
       es: 'Terrazas, una piscina desbordante y estancias abiertas a las vistas, del sol de la mañana al anochecer.'
+    }
+  },
+  {
+    id: 'villa-las-fuentes', projectId: 'cutar', kind: 'built', text: {
+      en: 'Gardens and terraces by day, bright living spaces, a spa with an indoor pool and the façade lit up at dusk.',
+      es: 'Jardines y terrazas de día, salones luminosos, un spa con piscina interior y la fachada iluminada al anochecer.'
     }
   },
   {
