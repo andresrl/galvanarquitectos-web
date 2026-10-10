@@ -55,14 +55,17 @@
 /* Mobile contact bar (MobileContactBar.vue) */
 .mobile-contact{display:none}
 @media(max-width:700px){
- .mobile-contact{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;height:calc(52px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#141d18;border-top:1px solid var(--brass);transition:transform .45s cubic-bezier(.22,.8,.2,1)}
+ /* Height shared with the Home scenes, whose copy sits above the bar. Only a third of the home indicator inset goes
+    under the labels, so they sit close to the foot of the screen (viewport-fit=cover in nuxt.config). */
+ :root{--mobile-bar-pad:calc(env(safe-area-inset-bottom) * .35);--mobile-bar:calc(50px + var(--mobile-bar-pad))}
+ .mobile-contact{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;height:var(--mobile-bar);padding-bottom:var(--mobile-bar-pad);background:#141d18;border-top:1px solid var(--brass);transition:transform .45s cubic-bezier(.22,.8,.2,1)}
  .mobile-contact a{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--paper);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
  .mobile-contact a+a{border-left:1px solid #f6f4ef26}
  .mobile-contact a span{color:var(--brass);font-size:15px}
  .mobile-contact.is-hidden,.footer-in-view .mobile-contact{transform:translateY(110%)}
- body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
+ body{padding-bottom:var(--mobile-bar)}
  /* Keep Home photo links above the fixed contact bar. */
- .scene-foot,.vertical-caption,.intro-caption,.scene-number{bottom:calc(78px + env(safe-area-inset-bottom))}
+ .scene-foot,.vertical-caption,.intro-caption,.scene-number{bottom:calc(var(--mobile-bar) + 26px)}
 }
 /* Solid header once the archive hero has scrolled away */
 .header-solid .project-archive-page .header,.header-solid body.project-archive-page .header{background:#141d18!important;color:#fff}

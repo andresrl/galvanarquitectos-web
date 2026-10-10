@@ -60,6 +60,20 @@ function setupProcessTone(){
  processObserver.observe(section)
 }
 function stopProcessTone(){processObserver?.disconnect();processObserver=null;processUnderHeader=false}
+// Mobile scenes (home-photo.css) take the height fixed elements really get, where the contact bar sits: iOS Safari 26
+// sizes 100svh taller than that and the bar covered the copy. Measured on mount and on rotation only, never when the
+// toolbars collapse, so the pins keep their length; it runs before the debounced ScrollTrigger refresh.
+let stageWidth=0
+function measureStage(){
+ if(innerWidth===stageWidth)return
+ stageWidth=innerWidth
+ const probe=document.createElement('div')
+ probe.style.cssText='position:fixed;top:0;bottom:0;width:0;visibility:hidden;pointer-events:none'
+ document.body.append(probe)
+ document.documentElement.style.setProperty('--stage-h',probe.offsetHeight+'px')
+ probe.remove()
+}
+function stopStage(){window.removeEventListener('resize',measureStage);stageWidth=0}
 let motion=null,alive=false,mountReady=false,savedScroll=0,motionGeneration=0
 // Brand and what it is, both in the H1 (two lines); the space keeps the words apart in the extracted text.
 const heroHeading=computed(()=>'<span class="hero-name">'+t('heroTitle')+'</span> <em class="hero-kind">'+t('heroItalic')+'</em>')
@@ -81,6 +95,8 @@ watch(()=>route.hash,async(hash)=>{if(mountReady){await nextTick();go(hash.slice
 watch(requestedScene,()=>{if(mountReady)go(requestedScene.value.id)})
 onMounted(async()=>{
  alive=true
+ measureStage()
+ window.addEventListener('resize',measureStage)
  setupHeroVideo()
  setupSlideshows()
  setupProcessTone()
@@ -95,8 +111,8 @@ onMounted(async()=>{
  pageScroll.ready()
 })
 // A page transition captures the scene as it is on screen before the pins come down.
-onBeforeRouteLeave(async(to,from)=>{await awaitPageCapture(to,from);alive=false;mountReady=false;stopHeroVideo();stopSlideshows();stopProcessTone();stop();tone.value='dark'})
-onBeforeUnmount(()=>{alive=false;mountReady=false;stopHeroVideo();stopSlideshows();stopProcessTone();stop()})
+onBeforeRouteLeave(async(to,from)=>{await awaitPageCapture(to,from);alive=false;mountReady=false;stopStage();stopHeroVideo();stopSlideshows();stopProcessTone();stop();tone.value='dark'})
+onBeforeUnmount(()=>{alive=false;mountReady=false;stopStage();stopHeroVideo();stopSlideshows();stopProcessTone();stop()})
 useSeoMeta({title:()=>locale.value==='en'?'Martínez Galván · Architect in Marbella, Costa del Sol':'Martínez Galván · Arquitecto en Marbella, Costa del Sol',description:()=>locale.value==='en'?'Architect in Marbella: new-build villas and complete villa renovations on the Costa del Sol, with personal attention from idea to site.':'Arquitectura y reformas de villas en Marbella y la Costa del Sol, con trato directo con el arquitecto, de la idea a la obra.',ogLocale:()=>locale.value==='en'?'en_GB':'es_ES'})
 </script>
 <template><main ref="root"><nav class="chapter-nav" :data-tone="tone" :aria-label="locale==='en'?'Scenes':'Diapositivas'"><span class="chapter-current" aria-hidden="true">{{String(chapter+1).padStart(2,'0')}}</span><div class="chapter-dots"><a v-for="(scene,index) in scenes" :key="scene.id" :href="home+'#'+scene.id" :aria-label="String(index+1).padStart(2,'0')+' · '+scene[locale]" :aria-current="chapter===index?'true':undefined" @click.prevent="requestScene(scene.id)"><span class="visually-hidden">{{scene[locale]}}</span></a></div><span class="chapter-total" aria-hidden="true">{{String(scenes.length).padStart(2,'0')}}</span></nav><div class="scroll-progress" aria-hidden="true"><span></span></div>    <div id="home-slides">

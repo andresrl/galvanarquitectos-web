@@ -43,11 +43,14 @@
 .interiors .vertical-caption,.scene-foot .photo-credit{font-size:8px;letter-spacing:.08em}
 @media(prefers-reduced-motion:reduce){.ambient-video{visibility:hidden;will-change:auto}}
 @media(max-width:700px){
- .hero-content{bottom:max(6svh,calc(32px + env(safe-area-inset-bottom)))}
+ /* Scenes as tall as the area fixed elements get (--stage-h, measured in Home.vue): on iOS Safari 26 100svh runs
+    taller than the screen and the contact bar covered the copy. Copy and progress sit above the bar. */
+ .slide{height:var(--stage-h,100svh)}
+ .hero-content{bottom:calc(var(--mobile-bar,0px) + 30px)}
  .hero-actions{align-items:flex-start;flex-direction:column;gap:10px}
  .hero-actions .hero-cta-primary{min-width:180px}
  .photo-shade{background:linear-gradient(0deg,#0b1410f0 0%,#0b1410b3 45%,#0b141033 75%,#0b141059 100%)}
- .studio.photo-slide .slide-inner{width:100%}
+ .studio.photo-slide .slide-inner{width:100%;padding-bottom:calc(var(--mobile-bar,0px) + 36px)}
  .studio-visual video,.studio-visual{background-position:70% center;object-position:70% center}
  .intro-services{gap:10px 18px;margin-top:22px;padding-top:18px}
  .intro-services a{font-size:9px}
@@ -71,9 +74,9 @@
 .project-progress span.is-active{background:#fff}
 @media(prefers-reduced-motion:reduce){.project-slides img{transition:none}}
 @media(max-width:700px){
- .project-slide .slide-inner{padding-bottom:17svh}
+ .project-slide .slide-inner{padding-bottom:calc(var(--mobile-bar,0px) + 48px)}
  .project-slide .display-title{font-size:clamp(46px,12vw,72px)}
- .project-progress{flex-direction:row;bottom:28px}
+ .project-progress{flex-direction:row}
  .project-progress span{width:20px}
 }
 /* Link to the full archive below the four project scenes: one line of text and a rule that runs to the arrow. */
