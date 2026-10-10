@@ -2,7 +2,8 @@
 // se haya excluido desde /ignorar-analytics. Solo actúa con NUXT_PUBLIC_ANALYTICS_ENABLED=true.
 // - Umami no usa cookies: se carga siempre.
 // - GA4 instala cookies: con `gaConsent` solo se carga después de aceptar en el banner
-//   (useCookieConsent); sin él (pruebas, temporal) se carga salvo rechazo expreso.
+//   (useCookieConsent); sin él (pruebas, temporal) el banner sale igual, pero GA se carga
+//   salvo rechazo expreso.
 //   Si se retira el consentimiento, se desactiva y se borran sus cookies.
 // Los cambios de ruta los registran solos: Umami escucha el history y GA4 lo hace con la
 // medición mejorada ("Cambios de página según el historial del navegador").
@@ -70,10 +71,11 @@ export default defineNuxtPlugin(() => {
 
   if (!analytics.gaId) return;
 
-  // gaConsent false (pruebas en producción, temporal): GA se carga sin banner en todas las
-  // páginas; solo un rechazo expreso desde «Configurar cookies» lo desactiva.
-  // gaConsent true: sin decisión previa se muestra el banner y GA espera a que se acepte.
-  if (analytics.gaConsent && consent.value === null) bannerOpen.value = true;
+  // Sin decisión previa se muestra siempre el banner.
+  // gaConsent true: GA espera a que se acepte.
+  // gaConsent false (pruebas en producción, temporal): GA mide desde la primera página mientras
+  // el banner está abierto; «Rechazar» lo desactiva y borra sus cookies.
+  if (consent.value === null) bannerOpen.value = true;
   watch(
     consent,
     (value) => {

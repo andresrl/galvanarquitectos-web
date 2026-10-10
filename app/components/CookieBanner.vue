@@ -1,23 +1,18 @@
 <script setup lang="ts">
-// Banner de cookies de analítica. Aceptar y rechazar tienen el mismo peso visual (AEPD).
+// Banner de cookies de analítica: una línea, «Rechazar» como enlace subrayado y «Aceptar» como botón (Andrés, 10 oct 2026).
 // Lo abre el plugin de analítica si no hay decisión, y "Configurar cookies" en el pie.
 // Infraestructura: el diseño solo cambia su aspecto con las variables --cookies-* en diseno.css.
-import { routes } from '~/data/routes'
-const cookiePath=routes.find(r=>r.kind==='legal'&&/cookies/.test(r.path))?.path??'/'
+import { legalPaths } from '~/data/legal'
 const { consent, bannerOpen, decide } = useCookieConsent();
 const {locale}=useGalvan()
 </script>
 
 <template>
   <Transition name="cookies">
-    <section v-if="bannerOpen" class="cookies" role="dialog" aria-labelledby="cookies-title" aria-live="polite">
-      <div class="cookies__text">
-        <h2 id="cookies-title" class="cookies__title">{{locale==='en'?'Analytics preferences':'Preferencias de analítica'}}</h2>
-        <p>{{locale==='en'?'Analytics is disabled in this preview. Your preference can be updated from the footer.':'La analítica está desactivada en esta vista previa. Puedes cambiar tu preferencia desde el pie de la web.'}}</p>
-        <p v-if="consent" class="note">{{locale==='en'?'Current preference:':'Preferencia actual:'}} {{consent==='accepted'?(locale==='en'?'accepted':'aceptadas'):(locale==='en'?'rejected':'rechazadas')}}.</p>
-      </div>
+    <section v-if="bannerOpen" class="cookies" role="dialog" aria-label="Cookies" aria-live="polite">
+      <p class="cookies__text">{{locale==='en'?'We use analytics cookies to improve the website.':'Usamos cookies de analítica para mejorar la web.'}} <NuxtLink :to="legalPaths.cookies[locale]" class="cookies__link">{{locale==='en'?'More information':'Más información'}}</NuxtLink><span v-if="consent" class="note"> · {{locale==='en'?'Current:':'Actual:'}} {{consent==='accepted'?(locale==='en'?'accepted':'aceptadas'):(locale==='en'?'rejected':'rechazadas')}}</span></p>
       <div class="cookies__actions">
-        <button type="button" class="btn btn--light" @click="decide('rejected')">{{locale==='en'?'Reject':'Rechazar'}}</button>
+        <a href="#" class="cookies__link cookies__reject" @click.prevent="decide('rejected')">{{locale==='en'?'Reject':'Rechazar'}}</a>
         <button type="button" class="btn btn--light" @click="decide('accepted')">{{locale==='en'?'Accept':'Aceptar'}}</button>
       </div>
     </section>
@@ -46,11 +41,10 @@ const {locale}=useGalvan()
   box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.6);
   font-size: 0.875rem;
 }
-.cookies__text { display: grid; gap: 0.4rem; flex: 1 1 380px; }
-.cookies__title { font-size: 1rem; font-weight: 600; margin: 0; }
-.cookies__text p { margin: 0; }
-.cookies__actions { display: flex; gap: 0.6rem; }
-/* Aceptar y rechazar, mismo peso visual (AEPD) */
+.cookies__text { flex: 1 1 260px; margin: 0; }
+.cookies__link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.cookies__actions { display: flex; align-items: center; gap: 1.4rem; }
+.cookies__reject { font-weight: 600; }
 .cookies__actions .btn {
   min-height: 48px;
   padding: 0 1.2rem;
