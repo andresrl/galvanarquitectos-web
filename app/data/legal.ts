@@ -1,6 +1,6 @@
 // Legal pages (LegalPage.vue): legal notice (LSSI), privacy (GDPR / LOPDGDD) and cookies, EN and ES.
 // Written for how the site actually works: the contact form sends the enquiry by email to the architect's inbox
-// through Gmail (server/api/contact.post.ts; nothing is stored on the server), analytics is disabled, one language cookie and the cookie preference in local storage, self-hosted
+// through Gmail (server/api/contact.post.ts; nothing is stored on the server), Umami (cookieless) and Google Analytics 4 analytics, one language cookie and the cookie preference in local storage, self-hosted
 // fonts and video. Unconfirmed identification data (tax ID, professional registration) is NOT published: the pages
 // stay drafts until it is completed (`pending` in app/data/pages/projects.ts → legalPages).
 import type { Locale } from './pages/types'
@@ -43,42 +43,44 @@ export const legalCopy: Record<LegalId, Record<Locale, Doc>> = {
    ] }
  },
  privacy: {
-  en: { label: 'Privacy policy', title: 'Privacy policy', heading: 'Privacy policy', updated: 'Last updated: 9 October 2026',
+  en: { label: 'Privacy policy', title: 'Privacy policy', heading: 'Privacy policy', updated: 'Last updated: 10 October 2026',
    description: 'How Martínez Galván Arquitecto handles the personal data you send when you contact the studio: purpose, legal basis, retention and your rights under the GDPR.',
    sections: [
     { heading: 'Data controller', paragraphs: [`${holder}, architect (${negocio.nombre}).`], list: [`Address: ${address}, Spain`, `Email: ${email}`, `Telephone: ${mobile} (mobile) · ${studioPhone} (studio)`] },
     { heading: 'What data we receive', paragraphs: ['When you use the contact form, the data you enter are sent to us by email: your name, email address, telephone number if you give it, the area of your project where asked, the page you were viewing and the content of your message. The website does not keep them in a database. We also receive the data you choose to send us directly by email or telephone.'] },
     { heading: 'Purpose and legal basis', paragraphs: ['We use these data to answer your enquiry and, if you wish, to prepare and carry out a professional commission. The legal basis is your consent when you contact us and, where applicable, the steps taken at your request before entering into a contract and the performance of that contract (Article 6.1(a) and (b) of the GDPR).'] },
     { heading: 'Retention', paragraphs: ['Data are kept for as long as needed to answer your enquiry or manage the professional relationship and, afterwards, for the periods required by law.'] },
-    { heading: 'Recipients', paragraphs: ['Data are not sold or passed on to third parties, except where required by law. Technical service providers (such as email or hosting) may process them on our behalf, under the corresponding agreements. Messages sent through the contact form are delivered through Google’s email service (Gmail).'] },
+    { heading: 'Recipients', paragraphs: ['Data are not sold or passed on to third parties, except where required by law. Technical service providers (such as email or hosting) may process them on our behalf, under the corresponding agreements. Messages sent through the contact form are delivered through Google’s email service (Gmail). Website usage statistics are measured with Google Analytics 4 (Google Ireland Ltd.), which may involve transfers to Google LLC in the United States under the EU–US Data Privacy Framework, and with Umami, which does not use cookies or store personal data.'] },
     { heading: 'Your rights', paragraphs: [`You can request access to your data, their rectification or erasure, the restriction of processing, object to it or ask for portability, and withdraw your consent at any time, by writing to ${email}. You also have the right to lodge a complaint with the Spanish Data Protection Agency (www.aepd.es).`] }
    ] },
-  es: { label: 'Política de privacidad', title: 'Política de privacidad', heading: 'Política de privacidad', updated: 'Última actualización: 9 de octubre de 2026',
+  es: { label: 'Política de privacidad', title: 'Política de privacidad', heading: 'Política de privacidad', updated: 'Última actualización: 10 de octubre de 2026',
    description: 'Cómo trata Martínez Galván Arquitecto los datos personales que envías al contactar con el estudio: finalidad, base legal, conservación y tus derechos según el RGPD.',
    sections: [
     { heading: 'Responsable del tratamiento', paragraphs: [`${holder}, arquitecto (${negocio.nombre}).`], list: [`Domicilio: ${address}, España`, `Email: ${email}`, `Teléfono: ${mobile} (móvil) · ${studioPhone} (estudio)`] },
     { heading: 'Qué datos recibimos', paragraphs: ['Cuando usas el formulario de contacto, los datos que escribes nos llegan por email: tu nombre, tu email, tu teléfono si lo indicas, la zona del proyecto cuando se pide, la página que estabas viendo y el contenido de tu mensaje. La web no los guarda en ninguna base de datos. También recibimos los datos que decides enviarnos directamente por email o por teléfono.'] },
     { heading: 'Finalidad y base legal', paragraphs: ['Usamos estos datos para responder a tu consulta y, si lo deseas, para preparar y desarrollar un encargo profesional. La base legal es tu consentimiento al contactarnos y, en su caso, la aplicación de medidas precontractuales a petición tuya y la ejecución del contrato (artículo 6.1.a y b del RGPD).'] },
     { heading: 'Conservación', paragraphs: ['Los datos se conservan mientras sean necesarios para responder a tu consulta o gestionar la relación profesional y, después, durante los plazos que exija la ley.'] },
-    { heading: 'Destinatarios', paragraphs: ['Los datos no se venden ni se ceden a terceros, salvo obligación legal. Proveedores de servicios técnicos (como el correo electrónico o el alojamiento) pueden tratarlos por cuenta nuestra, con los contratos correspondientes. Los mensajes del formulario de contacto se entregan mediante el servicio de correo de Google (Gmail).'] },
+    { heading: 'Destinatarios', paragraphs: ['Los datos no se venden ni se ceden a terceros, salvo obligación legal. Proveedores de servicios técnicos (como el correo electrónico o el alojamiento) pueden tratarlos por cuenta nuestra, con los contratos correspondientes. Los mensajes del formulario de contacto se entregan mediante el servicio de correo de Google (Gmail). Las estadísticas de uso de la web se miden con Google Analytics 4 (Google Ireland Ltd.), que puede implicar transferencias a Google LLC en Estados Unidos al amparo del Marco de Privacidad de Datos UE-EE. UU., y con Umami, que no usa cookies ni guarda datos personales.'] },
     { heading: 'Tus derechos', paragraphs: [`Puedes solicitar el acceso a tus datos, su rectificación o supresión, la limitación del tratamiento, oponerte a él o pedir la portabilidad, y retirar tu consentimiento en cualquier momento, escribiendo a ${email}. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).`] }
    ] }
  },
  cookies: {
-  en: { label: 'Cookie policy', title: 'Cookie policy', heading: 'Cookie policy', updated: 'Last updated: 7 October 2026',
-   description: 'Cookies and local storage used by the Martínez Galván Arquitecto website: only technical and preference items, no advertising, and analytics currently disabled.',
+  en: { label: 'Cookie policy', title: 'Cookie policy', heading: 'Cookie policy', updated: 'Last updated: 10 October 2026',
+   description: 'Cookies and local storage used by the Martínez Galván Arquitecto website: technical and preference items, Google Analytics 4 statistics cookies and cookieless Umami analytics. No advertising.',
    sections: [
-    { heading: 'What we use', paragraphs: ['This website only uses technical and preference elements, which do not require consent. It does not use advertising cookies, and analytics is currently disabled. Fonts and videos are served from our own website, without third-party services.'],
+    { heading: 'What we use', paragraphs: ['This website uses technical and preference elements, which do not require consent, and Google Analytics 4 statistics cookies. It does not use advertising cookies. Fonts and videos are served from our own website, without third-party services.'],
      list: ['galvan-lang (own cookie, 1 year): remembers the language you chose, English or Spanish, so the site does not change it again.', 'webix:cookies (local storage in your browser, until you delete it): remembers your choice about analytics cookies.'] },
-    { heading: 'Analytics', paragraphs: ['If analytics is enabled in the future, it will only be loaded after you accept it, and this policy will list the cookies involved. You can change your choice at any time from “Cookie settings” in the footer.'] },
+    { heading: 'Analytics', paragraphs: ['We measure how the website is used (pages visited, approximate origin, device) to improve it. Umami counts visits without cookies and without storing personal data. Google Analytics 4, provided by Google Ireland Ltd., uses the cookies below; Google may process the data in the United States under the EU–US Data Privacy Framework. You can reject or accept these cookies at any time from “Cookie settings” in the footer.'],
+     list: ['_ga (Google Analytics, 2 years): distinguishes visitors anonymously.', '_ga_66D6QH2ZMH (Google Analytics, 2 years): keeps the state of the session.'] },
     { heading: 'How to manage them', paragraphs: ['You can delete or block cookies and local storage from your browser settings. If you block the language cookie, the site will work normally but may not remember your language choice.'] }
    ] },
-  es: { label: 'Política de cookies', title: 'Política de cookies', heading: 'Política de cookies', updated: 'Última actualización: 7 de octubre de 2026',
-   description: 'Cookies y almacenamiento local que usa la web de Martínez Galván Arquitecto: solo elementos técnicos y de preferencias, sin publicidad y con la analítica desactivada.',
+  es: { label: 'Política de cookies', title: 'Política de cookies', heading: 'Política de cookies', updated: 'Última actualización: 10 de octubre de 2026',
+   description: 'Cookies y almacenamiento local que usa la web de Martínez Galván Arquitecto: elementos técnicos y de preferencias, cookies estadísticas de Google Analytics 4 y analítica Umami sin cookies. Sin publicidad.',
    sections: [
-    { heading: 'Qué utilizamos', paragraphs: ['Esta web solo utiliza elementos técnicos y de preferencias, que no requieren consentimiento. No usa cookies publicitarias y la analítica está actualmente desactivada. Las fuentes y los vídeos se sirven desde nuestra propia web, sin servicios de terceros.'],
+    { heading: 'Qué utilizamos', paragraphs: ['Esta web utiliza elementos técnicos y de preferencias, que no requieren consentimiento, y cookies estadísticas de Google Analytics 4. No usa cookies publicitarias. Las fuentes y los vídeos se sirven desde nuestra propia web, sin servicios de terceros.'],
      list: ['galvan-lang (cookie propia, 1 año): recuerda el idioma que elegiste, español o inglés, para que la web no lo vuelva a cambiar.', 'webix:cookies (almacenamiento local de tu navegador, hasta que lo borres): recuerda tu decisión sobre las cookies de analítica.'] },
-    { heading: 'Analítica', paragraphs: ['Si en el futuro se activa la analítica, solo se cargará después de que la aceptes, y esta política indicará las cookies que utiliza. Puedes cambiar tu decisión en cualquier momento desde «Configurar cookies», en el pie de la web.'] },
+    { heading: 'Analítica', paragraphs: ['Medimos cómo se usa la web (páginas visitadas, procedencia aproximada, dispositivo) para mejorarla. Umami cuenta las visitas sin cookies y sin guardar datos personales. Google Analytics 4, de Google Ireland Ltd., usa las cookies que se indican abajo; Google puede tratar los datos en Estados Unidos al amparo del Marco de Privacidad de Datos UE-EE. UU. Puedes rechazar o aceptar estas cookies en cualquier momento desde «Configurar cookies», en el pie de la web.'],
+     list: ['_ga (Google Analytics, 2 años): distingue a los visitantes de forma anónima.', '_ga_66D6QH2ZMH (Google Analytics, 2 años): mantiene el estado de la sesión.'] },
     { heading: 'Cómo gestionarlas', paragraphs: ['Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador. Si bloqueas la cookie de idioma, la web funcionará con normalidad, pero puede que no recuerde el idioma que elegiste.'] }
    ] }
  }

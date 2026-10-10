@@ -1,7 +1,8 @@
 // Carga Umami y Google Analytics (GA4) en el navegador, salvo que este navegador
 // se haya excluido desde /ignorar-analytics. Solo actúa con NUXT_PUBLIC_ANALYTICS_ENABLED=true.
 // - Umami no usa cookies: se carga siempre.
-// - GA4 instala cookies: solo se carga después de aceptar en el banner (useCookieConsent).
+// - GA4 instala cookies: con `gaConsent` solo se carga después de aceptar en el banner
+//   (useCookieConsent); sin él (pruebas, temporal) se carga salvo rechazo expreso.
 //   Si se retira el consentimiento, se desactiva y se borran sus cookies.
 // Los cambios de ruta los registran solos: Umami escucha el history y GA4 lo hace con la
 // medición mejorada ("Cambios de página según el historial del navegador").
@@ -69,12 +70,14 @@ export default defineNuxtPlugin(() => {
 
   if (!analytics.gaId) return;
 
-  // Sin decisión previa se muestra el banner; GA espera a que se acepte.
-  if (consent.value === null) bannerOpen.value = true;
+  // gaConsent false (pruebas en producción, temporal): GA se carga sin banner en todas las
+  // páginas; solo un rechazo expreso desde «Configurar cookies» lo desactiva.
+  // gaConsent true: sin decisión previa se muestra el banner y GA espera a que se acepte.
+  if (analytics.gaConsent && consent.value === null) bannerOpen.value = true;
   watch(
     consent,
     (value) => {
-      if (value === "accepted") loadGoogleAnalytics(analytics.gaId);
+      if (value === "accepted" || (!analytics.gaConsent && value !== "rejected")) loadGoogleAnalytics(analytics.gaId);
       else if (value === "rejected") disableGoogleAnalytics(analytics.gaId);
     },
     { immediate: true },
