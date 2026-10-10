@@ -57,7 +57,7 @@ No modificar la antigua aplicación de LanzaderaWeb en 3040. El proyecto actual 
 - Renderizado SSR; contenido legible antes de ejecutar JavaScript.
 - Desarrollo en 127.0.0.1:3048. No exponer un servidor de desarrollo a Internet.
 - `runtimeConfig.public.indexable = false`: propuesta en **noindex**.
-- Analítica desactivada. Se mantienen consentimiento, plugins y utilidades del starter.
+- Analítica (10 oct 2026): Umami activado por defecto en `nuxt.config.ts` (`umami.rocio.com`, sin cookies; GA4 sin configurar). `NUXT_PUBLIC_ANALYTICS_ENABLED=false` en el `.env` local lo apaga en desarrollo. `/ignorar-analytics` (`app/pages/ignorar-analytics.vue`, sin enlaces, fuera de robots.txt y sitemap, noindex) excluye el navegador propio con localStorage (`umami.disabled`).
 - `showDrafts = false`; mientras `indexable` sea falso las páginas de borrador actuales se pueden revisar.
 - Build de producción y verificaciones HTTP completados correctamente tras el piloto.
 - No hay repositorio Git en la raíz de trabajo actualmente; comprobar antes de asumir que existe una rama o un remoto.

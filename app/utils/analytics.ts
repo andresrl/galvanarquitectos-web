@@ -1,4 +1,4 @@
-// Exclusión de analítica en este navegador (página /ignore-analytics).
+// Exclusión de analítica en este navegador (página /ignorar-analytics).
 // - Umami: su mecanismo oficial, localStorage "umami.disabled" = "1" (lo comprueba en cada envío).
 // - Google Analytics: no se carga gtag.js y, si ya estaba cargado, `window["ga-disable-<ID>"] = true`.
 

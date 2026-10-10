@@ -8,7 +8,8 @@ const published = new Set([
   ...allPages.filter((p) => p.status === "published").flatMap((p) => Object.values(p.paths)),
   ...(homePublished ? Object.values(homePaths) : []),
 ]);
-const blocked = new Set(routes.filter((r) => ["legal", "interna"].includes(r.kind)).map((r) => r.path));
+// /ignorar-analytics: private tool to exclude your own browser from the stats; never listed or indexed.
+const blocked = new Set([...routes.filter((r) => ["legal", "interna"].includes(r.kind)).map((r) => r.path), "/ignorar-analytics"]);
 const registered = new Set([...allPages.flatMap((p) => Object.values(p.paths)), ...Object.values(homePaths)]);
 
 export default defineEventHandler((event) => {

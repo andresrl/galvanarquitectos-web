@@ -1,5 +1,5 @@
 // Carga Umami y Google Analytics (GA4) en el navegador, salvo que este navegador
-// se haya excluido desde /ignore-analytics. Solo actúa con NUXT_PUBLIC_ANALYTICS_ENABLED=true.
+// se haya excluido desde /ignorar-analytics. Solo actúa con NUXT_PUBLIC_ANALYTICS_ENABLED=true.
 // - Umami no usa cookies: se carga siempre.
 // - GA4 instala cookies: solo se carga después de aceptar en el banner (useCookieConsent).
 //   Si se retira el consentimiento, se desactiva y se borran sus cookies.
