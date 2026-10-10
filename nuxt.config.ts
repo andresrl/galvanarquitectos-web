@@ -1,11 +1,104 @@
 import tailwindcss from '@tailwindcss/vite'
-import { existsSync,readdirSync,readFileSync } from 'node:fs'
-const blogDir=new URL('./content/blog/',import.meta.url)
-// Published guides only (draft: false). Git does not keep empty folders, so a fresh clone may lack a language folder.
-const guideRoutes={en:'/journal/',es:'/es/guias/'} as const
-const publishedPosts=(['en','es'] as const).flatMap(lang=>{const dir=new URL(lang+'/',blogDir);return existsSync(dir)?readdirSync(dir).filter(n=>n.endsWith('.md')&&/^draft:\s*false\s*$/m.test((/^---\n([\s\S]*?)\n---/.exec(readFileSync(new URL(n,dir),'utf8'))??[])[1]??'')).map(n=>guideRoutes[lang]+n.slice(0,-3)):[]})
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { site } from './app/data/site'
+
+// Published guides only (draft: false). Git does not keep empty folders, so a fresh clone may lack a language folder.
+const blogDir = new URL('./content/blog/', import.meta.url)
+const guideRoutes = { en: '/journal/', es: '/es/guias/' } as const
+
+const isPublished = (file: URL) => {
+  const frontmatter = /^---\n([\s\S]*?)\n---/.exec(readFileSync(file, 'utf8'))?.[1] ?? ''
+  return /^draft:\s*false\s*$/m.test(frontmatter)
+}
+
+const publishedPosts = (['en', 'es'] as const).flatMap((lang) => {
+  const dir = new URL(lang + '/', blogDir)
+  if (!existsSync(dir)) return []
+  return readdirSync(dir)
+    .filter((name) => name.endsWith('.md') && isPublished(new URL(name, dir)))
+    .map((name) => guideRoutes[lang] + name.slice(0, -3))
+})
+
 // Security headers everywhere; long cache for media that only changes with a deploy (names are stable, so 30 days, not immutable).
-const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'SAMEORIGIN','Permissions-Policy':'camera=(), microphone=(), geolocation=(), interest-cohort=()','Strict-Transport-Security':'max-age=31536000; includeSubDomains'}
-const media={headers:{'Cache-Control':'public, max-age=2592000'}}
-export default defineNuxtConfig({compatibilityDate:'2026-10-02',routeRules:{'/**':{headers:security},'/media/**':media,'/video/**':media,'/og/**':media,'/brand/**':media,'/photos/**':media,'/diseno/**':media,'/_nuxt/**':{headers:{'Cache-Control':'public, max-age=31536000, immutable'}}},devtools:{enabled:false},modules:['@nuxt/content'],content:{experimental:{sqliteConnector:'native'}},css:['~/assets/css/diseno.css','~/assets/css/service.css','~/assets/css/navigation.css','~/assets/css/guides.css','~/assets/css/project.css','~/assets/css/home-photo.css','~/assets/css/contact.css','~/assets/css/error.css','~/assets/css/page-transition.css','~/assets/css/films.css','~/assets/css/typography.css'],vite:{plugins:[tailwindcss()]},runtimeConfig:{public:{siteUrl:site.url,indexable:false,showDrafts:false,publishedPosts,analytics:{enabled:true,umamiSrc:'https://umami.rocio.com/widget.js',umamiWebsiteId:'dd9d7f53-777c-4442-a5f5-fea7489b8044',gaId:'G-66D6QH2ZMH',gaConsent:false}}},app:{head:{htmlAttrs:{lang:'en'},title:site.nombre,meta:[{name:'viewport',content:'width=device-width, initial-scale=1'},{name:'theme-color',content:'#1c2a22'}],link:[{rel:'icon',href:'/favicon.ico',sizes:'48x48'},{rel:'icon',type:'image/png',sizes:'192x192',href:'/icon-192.png'},{rel:'apple-touch-icon',href:'/apple-touch-icon.png'},{rel:'manifest',href:'/site.webmanifest'},{rel:'preload',as:'font',type:'font/woff2',href:'/diseno/fonts/manrope.woff2',crossorigin:''},{rel:'preload',as:'font',type:'font/woff2',href:'/diseno/fonts/inter.woff2',crossorigin:''}]}}})
+const security = {
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+}
+const media = { headers: { 'Cache-Control': 'public, max-age=2592000' } }
+
+export default defineNuxtConfig({
+  compatibilityDate: '2026-10-02',
+  devtools: { enabled: false },
+
+  routeRules: {
+    '/**': { headers: security },
+    '/media/**': media,
+    '/video/**': media,
+    '/og/**': media,
+    '/brand/**': media,
+    '/photos/**': media,
+    '/diseno/**': media,
+    '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+  },
+
+  modules: ['@nuxt/content'],
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
+
+  css: [
+    '~/assets/css/diseno.css',
+    '~/assets/css/service.css',
+    '~/assets/css/navigation.css',
+    '~/assets/css/guides.css',
+    '~/assets/css/project.css',
+    '~/assets/css/home-photo.css',
+    '~/assets/css/contact.css',
+    '~/assets/css/error.css',
+    '~/assets/css/page-transition.css',
+    '~/assets/css/films.css',
+    '~/assets/css/typography.css',
+  ],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  runtimeConfig: {
+    public: {
+      siteUrl: site.url,
+      indexable: false,
+      showDrafts: false,
+      publishedPosts,
+      analytics: {
+        enabled: true,
+        umamiSrc: 'https://umami.rocio.com/widget.js',
+        umamiWebsiteId: 'dd9d7f53-777c-4442-a5f5-fea7489b8044',
+        gaId: 'G-66D6QH2ZMH',
+        gaConsent: false,
+      },
+    },
+  },
+
+  app: {
+    head: {
+      htmlAttrs: { lang: 'en' },
+      title: site.nombre,
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'theme-color', content: '#1c2a22' },
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192.png' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/diseno/fonts/manrope.woff2', crossorigin: '' },
+        { rel: 'preload', as: 'font', type: 'font/woff2', href: '/diseno/fonts/inter.woff2', crossorigin: '' },
+      ],
+    },
+  },
+})
