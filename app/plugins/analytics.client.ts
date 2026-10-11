@@ -7,6 +7,8 @@
 //   Si se retira el consentimiento, se desactiva y se borran sus cookies.
 // Los cambios de ruta los registran solos: Umami escucha el history y GA4 lo hace con la
 // medición mejorada ("Cambios de página según el historial del navegador").
+// Los clics en enlaces tel:, mailto: y WhatsApp se registran aquí con una única escucha
+// global (utils/track.ts); el formulario, en useEnquiry tras la respuesta correcta del servidor.
 
 declare global {
   interface Window {
@@ -64,6 +66,17 @@ export default defineNuxtPlugin(() => {
     setAnalyticsIgnored(true, analytics.gaId);
     return;
   }
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const link = (event.target as Element | null)?.closest?.("a[href]");
+      const href = link?.getAttribute("href") ?? "";
+      const name = contactEventForHref(href);
+      if (name) trackEvent(name, { link_url: href.split("?")[0] ?? href });
+    },
+    { capture: true },
+  );
 
   if (analytics.umamiSrc && analytics.umamiWebsiteId) {
     addScript(analytics.umamiSrc, { defer: "", "data-website-id": analytics.umamiWebsiteId });
