@@ -5,6 +5,7 @@ import { locales } from './types'
 import { services, serviceIds, locations, locationIds, type LocationId, type ServiceId } from '../taxonomy'
 import { serviceCopy, commonCopy } from '../content/services'
 import { locationCopy } from '../content/locations'
+import { locationStudy } from '../content/location-study'
 import { heroLeads } from '../content/hero'
 import { areaHero, hubHero, servicePause, feature as featureImage, serviceProjects } from '../content/service-images'
 
@@ -40,13 +41,22 @@ function compose(id: ServiceId, locale: Locale, offset: number, local?: { loc: L
     zonesEyebrow: s.zonesEyebrow, zonesTitle: s.zonesTitle, zonesItalic: s.zonesItalic, zonesText: s.zonesText
   }
   const focus = lc.focus[id]?.[locale], lead = heroLeads[local.loc][id]?.[locale]
-  if (!focus || !lead) throw new Error(`Missing local copy for ${id} × ${local.loc} (${locale})`)
+  const study = locationStudy[local.loc], question = study.questions[id]?.[locale]
+  if (!focus || !lead || !question) throw new Error(`Missing local copy for ${id} × ${local.loc} (${locale})`)
+  // FAQ: the two local questions, then two of the service's general questions, rotated by area so the same answers
+  // are not repeated on every area page (the hub keeps them all; following from abroad lives on the hub and /international).
+  const general = s.faqs.filter(([q]) => !/abroad|otro país/.test(q)), at = locationIds.indexOf(local.loc)
+  const faqs = [lc.faq[locale], question, general[at % general.length], general[(at + 1) % general.length]]
   return {
     ...base,
     label: `${services[id].name[locale]} ${place}`, title: `${s.heading} ${place} · Martínez Galván`, description: s.describe(place),
     eyebrow: `${loc.name[locale].toUpperCase()} · ${loc.area}`, heading: s.heading, italic: place + '.', lead,
     introLead: lc.context[locale], introText: `${focus} ${s.introText}`,
-    localTitle: s.localTitle(place), localText: lc.setting[locale], faqs: [lc.faq[locale], ...s.faqs], contactText: s.contactText(place)
+    // The scope module becomes what is studied on site in this area.
+    transformationEyebrow: `${loc.name[locale].toUpperCase()} · ${locale === 'en' ? 'ON SITE' : 'SOBRE EL TERRENO'}`,
+    transformationTitle: locale === 'en' ? 'What we study' : 'Qué estudiamos', transformationItalic: place + '.', scope: study.study[locale],
+    navigation: [s.navigation[0], locale === 'en' ? 'On site' : 'Sobre el terreno', s.navigation[2], s.navigation[3]],
+    localTitle: s.localTitle(place), localText: lc.setting[locale], faqs, contactText: s.contactText(place)
   }
 }
 

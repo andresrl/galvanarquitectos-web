@@ -38,7 +38,7 @@ for (const [path, html] of pages) {
  let graph = []
  try { graph = JSON.parse(ld.replace(/&quot;/g, '"').replace(/&amp;/g, '&'))['@graph'] } catch { check(false, `${path} JSON-LD does not parse`) }
  const ids = graph.map(n => n['@id'] ?? '')
- check(ids.some(i => i.endsWith('/#studio')) && ids.some(i => i.endsWith('/#paco')), `${path} JSON-LD has the studio and the architect`)
+ check(ids.some(i => i.endsWith('/#studio')) && ids.some(i => i.endsWith('/#architect')), `${path} JSON-LD has the studio and the architect`)
  check(graph.some(n => [n['@type']].flat().some(t => /Page$/.test(t))), `${path} JSON-LD has a page node`)
  const og = one(html, /<meta[^>]*property="og:image"[^>]*content="([^"]+)"/), w = one(html, /og:image:width"[^>]*content="(\d+)"/), h = one(html, /og:image:height"[^>]*content="(\d+)"/)
  check(og && w === '1200' && h === '630', `${path} og:image 1200×630 (${w}×${h} ${og})`)

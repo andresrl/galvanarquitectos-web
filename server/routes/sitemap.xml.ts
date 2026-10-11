@@ -6,7 +6,9 @@ import { allPages as pages, homePaths, homePublished } from '../../app/data/page
 import { projectById } from '../../app/data/projects/projects'
 import { films, filmsPublished } from '../../app/data/films'
 
-const lastmod = new Date().toISOString().slice(0, 10) // build date: pages change with each deploy
+// <lastmod> only where a real modification date exists (guides and their indexes); a build date on every URL
+// tells search engines nothing and teaches them to ignore the field.
+const guideIndex = { en: '/journal', es: '/es/guias' } as const
 
 export default defineEventHandler(event => {
  const cfg = useRuntimeConfig(event).public
@@ -14,16 +16,21 @@ export default defineEventHandler(event => {
  const escape = (s: string) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;'), abs = (p: string) => escape(new URL(p, cfg.siteUrl).href)
  const registered = new Set([...pages.flatMap(p => Object.values(p.paths)), ...Object.values(homePaths)])
  type Video = { thumbnail: string; title: string; description: string; content: string; duration: number }
- type Entry = { loc: string; alternates?: Record<string, string>; images?: string[]; videos?: Video[] }
+ type Entry = { loc: string; lastmod?: string; alternates?: Record<string, string>; images?: string[]; videos?: Video[] }
  const imagesOf = (projectIds?: string[]) => (projectIds ?? []).flatMap(id => { const m = projectById(id)?.media; return m ? [m.hero, ...m.gallery, m.pause].map(i => i.src) : [] })
  const videosIn = (lang: 'en' | 'es'): Video[] => films.map(f => ({ thumbnail: f.media.poster.jpg, title: f.title[lang], description: f.text[lang], content: f.media.sources[1080].mp4, duration: Math.round(f.media.duration) }))
  const entries: Entry[] = cfg.indexable ? [
   ...(homePublished ? Object.values(homePaths).map(loc => ({ loc, alternates: homePaths })) : []),
   ...pages.filter(p => p.status === 'published').flatMap(p => Object.entries(p.paths).map(([lang, loc]) => ({ loc, alternates: p.paths, images: p.template === 'project' ? imagesOf(p.projectIds) : undefined, videos: p.template === 'films' ? videosIn(lang as 'en' | 'es') : undefined }))),
   ...routes.filter(r => r.status === 'publicada' && !registered.has(r.path) && !['legal', 'interna'].includes(r.kind)).map(r => ({ loc: r.path })),
-  ...cfg.publishedPosts.map((loc: string) => ({ loc }))
+  ...cfg.guideSitemap.map((g: Entry) => ({ loc: g.loc, lastmod: g.lastmod || undefined, alternates: g.alternates })),
+  // Guide indexes: indexable once 3 guides are published in that language (useGuideIndex).
+  ...(['en', 'es'] as const).flatMap(lang => {
+   const own = cfg.guideSitemap.filter((g: Entry) => g.loc.startsWith(guideIndex[lang] + '/'))
+   return own.length >= 3 ? [{ loc: guideIndex[lang], lastmod: own.map((g: Entry) => g.lastmod ?? '').sort().at(-1) || undefined, alternates: { ...guideIndex } }] : []
+  })
  ] : []
- const url = (e: Entry) => '<url><loc>' + abs(e.loc) + '</loc><lastmod>' + lastmod + '</lastmod>'
+ const url = (e: Entry) => '<url><loc>' + abs(e.loc) + '</loc>' + (e.lastmod ? '<lastmod>' + e.lastmod + '</lastmod>' : '')
   + (e.alternates ? Object.entries(e.alternates).map(([l, p]) => '<xhtml:link rel="alternate" hreflang="' + l + '" href="' + abs(p) + '"/>').join('') + '<xhtml:link rel="alternate" hreflang="x-default" href="' + abs(e.alternates.en) + '"/>' : '')
   + (e.images ?? []).map(src => '<image:image><image:loc>' + abs(src) + '</image:loc></image:image>').join('')
   + (e.videos ?? []).map(v => '<video:video><video:thumbnail_loc>' + abs(v.thumbnail) + '</video:thumbnail_loc><video:title>' + escape(v.title) + '</video:title><video:description>' + escape(v.description) + '</video:description><video:content_loc>' + abs(v.content) + '</video:content_loc><video:duration>' + v.duration + '</video:duration><video:publication_date>' + filmsPublished + '</video:publication_date></video:video>').join('') + '</url>'

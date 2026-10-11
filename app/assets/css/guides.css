@@ -11,7 +11,7 @@
 .guides-thumb{display:block;aspect-ratio:1;overflow:hidden;background:#d4d6cb}
 .guides-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .guides-copy{display:flex;flex-direction:column;gap:8px;max-width:70ch}
-.guides-title{font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(22px,2.3vw,34px);line-height:1.15;letter-spacing:-.02em}
+.guides-title{margin:0;font-family:Manrope,Arial,sans-serif;font-weight:300;font-size:clamp(22px,2.3vw,34px);line-height:1.15;letter-spacing:-.02em}
 .guides-description{font-size:14px;line-height:1.65;color:var(--muted)}
 .guides-copy small{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#ad8d61}
 .guides-arrow{color:#ad8d61;justify-self:end}

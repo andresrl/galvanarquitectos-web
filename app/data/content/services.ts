@@ -55,7 +55,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       transformationEyebrow: 'THE PLOT, THE PROGRAMME, THE LIGHT', transformationTitle: 'Space, light', transformationItalic: 'and proportion.',
       scope: [
         { title: 'The site and its possibilities', text: 'Orientation, the relationship with the landscape, privacy and access are studied before the design takes shape. Feasibility is checked, never assumed.' },
-        { title: 'Space, light and proportion', text: 'Your brief becomes a sequence of rooms: how they connect, how you move between them and where the light enters through the day.' },
+        { title: 'A sequence of rooms', text: 'Your brief becomes a sequence of rooms: how they connect, how you move between them and where the light enters through the day.' },
         { title: 'Inside and outside, together', text: 'Terraces, porches and pool are designed with the house, as part of the same architectural project.' }
       ],
       visionEyebrow: 'ARCHITECTURE · LIGHT · SPACE', visionTitle: 'One vision.', visionItalic: 'From plot to home.',
@@ -91,7 +91,7 @@ export const serviceCopy: Record<ServiceId, Record<Locale, ServiceCopy>> = {
       transformationEyebrow: 'LA PARCELA, EL PROGRAMA, LA LUZ', transformationTitle: 'Espacio, luz', transformationItalic: 'y proporción.',
       scope: [
         { title: 'La parcela y sus posibilidades', text: 'La orientación, la relación con el paisaje, la privacidad y los accesos se estudian antes de dar forma al diseño. La viabilidad se comprueba, no se presupone.' },
-        { title: 'Espacio, luz y proporción', text: 'Tu programa se convierte en una secuencia de estancias: cómo se conectan, cómo te mueves entre ellas y por dónde entra la luz a lo largo del día.' },
+        { title: 'Una secuencia de estancias', text: 'Tu programa se convierte en una secuencia de estancias: cómo se conectan, cómo te mueves entre ellas y por dónde entra la luz a lo largo del día.' },
         { title: 'Interior y exterior, en conjunto', text: 'Las terrazas, los porches y la piscina se diseñan con la casa, dentro del mismo proyecto de arquitectura.' }
       ],
       visionEyebrow: 'ARQUITECTURA · LUZ · ESPACIO', visionTitle: 'Una misma visión.', visionItalic: 'De la parcela a la casa.',

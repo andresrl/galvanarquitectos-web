@@ -11,13 +11,20 @@ const isPublished = (file: URL) => {
   return /^draft:\s*false\s*$/m.test(frontmatter)
 }
 
-const publishedPosts = (['en', 'es'] as const).flatMap((lang) => {
-  const dir = new URL(lang + '/', blogDir)
+const field = (file: URL, key: string) => new RegExp('^' + key + ':\\s*"?([^"\\n]*)"?\\s*$', 'm').exec(readFileSync(file, 'utf8'))?.[1]
+// Sitemap entries for published guides: real modification date and the translation as alternate.
+const guideSitemap = (['en', 'es'] as const).flatMap((lang) => {
+  const dir = new URL(lang + '/', blogDir), other = lang === 'en' ? 'es' : 'en'
   if (!existsSync(dir)) return []
   return readdirSync(dir)
     .filter((name) => name.endsWith('.md') && isPublished(new URL(name, dir)))
-    .map((name) => guideRoutes[lang] + name.slice(0, -3))
+    .map((name) => {
+      const file = new URL(name, dir), translation = field(file, 'translation')
+      const loc = guideRoutes[lang] + name.slice(0, -3)
+      return { loc, lastmod: field(file, 'updated') || field(file, 'date') || '', alternates: translation ? { [lang]: loc, [other]: guideRoutes[other] + translation } : undefined }
+    })
 })
+const publishedPosts = guideSitemap.map((g) => g.loc)
 
 // Security headers everywhere; long cache for media that only changes with a deploy (names are stable, so 30 days, not immutable).
 const security = {
@@ -73,6 +80,7 @@ export default defineNuxtConfig({
       indexable: false,
       showDrafts: false,
       publishedPosts,
+      guideSitemap,
       analytics: {
         enabled: true,
         umamiSrc: 'https://umami.rocio.com/widget.js',

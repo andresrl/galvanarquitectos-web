@@ -2,11 +2,11 @@
 export const ogImages: Record<string, { image: string; alt: string }> = {
  "/": {
   "image": "/og/home.jpg",
-  "alt": "Galván Arquitectos. Architecture studio."
+  "alt": "Martínez Galván. Architect in Marbella."
  },
  "/es": {
   "image": "/og/es.jpg",
-  "alt": "Galván Arquitectos. Estudio de arquitectura."
+  "alt": "Martínez Galván. Arquitecto en Marbella."
  },
  "/journal": {
   "image": "/og/journal.jpg",
@@ -666,10 +666,10 @@ export const ogImages: Record<string, { image: string; alt: string }> = {
  },
  "/international-clients": {
   "image": "/og/international-clients.jpg",
-  "alt": "Architect in Marbella for international clients"
+  "alt": "International clients: your villa project from abroad"
  },
  "/es/clientes-internacionales": {
   "image": "/og/es--clientes-internacionales.jpg",
-  "alt": "Arquitecto en Marbella para clientes que viven fuera"
+  "alt": "Clientes internacionales: tu villa desde otro país"
  }
 }

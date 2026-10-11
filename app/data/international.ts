@@ -14,7 +14,7 @@ export const internationalCopy: Record<Locale, {
  heroAlt: string
 }> = {
  en: {
-  label: 'International clients', title: 'Architect in Marbella for international clients',
+  label: 'International clients', title: 'International clients: your villa project from abroad',
   description: 'Build or renovate a villa in Marbella from abroad: video calls, site visits and follow-up of the works with architect Francisco Martínez Galván, in English.',
   eyebrow: 'International clients · Costa del Sol', heading: 'Your villa in Marbella.', italic: 'Wherever you live.',
   lead: 'Design, permissions and works followed from abroad, with one architect as your point of contact, in English or Spanish.',
@@ -50,7 +50,7 @@ export const internationalCopy: Record<Locale, {
   cta: 'Tell us about your project', heroAlt: 'Villas on a hillside above the coast at dusk, The Villas'
  },
  es: {
-  label: 'Clientes internacionales', title: 'Arquitecto en Marbella para clientes que viven fuera',
+  label: 'Clientes internacionales', title: 'Clientes internacionales: tu villa desde otro país',
   description: 'Construye o reforma tu villa en Marbella desde otro país: videollamadas, visitas y seguimiento de obra con el arquitecto Francisco Martínez Galván.',
   eyebrow: 'Clientes internacionales · Costa del Sol', heading: 'Tu villa en Marbella.', italic: 'Vivas donde vivas.',
   lead: 'Diseño, licencias y obra seguidos desde otro país, con un solo arquitecto como interlocutor, en español o inglés.',

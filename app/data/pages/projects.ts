@@ -1,8 +1,8 @@
 // Registry definitions for the project archive: the listing and one page per project, EN and ES.
-import type { Locale, PageDefinition, ProjectPageContent } from './types'
+import type { Faq, Locale, PageDefinition, ProjectPageContent } from './types'
 import { projects, projectPath, projectsIndexPath } from '../projects/projects'
 import { negocio } from '../negocio'
-import { locations } from '../taxonomy'
+import { locations, serviceIds, type LocationId } from '../taxonomy'
 import { studioCopy, studioPaths } from '../studio'
 import { contactCopy, contactPaths } from '../contact'
 import { filmsCopy, filmsPaths, reel } from '../films'
@@ -24,12 +24,18 @@ export const projectsIndexPage: PageDefinition<ProjectPageContent> = {
  sources: ['Graphics/VISENI/proyectos'], pending: ['Review the listing order with Paco']
 }
 
+// <title>: name plus what the work is and where, from confirmed facts only (kind, zone); never the bare name.
+const projectKind = { en: { hospitality: 'Hotel architecture', tender: 'Villa design proposal', renovation: 'Villa renovation', default: 'Villa architecture' },
+ es: { hospitality: 'Arquitectura hotelera', tender: 'Propuesta de villa', renovation: 'Reforma de villa', default: 'Proyecto de villa' } }
+const projectTitle = (p: (typeof projects)[number], locale: Locale) =>
+ `${p.name[locale]} · ${projectKind[locale][p.kind ?? 'default']}${p.zone ? ' ' + locations[p.zone].in[locale] : ', Costa del Sol'}`
+
 export const projectPages: PageDefinition<ProjectPageContent>[] = projects.map(p => ({
  id: `project-${p.id}`, type: 'project', template: 'project', projectIds: [p.id],
  paths: { en: projectPath(p, 'en'), es: projectPath(p, 'es') }, status: 'draft',
  content: {
-  en: page('en', { label: p.name.en, title: `${p.name.en} · ${p.zone ? locations[p.zone].name.en : 'Costa del Sol'}`, description: p.copy.en.lead, image: { src: p.media.hero.jpg!, alt: p.copy.en.heroAlt } }),
-  es: page('es', { label: p.name.es, title: `${p.name.es} · ${p.zone ? locations[p.zone].name.es : 'Costa del Sol'}`, description: p.copy.es.lead, image: { src: p.media.hero.jpg!, alt: p.copy.es.heroAlt } })
+  en: page('en', { label: p.name.en, title: projectTitle(p, 'en'), description: p.copy.en.lead, image: { src: p.media.hero.jpg!, alt: p.copy.en.heroAlt } }),
+  es: page('es', { label: p.name.es, title: projectTitle(p, 'es'), description: p.copy.es.lead, image: { src: p.media.hero.jpg!, alt: p.copy.es.heroAlt } })
  },
  sources: [`Graphics/VISENI/proyectos (${p.id})`], pending: p.pending
 }))
@@ -86,11 +92,14 @@ export const internationalPage: PageDefinition<ProjectPageContent> = {
 // Area pages (all areas except Marbella, covered by the Home).
 import { areaIds, areaPath, areaUi } from '../areas'
 import { locationCopy } from '../content/locations'
+import { locationStudy } from '../content/location-study'
+// Area FAQ: the area question plus each service's local question (all visible on AreaPage.vue).
+const areaFaqs = (loc: LocationId, locale: Locale) => [locationCopy[loc].faq[locale], ...serviceIds.map(id => locationStudy[loc].questions[id]?.[locale]).filter((q): q is Faq => !!q)]
 export const areaPages: PageDefinition<ProjectPageContent>[] = areaIds.map(loc => ({
  id: `area-${loc}`, type: 'editorial', template: 'area', locationId: loc, paths: { en: areaPath(loc, 'en'), es: areaPath(loc, 'es') }, status: 'draft',
  content: {
-  en: { ...page('en', { label: locations[loc].name.en, title: areaUi.en.heading(locations[loc].in.en), description: areaUi.en.description(locations[loc].in.en) }), faqs: [locationCopy[loc].faq.en] },
-  es: { ...page('es', { label: locations[loc].name.es, title: areaUi.es.heading(locations[loc].in.es), description: areaUi.es.description(locations[loc].in.es) }), faqs: [locationCopy[loc].faq.es] }
+  en: { ...page('en', { label: locations[loc].name.en, title: areaUi.en.heading(locations[loc].in.en), description: areaUi.en.description(locations[loc].in.en) }), faqs: areaFaqs(loc, 'en') },
+  es: { ...page('es', { label: locations[loc].name.es, title: areaUi.es.heading(locations[loc].in.es), description: areaUi.es.description(locations[loc].in.es) }), faqs: areaFaqs(loc, 'es') }
  },
  sources: ['app/data/content/locations.ts (general geography of the area)'], pending: ['Review of the local copy with Paco', 'Projects confirmed in this area']
 }))

@@ -17,16 +17,17 @@ const route = useRoute(), cfg = useRuntimeConfig().public, path = route.path.rep
 const page = resolvePage(path)
 const project = page?.definition.template === 'project' ? projectById(page.definition.projectIds![0]) : undefined
 const hidden = (draft: boolean) => draft && cfg.indexable && !cfg.showDrafts
-// Project archive: the work itself (CreativeWork by Paco and the studio) or the list of works (CollectionPage + ItemList).
+// Project archive: the work itself (CreativeWork by the architect and the studio) or the list of works (CollectionPage + ItemList).
 function archiveSchema(site: string, url: string, businessId: string) {
  if (!page) return []
- const locale = page.locale as 'en' | 'es', abs = (p: string) => new URL(p, site).href, paco = site + '/#paco'
+ const locale = page.locale as 'en' | 'es', abs = (p: string) => new URL(p, site).href, architect = site + '/#architect'
  if (project) {
   const m = project.media, images = [m.hero, ...m.gallery, m.pause]
   return [{ '@type': 'CreativeWork', '@id': url + '#project', name: project.name[locale], description: project.copy[locale].lead,
    genre: locale === 'en' ? 'Residential architecture' : 'Arquitectura residencial',
-   image: images.map(i => ({ '@type': 'ImageObject', url: abs(i.src.replace(/-1600\.avif$/, '-1600.avif')), width: i.width, height: i.height })),
-   thumbnailUrl: abs(m.hero.jpg!), creator: [{ '@id': paco }, { '@id': businessId }], copyrightHolder: { '@id': businessId },
+   // The -1600 derivative: at most 1600 px wide, original proportions.
+   image: images.map(i => { const w = Math.min(1600, i.width); return { '@type': 'ImageObject', url: abs(i.src), width: w, height: Math.round(i.height * w / i.width) } }),
+   thumbnailUrl: abs(m.hero.jpg!), creator: [{ '@id': architect }, { '@id': businessId }], copyrightHolder: { '@id': businessId },
    inLanguage: locale, isPartOf: { '@id': abs(projectsIndexPath[locale]) + '#webpage' }, mainEntityOfPage: { '@id': url + '#webpage' },
    ...(project.status ? { creativeWorkStatus: project.status === 'completed' ? 'Completed' : 'In progress' } : {}),
    ...(project.zone ? { contentLocation: place(project.zone, locale), locationCreated: place(project.zone, locale) } : {}) }]

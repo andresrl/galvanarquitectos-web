@@ -19,7 +19,7 @@ useHead({ bodyAttrs: { class: 'luxury-service-page' } })
    <NuxtLink :to="guide.href">
     <span class="guides-number">{{String(i+1).padStart(2,'0')}}</span>
     <span class="guides-thumb"><img v-if="image(guide.image)" :src="image(guide.image).src" :alt="image(guide.image).alt[locale]" loading="lazy" decoding="async" width="720" height="720"></span>
-    <span class="guides-copy"><span class="guides-title">{{guide.title}}</span><span class="guides-description">{{guide.description}}</span><small v-if="guide.draft">{{t.draft}}</small></span>
+    <div class="guides-copy"><h2 class="guides-title">{{guide.title}}</h2><span class="guides-description">{{guide.description}}</span><small v-if="guide.draft">{{t.draft}}</small></div>
     <span class="guides-arrow" aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span>
    </NuxtLink>
   </li>

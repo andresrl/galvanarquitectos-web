@@ -45,7 +45,7 @@ const id = s => `${props.idPrefix}-${s}`
    <video v-if="!reduced" ref="video" muted loop playsinline preload="none" data-rate=".75" poster="/video/studio-conversation_white-poster.avif" aria-hidden="true"><source src="/video/studio-conversation_white-pingpong.webm" type="video/webm"><source src="/video/studio-conversation_white-pingpong.mp4" type="video/mp4"></video>
    <img v-else src="/video/studio-conversation_white-poster.avif" :alt="c.videoAlt" width="1264" height="720">
   </div>
-  <p class="contact-panel-tagline">{{ c.tagline }} <em>{{ c.taglineItalic }}</em></p>
+  <component :is="headingTag === 'h1' ? 'h2' : 'p'" class="contact-panel-tagline">{{ c.tagline }} <em>{{ c.taglineItalic }}</em></component>
  </div>
  <form class="contact-panel-form" @submit.prevent="send">
   <p class="contact-panel-lead">{{ c.lead }}</p>

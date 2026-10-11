@@ -26,7 +26,7 @@ export const projectUi: Record<Locale, {
   ctaText: 'A new villa or a renovation. Let’s start with what you have in mind.', ctaLink: 'Tell us about your project', direct: 'Or write directly',
   top: 'Back to top', language: 'Español',
   // Closing block on every project page. Biography from the reviewed LanzaderaWeb history; approach from confirmed communication axes. Pending Francisco Martínez Galván's review.
-  architect: { eyebrow: 'The architect', name: 'Francisco Martínez Galván', italic: 'Architecture with a personal signature.',
+  architect: { eyebrow: 'The architect', name: 'Francisco Martínez Galván', italic: 'The architect behind every project.',
    background: 'Trained at the Escuela Politécnica in Madrid, Francisco Martínez Galván arrived in Marbella in 1998 and consolidated his studio there in 2003. Since then he has worked on new-build villas and complete renovations across the Costa del Sol, attending personally to every commission.',
    approach: 'He defends an architecture that begins by listening: to the way each client lives, to the site and to its light. Design, planning permissions, site supervision and the coordination of contractors come together in one vision, according to the scope agreed, with sustainability and respect for the setting as working criteria.',
    principles: [['Light', 'Natural light orders the spaces by day; after dark, lighting reveals the volumes and the places to gather.'], ['Materials', 'Chosen for their relationship with the climate, the landscape and the passing of time.'], ['Textures', 'Stone-like surfaces, timber tones and light planes that give the geometry scale and warmth.'], ['Volumes', 'Clear volumes, overhangs and terraces that build shade and extend the house outdoors.']],
@@ -48,7 +48,7 @@ export const projectUi: Record<Locale, {
   ctaEyebrow: 'Tu proyecto', ctaTitle: '¿Qué espacio', ctaItalic: 'imaginas?',
   ctaText: 'Una nueva villa o una reforma. Empecemos por lo que tienes en mente.', ctaLink: 'Cuéntanos tu proyecto', direct: 'O escríbenos directamente',
   top: 'Volver arriba', language: 'English',
-  architect: { eyebrow: 'El arquitecto', name: 'Francisco Martínez Galván', italic: 'Arquitectura con firma personal.',
+  architect: { eyebrow: 'El arquitecto', name: 'Francisco Martínez Galván', italic: 'El arquitecto detrás de cada proyecto.',
    background: 'Formado en la Escuela Politécnica de Madrid, Francisco Martínez Galván llegó a Marbella en 1998 y en 2003 consolidó allí su estudio. Desde entonces trabaja en villas de nueva construcción y reformas integrales en la Costa del Sol, con atención directa en cada encargo.',
    approach: 'Defiende una arquitectura que empieza por escuchar: la forma de vivir de cada cliente, el lugar y su luz. Diseño, licencias, dirección de obra y coordinación de empresas se integran en una misma visión, según el alcance acordado, con la sostenibilidad y el respeto por el entorno como criterios de trabajo.',
    principles: [['Luz', 'La luz natural ordena los espacios de día; al anochecer, la iluminación revela los volúmenes y los lugares de encuentro.'], ['Materiales', 'Elegidos por su relación con el clima, el paisaje y el paso del tiempo.'], ['Texturas', 'Superficies pétreas, tonos de madera y planos claros que dan escala y calidez a la geometría.'], ['Volúmenes', 'Volúmenes nítidos, vuelos y terrazas que construyen sombra y prolongan la casa hacia el exterior.']],

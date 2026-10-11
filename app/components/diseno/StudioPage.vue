@@ -118,7 +118,7 @@ onBeforeUnmount(stop)
   <picture class="studio-map-image"><source media="(max-width:700px)" srcset="/media/studio/studio-map-mobile.svg" width="660" height="860"><img src="/media/studio/studio-map.svg" :alt="c.mapAlt" width="1800" height="860" loading="lazy" decoding="async"></picture>
   <div class="studio-map-card" data-reveal>
    <p class="eyebrow">{{ c.mapEyebrow }}</p>
-   <h2 id="studio-map-title">{{ negocio.contacto.direccionLineas[0] }} <em>{{ negocio.contacto.direccionLineas[1] }}</em></h2>
+   <p id="studio-map-title" class="studio-map-address">{{ negocio.contacto.direccionLineas[0] }} <em>{{ negocio.contacto.direccionLineas[1] }}</em></p>
    <p>{{ c.mapText }}</p>
    <a class="text-link" :href="negocio.mapa" target="_blank" rel="noopener"><span>{{ c.mapLink }}</span><span aria-hidden="true"><DisenoIcon name="arrow-up-right" /></span></a>
   </div>

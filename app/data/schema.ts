@@ -1,15 +1,25 @@
 // Schema.org nodes shared by every page: the studio, the architect, the website and the areas served.
-// Stable @id values (/#studio, /#paco, /#website) let every page graph point to the same entities.
+// Stable @id values (/#studio, /#architect, /#website) let every page graph point to the same entities.
 import type { Locale } from './pages/types'
 import { negocio } from './negocio'
 import { locations, locationIds, type LocationId } from './taxonomy'
 
-export const ids = (site: string) => ({ studio: site + '/#studio', paco: site + '/#paco', website: site + '/#website' })
+export const ids = (site: string) => ({ studio: site + '/#studio', architect: site + '/#architect', website: site + '/#website' })
 const abs = (site: string, path: string) => new URL(path, site).href
-const region = { '@type': 'AdministrativeArea', name: 'Costa del Sol, Málaga, Spain' }
+// The real administrative hierarchy: Costa del Sol is a stretch of coast, not an administrative area, so each
+// municipality sits in the province of Málaga and each neighbourhood in its municipality.
+const province = { '@type': 'AdministrativeArea', name: 'Málaga', containedInPlace: { '@type': 'Country', name: 'Spain' } }
+const municipality: Partial<Record<LocationId, LocationId>> = {
+ 'los-monteros': 'marbella', 'nueva-andalucia': 'marbella', guadalmina: 'marbella', 'golden-mile': 'marbella', 'rio-real': 'marbella', elviria: 'marbella',
+ 'la-zagaleta': 'benahavis'
+}
+const city = (loc: LocationId) => ({ '@type': 'City', name: locations[loc].name.es, containedInPlace: province })
 
-// An area of work as a Place (Marbella neighbourhoods, Benahavís, Estepona…), always within the Costa del Sol.
-export const place = (loc: LocationId, locale: Locale) => ({ '@type': 'Place', name: locations[loc].name[locale], containedInPlace: region })
+// An area of work: a municipality (Marbella, Benahavís, Estepona) or a neighbourhood within one.
+export const place = (loc: LocationId, locale: Locale) => {
+ const parent = municipality[loc]
+ return parent ? { '@type': 'Place', name: locations[loc].name[locale], containedInPlace: city(parent) } : city(loc)
+}
 export const allAreas = (locale: Locale) => locationIds.map(loc => place(loc, locale))
 
 const studioDescription: Record<Locale, string> = {
@@ -30,7 +40,7 @@ export function studioNode(site: string, locale: Locale) {
   geo: { '@type': 'GeoCoordinates', ...negocio.geo }, hasMap: negocio.mapa,
   areaServed: [{ '@type': 'Place', name: 'Costa del Sol' }, ...allAreas(locale)],
   knowsLanguage: negocio.idiomas, knowsAbout: negocio.knowsAbout[locale],
-  founder: { '@id': i.paco }, employee: { '@id': i.paco },
+  founder: { '@id': i.architect }, employee: { '@id': i.architect },
   sameAs: negocio.sameAs
  }
 }
@@ -38,7 +48,7 @@ export function studioNode(site: string, locale: Locale) {
 export function personNode(site: string, locale: Locale) {
  const i = ids(site), a = negocio.arquitecto
  return {
-  '@type': 'Person', '@id': i.paco, name: a.nombre,
+  '@type': 'Person', '@id': i.architect, name: a.nombre,
   jobTitle: a.cargo[locale], description: a.descripcion[locale],
   image: { '@type': 'ImageObject', url: abs(site, a.retrato.src), width: a.retrato.width, height: a.retrato.height },
   telephone: negocio.contacto.telefono, worksFor: { '@id': i.studio }, alumniOf: { '@type': 'EducationalOrganization', name: a.formacion },

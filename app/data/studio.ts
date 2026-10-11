@@ -17,7 +17,7 @@ const people = {
 
 export const studioCopy = {
     en: {
-        label: 'The studio', title: 'Francisco Martínez Galván, architect in Marbella',
+        label: 'The studio', title: 'Francisco Martínez Galván, architect · The studio',
         description: 'Francisco Martínez Galván brings a personal approach to villa architecture on the Costa del Sol, from the first conversation to the site.',
         bioEyebrow: 'The architect', bioTitle: 'Francisco Martínez Galván', bioItalic: 'Architecture with a personal signature.',
         bio: [
@@ -86,14 +86,14 @@ export const studioCopy = {
         pressEyebrow: 'Publications', pressTitle: 'ESPACIO,', pressItalic: 'the studio’s magazine.',
         pressText: 'The studio publishes ESPACIO, its own magazine about architecture and ways of living. Its editorial voice also shapes the way projects are presented on this website.',
         pressAlts: ['Cover of ESPACIO, issue 1', 'Cover of ESPACIO, issue 2'],
-        collabEyebrow: 'Collaborations', collabText: 'Developers on the Costa del Sol trust the studio with the architecture of their villas. Matterhorn Estates credits Martínez Galván Arquitectos as the architect of Bleu Royal, in La Cerquilla, Nueva Andalucía.',
+        collabEyebrow: 'Collaborations', collabText: 'Developers on the Costa del Sol trust the studio with the architecture of their villas, such as Bleu Royal, in La Cerquilla, Nueva Andalucía.',
         whereEyebrow: 'Where we work', whereTitle: 'Marbella and the', whereItalic: 'Costa del Sol.',
         projectsEyebrow: 'Selected projects', projectsLink: 'All projects',
         ctaEyebrow: 'Start a conversation', ctaTitle: 'What space', ctaItalic: 'do you imagine?', ctaText: 'A new villa or a renovation. Let’s start with what you have in mind.', ctaLink: 'Tell us about your project',
         portraitAlt: 'Francisco Martínez Galván, architect, in his studio in Marbella', home: 'Home'
     },
     es: {
-        label: 'El estudio', title: 'Francisco Martínez Galván, arquitecto en Marbella',
+        label: 'El estudio', title: 'Francisco Martínez Galván, arquitecto · El estudio',
         description: 'Francisco Martínez Galván aporta un trato personal a la arquitectura de villas en la Costa del Sol, desde la primera conversación hasta la obra.',
         bioEyebrow: 'El arquitecto', bioTitle: 'Francisco Martínez Galván', bioItalic: 'Arquitectura con firma personal.',
         bio: [
@@ -160,7 +160,7 @@ export const studioCopy = {
         pressEyebrow: 'Publicaciones', pressTitle: 'ESPACIO,', pressItalic: 'la revista del estudio.',
         pressText: 'El estudio edita ESPACIO, su propia revista sobre arquitectura y formas de vivir. Su voz editorial también inspira la forma de presentar los proyectos en esta web.',
         pressAlts: ['Portada de ESPACIO, número 1', 'Portada de ESPACIO, número 2'],
-        collabEyebrow: 'Colaboraciones', collabText: 'Promotoras de la Costa del Sol confían al estudio la arquitectura de sus villas. Matterhorn Estates acredita a Martínez Galván Arquitectos como arquitecto de Bleu Royal, en La Cerquilla, Nueva Andalucía.',
+        collabEyebrow: 'Colaboraciones', collabText: 'Promotoras de la Costa del Sol confían al estudio la arquitectura de sus villas, como Bleu Royal, en La Cerquilla, Nueva Andalucía.',
         whereEyebrow: 'Dónde trabajamos', whereTitle: 'Marbella y la', whereItalic: 'Costa del Sol.',
         projectsEyebrow: 'Proyectos seleccionados', projectsLink: 'Todos los proyectos',
         ctaEyebrow: 'Empecemos a hablar', ctaTitle: '¿Qué espacio', ctaItalic: 'imaginas?', ctaText: 'Una nueva villa o una reforma. Empecemos por lo que tienes en mente.', ctaLink: 'Cuéntanos tu proyecto',

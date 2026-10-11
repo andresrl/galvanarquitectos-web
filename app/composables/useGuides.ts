@@ -5,6 +5,8 @@ import type { Ref } from 'vue'
 import type { Locale } from '~/data/pages/types'
 import { guideContentPath, guideCopy, guideIndex, guidePath, guideSlug } from '~/data/guides'
 
+const homeCrumb = (locale: Locale) => locale === 'en' ? { path: '/', label: 'Home' } : { path: '/es', label: 'Inicio' }
+
 const isVisible = (cfg: any, p: any) => !cfg.indexable || cfg.showDrafts || !p.draft
 
 export const guideListData = (locale: Locale) =>
@@ -16,7 +18,8 @@ export function useGuideIndex(locale: Locale, list: Ref<any[] | null | undefined
   const cfg = useRuntimeConfig().public, t = guideCopy[locale]
   // The index is indexable once at least 3 guides are published (before that it would be a near-empty page).
   usePageSeo({ title: t.seoTitle ?? t.title, description: t.description, path: guideIndex[locale],
-    draft: (list.value ?? []).filter(p => !p.draft).length < 3, alternates: { en: guideIndex.en, es: guideIndex.es } })
+    draft: (list.value ?? []).filter(p => !p.draft).length < 3, alternates: { en: guideIndex.en, es: guideIndex.es },
+    crumbs: [homeCrumb(locale), { path: guideIndex[locale], label: t.title }] })
   return computed(() => (list.value ?? []).filter(p => isVisible(cfg, p)).map(p => ({ ...p, href: guidePath(locale, guideSlug(p.path)) })))
 }
 
@@ -27,6 +30,7 @@ export function useGuidePage(locale: Locale, slug: string, post: Ref<any>, list:
   const path = guidePath(locale, slug)
   const alternates = { [locale]: path, [other]: guidePath(other, post.value.translation) } as Record<Locale, string>
   usePageSeo({ title: post.value.seoTitle ?? post.value.title, description: post.value.description ?? '', path, draft: post.value.draft, alternates,
+    crumbs: [homeCrumb(locale), { path: guideIndex[locale], label: guideCopy[locale].title }, { path, label: post.value.title }],
     article: { datePublished: post.value.date, dateModified: post.value.updated ?? post.value.date, author: post.value.author },
     // The guide is about the service page it links to (its Service node lives on that page).
     about: post.value.service ? (site: string) => ({ '@id': new URL(post.value.service, site).href + '#servicio' }) : undefined })
