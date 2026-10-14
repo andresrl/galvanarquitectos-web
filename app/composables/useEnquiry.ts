@@ -6,8 +6,9 @@ export function useEnquiry() {
  const status = ref<EnquiryStatus>('idle')
  async function submit(body: Record<string, string>) {
   if (status.value === 'sending') return false
+  const originPath = window.location.pathname
   status.value = 'sending'
-  try { await $fetch('/api/contact', { method: 'POST', body }); status.value = 'sent'; trackEvent('contact_form_success'); return true }
+  try { await $fetch('/api/contact', { method: 'POST', body }); status.value = 'sent'; trackEvent('contact_form_success', {}, originPath); return true }
   catch { status.value = 'error'; return false }
  }
  return { status, submit }

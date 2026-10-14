@@ -12,8 +12,8 @@ declare global {
 
 export type ContactEvent = "contact_form_success" | "contact_whatsapp_click" | "contact_phone_click" | "contact_email_click";
 
-export function trackEvent(name: ContactEvent, params: Record<string, string> = {}) {
-  const data = { page_path: location.pathname, ...params };
+export function trackEvent(name: ContactEvent, params: Record<string, string> = {}, pagePath = location.pathname) {
+  const data = { ...params, page_path: pagePath.split(/[?#]/)[0] || "/" };
   try {
     window.umami?.track(name, data);
   } catch {
