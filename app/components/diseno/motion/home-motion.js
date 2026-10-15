@@ -35,7 +35,9 @@ function initMotion(){
    // A native scroll interval holds each full-screen scene while its composition evolves.
    // anticipatePin only for native touch scrolling: with the wheel, Lenis keeps scroll and pins in the same frame
    // and pinning early makes the scene jump as it locks to the screen.
-   const hold=gsap.timeline({scrollTrigger:{id:'pin-'+slide.id,trigger:slide,start:'top top',end:()=>'+='+innerHeight*(mobile ? .38 : .68),pin:index<slides.length-1,pinSpacing:true,scrub:.5,anticipatePin:touch ? 1:0,invalidateOnRefresh:true,onEnter:()=>activateChapter(slide,index),onEnterBack:()=>activateChapter(slide,index)}});
+   // Project scenes hold longer, so their zoom takes more scrolling before the next project arrives.
+   const holdLength=slide.classList.contains('project-slide')?(mobile ? .7 : 1):(mobile ? .38 : .68);
+   const hold=gsap.timeline({scrollTrigger:{id:'pin-'+slide.id,trigger:slide,start:'top top',end:()=>'+='+innerHeight*holdLength,pin:index<slides.length-1,pinSpacing:true,scrub:.5,anticipatePin:touch ? 1:0,invalidateOnRefresh:true,onEnter:()=>activateChapter(slide,index),onEnterBack:()=>activateChapter(slide,index)}});
    if(image)hold.fromTo(image,{scale:index===0?1:(mobile ? 1.15:1.2),yPercent:index===0?0:-2},{scale:index===0?1.28:(mobile ? 1.06:1.08),yPercent:index===0?-5:(mobile ? 2:3),ease:'none'},0);
    let reveal=null;
    if(index===0){
