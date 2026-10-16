@@ -8,6 +8,7 @@ export const projectUi: Record<Locale, {
  discover: string; gallery: string
  open: string; close: string; previous: string; next: string; of: string; scrollHint: string
  other: string; all: string
+ compare: { eyebrow: string; title: string; italic: string; text: string; cad: string; render: string; caption: string; hint: string; label: string }
  ctaEyebrow: string; ctaTitle: string; ctaItalic: string; ctaText: string; ctaLink: string; direct: string
  top: string; language: string
  architect: { eyebrow: string; name: string; italic: string; background: string; approach: string; principles: [string, string][]; portraitAlt: string; link: string }
@@ -22,6 +23,10 @@ export const projectUi: Record<Locale, {
   discover: 'Discover', gallery: 'Gallery',
   open: 'Open image', close: 'Close', previous: 'Previous', next: 'Next', of: 'of', scrollHint: 'Drag or scroll',
   other: 'Other projects', all: 'All projects',
+  // CAD → render block (compare.ts): the review of every render against the drawings, common to all projects that have one.
+  compare: { eyebrow: 'From CAD to render', title: 'Every image,', italic: 'true to the design.',
+   text: 'We bring the same care to the images of every project. Renders are built on the technical drawings, and we review them throughout the process against plans and elevations (proportions, openings, materials and light) so that what you see is as faithful as possible to the architecture as designed.',
+   cad: 'CAD', render: 'Final render', caption: 'CAD drawing and final render', hint: 'Drag to compare', label: 'Compare the CAD drawing with the final render' },
   ctaEyebrow: 'Your project', ctaTitle: 'What space', ctaItalic: 'do you imagine?',
   ctaText: 'A new villa or a renovation. Let’s start with what you have in mind.', ctaLink: 'Tell us about your project', direct: 'Or write directly',
   top: 'Back to top', language: 'Español',
@@ -45,6 +50,9 @@ export const projectUi: Record<Locale, {
   discover: 'Descubrir', gallery: 'Galería',
   open: 'Abrir imagen', close: 'Cerrar', previous: 'Anterior', next: 'Siguiente', of: 'de', scrollHint: 'Arrastra o desliza',
   other: 'Otros proyectos', all: 'Todos los proyectos',
+  compare: { eyebrow: 'Del CAD al render', title: 'Cada imagen,', italic: 'fiel al proyecto.',
+   text: 'Cuidamos cada proyecto también en sus imágenes. Los renders se construyen sobre el dibujo técnico y los revisamos durante todo el proceso frente a planos y alzados (proporciones, huecos, materiales y luz) para que lo que ves sea lo más fiel posible a la arquitectura proyectada.',
+   cad: 'CAD', render: 'Render final', caption: 'Dibujo CAD y render final', hint: 'Arrastra para comparar', label: 'Comparar el dibujo CAD con el render final' },
   ctaEyebrow: 'Tu proyecto', ctaTitle: '¿Qué espacio', ctaItalic: 'imaginas?',
   ctaText: 'Una nueva villa o una reforma. Empecemos por lo que tienes en mente.', ctaLink: 'Cuéntanos tu proyecto', direct: 'O escríbenos directamente',
   top: 'Volver arriba', language: 'English',

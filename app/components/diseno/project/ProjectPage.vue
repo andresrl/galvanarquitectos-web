@@ -1,6 +1,6 @@
 <script setup>
 // Project page (archive). Receives the resolved registry page and its project; holds no copy of its own.
-// Rhythm: full-bleed hero → dark forest block (lead, facts) → image crossing into paper → gallery → pause → other projects → contact.
+// Rhythm: full-bleed hero → dark forest block (lead, facts) → image crossing into paper → gallery → CAD → render (when the project has one) → pause → other projects → contact.
 import { projectUi } from '~/data/projects/ui'
 import { relatedProjects, projectCard, projectsIndexPath, projectsByService } from '~/data/projects/projects'
 import { services as serviceNames } from '~/data/taxonomy'
@@ -10,6 +10,7 @@ import { negocio, telefonos } from '~/data/negocio'
 import { studioPaths } from '~/data/studio'
 import { filmByProject, filmsPaths, filmsCopy, clock } from '~/data/films'
 import { projectSetting } from '~/data/projects/setting'
+import { projectCompares } from '~/data/projects/compare'
 import { createProjectMotion } from '../motion/project-motion'
 const props = defineProps({ page: { type: Object, required: true }, project: { type: Object, required: true } })
 const { tone } = useGalvan()
@@ -41,6 +42,7 @@ const viewer = computed(() => [media.value.hero, ...gallery.value, media.value.p
 const altOf = image => viewer.value.find(v => v.image === image)?.alt ?? name.value
 const open = ref(-1)
 const show = image => { open.value = viewer.value.findIndex(v => v.image === image) }
+const compare = computed(() => projectCompares[props.project.id])
 const related = computed(() => relatedProjects(props.project).map(p => projectCard(p, locale.value)))
 const setting = computed(() => projectSetting(props.project, locale.value))
 // Related by service: the services this project shows (links to their pages) and projects that share them.
@@ -140,6 +142,14 @@ function step(dir) {
     <button v-for="image in reel" :key="image.src" type="button" class="project-reel-item" :style="{ aspectRatio: image.width + ' / ' + image.height }" :aria-label="ui.open + ': ' + altOf(image)" @click="reelClick(image)"><DisenoProjectImage :image="image" :alt="altOf(image)" sizes="(max-width:700px) 90vw, 60vw" /></button>
    </div>
   </div>
+ </section>
+
+ <section v-if="compare" class="project-compare" data-header="light" :aria-labelledby="'compare-' + project.id">
+  <div class="project-compare-head">
+   <div data-reveal><p class="eyebrow">{{ ui.compare.eyebrow }}</p><h2 :id="'compare-' + project.id">{{ ui.compare.title }} <em>{{ ui.compare.italic }}</em></h2></div>
+   <p data-reveal>{{ ui.compare.text }}</p>
+  </div>
+  <DisenoProjectCompare :compare="compare" :name="name" :locale="locale" :ui="ui.compare" />
  </section>
 
  <section class="project-pause" data-header="light">

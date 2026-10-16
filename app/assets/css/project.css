@@ -70,6 +70,41 @@ button.project-photo:focus:not(:focus-visible),.project-reel-item:focus:not(:foc
 .project-pause{height:clamp(420px,90svh,1000px);overflow:clip;background:#14201b}
 .project-pause-photo{height:100%}
 
+/* CAD → render (ProjectCompare.vue): the drawing over the render, clipped at the handle (--p, 0–100).
+   Dark band so the black CAD frame sits in it; square handle like the reel controls. */
+.project-compare{padding:clamp(100px,11vw,170px) var(--gutter) clamp(90px,10vw,150px);background:#141d18;color:var(--paper)}
+.project-compare-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:30px clamp(40px,7vw,130px);align-items:end;max-width:1520px;margin:0 auto clamp(50px,6vw,90px)}
+.project-compare-head .eyebrow{color:var(--brass)}
+.project-compare-head h2{margin:0;font-family:Manrope,Arial,sans-serif;font-weight:250;font-size:clamp(40px,5vw,86px);line-height:1.04;letter-spacing:-.05em}
+.project-compare-head h2 em{display:block;font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:1.15}
+.project-compare-head>p{max-width:46ch;margin:0;font-size:15px;line-height:1.9;color:#f6f4efbf}
+.project-compare-figure{max-width:1520px;margin:0 auto}
+.project-compare-stage{--x:calc(var(--p) * 1%);--cad-end:6;--render-start:89;position:relative;aspect-ratio:16/9;overflow:hidden;background:#080a0b;cursor:ew-resize;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.project-compare-stage img{position:absolute;inset:0;pointer-events:none;-webkit-user-drag:none;-webkit-touch-callout:none}
+.project-compare-cad{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.project-compare-handle{position:absolute;inset:0;z-index:2;pointer-events:none;transform:translateX(var(--x))}
+.project-compare-handle::before{content:'';position:absolute;top:0;bottom:0;left:-.5px;width:1px;background:var(--paper)}
+.project-compare-handle>span{position:absolute;top:50%;left:0;display:flex;align-items:center;justify-content:center;gap:4px;width:56px;height:56px;transform:translate(-50%,-50%);border:1px solid #f6f4efcc;background:#141d18e6;color:var(--paper);font-size:15px;transition:border-color .25s,color .25s}
+.project-compare-stage:hover .project-compare-handle>span{border-color:var(--brass);color:var(--brass)}
+.project-compare-tag{position:absolute;top:24px;z-index:2;padding:7px 11px;background:#141d18e6;color:var(--paper);font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;pointer-events:none}
+/* Each label fades out before the line reaches it: --cad-end and --render-start are the labels' inner edges, in % of the frame */
+.project-compare-tag--cad{left:24px;opacity:clamp(0,calc((var(--p) - var(--cad-end)) / 6),1)}
+.project-compare-tag--render{right:24px;opacity:clamp(0,calc((var(--render-start) - var(--p)) / 6),1)}
+.project-compare-range{position:absolute;inset:0;z-index:3;width:100%;height:100%;margin:0;opacity:0;pointer-events:none}
+.project-compare-stage:has(.project-compare-range:focus-visible){outline:2px solid var(--brass);outline-offset:6px}
+.project-compare-figure figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:18px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#f6f4ef99}
+.project-compare-hint{display:inline-flex;align-items:center;gap:10px;color:var(--brass)}
+.project-compare-hint span{color:#f6f4ef99}
+@media(max-width:700px){
+ .project-compare-head{grid-template-columns:1fr}
+ .project-compare-figure{margin:0 calc(-1 * var(--gutter))}
+ .project-compare-stage{aspect-ratio:4/3;--cad-end:15;--render-start:71}
+ .project-compare-handle>span{width:46px;height:46px}
+ .project-compare-tag{top:14px;padding:6px 9px;font-size:8px}
+ .project-compare-tag--cad{left:14px}.project-compare-tag--render{right:14px}
+ .project-compare-figure figcaption{padding:0 var(--gutter)}
+}
+
 /* Other projects */
 .project-related{background:var(--paper);padding:clamp(100px,11vw,170px) var(--gutter);border-top:1px solid var(--line)}
 .project-related-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:50px}
